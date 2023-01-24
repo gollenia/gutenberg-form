@@ -1,0 +1,28 @@
+{
+  "name": "gutenberg-form",
+  "version": "1.0.0",
+  "description": "Create Forms easily in Gutenberg",
+  "main": "index.js",
+  "repository": "https://github.com/gollenia/gutenberg-form",
+  "author": "Thomas Gollenia",
+  "license": "MIT",
+  "dependencies": {
+	"@types/node": "^18.11.9",
+	"@types/react": "^18.0.25",
+	"@types/react-dom": "^18.0.9",
+	"@wordpress/block-editor": "^10.5.0",
+	"@wordpress/blocks": "^11.21.0",
+	"@wordpress/i18n": "^4.22.0"
+},
+"devDependencies": {
+	"@wordpress/scripts": "^24.6.0",
+	"ts-loader": "^9.4.1",
+	"typescript": "^4.9.3"
+},
+"browserslist": [
+	"> 1%",
+	"last 3 versions",
+	"not dead",
+	"not ie <= 11"
+]
+}
