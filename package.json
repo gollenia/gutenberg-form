@@ -1,28 +1,41 @@
 {
-  "name": "gutenberg-form",
-  "version": "1.0.0",
-  "description": "Create Forms easily in Gutenberg",
-  "main": "index.js",
-  "repository": "https://github.com/gollenia/gutenberg-form",
-  "author": "Thomas Gollenia",
-  "license": "MIT",
-  "dependencies": {
-	"@types/node": "^18.11.9",
-	"@types/react": "^18.0.25",
-	"@types/react-dom": "^18.0.9",
-	"@wordpress/block-editor": "^10.5.0",
-	"@wordpress/blocks": "^11.21.0",
-	"@wordpress/i18n": "^4.22.0"
-},
-"devDependencies": {
-	"@wordpress/scripts": "^24.6.0",
-	"ts-loader": "^9.4.1",
-	"typescript": "^4.9.3"
-},
-"browserslist": [
-	"> 1%",
-	"last 3 versions",
-	"not dead",
-	"not ie <= 11"
-]
+	"name": "gutenberg-form",
+	"version": "1.0.0",
+	"description": "Wordpress plugin to create forms with Gutenberg blocks",
+	"author": "kids-team Österreich",
+	"prettier": "@wordpress/prettier-config",
+	"license": "GPL-2.0-or-later",
+	"main": "assets/index.js",
+	"scripts": {
+		"build": "wp-scripts build src/backend/backend.js src/frontend/frontend.js --output-path='./assets'",
+		"start": "wp-scripts build src/backend/backend.js src/frontend/frontend.js --output-path='./assets'",
+		"format:js": "wp-scripts format-js",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"packages-update": "wp-scripts packages-update",
+		"lang": "node ./languages/compile.js"
+	},
+	"dependencies": {
+		"@types/node": "^18.11.9",
+		"@types/react": "^18.0.25",
+		"@types/react-dom": "^18.0.9",
+		"@wordpress/block-editor": "^8.1.0",
+		"@wordpress/blocks": "^11.2.0",
+		"@wordpress/i18n": "^4.3.0",
+		"colord": "^2.9.2"
+	},
+	"devDependencies": {
+		"@wordpress/eslint-plugin": "^9.3.0",
+		"@wordpress/prettier-config": "^1.1.1",
+		"@wordpress/scripts": "^19.2.2",
+		"eslint": "^7.32.0",
+		"ts-loader": "^9.4.1",
+		"typescript": "^4.9.3"
+	},
+	"browserslist": [
+		"> 1%",
+		"last 3 versions",
+		"not dead",
+		"not ie <= 11"
+	]
 }
