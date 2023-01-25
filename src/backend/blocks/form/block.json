@@ -1,0 +1,26 @@
+{
+	"name": "gutenberg-form/form",
+	"apiVersion": 2,
+	"title": "Form",
+	"description": "Add a form as Block to a page.",
+	"category": "widgets",
+	"attributes": {
+		"buttonTitle": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonColor": {
+			"type": "string",
+			"default": "primary"
+		},
+		"bookNow": {
+			"type": "string",
+			"default": ""
+		},
+		"buttonIcon": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"usesContext": [ "postType" ]
+}

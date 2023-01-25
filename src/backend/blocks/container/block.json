@@ -1,8 +1,8 @@
 {
-	"name": "events-manager/form-container",
+	"name": "gutenberg-form/form-container",
 	"apiVersion": 2,
 	"title": "Form Container",
-	"description": "Show a list with selected details of the event",
+	"description": "Basic form container block",
 	"category": "layout",
 	"attributes": {},
 	"usesContext": [ "postType" ]

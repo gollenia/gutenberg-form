@@ -1,13 +1,13 @@
 {
-	"name": "events-manager/form-phone",
+	"name": "gutenberg-form/form-country",
 	"apiVersion": 2,
-	"title": "Phone Field",
-	"description": "Lets the user type a phone number.",
+	"title": "Country",
+	"description": "Lets the user select a country",
 	"category": "widgets", 
 	"attributes": {
 		"fieldid": {
 			"type": "string",
-			"default": "email"
+			"default": ""
 		},
 		"width": {
 			"type": "integer",
@@ -15,13 +15,13 @@
 		},
 		"required": {
 			"type": "boolean",
-			"default": true
+			"default": false
 		},
 		"label": {
 			"type": "string",
-			"default": "Phone"
+			"default": ""
 		},
-		"placeholder": {
+		"defaultValue": {
 			"type": "string",
 			"default": ""
 		},
@@ -35,5 +35,5 @@
 		}
 		
 	},
-	"parent": [ "events-manager/form-container" ]
+	"parent": [ "gutenberg-form/form-container" ]
 }
