@@ -1,5 +1,7 @@
 <?php
 
+namespace Contexis\GutenbergForm;
+
 class Form {
 	
 	const POST_TYPE = 'gfb-form';
@@ -7,6 +9,8 @@ class Form {
 	public static function init() {
 		$instance = new self;
 		add_action( 'init', [$instance, "register_post_type"] );
+		add_action( 'init', [$instance, "register_meta"] );
+		
 		return $instance;
 	}
 
@@ -19,6 +23,14 @@ class Form {
 			'rewrite' => ['slug' => 'gutenberg-form'],
 			'has_archive' => true,
 			'menu_icon' => 'dashicons-feedback',
+			'description' => __('Display forms on your blog.','gutenberg-form'),
+			'template' => [
+				['gutenberg-form/form-container', [], [
+					['gutenberg-form/form-email', ["required" => true, "label" => __('Email', 'gutenberg-form'), "fieldid" => 'user_email']],
+					['gutenberg-form/form-text', ["required" => true, "width" => 2, "label" => __('First Name', 'gutenberg-form'), "fieldid" => 'first_name']],
+					['gutenberg-form/form-text', ["required" => true, "width" => 2, "label" => __('Last Name', 'gutenberg-form'), "fieldid" => 'last_name']]]
+				]
+			],
 			'labels' => [
 				'name' => __('Forms', 'gutenberg-form'),
 				'singular_name' => __('Form', 'gutenberg-form'),
@@ -45,6 +57,64 @@ class Form {
 				'item_updated' => 'Form updated',
 			]
 		] );
+	}
+
+	public function register_meta() {
+		register_post_meta( 'gfb-form', '_mail_template', [
+			'type' => 'string',
+			'single'       => true,
+			'default' => '',
+			'sanitize_callback' => '',
+			'auth_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			},
+			'show_in_rest' => [
+				'schema' => [
+					'default' => '',
+					'style' => "string"
+				]
+			]
+		]);
+
+		register_post_meta( 'gfb-form', '_mail_receiver', [
+			'type' => 'string',
+			'single' => true,
+			'default' => '',
+			'sanitize_callback' => '',
+			'auth_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			},
+			'show_in_rest' => [
+				'schema' => [
+					'default' => '',
+					'style' => "string"
+				]
+			]
+		]);
+
+		register_post_meta( 'gfb-form', '_send_to_admin', [
+			'type' => 'boolean',
+			'single' => true,
+			'default' => false,
+			'sanitize_callback' => '',
+			'auth_callback' => function() {
+				return current_user_can( 'edit_posts' );
+			},
+			'show_in_rest' => [
+				'schema' => [
+					'default' => false,
+					'style' => "boolean"
+				]
+			]
+		]);
+	}
+
+	public static function get_form( $id ) {
+		$form = get_post( $id );
+		if ( $form->post_type !== self::POST_TYPE ) {
+			return false;
+		}
+		return $form;
 	}
 }
 
