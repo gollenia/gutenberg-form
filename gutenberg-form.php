@@ -10,13 +10,12 @@
  *
  */
 
-require_once plugin_dir_path( __FILE__ ) . 'library/PostTypes/Form.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/PostTypes/Message.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/Form.php';
 
+require_once plugin_dir_path( __FILE__ ) . 'library/Assets.php';
+$assets = Contexis\GutenbergForm\Assets::init();
 
-require_once plugin_dir_path( __FILE__ ) . 'lib/Assets.php';
-$assets = Contexis\GutenbergForms\Assets::init();
-
+require_once plugin_dir_path( __FILE__ ) . 'library/Block.php';
 //Add translation
 function ctx_form_plugin_textdomain() {
     load_plugin_textdomain('gutenberg-form', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
