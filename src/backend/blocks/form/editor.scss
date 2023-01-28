@@ -1,37 +1,25 @@
-
-.ctx-button {
-	display:inline-block;
-	font-weight: 400;
-	text-align: center;
-	white-space: nowrap;
-	vertical-align: middle;
-	user-select: none;
-	border: 1px solid transparent;
-	padding: .375rem .75rem;
-	font-size: 1rem;
-	line-height: 1.5;
+.ctx-form-placeholder {
+	box-sizing: border-box;
+	position: relative;
+	padding: 1em;
+	min-height: 200px;
+	width: 100%;
+	text-align: left;
+	margin: 0;
+	color: #1e1e1e;
+	-moz-font-smoothing: subpixel-antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+	border-radius: 2px;
+	background-color: #fff;
+	box-shadow: inset 0 0 0 1px #1e1e1e;
+	outline: 1px solid transparent;
 	display: flex;
-	align-items: center;
-	gap: 7px;
+	flex-direction: column;
+	justify-content: space-between;
 
-	&.large {
-		padding: 10px 40px !important;
-		font-size: 1.3rem !important;
+	a {
+		font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+			Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+		font-size: 13px;
 	}
-
-	&.small {
-		padding: 0 15px !important;
-		line-height: 28px !important;
-		font-size: 0.7rem !important;
-	}
-
-	&.reverse {
-		flex-direction: row-reverse;
-	}
-	
- }
-
- .ctx-event-booking {
-	 margin-left: 0 !important;
-	 margin-right: 0 !important;
- }
+}

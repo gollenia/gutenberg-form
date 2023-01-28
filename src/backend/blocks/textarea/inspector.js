@@ -1,11 +1,13 @@
 import { InspectorControls } from '@wordpress/block-editor';
-import { CheckboxControl, TextControl, ToggleControl, RangeControl, PanelBody, PanelRow, SelectControl, FormTokenField, Icon, Button } from '@wordpress/components';
-import { __ } from '@wordpress/i18n'; 
+import {
+	PanelBody,
+	RangeControl,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
+import { __ } from '@wordpress/i18n';
 
-
-
-const Inspector = (props) => {
-	
+const Inspector = ( props ) => {
 	const {
 		attributes: {
 			width,
@@ -15,63 +17,70 @@ const Inspector = (props) => {
 			rows,
 			name,
 			help,
-			error
+			error,
 		},
 		setAttributes,
-		
 	} = props;
 
-  	return (
+	return (
 		<InspectorControls>
-		<PanelBody
-			title={__('Data', 'events')}
-			initialOpen={true}
-		>
-			<ToggleControl
-				label={ __("Required", 'events')}
-				checked={ required }
-				onChange={ (value) => setAttributes({ required: value }) }
-			/>
-	
-			
-			<TextControl
-				label={__("Pattern", "events")}
-				help={__("Help text for the input field", 'events')}
-				value={ help }
-				onChange={ (value) => setAttributes({ help: value })}
-			/>
-			<TextControl
-				label={__("Error message", "events")}
-				help={__("Text to display when the user types in invalid or insufficient data", 'events')}
-				value={ error }
-				onChange={ (value) => setAttributes({ error: value })}
-			/>
-		</PanelBody>
-		<PanelBody
-			title={__('Appearance', 'events')}
-			initialOpen={true}
-		>
-			<RangeControl
-				label={ __("Width", 'events')}
-				help={__("Number of columns the input field will occupy", 'events')}
-				value={ width }
-				max={4}
-				min={1}
-				onChange={ (value) => setAttributes({ width: value }) }
-			/>
-			<RangeControl
-				label={__("Height", "events")}
-				help={__("Number of text rows", 'events')}
-				value={ rows }
-				onChange={ (value) => setAttributes({ rows: value })}
-				min={1}
-				max={12}
-			/>
-			
-		</PanelBody>
-		
+			<PanelBody
+				title={ __( 'Data', 'gutenberg-form' ) }
+				initialOpen={ true }
+			>
+				<ToggleControl
+					label={ __( 'Required', 'gutenberg-form' ) }
+					checked={ required }
+					onChange={ ( value ) =>
+						setAttributes( { required: value } )
+					}
+				/>
+
+				<TextControl
+					label={ __( 'Pattern', 'gutenberg-form' ) }
+					help={ __(
+						'Help text for the input field',
+						'gutenberg-form'
+					) }
+					value={ help }
+					onChange={ ( value ) => setAttributes( { help: value } ) }
+				/>
+				<TextControl
+					label={ __( 'Error message', 'gutenberg-form' ) }
+					help={ __(
+						'Text to display when the user types in invalid or insufficient data',
+						'gutenberg-form'
+					) }
+					value={ error }
+					onChange={ ( value ) => setAttributes( { error: value } ) }
+				/>
+			</PanelBody>
+			<PanelBody
+				title={ __( 'Appearance', 'gutenberg-form' ) }
+				initialOpen={ true }
+			>
+				<RangeControl
+					label={ __( 'Width', 'gutenberg-form' ) }
+					help={ __(
+						'Number of columns the input field will occupy',
+						'gutenberg-form'
+					) }
+					value={ width }
+					max={ 6 }
+					min={ 1 }
+					onChange={ ( value ) => setAttributes( { width: value } ) }
+				/>
+				<RangeControl
+					label={ __( 'Height', 'gutenberg-form' ) }
+					help={ __( 'Number of text rows', 'gutenberg-form' ) }
+					value={ rows }
+					onChange={ ( value ) => setAttributes( { rows: value } ) }
+					min={ 1 }
+					max={ 12 }
+				/>
+			</PanelBody>
 		</InspectorControls>
-  	);
+	);
 };
 
 export default Inspector;

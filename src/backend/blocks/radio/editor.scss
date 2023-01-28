@@ -1,5 +1,4 @@
-.ctx\:event-field {
-
+.ctx\:form-field {
 	div.label {
 		display: flex;
 		p {
@@ -10,10 +9,10 @@
 	fieldset {
 		display: flex;
 		flex-direction: column;
-		gap: .5rem;
+		gap: 0.5rem;
 	}
 	input[type="radio"] {
 		margin-top: 2px;
-		margin-right: .5rem;
-	} 
+		margin-right: 0.5rem;
+	}
 }

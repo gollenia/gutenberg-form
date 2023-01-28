@@ -10,35 +10,21 @@
  *
  */
 
-require_once plugin_dir_path( __FILE__ ) . 'library/Form.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/FormPost.php';
 
 require_once plugin_dir_path( __FILE__ ) . 'library/Assets.php';
 $assets = Contexis\GutenbergForm\Assets::init();
 
 require_once plugin_dir_path( __FILE__ ) . 'library/Block.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/Field.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/FormBlock.php';
+
 //Add translation
 function ctx_form_plugin_textdomain() {
     load_plugin_textdomain('gutenberg-form', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
 }
 add_action('plugins_loaded', 'ctx_form_plugin_textdomain');
 
-$blocks_to_register = [
-	"form",
-	"text",
-	"textarea",
-	"select",
-	"checkbox",
-	"radio",
-	"email",
-	"number",
-	"submit",
-	"hidden",
-	"file",
-	"date",
-	"range",
-	"password",
-	"tel",
-	"url"
-];
 
 
+\Contexis\GutenbergForm\FormBlock::init($assets);

@@ -16,7 +16,15 @@ import Inspector from './inspector.js';
  */
 const edit = ( props ) => {
 	const {
-		attributes: { width, required, label, fieldid, help, style, placeholder },
+		attributes: {
+			width,
+			required,
+			label,
+			fieldid,
+			help,
+			style,
+			placeholder,
+		},
 		setAttributes,
 	} = props;
 
@@ -33,9 +41,11 @@ const edit = ( props ) => {
 
 	const blockProps = useBlockProps( {
 		className: [
-			'ctx:event-field',
-			'ctx:event-field--' + width,
-			validFieldId() == false || help === '' ? 'ctx:event-field--error' : '',
+			'ctx:form-field',
+			'ctx:form-field--' + width,
+			validFieldId() == false || help === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),
@@ -45,35 +55,29 @@ const edit = ( props ) => {
 		<div { ...blockProps }>
 			<Inspector { ...props } />
 
-			<div className="ctx:event-field__caption">
-				<div>
-					<RichText
-						tagName="span"
-						className="ctx:event-details__label"
-						value={ label }
-						placeholder={ __( 'Label', 'events' ) }
-						onChange={ ( value ) => setAttributes( { label: value } ) }
-					/>
-					<span>{ required ? '*' : '' }</span>
-					<br />
-					<span className="ctx:event-field__label">{ __( 'Only for internal usage - place field text below', 'events' ) }</span>
-				</div>
+			<div className="ctx:form-field__caption">
+				<div className="ctx:form-field__description"></div>
 
-				<div className="ctx:event-field__name">
+				<div className="ctx:form-field__name">
 					<RichText
 						tagName="p"
-						className="ctx:event-details__label"
+						className="ctx:form-details__label critical"
 						value={ fieldid }
-						placeholder={ __( 'Slug', 'events' ) }
+						placeholder={ __( 'Slug', 'gutenberg-form' ) }
 						onChange={ ( value ) => setFieldId( value ) }
 					/>
 					{ validFieldId() == false && (
-						<span className="ctx:event-field__error-message">
-							{ __( 'Please type in a unique itentifier for the field', 'events' ) }
+						<span className="ctx:form-field__error-message">
+							{ __(
+								'Please type in a unique itentifier for the field',
+								'gutenberg-form'
+							) }
 						</span>
 					) }
 					{ validFieldId() && (
-						<span className="ctx:event-field__label">{ __( 'Unique identifier', 'events' ) }</span>
+						<span className="ctx:form-field__label">
+							{ __( 'Unique identifier', 'gutenberg-form' ) }
+						</span>
 					) }
 				</div>
 			</div>
@@ -82,22 +86,29 @@ const edit = ( props ) => {
 				{ style == 'checkbox' && (
 					<CheckboxControl
 						checked={ placeholder }
-						onChange={ ( value ) => setAttributes( { placeholder: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { placeholder: value } )
+						}
 					/>
 				) }
 
 				{ style == 'toggle' && (
 					<ToggleControl
 						checked={ placeholder }
-						onChange={ ( value ) => setAttributes( { placeholder: value } ) }
+						onChange={ ( value ) =>
+							setAttributes( { placeholder: value } )
+						}
 					/>
 				) }
 				<RichText
 					tagName="p"
-					className="ctx:event-details__label"
+					className="ctx:form-details__label critical"
 					value={ help }
 					required
-					placeholder={ __( 'What should your visitor say "yes" to?', 'events' ) }
+					placeholder={ __(
+						'What should your visitor say "yes" to?',
+						'gutenberg-form'
+					) }
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>
 			</div>

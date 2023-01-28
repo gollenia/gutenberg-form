@@ -1,9 +1,9 @@
 {
-	"name": "gutenberg-form/form-country",
+	"name": "gutenberg-form/country",
 	"apiVersion": 2,
 	"title": "Country",
 	"description": "Lets the user select a country",
-	"category": "widgets", 
+	"category": "widgets",
 	"attributes": {
 		"fieldid": {
 			"type": "string",
@@ -11,7 +11,7 @@
 		},
 		"width": {
 			"type": "integer",
-			"default": 4
+			"default": 6
 		},
 		"required": {
 			"type": "boolean",
@@ -33,7 +33,6 @@
 			"type": "string",
 			"default": ""
 		}
-		
 	},
 	"parent": [ "gutenberg-form/form-container" ]
 }

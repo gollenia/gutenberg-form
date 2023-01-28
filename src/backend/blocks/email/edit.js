@@ -3,13 +3,7 @@
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
 import { Icon } from '@wordpress/components';
-import { __ } from '@wordpress/i18n'; 
-import { useSelect } from '@wordpress/data';
-import { useEffect, useState } from '@wordpress/element';
-import { store as coreStore } from '@wordpress/core-data';
-import { select } from "@wordpress/data";
-
-
+import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
@@ -17,85 +11,102 @@ import { select } from "@wordpress/data";
 import Inspector from './inspector.js';
 import lock from './lockIcon.js';
 
-
 /**
  * @param {Props} props
  * @return {JSX.Element} Element
  */
-const edit = (props) => {
-
+const edit = ( props ) => {
 	const {
-		attributes: {
-			width,
-			required,
-			placeholder,
-			label,
-			fieldid
-		},
-		setAttributes
-		
+		attributes: { width, required, placeholder, label, fieldid },
+		setAttributes,
 	} = props;
 
 	const validFieldId = () => {
-		const validPattern = new RegExp('([a-zA-Z0-9_]){3,40}');
-		return (validPattern.test(fieldid));
-	}
+		const validPattern = new RegExp( '([a-zA-Z0-9_]){3,40}' );
+		return validPattern.test( fieldid );
+	};
 
 	const lockFieldId = 'user_email' === fieldid;
 
-	const setFieldId = (value) => {
-		value = value.toLowerCase()
-		value = value.replace(/\s/g, '_')
-		setAttributes({ fieldid: value.toLowerCase() });
-	}
+	const setFieldId = ( value ) => {
+		value = value.toLowerCase();
+		value = value.replace( /\s/g, '_' );
+		setAttributes( { fieldid: value.toLowerCase() } );
+	};
 
-	const blockProps = useBlockProps({
+	const blockProps = useBlockProps( {
 		className: [
-			"ctx:event-field",
-			"ctx:event-field--" + width,
-			validFieldId() == false ? "ctx:event-field--error" : ""
-		].filter(Boolean).join(" ")
-	});
+			'ctx:form-field',
+			'ctx:form-field--' + width,
+			validFieldId() == false ? 'ctx:form-field--error' : '',
+		]
+			.filter( Boolean )
+			.join( ' ' ),
+	} );
 
 	return (
-		<div {...blockProps}>
-			<Inspector {...props} />
-			<div className="ctx:event-field__caption">
-			<div>
-			<RichText
-				tagName="span"
-				className="ctx:event-details__label"
-				value={label}
-				placeholder={__("Label", "events")}
-				onChange={(value) => setAttributes({ label: value })}
+		<div { ...blockProps }>
+			<Inspector { ...props } />
+			<div className="ctx:form-field__caption">
+				<div className="ctx:form-field__description">
+					<span>
+						<RichText
+							tagName="span"
+							className="ctx:form-details__label"
+							value={ label }
+							placeholder={ __( 'Label', 'gutenberg-form' ) }
+							onChange={ ( value ) =>
+								setAttributes( { label: value } )
+							}
+						/>
+						<span>{ required ? '*' : '' }</span>
+					</span>
+					<span className="ctx:form-field__label">
+						{ __( 'Label for the field', 'gutenberg-form' ) }
+					</span>
+				</div>
+
+				<div className="ctx:form-field__name">
+					{ ! lockFieldId && (
+						<RichText
+							tagName="p"
+							className="ctx:form-details__label"
+							value={ fieldid }
+							placeholder={ __( 'Slug', 'gutenberg-form' ) }
+							onChange={ ( value ) => setFieldId( value ) }
+						/>
+					) }
+					{ lockFieldId && (
+						<span className="ctx:form-details__label--lock">
+							{ fieldid } <Icon icon={ lock } size={ 14 } />
+						</span>
+					) }
+					{ validFieldId() == false && (
+						<span className="ctx:form-field__error-message">
+							{ __(
+								'Please type in a unique identifier for the field',
+								'gutenberg-form'
+							) }
+						</span>
+					) }
+					{ validFieldId() && (
+						<span className="ctx:form-field__label">
+							{ __( 'Unique identifier', 'gutenberg-form' ) }
+						</span>
+					) }
+				</div>
+			</div>
+
+			<input
+				autocomplete="off"
+				type="text"
+				value={ placeholder }
+				onChange={ ( event ) =>
+					setAttributes( { placeholder: event.target.value } )
+				}
 			/>
-			<span>{(required ? "*": "")}</span><br/>
-			<span className="ctx:event-field__label">{__("Label for the field", "events")}</span>
-			</div>
-			
-			<div className="ctx:event-field__name">
-			{ !lockFieldId && <RichText
-				tagName="p"
-				className="ctx:event-details__label"
-				value={fieldid}
-				placeholder={__("Slug", "events")}
-				onChange={(value) => setFieldId( value )}
-			/> }
-			{ lockFieldId &&
-				<span className="ctx:event-details__label--lock">{fieldid} <Icon icon={lock} size={14}/></span>
-			}
-			{ validFieldId() == false && <span className="ctx:event-field__error-message">{__("Please type in a unique identifier for the field", "events")}</span> }
-			{ validFieldId() && <span className="ctx:event-field__label">{__("Unique identifier", "events")}</span> }
-			</div>
-
-			</div>
-
-			<input autocomplete="off" type="text" value={placeholder} onChange={(event) => setAttributes({ placeholder: event.target.value })}/>
-			
 		</div>
 	);
-
-}
-
+};
 
 export default edit;

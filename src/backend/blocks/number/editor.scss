@@ -1,0 +1,10 @@
+.ctx\:form-details {
+	&__label--lock {
+		display: flex;
+		align-items: center;
+
+		svg {
+			margin-left: 5px;
+		}
+	}
+}

@@ -1,4 +1,4 @@
-.ctx\:event-field {
+.ctx\:form-field {
 	padding: 1rem 1rem;
 	background: #ffffff;
 	border: 1px solid #cccccc;
@@ -6,22 +6,34 @@
 	box-sizing: border-box;
 	max-width: 1200px !important;
 
-	&--3 {
+	&--6 {
+		grid-column: auto / span 6;
+	}
+
+	&--5 {
+		grid-column: auto / span 5;
+	}
+
+	&--4 {
 		grid-column: auto / span 4;
 	}
 
-	&--2 {
+	&--3 {
 		grid-column: auto / span 3;
 	}
 
-	&--1 {
+	&--2 {
 		grid-column: auto / span 2;
+	}
+
+	&--1 {
+		grid-column: auto / span 1;
 	}
 
 	input[type="text"] {
 		width: 100%;
-		color:#999;
-	} 
+		color: #999;
+	}
 
 	&--error {
 		background: #fcf4f4 !important;
@@ -45,8 +57,13 @@
 		align-items: flex-end;
 	}
 
+	&__description {
+		display: flex;
+		flex-direction: column;
+	}
+
 	&__label {
-		font-size: .8rem;
+		font-size: 0.8rem;
 		color: #999;
 	}
 
@@ -56,15 +73,3 @@
 		margin-top: 0.25rem;
 	}
 }
-
-.ctx\:event-details {
-	&__label--lock {
-		display: flex;
-		align-items:center;
-
-		svg {
-			margin-left: 5px;
-		}
-	}
-}
-

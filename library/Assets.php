@@ -20,8 +20,10 @@ class Assets {
 		$instance = new self;
 
         add_action( 'init', [$instance, "register_assets"] );
-
+		
 		add_action('admin_enqueue_scripts', function() {
+			
+			//if(get_post_type() !== 'gbf-form') return;
 			wp_enqueue_script('gbf-form-editor');
 		});
 
@@ -64,7 +66,7 @@ class Assets {
 			$script_asset['dependencies'],
 			$script_asset['version']
 		);
-		wp_set_script_translations( $this->assets['editor_script'], 'ctx-blocks', plugin_dir_path( __FILE__ ) . '../languages' );
+		wp_set_script_translations( $this->assets['editor_script'], 'gutenberg-form', plugin_dir_path( __FILE__ ) . '../languages' );
 
 		wp_register_style(
 			$this->assets['editor_style'],
@@ -72,6 +74,23 @@ class Assets {
 			array(),
 			$script_asset['version']
 		);
+		
+	}
+
+	public function get_current_post_type() {
+	
+			global $post, $typenow, $current_screen;
+			
+			if ($post && $post->post_type) return $post->post_type;
+			
+			elseif($typenow) return $typenow;
+			
+			elseif($current_screen && $current_screen->post_type) return $current_screen->post_type;
+			
+			elseif(isset($_REQUEST['post_type'])) return sanitize_key($_REQUEST['post_type']);
+			
+			return null;
+			
 		
 	}
 

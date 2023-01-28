@@ -16,11 +16,13 @@ const { name, title, description } = metadata;
 
 const settings = {
 	...metadata,
-	title: __( title, 'events' ),
-	description: __( description, 'events' ),
+	title: __( title, 'gutenberg-form' ),
+	description: __( description, 'gutenberg-form' ),
 	icon,
-	edit: withColors({buttonColor: 'buttonColor'})(Edit),
-	save: () => { return null }
+	edit: withColors( { buttonColor: 'buttonColor' } )( Edit ),
+	save: () => {
+		return null;
+	},
 };
 
 export { name, settings };

@@ -1,14 +1,16 @@
 /**
  * Wordpress dependencies
  */
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
+import { ExternalLink, Icon, SelectControl } from '@wordpress/components';
+import { store as coreStore } from '@wordpress/core-data';
+import { useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
-import { colord } from 'colord';
+import icon from './icon';
 
 /**
  * Internal dependencies
  */
-import Inspector from './inspector.js';
 
 /**
  * @param {Props} props
@@ -16,53 +18,77 @@ import Inspector from './inspector.js';
  */
 const edit = ( props ) => {
 	const {
-		attributes: { buttonTitle },
+		attributes: { formPost },
 		setAttributes,
-		buttonColor,
-		postType,
 	} = props;
 
 	const blockProps = useBlockProps( {
-		className: [ 'ctx-event-booking' ].filter( Boolean ).join( ' ' ),
+		className: [ 'ctx-form-placeholder' ].filter( Boolean ).join( ' ' ),
 	} );
 
-	const textColor =
-		buttonColor.color == undefined || colord( buttonColor.color ).isLight()
-			? '#000000'
-			: '#ffffff';
+	const forms = useSelect( ( select ) => {
+		const { getEntityRecords } = select( coreStore );
+		const rawData = getEntityRecords( 'postType', 'gbf-form', {
+			per_page: -1,
+		} );
 
-	const style = {
-		background: buttonColor.color,
-		color: textColor,
-	};
+		if ( ! rawData ) {
+			return [
+				{
+					value: '',
+					label: __( 'No forms found', 'gutenberg-form' ),
+					disabled: true,
+				},
+			];
+		}
 
-	console.log( postType );
+		let result = rawData.map( ( form ) => {
+			return {
+				value: form.id,
+				label: form.title.raw,
+			};
+		} );
+
+		result.unshift( {
+			value: '',
+			label: __( 'No form selected', 'gutenberg-form' ),
+			disabled: true,
+		} );
+
+		return result;
+	}, [] );
+
+	console.log( forms );
 
 	return (
 		<>
-			{ postType !== 'gbf-form' ? (
-				<p>
-					{ __(
-						'Only available on Forms Post Type',
-						'gutenberg-form'
-					) }
-				</p>
-			) : (
-				<div { ...blockProps }>
-					<Inspector { ...props } />
-					<span style={ style } className="events ctx-button">
-						<RichText
-							tagName="span"
-							value={ buttonTitle }
-							onChange={ ( value ) =>
-								setAttributes( { buttonTitle: value } )
-							}
-							placeholder={ __( 'Registration', 'events' ) }
-							allowedFormats={ [ 'core/bold', 'core/italic' ] }
+			<div { ...blockProps }>
+				<div>
+					<div class="components-placeholder__label">
+						<Icon icon={ icon } />
+						{ __( 'Select a form', 'gutenberg-form' ) }
+					</div>
+					<form>
+						<SelectControl
+							value={ formPost }
+							onChange={ ( value ) => {
+								setAttributes( { formPost: value } );
+							} }
+							placeholder={ __(
+								'Select a form',
+								'gutenberg-form'
+							) }
+							options={ forms }
 						/>
-					</span>
+					</form>
 				</div>
-			) }
+
+				<div className="components-placeholder__learn-more">
+					<ExternalLink href="/wp-admin/edit.php?post_type=gbf-form#general"	>
+						{ __( 'Create a new form', 'gutenberg-form' ) }
+					</ExternalLink>
+				</div>
+			</div>
 		</>
 	);
 };

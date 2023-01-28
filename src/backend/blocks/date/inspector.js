@@ -1,5 +1,10 @@
 import { InspectorControls } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, TextControl, ToggleControl } from '@wordpress/components';
+import {
+	PanelBody,
+	RangeControl,
+	TextControl,
+	ToggleControl,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useState } from 'react';
 import dateDiff from './dateDiff';
@@ -17,62 +22,83 @@ const Inspector = ( props ) => {
 
 	const ageInfo = () => {
 		if ( minAge === 0 && maxAge !== 0 ) {
-			return `${ __( 'at best', 'events' ) } ${ maxAge.result } }`;
+			return `${ __( 'at best', 'gutenberg-form' ) } ${
+				maxAge.result
+			} }`;
 		}
 		if ( minAge !== 0 && maxAge === 0 ) {
-			return `${ __( 'at least', 'events' ) } ${ minAge.result } }`;
+			return `${ __( 'at least', 'gutenberg-form' ) } ${
+				minAge.result
+			} }`;
 		}
 		if ( minAge === maxAge ) {
 			return `${ minAge.result }`;
 		}
 		return (
 			<>
-				{ __( 'from', 'events' ) } { maxAge.result }
+				{ __( 'from', 'gutenberg-form' ) } { maxAge.result }
 				<br />
-				{ __( 'to', 'events' ) } { minAge.result }
+				{ __( 'to', 'gutenberg-form' ) } { minAge.result }
 			</>
 		);
 	};
 
 	return (
 		<InspectorControls>
-			<PanelBody title={ __( 'Data', 'events' ) } initialOpen={ true }>
+			<PanelBody
+				title={ __( 'Data', 'gutenberg-form' ) }
+				initialOpen={ true }
+			>
 				<ToggleControl
-					label={ __( 'Required', 'events' ) }
+					label={ __( 'Required', 'gutenberg-form' ) }
 					checked={ required }
-					onChange={ ( value ) => setAttributes( { required: value } ) }
+					onChange={ ( value ) =>
+						setAttributes( { required: value } )
+					}
 				/>
 
 				<TextControl
-					label={ __( 'Help', 'events' ) }
-					help={ __( 'Help text for the date field', 'events' ) }
+					label={ __( 'Help', 'gutenberg-form' ) }
+					help={ __(
+						'Help text for the date field',
+						'gutenberg-form'
+					) }
 					value={ help }
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>
 				<TextControl
-					label={ __( 'Error message', 'events' ) }
-					help={ __( 'Text to display when the user types in invalid or insufficient data', 'events' ) }
+					label={ __( 'Error message', 'gutenberg-form' ) }
+					help={ __(
+						'Text to display when the user types in invalid or insufficient data',
+						'gutenberg-form'
+					) }
 					value={ error }
 					onChange={ ( value ) => setAttributes( { error: value } ) }
 				/>
 				<TextControl
-					label={ __( 'Lowest Date', 'events' ) }
-					help={ __( 'e.g. maximal age for an attendee', 'events' ) }
+					label={ __( 'Lowest Date', 'gutenberg-form' ) }
+					help={ __(
+						'e.g. maximal age for an attendee',
+						'gutenberg-form'
+					) }
 					value={ min }
 					onChange={ ( value ) => setAttributes( { min: value } ) }
 					type="date"
 				/>
 				<TextControl
-					label={ __( 'Highest Date', 'events' ) }
-					help={ __( 'e.g. minimal age for an attendee', 'events' ) }
+					label={ __( 'Highest Date', 'gutenberg-form' ) }
+					help={ __(
+						'e.g. minimal age for an attendee',
+						'gutenberg-form'
+					) }
 					value={ max }
 					onChange={ ( value ) => setAttributes( { max: value } ) }
 					type="date"
 				/>
 				<p className="age-info">
 					<TextControl
-						label={ __( 'Reference Date', 'events' ) }
-						help={ __( 'Only for testing', 'events' ) }
+						label={ __( 'Reference Date', 'gutenberg-form' ) }
+						help={ __( 'Only for testing', 'gutenberg-form' ) }
 						value={ referenceDate }
 						onChange={ ( value ) => {
 							setReferenceDate( value );
@@ -82,12 +108,18 @@ const Inspector = ( props ) => {
 					{ ageInfo() }
 				</p>
 			</PanelBody>
-			<PanelBody title={ __( 'Appearance', 'events' ) } initialOpen={ true }>
+			<PanelBody
+				title={ __( 'Appearance', 'gutenberg-form' ) }
+				initialOpen={ true }
+			>
 				<RangeControl
-					label={ __( 'Width', 'events' ) }
-					help={ __( 'Number of columns the input field will occupy', 'events' ) }
+					label={ __( 'Width', 'gutenberg-form' ) }
+					help={ __(
+						'Number of columns the input field will occupy',
+						'gutenberg-form'
+					) }
 					value={ width }
-					max={ 4 }
+					max={ 6 }
 					min={ 1 }
 					onChange={ ( value ) => setAttributes( { width: value } ) }
 				/>

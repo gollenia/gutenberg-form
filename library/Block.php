@@ -43,7 +43,7 @@ class Block implements BlockInterface {
 	}
 
     public function get_meta($block) :array{
-        $filename = plugin_dir_path( __FILE__ ) . "../../src/backend/blocks/" . $block . "/block.json";
+        $filename = plugin_dir_path( __FILE__ ) . "../src/backend/blocks/" . $block . "/block.json";
         
         if(!file_exists($filename)) return [];
 
