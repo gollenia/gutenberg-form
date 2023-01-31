@@ -10,6 +10,7 @@ namespace Contexis\GutenbergForm;
 class FormPost {
 	
 	const POST_TYPE = 'gbf-form';
+	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'hidden', 'number', 'radio', 'submit'];
 
 	public $meta_array = [
 		["_mail_recipients", 'string', ''],
@@ -30,6 +31,7 @@ class FormPost {
 		add_action( 'init', [$instance, "register_meta"] );
 		add_filter( "manage_gbf-form_posts_columns", [$instance, "add_columns"] );
 		add_action( "manage_posts_custom_column", [$instance, 'set_column_data'], 10, 2);
+		add_action('rest_api_init',array($instance,'register_rest'),10,1);
 		return $instance;
 	}
 
@@ -167,6 +169,62 @@ class FormPost {
 			$receivers .= ", $admin";
 		}
 		return explode(',', $receivers);
+	}
+
+	public function register_rest() {
+		register_rest_route( 'gbf-form/v2', '/form/(?P<id>\d+)', [
+			'method' => 'GET', 
+			'callback' => [$this, 'get_rest_data'], 
+			'args' => [
+				'id' => [
+					'validate_callback' => function($param, $request, $key) {
+						return is_numeric( $param );
+					}
+				]
+			],
+			'permission_callback' => '__return_true'
+		], true );
+	}
+
+	
+	public function get_rest_data($params) {
+
+		$id = $params['id'];
+		if(!$id) return false;
+
+		return $this->get_form_data($id);
+	
+	}
+
+	public function get_form_data($id) {
+		$form = get_post($id);
+		if(!$form || $form->post_type !== self::POST_TYPE) return false;
+		$blocks = parse_blocks( $form->post_content );
+
+		// extract blocks from form-container
+		foreach($blocks as $block) {
+			if($block['blockName'] == "gutenberg-form/form-container") {
+				$fieldBlocks = $block['innerBlocks'];
+			}
+		}
+		
+		$cleanedBlocks = [];
+		foreach($fieldBlocks as $block) {
+			$type = $this->get_field_type($block);
+			if(!in_array($type, self::ALLOWED_FIELDS)) continue;
+			$field = ['type' => $type, 'settings' => $block['attrs']];
+			if($type === 'html') $field['settings']['content'] = $block['innerHTML'];
+			$cleanedBlocks[] = $field;
+		}
+
+		return $cleanedBlocks;
+	}
+
+	function get_field_type($block) {
+		$type = "";
+		list($namespace, $type) = explode("/", $block['blockName']);
+		if($namespace != "gutenberg-form") return;
+		return $type;
 	}
 }
 

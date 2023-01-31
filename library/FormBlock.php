@@ -24,7 +24,7 @@ class FormBlock extends Block {
 		foreach($fields as $block) {
 			$result .= Field::render($this->get_field_type($block), $block['attrs']);
 		}
-		$result .= "<form>";
+		$result .= "</form><div class='gbf-form' data-id='" . $attributes['formPost'] . "'></div>";
 		return $result;
 		
 	}
