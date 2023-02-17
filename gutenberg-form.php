@@ -10,19 +10,24 @@
  *
  */
 
-require_once plugin_dir_path( __FILE__ ) . 'library/FormPost.php';
+ //Add translation
+function ctx_form_plugin_textdomain() {
+    load_plugin_textdomain('gutenberg-form', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
+}
 
+require_once plugin_dir_path( __FILE__ ) . 'library/FormFields.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/FormPost.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/Mailer.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Assets.php';
 $assets = Contexis\GutenbergForm\Assets::init();
+
 
 require_once plugin_dir_path( __FILE__ ) . 'library/Block.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Field.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/FormBlock.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/Submit.php';
 
-//Add translation
-function ctx_form_plugin_textdomain() {
-    load_plugin_textdomain('gutenberg-form', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
-}
+
 add_action('plugins_loaded', 'ctx_form_plugin_textdomain');
 
 
