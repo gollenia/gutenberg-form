@@ -9,11 +9,13 @@ class FormFields {
 	public array $fields = [];
 	public array $recipients = [];
 	public int $id = 0;
+	public int $page_id = 0;
 
 	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit'];
 
-	public function __construct($id) {
+	public function __construct($id, $page_id) {
 		$this->id = $id;
+		$this->page_id = $page_id;
 		$this->fields = self::get_form_data($id);
 	}
 
