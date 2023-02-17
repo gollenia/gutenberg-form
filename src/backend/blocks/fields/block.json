@@ -10,6 +10,7 @@
 	"supports": {
 		"html": false,
 		"reusable": false,
-		"multiple": false
+		"multiple": false,
+		"injector": false
 	}
 }

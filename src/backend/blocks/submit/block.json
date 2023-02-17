@@ -22,5 +22,11 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": [ "gutenberg-form/form-container" ],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"multiple": false,
+		"injector": false
+	}
 }

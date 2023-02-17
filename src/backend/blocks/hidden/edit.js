@@ -2,12 +2,13 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-import { Icon } from '@wordpress/components';
+import { Icon, SelectControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
+import icon from './icon.js';
 import Inspector from './inspector.js';
 import lock from './lockIcon.js';
 
@@ -58,22 +59,26 @@ const edit = ( props ) => {
 		<div { ...blockProps }>
 			<Inspector { ...props } />
 			<div className="ctx:form-field__caption">
-				<div className="ctx:form-field__description">
-					<RichText
-						tagName="span"
-						className="ctx:form-details__label"
-						value={ label }
-						placeholder={ __( 'Label', 'gutenberg-form' ) }
-						onChange={ ( value ) =>
-							setAttributes( { label: value } )
-						}
-					/>
+				<div className="ctx:form-field__info">
+					<Icon icon={ icon } />
+					<div className="ctx:form-field__description">
+						<span>
+							<RichText
+								tagName="span"
+								className="ctx:form-details__label"
+								value={ label }
+								placeholder={ __( 'Label', 'gutenberg-form' ) }
+								onChange={ ( value ) =>
+									setAttributes( { label: value } )
+								}
+							/>
 
-					<span>{ required ? '*' : '' }</span>
-					<br />
-					<span className="ctx:form-field__label">
-						{ __( 'Label for the field', 'gutenberg-form' ) }
-					</span>
+							<span>{ required ? '*' : '' }</span>
+						</span>
+						<span className="ctx:form-field__label">
+							{ __( 'Label for the field', 'gutenberg-form' ) }
+						</span>
+					</div>
 				</div>
 
 				<div className="ctx:form-field__name">
@@ -107,14 +112,37 @@ const edit = ( props ) => {
 				</div>
 			</div>
 
-			<select>
-				<option value="current_page">
-					{ __( 'Current page', 'gutenberg-form' ) }
-				</option>
-				<option value="current_user">
-					{ __( 'Current user', 'gutenberg-form' ) }
-				</option>
-			</select>
+			<SelectControl
+				label={ __( 'Value', 'gutenberg-form' ) }
+				value={ content }
+				onChange={ ( value ) => setAttributes( { content: value } ) }
+				options={ [
+					{
+						label: __( 'Select a value', 'gutenberg-form' ),
+						value: '',
+					},
+					{
+						label: __( 'Page id', 'gutenberg-form' ),
+						value: 'page_id',
+					},
+					{
+						label: __( 'Page title', 'gutenberg-form' ),
+						value: 'page_title',
+					},
+					{
+						label: __( 'Page url', 'gutenberg-form' ),
+						value: 'page_url',
+					},
+					{
+						label: __( 'Form name', 'gutenberg-form' ),
+						value: 'form_name',
+					},
+					{
+						label: __( 'Form id', 'gutenberg-form' ),
+						value: 'form_id',
+					},
+				] }
+			/>
 		</div>
 	);
 };

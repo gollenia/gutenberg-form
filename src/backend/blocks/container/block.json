@@ -13,5 +13,11 @@
 	"usesContext": [ "postType" ],
 	"providesContext": {
 		"gutenberg-form/recordId": "recordId"
+	},
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"multiple": false,
+		"injector": false
 	}
 }

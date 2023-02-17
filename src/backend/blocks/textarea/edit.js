@@ -2,11 +2,12 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { Icon } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-
 /**
  * Internal dependencies
  */
+import icon from './icon.js';
 import Inspector from './inspector.js';
 
 /**
@@ -53,22 +54,26 @@ const edit = ( props ) => {
 		<div { ...blockProps }>
 			<Inspector { ...props } />
 			<div className="ctx:form-field__caption">
-				<div className="ctx:form-field__description">
-					<span>
-						<RichText
-							tagName="span"
-							className="ctx:form-details__label"
-							value={ label }
-							placeholder={ __( 'Label', 'gutenberg-form' ) }
-							onChange={ ( value ) =>
-								setAttributes( { label: value } )
-							}
-						/>
-						<span>{ required ? '*' : '' }</span>
-					</span>
-					<span className="ctx:form-field__label">
-						{ __( 'Label for the field', 'gutenberg-form' ) }
-					</span>
+				<div className="ctx:form-field__info">
+					<Icon icon={ icon } />
+					<div className="ctx:form-field__description">
+						<span>
+							<RichText
+								tagName="span"
+								className="ctx:form-details__label"
+								value={ label }
+								placeholder={ __( 'Label', 'gutenberg-form' ) }
+								onChange={ ( value ) =>
+									setAttributes( { label: value } )
+								}
+							/>
+
+							<span>{ required ? '*' : '' }</span>
+						</span>
+						<span className="ctx:form-field__label">
+							{ __( 'Label for the field', 'gutenberg-form' ) }
+						</span>
+					</div>
 				</div>
 
 				<div className="ctx:form-field__name">
