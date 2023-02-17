@@ -17,5 +17,5 @@ jobs:
                   path: /
                   remote_path: ${{ secrets.KIDS_TEAM_PATH }}
                   remote_host: ${{ secrets.KIDS_TEAM_SERVER }}
-                  remote_user: ${{ secrets.KIDS_TEAM__USER }}
-                  remote_key: ${{ secrets.KIDS_TEAM__KEY }}
+                  remote_user: ${{ secrets.KIDS_TEAM_USER }}
+                  remote_key: ${{ secrets.KIDS_TEAM_KEY }}
