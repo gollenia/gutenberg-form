@@ -91,6 +91,7 @@ class FormFields {
 		$valid = true;
 		$messages = [];
 		foreach($this->fields as $name => $field) {
+			$this->fields[$name]['value'] = $data[$name];
 			if($field['type'] == "submit") continue;
 			if($field['type'] == "html") continue;
 			$valid = $this->validate_field($field, $data[$name]) && $valid;
@@ -163,13 +164,12 @@ class FormFields {
 	}
 
 	public function get_formatted_value($field) {
-		if($field['settings']['type'] == "checkbox") {
-			return implode(", ", $field['settings']['options']);
-		}
+		$field = $this->fields[$field];
+		
 		if($field['settings']['type'] == "radio") {
-			return $field['settings']['options'][$field['settings']['value']];
+			return $field['settings']['options'][$field['value']];
 		}
-		return $field['settings']['value'];
+		return $field['value'];
 	}
 
 }
