@@ -40,7 +40,7 @@ class Field {
 
 	public function build_args($args) {
 		$final_args = [];
-		var_dump($args);
+		
 		foreach($this->available_args as $arg) {
 			if(isset($args[$arg])) {
 				
@@ -77,7 +77,6 @@ class Field {
 		if(!isset($args['fieldid'])) return "";
 		if(!isset($args['options'])) return "";
 
-		var_dump($args);
 
 		$result = "<div class='select mb-8 {$this->get_width()}'>";
 		$result .= "<label for='{$this->name}'>" . $args['label'] . "</label>";
