@@ -28,13 +28,21 @@ class Mailer {
 
 	public function send() {
         $template = get_post_meta($this->form->id, '_mail_template', true);
+		$send_user_mail = get_post_meta($this->form->id, '_mail_user_enabled', true);
 		$addresses = $this->get_addresses();
 		if(empty($addresses)) return false;
 		
 		$content = $this->render_template($template) ?? "There has been an error with yout mailer template. Please check your settings.";
 		$subject = get_post_meta($this->form->id, '_mail_subject', true) ?? "New Mail from " . get_bloginfo('name') . "";
 
-        return wp_mail( $addresses, $subject, $content, array('Content-Type: text/html; charset=UTF-8'));
+        $adminMail = wp_mail( $addresses, $subject, $content, array('Content-Type: text/html; charset=UTF-8'));
+		$userMail = true;
+		if($send_user_mail && $this->form->get_formatted_value('email')) {
+			$content = $this->render_template(get_post_meta($this->form->id, '_user_mail_template', true)) ?? "There has been an error with yout mailer template. Please check your settings.";
+			$userMail = wp_mail( $this->form->get_formatted_value('email'), get_post_meta($this->form->id, '_user_mail_subject', true), $content, array('Content-Type: text/html; charset=UTF-8'));
+		}
+
+		return $adminMail && $userMail;
     }
 
 	public function render_template($template) {
