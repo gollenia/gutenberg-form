@@ -165,10 +165,6 @@ class FormFields {
 
 	public function get_formatted_value($fieldName) {
 		$field = $this->fields[$fieldName];
-		
-		if($field['settings']['type'] == "radio") {
-			return $field['settings']['options'][$field['value']];
-		}
 		return $field['value'];
 	}
 

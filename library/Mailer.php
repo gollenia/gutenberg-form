@@ -21,14 +21,17 @@ class Mailer {
 		if(get_post_meta($this->form->id, '_send_to_admin', true ) && strpos($addresses, get_bloginfo('admin_email')) === false) {
 			$addresses .= ", " . get_bloginfo('admin_email');
 		}
+		return $addresses;
 	}
 	
 
 	public function send() {
         $template = get_post_meta($this->form->id, '_mail_template', true);
 		$addresses = $this->get_addresses();
-		$content = $this->render_template($template);
-		$subject = get_post_meta($this->form->id, '_mail_subject', true);
+		if(empty($addresses)) return false;
+		
+		$content = $this->render_template($template) ?? "There has been an error with yout mailer template. Please check your settings.";
+		$subject = get_post_meta($this->form->id, '_mail_subject', true) ?? "New Mail from " . get_bloginfo('name') . "";
 
         return wp_mail( $addresses, $subject, $content, array('Content-Type: text/html; charset=UTF-8'));
     }

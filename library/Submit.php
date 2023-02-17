@@ -40,13 +40,20 @@ class Submit {
 		$id = $result['id'];
 		$formFields = new FormFields($id);
 		$validation = $formFields->validate($result['fields']);
-		$response = new \WP_REST_Response( $validation );
-		$response->set_status( 200 );
-		if(!$validation['success']) return $response;
-		$mail = new Mailer($formFields);
-		$mail->send($id, $result['fields']);
 		
+		if(!$validation['success']) {
+			$response = new \WP_REST_Response( $validation );
+			$response->set_status( 403 );
+			return $response;
+		}
+		$mail = new Mailer($formFields);
+		$result = $mail->send($id, $result['fields']);
+
+		$response = new \WP_REST_Response( ["success" => $result] );
+		$response->set_status( 200 );
 		return $response;
+
+		
 		//get get form data by post id
 	}
 
