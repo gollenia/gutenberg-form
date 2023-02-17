@@ -166,6 +166,7 @@ class FormFields {
 	}
 
 	public function get_formatted_value($fieldName) {
+		if(!key_exists($fieldName, $this->fields)) return "";
 		$field = $this->fields[$fieldName];
 		return $field['value'];
 	}
