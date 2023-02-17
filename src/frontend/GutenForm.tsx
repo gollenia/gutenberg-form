@@ -30,7 +30,7 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 
 	useEffect( () => {
 		if ( ! id ) return;
-		fetch( `wp-json/gbf-form/v2/form/${ id }` )
+		fetch( `/wp-json/gbf-form/v2/form/${ id }` )
 			.then( ( response ) => response.json() )
 			.then( ( data ) => {
 				setFields( data.fields );
@@ -56,7 +56,7 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 		event.preventDefault();
 		const data = { fields: form, id };
 		setStatus( 'SUBMITTING' );
-		fetch( `wp-json/gbf-form/v2/submit/`, {
+		fetch( `/wp-json/gbf-form/v2/submit/`, {
 			method: 'POST',
 			body: JSON.stringify( data ),
 			headers: {
