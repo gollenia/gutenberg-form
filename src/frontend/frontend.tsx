@@ -8,10 +8,14 @@ const gbf_init = () => {
 	if ( ! forms.length ) return;
 
 	Array.from( forms ).forEach( ( form ) => {
-		const data = form.getAttribute( 'data-id' );
+		const id = form.getAttribute( 'data-id' );
+		const page = form.getAttribute( 'data-page' );
 		const lang = form.getAttribute( 'data-lang' ) ?? 'en';
-		if ( ! data ) return;
-		ReactDOM.render( <GutenForm id={ data } lang={ lang } />, form );
+		if ( ! id || ! page ) return;
+		ReactDOM.render(
+			<GutenForm id={ id } lang={ lang } page={ page } />,
+			form
+		);
 	} );
 };
 

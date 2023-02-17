@@ -6,6 +6,7 @@ import SubmitButton from './SubmitButton';
 interface GutenFormProps {
 	id: string;
 	lang: string;
+	page: string;
 }
 
 type Field = {
@@ -19,7 +20,7 @@ type Status = 'LOADING' | 'LOADED' | 'ERROR' | 'SUBMITTING' | 'SUCCESS';
 type Fields = { [ key: string ]: Field[] };
 
 const GutenForm: FC< GutenFormProps > = ( props ) => {
-	const { id, lang } = props;
+	const { id, lang, page } = props;
 
 	const [ status, setStatus ] = useState< Status >( 'LOADING' );
 	const [ fields, setFields ] = useState< Array< any > >( [] );
@@ -54,7 +55,7 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 
 	const handleSubmit = ( event: any ) => {
 		event.preventDefault();
-		const data = { fields: form, id };
+		const data = { fields: form, id, page };
 		setStatus( 'SUBMITTING' );
 		fetch( `/wp-json/gbf-form/v2/submit/`, {
 			method: 'POST',
@@ -78,7 +79,7 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 		status == 'LOADED' ? 'form--loaded' : '',
 		status == 'ERROR' ? 'form--error' : '',
 		status == 'SUBMITTING' ? 'form--submitting' : '',
-		status == 'SUBMITTED' ? 'form--submitted' : '',
+		status == 'SUCCESS' ? 'form--submitted' : '',
 	].join( ' ' );
 	return (
 		<form className={ classes } ref={ formRef } onSubmit={ handleSubmit }>
