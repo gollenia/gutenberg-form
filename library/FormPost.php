@@ -223,7 +223,7 @@ class FormPost {
 
 		
 		$submit = ["label" => get_post_meta($id, '_form_submit_title', true), "alignment" => get_post_meta($id, '_form_submit_align', true)];
-		return ["fields" => FormFields::get_form_data($id), "submit" => $submit];
+		return ["fields" => FormFields::get_form_data($id, get_the_ID()), "submit" => $submit];
 
 	
 	}
