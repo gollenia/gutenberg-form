@@ -2,6 +2,7 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	RangeControl,
+	SelectControl,
 	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
@@ -49,12 +50,41 @@ const Inspector = ( props ) => {
 						setAttributes( { pattern: value } )
 					}
 				/>
-				<TextControl
-					label={ __( 'Help', 'gutenberg-form' ) }
+				<SelectControl
+					label={ __( 'Browser hint', 'gutenberg-form' ) }
 					help={ __(
-						'Details about how to fill this field',
+						"Give a hint for the browser's autocomplete",
 						'gutenberg-form'
 					) }
+					options={ [
+						{ value: '', label: __( 'None', 'gutenberg-form' ) },
+						{
+							value: 'off',
+							label: __(
+								'Disable Autocomplete',
+								'gutenberg-form'
+							),
+						},
+						{ value: 'given-name', label: 'Given name' },
+						{ value: 'additional-name', label: 'Additional name' },
+						{ value: 'family-name', label: 'Family name' },
+						{
+							value: 'honorific-suffix',
+							label: 'Honorific suffix',
+						},
+						{ value: 'nickname', label: 'Nickname' },
+						{
+							value: 'organization-title',
+							label: 'Organization title',
+						},
+						{ value: 'organization', label: 'Organization' },
+						{ value: 'street-address', label: 'Street address' },
+						{ value: 'address-line1', label: 'Address line 1' },
+						{ value: 'address-line2', label: 'Address line 2' },
+						{ value: 'country-name', label: 'Country name' },
+						{ value: 'postal-code', label: 'Postal code' },
+						{ value: 'language', label: 'Language' },
+					] }
 					value={ help }
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>

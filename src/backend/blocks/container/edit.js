@@ -1,16 +1,11 @@
 /**
  * Wordpress dependencies
  */
-import {
-	Inserter,
-	useBlockProps,
-	useInnerBlocksProps,
-} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { select, useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
 export default function Edit( { ...props } ) {
-	console.log( props.context );
 	if ( props.context?.postType !== 'gbf-form' ) {
 		return (
 			<div className="gbf-alert">
@@ -29,64 +24,49 @@ export default function Edit( { ...props } ) {
 			</div>
 		);
 	}
-	const { clientId } = props;
+	const {
+		clientId,
+		setAttributes,
+		attributes: { recordId },
+	} = props;
+	setAttributes( { recordId: clientId } );
+
 	const blockProps = useBlockProps();
 
 	const postType = useSelect( select( 'core/editor' ).getCurrentPostType );
-	if ( [ 'bookingform', 'attendeeform' ].includes( postType ) ) {
-		console.log( 'registering form' );
+	if ( [ 'gbf-form' ].includes( postType ) ) {
 		document
 			.getElementsByClassName( 'edit-post-fullscreen-mode-close' )[ 0 ]
-			?.setAttribute(
-				'href',
-				'edit.php?post_type=event&page=gutenberg-form-forms'
-			);
+			?.setAttribute( 'href', 'edit.php?post_type=gbf-form' );
 	}
 
 	const allowedBlocks = [
-		'gutenberg-form/form-text',
-		'gutenberg-form/form-email',
-		'gutenberg-form/form-textarea',
-		'gutenberg-form/form-select',
-		'gutenberg-form/form-country',
-		'gutenberg-form/form-phone',
-		'gutenberg-form/form-radio',
-		'gutenberg-form/form-checkbox',
-		'gutenberg-form/form-date',
-		'gutenberg-form/form-html',
+		'gutenberg-form/mail-editor',
+		'gutenberg-form/submit',
+		'gutenberg-form/fields',
+	];
+
+	const template = [
+		[
+			'gutenberg-form/mail-editor',
+			{ lock: { remove: true, move: true } },
+			[],
+		],
+		[ 'gutenberg-form/submit', {}, [] ],
 	];
 
 	const innerBlocksProps = useInnerBlocksProps( blockProps, {
 		allowedBlocks,
+		template,
 		renderAppender: false,
 	} );
-
-	function SectionAppender( { rootClientId } ) {
-		return (
-			<Inserter
-				rootClientId={ rootClientId }
-				renderToggle={ ( { onToggle, disabled } ) => (
-					<a
-						className="components-button is-primary"
-						onClick={ onToggle }
-					>
-						{ __( 'Add Field', 'gutenberg-form' ) }
-					</a>
-				) }
-				isAppender
-			/>
-		);
-	}
 
 	return (
 		<form autocomplete="off" className="ctx:form-form">
 			<div
 				{ ...innerBlocksProps }
-				className="ctx:form-form__container"
+				className="ctx:form-form__wrapper"
 			></div>
-			<div className="ctx:form-form__appender">
-				<SectionAppender rootClientId={ clientId } />
-			</div>
 		</form>
 	);
 }

@@ -90,7 +90,7 @@ const edit = ( props ) => {
 				autocomplete="off"
 				type="tel"
 				onChange={ ( event ) =>
-					setName( { placeholder: event.target.value } )
+					setAttributes( { placeholder: event.target.value } )
 				}
 			/>
 		</div>

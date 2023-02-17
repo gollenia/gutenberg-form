@@ -1,10 +1,3 @@
-.ctx\:form-hidden {
-	&__label--lock {
-		display: flex;
-		align-items: center;
-
-		svg {
-			margin-left: 5px;
-		}
-	}
+.ctx\:form-field--hidden {
+	border-style: dashed !important;
 }

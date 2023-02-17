@@ -1,0 +1,15 @@
+{
+	"name": "gutenberg-form/form-fields",
+	"apiVersion": 2,
+	"title": "Form Fields Collection",
+	"description": "Basic form container block",
+	"category": "layout",
+	"attributes": {},
+	"usesContext": [ "postType" ],
+	"parent": [ "gutenberg-form/form-container" ],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"multiple": false
+	}
+}

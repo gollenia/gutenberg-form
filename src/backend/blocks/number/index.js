@@ -4,7 +4,7 @@
 import metadata from './block.json';
 import Edit from './edit';
 import './editor.scss';
-import icon from './icon';
+import icons from './icons';
 
 /**
  * Wordpress dependencies
@@ -17,7 +17,7 @@ const settings = {
 	...metadata,
 	title: __( title, 'gutenberg-form' ),
 	description: __( description, 'gutenberg-form' ),
-	icon,
+	icon: icons.icon,
 	edit: Edit,
 	save: () => {
 		return null;

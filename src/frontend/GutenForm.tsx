@@ -1,36 +1,113 @@
 import { __ } from '@wordpress/i18n';
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useRef, useState } from 'react';
+import InputField from './InputField';
+import SubmitButton from './SubmitButton';
 
 interface GutenFormProps {
-	id: string
+	id: string;
+	lang: string;
 }
 
+type Field = {
+	type: string;
+	value: any;
+	settings: any;
+};
 
-const GutenForm: FC<GutenFormProps> = (props) => {
-	const {id} = props
+type Status = 'LOADING' | 'LOADED' | 'ERROR' | 'SUBMITTING' | 'SUCCESS';
 
-	const [status, setStatus] = useState(1)
-	const [fields, setFields] = useState<Array<any>>([])
+type Fields = { [ key: string ]: Field[] };
 
-	useEffect(() => {
-		if(!id) return;
-		fetch(`wp-json/gbf-form/v2/form/${id}`).then(response => response.json()).then(data => {
-			setFields(data);
-			setStatus(2);
-		})
-	}, [])
+const GutenForm: FC< GutenFormProps > = ( props ) => {
+	const { id, lang } = props;
 
-	console.log(fields)
+	const [ status, setStatus ] = useState< Status >( 'LOADING' );
+	const [ fields, setFields ] = useState< Array< any > >( [] );
+	const [ form, setForm ] = useState< any >( {} );
+	const [ submitButton, setSubmitButton ] = useState< any >( {} );
 
-	if(status == 0) return <>{ __('Form is beeing loaded', 'gutenberg-form') }</>
-	
+	const formRef = useRef( null );
+
+	useEffect( () => {
+		if ( ! id ) return;
+		fetch( `wp-json/gbf-form/v2/form/${ id }` )
+			.then( ( response ) => response.json() )
+			.then( ( data ) => {
+				setFields( data.fields );
+				setSubmitButton( data.submit );
+				setStatus( 'LOADED' );
+
+				const fieldTemplate = {};
+				Object.entries( data ).map(
+					( [ key, field ]: [ string, any ] ) => {
+						fieldTemplate[ key ] = field.settings.defaultValue;
+					}
+				);
+
+				setForm( fieldTemplate );
+			} );
+	}, [] );
+
+	if ( fields.length == 0 ) return <></>;
+
+	console.log( fields );
+
+	const handleSubmit = ( event: any ) => {
+		event.preventDefault();
+		const data = { fields: form, id };
+		setStatus( 'SUBMITTING' );
+		fetch( `wp-json/gbf-form/v2/submit/`, {
+			method: 'POST',
+			body: JSON.stringify( data ),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+		} )
+			.then( ( response ) => response.json() )
+			.then( ( data ) => {
+				setStatus( data.success ? 'SUCCESS' : 'ERROR' );
+			} );
+	};
+
+	if ( status == 'LOADING' )
+		return <>{ __( 'Form is beeing loaded', 'gutenberg-form' ) }</>;
+
+	const classes = [
+		'form grid xl:grid--columns-6 grid--gap-8',
+		status == 'LOADED' ? 'form--loaded' : '',
+		status == 'ERROR' ? 'form--error' : '',
+		status == 'SUBMITTING' ? 'form--submitting' : '',
+		status == 'SUBMITTED' ? 'form--submitted' : '',
+	].join( ' ' );
 	return (
-		<form>
-			{fields.map((field, index) => {
-				return <p key={index}>hihi: {field.settings.label}</p>
-			})}
+		<form className={ classes } ref={ formRef } onSubmit={ handleSubmit }>
+			{ Object.entries( fields ).map( ( [ key, field ], index ) => {
+				return (
+					<InputField
+						disabled={ status == 'SUBMITTING' }
+						lang={ lang }
+						key={ index }
+						type={ field.type }
+						settings={ field.settings }
+						onChange={ ( value ) => {
+							console.log( key, value );
+							setForm( ( fields: any ) => {
+								return {
+									...fields,
+									[ key ]: value,
+								};
+							} );
+						} }
+					/>
+				);
+			} ) }
+			<SubmitButton
+				{ ...submitButton }
+				status={ status }
+				onClick={ handleSubmit }
+			/>
 		</form>
-	)
-}
+	);
+};
 
-export default GutenForm
+export default GutenForm;

@@ -1,8 +1,8 @@
 {
-	"name": "gutenberg-form/text",
+	"name": "gutenberg-form/number",
 	"apiVersion": 2,
-	"title": "Text Field",
-	"description": "Lets the user type a short text",
+	"title": "Number Field",
+	"description": "Lets the user give a number or a range of numbers",
 	"category": "widgets",
 	"attributes": {
 		"fieldid": {
@@ -17,17 +17,13 @@
 			"type": "boolean",
 			"default": false
 		},
-		"pattern": {
-			"type": "string",
-			"default": ""
-		},
 		"label": {
 			"type": "string",
 			"default": ""
 		},
 		"placeholder": {
-			"type": "string",
-			"default": ""
+			"type": "integer",
+			"default": 0
 		},
 		"help": {
 			"type": "string",
@@ -36,7 +32,28 @@
 		"error": {
 			"type": "string",
 			"default": ""
+		},
+
+		"min": {
+			"type": "integer",
+			"default": 0
+		},
+		"max": {
+			"type": "integer",
+			"default": 10
+		},
+		"step": {
+			"type": "integer",
+			"default": 1
+		},
+		"range": {
+			"type": "boolean",
+			"default": false
+		},
+		"defaultValue": {
+			"type": "number",
+			"default": 0
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ]
+	"parent": [ "gutenberg-form/form-fields" ]
 }

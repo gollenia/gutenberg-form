@@ -14,13 +14,12 @@ import { __ } from '@wordpress/i18n';
 
 const MailRecipients = ( { ...props } ) => {
 	const postType = select( 'core/editor' ).getCurrentPostType();
-	console.log( postType );
+
 	if ( postType !== 'gbf-form' ) {
 		return <></>;
 	}
 
 	const [ meta, setMeta ] = useEntityProp( 'postType', postType, 'meta' );
-	console.log( meta );
 
 	return (
 		<PluginDocumentSettingPanel

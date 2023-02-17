@@ -29,10 +29,18 @@
 			"type": "string",
 			"default": ""
 		},
+		"region": {
+			"type": "string",
+			"default": ""
+		},
 		"error": {
+			"type": "string",
+			"default": ""
+		},
+		"placeholder": {
 			"type": "string",
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ]
+	"parent": [ "gutenberg-form/form-fields" ]
 }

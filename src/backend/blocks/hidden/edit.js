@@ -26,6 +26,7 @@ const edit = ( props ) => {
 			fieldid,
 			help,
 			error,
+			content,
 		},
 		setAttributes,
 	} = props;
@@ -45,6 +46,7 @@ const edit = ( props ) => {
 	const blockProps = useBlockProps( {
 		className: [
 			'ctx:form-field',
+			'ctx:form-field--hidden',
 			'ctx:form-field--' + width,
 			validFieldId() == false ? 'ctx:form-field--error' : '',
 		]
@@ -105,14 +107,14 @@ const edit = ( props ) => {
 				</div>
 			</div>
 
-			<input
-				autocomplete="off"
-				value={ placeholder }
-				type="text"
-				onChange={ ( event ) =>
-					setAttributes( { placeholder: event.target.value } )
-				}
-			/>
+			<select>
+				<option value="current_page">
+					{ __( 'Current page', 'gutenberg-form' ) }
+				</option>
+				<option value="current_user">
+					{ __( 'Current user', 'gutenberg-form' ) }
+				</option>
+			</select>
 		</div>
 	);
 };

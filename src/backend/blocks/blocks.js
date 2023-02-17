@@ -11,10 +11,14 @@ import * as formContainer from './container/index.js';
 import * as formCountry from './country/index.js';
 import * as formDate from './date/index.js';
 import * as formEmail from './email/index.js';
+import * as formFields from './fields/index.js';
 import * as formBlock from './form/index.js';
 import * as formHTML from './html/index.js';
+import * as MailEditor from './MailEditor/index.js';
+import * as formNumber from './number/index.js';
 import * as formRadio from './radio/index.js';
 import * as formSelect from './select/index.js';
+import * as formSubmit from './submit/index.js';
 import * as formPhone from './tel/index.js';
 import * as formText from './text/index.js';
 import * as formTextarea from './textarea/index.js';
@@ -38,6 +42,10 @@ const blocks = [
 	formPhone,
 	formRadio,
 	formHTML,
+	formSubmit,
+	formNumber,
+	MailEditor,
+	formFields,
 ];
 
 const registerBlocks = () => {

@@ -2,7 +2,7 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-import { Icon } from '@wordpress/components';
+import { Icon, RangeControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -26,6 +26,10 @@ const edit = ( props ) => {
 			fieldid,
 			help,
 			error,
+			range,
+			min,
+			max,
+			step,
 		},
 		setAttributes,
 	} = props;
@@ -106,14 +110,26 @@ const edit = ( props ) => {
 				</div>
 			</div>
 
-			<input
-				autocomplete="off"
-				value={ placeholder }
-				type="text"
-				onChange={ ( event ) =>
-					setAttributes( { placeholder: event.target.value } )
-				}
-			/>
+			{ range ? (
+				<RangeControl
+					value={ placeholder }
+					onChange={ ( value ) =>
+						setAttributes( { placeholder: value } )
+					}
+					min={ min }
+					max={ max }
+					step={ step }
+				/>
+			) : (
+				<input
+					autocomplete="off"
+					value={ placeholder }
+					type="number"
+					onChange={ ( event ) =>
+						setAttributes( { placeholder: event.target.value } )
+					}
+				/>
+			) }
 		</div>
 	);
 };

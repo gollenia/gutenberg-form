@@ -1,5 +1,5 @@
 {
-	"name": "gutenberg-form/text",
+	"name": "gutenberg-form/submit",
 	"apiVersion": 2,
 	"title": "Text Field",
 	"description": "Lets the user type a short text",
@@ -7,36 +7,20 @@
 	"attributes": {
 		"fieldid": {
 			"type": "string",
-			"default": ""
+			"default": "submit"
 		},
 		"width": {
 			"type": "integer",
 			"default": 6
 		},
-		"required": {
-			"type": "boolean",
-			"default": false
-		},
-		"pattern": {
-			"type": "string",
+		"alignment": {
+			"type": "right",
 			"default": ""
 		},
 		"label": {
 			"type": "string",
 			"default": ""
-		},
-		"placeholder": {
-			"type": "string",
-			"default": ""
-		},
-		"help": {
-			"type": "string",
-			"default": ""
-		},
-		"error": {
-			"type": "string",
-			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ]
+	"parent": [ "gutenberg-form/form-fields" ]
 }

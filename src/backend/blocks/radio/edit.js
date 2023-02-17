@@ -40,8 +40,6 @@ const edit = ( props ) => {
 			.join( ' ' ),
 	} );
 
-	console.log( placeholder );
-
 	return (
 		<div { ...blockProps }>
 			<Inspector { ...props } />

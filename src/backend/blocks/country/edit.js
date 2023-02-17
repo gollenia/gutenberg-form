@@ -2,6 +2,7 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -15,11 +16,38 @@ import Inspector from './inspector.js';
  */
 const edit = ( props ) => {
 	const {
-		attributes: { width, required, pattern, label, fieldid, help, error },
+		attributes: {
+			width,
+			required,
+			pattern,
+			label,
+			fieldid,
+			help,
+			error,
+			region,
+		},
 		setAttributes,
 	} = props;
 
-	const countries = () => {};
+	const [ countries, setCountries ] = useState( [] );
+
+	const fetchCountries = async () => {
+		const response = await fetch(
+			'https://countries.kids-team.com/countries/' + region + '/' + 'de'
+		);
+		const data = await response.json();
+		const items = Object.entries( data ).map( ( [ key, value ] ) => {
+			return {
+				value: key,
+				label: value,
+			};
+		} );
+		setCountries( items );
+	};
+
+	useEffect( () => {
+		fetchCountries();
+	}, [ region ] );
 
 	const validFieldId = () => {
 		const validPattern = new RegExp( '([a-zA-Z0-9_]){3,40}' );
@@ -89,19 +117,14 @@ const edit = ( props ) => {
 				</div>
 			</div>
 			<select>
-				{ Object.keys( window.eventBlocksLocalization?.countries ).map(
-					( country ) => {
-						return (
-							<option value={ country }>
-								{
-									window.eventBlocksLocalization?.countries[
-										country
-									]
-								}
-							</option>
-						);
-					}
-				) }
+				{ countries.map( ( country, index ) => {
+					if ( ! country ) return <></>;
+					return (
+						<option key={ index } value={ country.value }>
+							{ country.label }
+						</option>
+					);
+				} ) }
 			</select>
 		</div>
 	);

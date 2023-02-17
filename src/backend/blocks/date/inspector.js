@@ -1,5 +1,6 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
+	CheckboxControl,
 	PanelBody,
 	RangeControl,
 	TextControl,
@@ -57,13 +58,10 @@ const Inspector = ( props ) => {
 					}
 				/>
 
-				<TextControl
+				<CheckboxControl
 					label={ __( 'Help', 'gutenberg-form' ) }
-					help={ __(
-						'Help text for the date field',
-						'gutenberg-form'
-					) }
-					value={ help }
+					help={ __( 'Treat as birthday', 'gutenberg-form' ) }
+					checked={ help }
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>
 				<TextControl

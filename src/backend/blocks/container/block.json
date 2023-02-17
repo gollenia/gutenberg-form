@@ -4,6 +4,14 @@
 	"title": "Form Container",
 	"description": "Basic form container block",
 	"category": "layout",
-	"attributes": {},
-	"usesContext": [ "postType" ]
+	"attributes": {
+		"recordId": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"usesContext": [ "postType" ],
+	"providesContext": {
+		"gutenberg-form/recordId": "recordId"
+	}
 }

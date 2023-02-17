@@ -34,10 +34,14 @@
 			"default": ""
 		},
 		"help": {
+			"type": "boolean",
+			"default": true
+		},
+		"error": {
 			"type": "string",
 			"default": ""
 		},
-		"error": {
+		"defaultValue": {
 			"type": "string",
 			"default": ""
 		}

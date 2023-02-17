@@ -10,5 +10,5 @@
 			"default": 6
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ]
+	"parent": [ "gutenberg-form/form-fields" ]
 }

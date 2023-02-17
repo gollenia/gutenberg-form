@@ -3,6 +3,7 @@ import {
 	CheckboxControl,
 	PanelBody,
 	RangeControl,
+	SelectControl,
 	TextareaControl,
 	TextControl,
 	ToggleControl,
@@ -11,7 +12,15 @@ import { __ } from '@wordpress/i18n';
 
 const Inspector = ( props ) => {
 	const {
-		attributes: { width, required, help, error, options, hasEmptyOption },
+		attributes: {
+			width,
+			required,
+			help,
+			error,
+			options,
+			hasEmptyOption,
+			hint,
+		},
 		setAttributes,
 	} = props;
 
@@ -53,6 +62,24 @@ const Inspector = ( props ) => {
 					disabled={ ! hasEmptyOption }
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>
+				<SelectControl
+					label={ __( 'Browser hint', 'gutenberg-form' ) }
+					help={ __( 'Select the browser hint', 'gutenberg-form' ) }
+					value={ hint }
+					onChange={ ( value ) => setAttributes( { hint: value } ) }
+					options={ [
+						{ label: __( 'Default', 'gutenberg-form' ), value: '' },
+						{
+							label: __( 'Title', 'gutenberg-form' ),
+							value: 'honorific-prefix',
+						},
+						{
+							label: __( 'Gender', 'gutenberg-form' ),
+							value: 'sex',
+						},
+					] }
+				/>
+
 				<TextControl
 					label={ __( 'Error message', 'gutenberg-form' ) }
 					help={ __(

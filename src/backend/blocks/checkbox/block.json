@@ -36,7 +36,11 @@
 		"style": {
 			"type": "string",
 			"default": "checkbox"
+		},
+		"defaultValue": {
+			"type": "boolean",
+			"default": false
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ]
+	"parent": [ "gutenberg-form/form-fields" ]
 }
