@@ -3,66 +3,41 @@
 namespace Contexis\GutenbergForm;
 use Contexis\GutenbergForm\Field;
 
+/**
+ * The actual form block which is displayed on the frontend
+ */
 class FormBlock extends Block {
 
 	public array $blocks = [
         "form"
     ];
 
+	/**
+	 * Register the Form block
+	 *
+	 * @param \Contexis\GutenbergForm\Assets $assets
+	 * @param array $blocks
+	 * @return void
+	 */
 	public static function init(\Contexis\GutenbergForm\Assets $assets, array $blocks = []) {
 		$instance = new self($assets);
 		$instance->register();
 	}
 
+	/**
+	 * Print out a DIV for the React App to render into
+	 *
+	 * @param array $attributes
+	 * @param string $content
+	 * @param array $full_data
+	 * @return void
+	 */
 	public function render($attributes, $content, $full_data)
 	{
-		//get correct form
-		$fields = $this->get_form($attributes['formPost']);
 		//get all fields
-		
-		$result = "<form class='form grid xl:grid--columns-6 grid--gap-8' action='' id='gbf-form-{$attributes['formPost']}'>";
-		foreach($fields as $block) {
-			$result .= Field::render($this->get_field_type($block), $block['attrs']);
-		}
-		$result .= "</form><div class='gbf-form' data-id='" . $attributes['formPost'] . "'></div>";
+		$lang = explode("_", get_locale())[0];
+		$result = "</form><div class='gbf-form' data-id='" . $attributes['formPost'] . "' data-lang='" . $lang . "'></div>";
 		return $result;
 		
-	}
-
-	public function get_form($id) {
-		$form = get_post($id);
-		$blocks = parse_blocks( $form->post_content );
-
-		// extract blocks from form-container
-		foreach($blocks as $block) {
-			if($block['blockName'] == "gutenberg-form/form-container") {
-				$blocks = $block['innerBlocks'];
-			}
-		}
-		return $blocks;
-	}
-
-	function get_field_type($block) {
-		$type = "";
-		list($namespace, $type) = explode("/", $block['blockName']);
-		if($namespace != "gutenberg-form") return;
-		return $type;
-	}
-
-	public function get_fields($block) {
-		$fields = [];
-		foreach($block as $field) {
-			$fields[] = $field;
-		}
-		return $fields;
-	}
-
-	public function has_submit_button($block) {
-		foreach($block as $field) {
-			if($field['blockName'] == "gutenberg-form/submit") {
-				return true;
-			}
-		}
-		return false;
 	}
 }
