@@ -156,15 +156,15 @@ class FormFields {
 		foreach($this->fields as $name => $field) {
 			if($field['type'] == "submit") continue;
 			if($field['type'] == "html") continue;
-			$values .= "<li><strong>" . $field['settings']['label'] . "</strong>: " . $this->get_formatted_value($field) . "</li>";
+			$values .= "<li><strong>" . $field['settings']['label'] . "</strong>: " . $this->get_formatted_value($name) . "</li>";
 		}
 		$values .= "</ul>";
 
 		return $values;
 	}
 
-	public function get_formatted_value($field) {
-		$field = $this->fields[$field];
+	public function get_formatted_value($fieldName) {
+		$field = $this->fields[$fieldName];
 		
 		if($field['settings']['type'] == "radio") {
 			return $field['settings']['options'][$field['value']];
