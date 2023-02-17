@@ -133,7 +133,17 @@
 				"Text, der den Benutzer informiert, dass eine Auswahl getroffen werden muss"
 			],
 			"Height": [ "Höhe" ],
-			"Width": [ "Breite" ]
+			"Width": [ "Breite" ],
+			"Subject": [ "Betreff" ],
+			"Recipient": [ "Empfänger" ],
+			"Mail Content": [ "E-Mail-Inhalt" ],
+			"Mail Editor": [ "E-Mail-Editor" ],
+			"Send a copy to the site admin": [
+				"Kopie an den Seiten-Administrator senden"
+			],
+			"Page title": [ "Seitentitel" ],
+			"Form title": [ "Formularname" ],
+			"All fields": [ "Alle Felder" ]
 		}
 	}
 }

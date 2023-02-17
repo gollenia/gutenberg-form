@@ -76,8 +76,20 @@ msgstr "Nein"
 msgid "Email"
 msgstr "E-Mail"
 
+msgid "Message"
+msgstr "Nachricht"
+
 msgid "First Name"
 msgstr "Vorname"
 
 msgid "Last Name"
 msgstr "Nachname"
+
+msgid "Send"
+msgstr "Abschicken"
+
+msgid "New form submission on %s"
+msgstr "Neue Formular-Eingabe auf %s"
+
+msgid "<p>A new message has been sent from a form on your website. This is the data that was submitted:</p>\n\n{ form_data }"
+msgstr "<p>Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet. Dies sind die übermittelten Daten:</p>\n\n{ form_data }"
