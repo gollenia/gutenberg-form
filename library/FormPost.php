@@ -147,16 +147,16 @@ class FormPost {
 
 	public function register_meta() {
 
-		$admin_template = Mailer::get_default_admin_template();
+		
 
 		$meta_array = [
 			["_mail_recipients", 'string', get_bloginfo('admin_email')],
 			["_send_to_admin", 'boolean', false],
 			["_mail_subject", 'string', sprintf(__("New form submission on %s", 'gutenberg-form' ),  get_bloginfo('name'))],
 			["_user_mail_subject", 'string', sprintf(__("Your form submission on %s", 'gutenberg-form' ),  get_bloginfo('name'))],
-			["_user_mail_template", 'string', __('Thank you for your message.' . '<br/><br/>{all_fields}')],
+			["_user_mail_template", 'string', Mailer::get_default_user_template()],
 			["_user_mail_enabled", 'boolean', false],
-			["_mail_template", 'string', $admin_template],
+			["_mail_template", 'string', Mailer::get_default_admin_template()],
 			["_form_submit_title", 'string', __('Send', 'gutenberg-form')],
 			["_form_submit_align", 'string', 'right']
 		];
