@@ -3,6 +3,7 @@
 namespace Contexis\GutenbergForm;
 
 use Contexis\GutenbergForm\FormFields;
+use ftp;
 
 class Mailer {
 
@@ -38,12 +39,32 @@ class Mailer {
 
 	public function render_template($template) {
 		$template = str_replace("{page_title}", get_the_title($this->form->id), $template);
-		$template = str_replace("{form_title}", get_the_title($this->form->id), $template);
+		$template = str_replace("{form_title}", get_the_title($this->form->page_id), $template);
+		$template = str_replace("{form_url}", get_permalink($this->form->page_id), $template);
 		$template = str_replace("{all_fields}", $this->form->get_formatted_values(), $template);
 
 		preg_replace_callback('/{(.*?)}/', function($matches) use (&$template) {
 			$template = str_replace($matches[0], $this->form->get_formatted_value($matches[1]), $template);
 		}, $template);
+		return $template;
+	}
+
+	public static function get_default_admin_template() {
+		$template = __('A new message has been sent from a form on your website.', 'gutenberg-form');
+		$template .= '<br/><br/>';
+		$template .= '{all_fields}';
+		$template .= '<br/><br/>';
+		$template .= __('The form has been sent from:', 'gutenberg-form');
+		$template .= ' <a href={form_url}>{form_title}</a>';
+		return $template;
+	}
+
+	public static function get_default_user_template() {
+		$template = __('Thank you for your message.', 'gutenberg-form');
+		$template .= '<br/><br/>';
+		$template .= '{all_fields}';
+		$template .= '<br/><br/>';
+		$template .= __('You will hear from us as soon as possible', 'gutenberg-form');
 		return $template;
 	}
 }
