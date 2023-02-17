@@ -10,14 +10,17 @@ namespace Contexis\GutenbergForm;
 class FormPost {
 	
 	const POST_TYPE = 'gbf-form';
-	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'hidden', 'number', 'radio', 'submit'];
+	
 
 	public $meta_array = [
 		["_mail_recipients", 'string', ''],
 		["_send_to_admin", 'boolean', false],
 		["_mail_subject", 'string', ''],
-		["_mail_template", 'string', '']
+		["_mail_template", 'string', ''],
+		["_form_submit_title", 'string', ''],
+		["_form_submit_align", 'string', 'right']
 	];
+
 	
 	/**
 	 * 
@@ -27,6 +30,7 @@ class FormPost {
 	 */
 	public static function init() {
 		$instance = new self;
+	
 		add_action( 'init', [$instance, "register_post_type"] );
 		add_action( 'init', [$instance, "register_meta"] );
 		add_filter( "manage_gbf-form_posts_columns", [$instance, "add_columns"] );
@@ -35,6 +39,11 @@ class FormPost {
 		return $instance;
 	}
 
+	/**
+	 * Register the post type
+	 *
+	 * @return void
+	 */
 	public function register_post_type() {
 		register_post_type( self::POST_TYPE, [
 			'label' => __('Forms', 'gutenberg-form'),
@@ -48,11 +57,17 @@ class FormPost {
 			'description' => __('Display forms on your blog.','gutenberg-form'),
 			'template' => [
 				['gutenberg-form/form-container', [], [
-					['gutenberg-form/email', ["required" => true, "label" => __('Email', 'gutenberg-form'), "fieldid" => 'user_email']],
-					['gutenberg-form/text', ["required" => true, "width" => 3, "label" => __('First Name', 'gutenberg-form'), "fieldid" => 'first_name']],
-					['gutenberg-form/text', ["required" => true, "width" => 3, "label" => __('Last Name', 'gutenberg-form'), "fieldid" => 'last_name']]]
-				]
-			],
+					['gutenberg-form/mail-editor', ["lock" => [ "move" => true, "remove" => true ]]],
+					['gutenberg-form/form-fields', ["lock" => [ "move" => true, "remove" => true ]], [
+						['gutenberg-form/text', ["required" => true, "width" => 6, "label" => __('Name', 'gutenberg-form'), "fieldid" => 'name']],
+						['gutenberg-form/email', ["required" => true, "width" => 6, "label" => __('Email', 'gutenberg-form'), "fieldid" => 'email']],
+						['gutenberg-form/textarea', ["required" => true, "width" => 6, "label" => __('Message', 'gutenberg-form'), "fieldid" => 'message']],
+						
+					]],
+					
+					['gutenberg-form/submit', ["lock" => [ "move" => true, "remove" => true ]]]
+				]	
+			]],
 			'labels' => [
 				'name' => __('Forms', 'gutenberg-form'),
 				'singular_name' => __('Form', 'gutenberg-form'),
@@ -132,7 +147,16 @@ class FormPost {
 
 	public function register_meta() {
 
-		foreach($this->meta_array as $meta) {
+		$meta_array = [
+			["_mail_recipients", 'string', get_bloginfo('admin_email')],
+			["_send_to_admin", 'boolean', false],
+			["_mail_subject", 'string', sprintf(__("New form submission on %s", 'gutenberg-form' ),  get_bloginfo('name'))],
+			["_mail_template", 'string', __('A new message has been sent from a form on your website.' . '<br/><br/>{all_fields}')],
+			["_form_submit_title", 'string', __('Send', 'gutenberg-form')],
+			["_form_submit_align", 'string', 'right']
+		];
+
+		foreach($meta_array as $meta) {
 			register_post_meta( self::POST_TYPE, $meta[0], [
 				'type' => $meta[1],
 				'single'       => true,
@@ -159,7 +183,7 @@ class FormPost {
 		return $form;
 	}
 
-	function get_recipients( $form ) {
+	public function get_recipients( $form ) {
 		$admin = get_bloginfo('admin_email');
 		$receivers = get_post_meta( $form->ID, '_mail_receiver', true );
 		if(empty($receivers)) {
@@ -192,39 +216,15 @@ class FormPost {
 		$id = $params['id'];
 		if(!$id) return false;
 
-		return $this->get_form_data($id);
+		
+		$submit = ["label" => get_post_meta($id, '_form_submit_title', true), "alignment" => get_post_meta($id, '_form_submit_align', true)];
+		return ["fields" => FormFields::get_form_data($id), "submit" => $submit];
+
 	
 	}
 
-	public function get_form_data($id) {
-		$form = get_post($id);
-		if(!$form || $form->post_type !== self::POST_TYPE) return false;
-		$blocks = parse_blocks( $form->post_content );
-
-		// extract blocks from form-container
-		foreach($blocks as $block) {
-			if($block['blockName'] == "gutenberg-form/form-container") {
-				$fieldBlocks = $block['innerBlocks'];
-			}
-		}
-		
-		$cleanedBlocks = [];
-		foreach($fieldBlocks as $block) {
-			$type = $this->get_field_type($block);
-			if(!in_array($type, self::ALLOWED_FIELDS)) continue;
-			$field = ['type' => $type, 'settings' => $block['attrs']];
-			if($type === 'html') $field['settings']['content'] = $block['innerHTML'];
-			$cleanedBlocks[] = $field;
-		}
-
-		return $cleanedBlocks;
-	}
-
-	function get_field_type($block) {
-		$type = "";
-		list($namespace, $type) = explode("/", $block['blockName']);
-		if($namespace != "gutenberg-form") return;
-		return $type;
+	public function get_mail_template() {
+		sprintf( __('You have received a new message from your website contact form. These are the values the user filled out:<br/><br/>{full_data}', 'gutenberg-form') );
 	}
 }
 
