@@ -1,0 +1,151 @@
+{
+	"domain": "gutenberg-form",
+	"locale_data": {
+		"messages": {
+			"": {
+				"domain": "messages",
+				"plural_forms": "nplurals=2; plural=(n != 1);",
+				"lang": "fr_FR"
+			},
+			"Recipients": [ "Destinataires" ],
+			"Mail addresses": [ "Adresses e-mail" ],
+			"Separate multiple addresses with commas": [
+				"Séparez les adresses multiples avec des virgules"
+			],
+			"Send copy to admin": [ "Envoyer une copie à l'administrateur" ],
+			"No forms found": [ "Aucun formulaire trouvé" ],
+			"No form selected": [ "Aucun formulaire sélectionné" ],
+			"Select a form": [ "Sélectionnez un formulaire" ],
+			"Create a new form": [ "Créer un nouveau formulaire" ],
+			"Label for the field": [ "Étiquette pour le champ" ],
+			"Unique identifier": [ "Identifiant unique" ],
+			"Required": [ "Obligatoire" ],
+			"Help": [ "Aide" ],
+			"Help text for the input field": [
+				"Texte d'aide pour le champ de saisie"
+			],
+			"Error": [ "Erreur" ],
+			"Error message": [ "Message d'erreur" ],
+			"Size": [ "Taille" ],
+			"Number of columns the input field will occupy": [
+				"Nombre de colonnes que le champ de saisie occupera"
+			],
+			"Email Field": [ "Champ e-mail" ],
+			"Lets the user type an email address.": [
+				"Permet à l'utilisateur de saisir une adresse e-mail."
+			],
+			"Text Field": [ "Champ de texte" ],
+			"Lets the user type a short text": [
+				"Permet à l'utilisateur de saisir un texte court"
+			],
+			"Pattern": [ "Modèle" ],
+			"Regular expression to prevent wrong or illegal input": [
+				"Expression régulière pour empêcher une saisie incorrecte ou illégale"
+			],
+			"Details about how to fill this field": [
+				"Détails sur la façon de remplir ce champ"
+			],
+			"Text Area": [ "Zone de texte" ],
+			"Lets the user type a longer text": [
+				"Permet à l'utilisateur de saisir un texte plus long"
+			],
+			"Date Field": [ "Champ de date" ],
+			"Lets the user specify a date": [
+				"Permet à l'utilisateur de spécifier une date"
+			],
+			"Minimun": [ "Minimal" ],
+			"Maximum": [ "Maximum" ],
+			"Checkbox": [ "Case à cocher" ],
+			"Lets the user check something": [
+				"Permet à l'utilisateur de cocher quelque chose"
+			],
+			"Options": [ "Options" ],
+			"Select": [ "Sélectionner" ],
+			"Lets the user select something": [
+				"Permet à l'utilisateur de sélectionner quelque chose"
+			],
+			"Empty option": [ "Option vide" ],
+			"An empty option ist shown and selected as default": [
+				"Une option vide est affichée et sélectionnée par défaut"
+			],
+			"Lets the user select a country": [
+				"Permet à l'utilisateur de sélectionner un pays"
+			],
+			"Phone Field": [ "Champ de téléphone" ],
+			"Lets the user type a phone number.": [
+				"Permet à l'utilisateur de saisir un numéro de téléphone."
+			],
+			"Radio Select": [ "Sélection radio" ],
+			"Lets the user select on of multiple options": [
+				"Permet à l'utilisateur de sélectionner une des multiples options"
+			],
+			"Text Block": [ "Bloc de texte" ],
+			"Headline or text block": [ "Titre ou bloc de texte" ],
+			"Add Field": [ "Ajouter un champ" ],
+			"Number of text rows": [ "Nombre de lignes de texte" ],
+			"Rows": [ "Lignes" ],
+			"Form Container": [ "Conteneur de formulaire" ],
+			"What should your visitor say \"yes\" to?": [
+				"Que devrait dire votre visiteur \"oui\"?"
+			],
+			"at least": [ "au moins" ],
+			"at best": [ "au mieux" ],
+			"years": [ "années" ],
+			"year": [ "année" ],
+			"months": [ "mois" ],
+			"month": [ "mois" ],
+			"days": [ "jours" ],
+			"day": [ "jour" ],
+			"from": [ "de" ],
+			"to": [ "à" ],
+			"Reference Date": [ "Date de référence" ],
+			"Only for testing": [ "Seulement pour les tests" ],
+			"e.g. minimal age for an attendee": [
+				"par exemple, âge minimal pour un participant"
+			],
+
+			"e.g. maximal age for an attendee": [
+				"par exemple, âge maximal pour un participant"
+			],
+			"Lowest Date": [ "Date la plus basse" ],
+			"Highest Date": [ "Date la plus haute" ],
+			"Text to inform the user that this checkbox must be checked": [
+				"Texte pour informer l'utilisateur que cette case doit être cochée"
+			],
+			"Is toggle switch": [ "Est un interrupteur" ],
+			"Show the checkbox as toggable switch": [
+				"Afficher la case à cocher comme interrupteur"
+			],
+			"Box": [ "Boîte" ],
+			"Toggle": [ "Basculer" ],
+			"Make a selection": [ "Faites un choix" ],
+			"Options for the select control. Each line represents one option": [
+				"Options pour le contrôle de sélection. Chaque ligne représente une option"
+			],
+			"Options for the radio control. Each line represents one option": [
+				"Options pour le contrôle radio. Chaque ligne représente une option"
+			],
+			"Text to display when the user types in invalid or insufficient data": [
+				"Texte à afficher lorsque l'utilisateur saisit des données invalides ou insuffisantes"
+			],
+			"Text to inform the user that a choice has to be made": [
+				"Texte pour informer l'utilisateur qu'un choix doit être fait"
+			],
+			"Height": [ "Hauteur" ],
+			"Width": [ "Largeur" ],
+			"Subject": [ "Sujet" ],
+			"Recipient": [ "Destinataire" ],
+			"Mail Content": [ "Contenu du courrier" ],
+			"Admin Mail": [ "Courrier administratif" ],
+			"User Mail": [ "Courrier utilisateur" ],
+			"Send a copy to the site admin": [
+				"Envoyer une copie à l'administrateur du site"
+			],
+			"Page title": [ "Titre de la page" ],
+			"Form title": [ "Titre du formulaire" ],
+			"All fields": [ "Tous les champs" ],
+			"Page URL": [ "URL de la page" ],
+			"Save": [ "Sauvegarder" ]
+		}
+	}
+}

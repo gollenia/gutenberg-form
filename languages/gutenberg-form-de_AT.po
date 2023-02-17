@@ -91,5 +91,15 @@ msgstr "Abschicken"
 msgid "New form submission on %s"
 msgstr "Neue Formular-Eingabe auf %s"
 
-msgid "<p>A new message has been sent from a form on your website. This is the data that was submitted:</p>\n\n{ form_data }"
-msgstr "<p>Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet. Dies sind die übermittelten Daten:</p>\n\n{ form_data }"
+msgid "A new message has been sent from a form on your website."
+msgstr "Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet."
+
+msgid "The form has been sent from:"
+msgstr "Das Formular wurde gesendet von:"
+
+msgid "Thank you for your message."
+msgstr "Vielen Dank für deine Nachricht."
+
+msgid "You will hear from us as soon as possible."
+msgstr "Wir melden uns so bald wie möglich bei dir."
+
