@@ -1,5 +1,10 @@
 import { RichText } from '@wordpress/block-editor';
-import { Button, Icon, TextControl } from '@wordpress/components';
+import {
+	Button,
+	CheckboxControl,
+	Icon,
+	TextControl,
+} from '@wordpress/components';
 
 import { __ } from '@wordpress/i18n';
 
