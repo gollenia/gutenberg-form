@@ -36,7 +36,7 @@ class FormBlock extends Block {
 	{
 		//get all fields
 		$lang = explode("_", get_locale())[0];
-		$result = "</form><div class='gbf-form' data-id='" . $attributes['formPost'] . "' data-lang='" . $lang . "'></div>";
+		$result = "</form><div class='gbf-form' data-id='" . $attributes['formPost'] . "' data-lang='" . $lang . "' data-page='" . get_the_ID() . "'></div>";
 		return $result;
 		
 	}
