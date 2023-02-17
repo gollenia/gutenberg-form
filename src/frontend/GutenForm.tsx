@@ -65,6 +65,7 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 		} )
 			.then( ( response ) => response.json() )
 			.then( ( data ) => {
+				console.log( data );
 				setStatus( data.success ? 'SUCCESS' : 'ERROR' );
 			} );
 	};
