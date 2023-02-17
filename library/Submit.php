@@ -38,7 +38,8 @@ class Submit {
 	public function get_rest_data($request) {
 		$result = $request->get_json_params();
 		$id = $result['id'];
-		$formFields = new FormFields($id);
+		$page = $result['page'];
+		$formFields = new FormFields($id, $page);
 		$validation = $formFields->validate($result['fields']);
 		
 		if(!$validation['success']) {
