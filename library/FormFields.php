@@ -85,7 +85,7 @@ class FormFields {
 	private static function get_field_name($attrs, $type) {
 		if(!$type) return;
 		if($type == "submit") return "submit";
-		if($type == "html") return "html";
+		if($type == "html") return self::generateId();
 		
 		return $attrs['fieldid'];
 	}
@@ -171,6 +171,16 @@ class FormFields {
 		if(!key_exists($fieldName, $this->fields)) return "";
 		$field = $this->fields[$fieldName];
 		return $field['value'];
+	}
+
+	private static function generateId() {
+		$characters = 'abcdefghijklmnopqrstuvwxyz';
+		$charactersLength = strlen($characters);
+		$randomString = '';
+		for ($i = 0; $i < 6; $i++) {
+			$randomString .= $characters[random_int(0, $charactersLength - 1)];
+		}
+		return $randomString;
 	}
 
 }
