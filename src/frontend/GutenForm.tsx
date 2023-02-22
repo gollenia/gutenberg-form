@@ -21,7 +21,6 @@ type Fields = { [ key: string ]: Field[] };
 
 const GutenForm: FC< GutenFormProps > = ( props ) => {
 	const { id, lang, page } = props;
-
 	const [ status, setStatus ] = useState< Status >( 'LOADING' );
 	const [ fields, setFields ] = useState< Array< any > >( [] );
 	const [ form, setForm ] = useState< any >( {} );
