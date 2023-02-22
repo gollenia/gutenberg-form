@@ -4,16 +4,13 @@
 	}
 }
 
-.age-info {
-	background: #d6e7f1;
+.ctx\:form-age-info {
+	background: #f0f6fc;
 	padding: 4px 8px;
-	border: 1px solid #b6d1e8;
-	border-radius: 3px;
-	color: #385f81;
+	border-left: 3px solid #72aee6;
+}
 
-	input {
-		background-color: #edf6ff;
-		border-color: #92abc0;
-		color: #385f81;
-	}
+.ctx\:fom-age-info-title {
+	padding-bottom: 8px;
+	font-weight: bold;
 }

@@ -12,7 +12,7 @@ type Props = {
 };
 
 const Radio = ( props: Props ) => {
-	const { onChange, options, name, disabled } = props;
+	const { onChange, options, name, disabled, placeholder } = props;
 
 	const classes = [
 		'radio',
@@ -20,7 +20,7 @@ const Radio = ( props: Props ) => {
 		props.required ? 'select--required' : '',
 	].join( ' ' );
 
-	const [ selection, setSelection ] = useState( options[ 0 ] );
+	const [ selection, setSelection ] = useState( placeholder );
 
 	const onChangeHandler = (
 		event: React.ChangeEvent< HTMLInputElement >
@@ -28,6 +28,8 @@ const Radio = ( props: Props ) => {
 		setSelection( event.target.value );
 		onChange( event.target.value );
 	};
+
+	console.log( selection );
 
 	return (
 		<div className={ classes }>

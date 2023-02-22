@@ -25,15 +25,6 @@
 			"type": "integer",
 			"default": 0
 		},
-		"help": {
-			"type": "string",
-			"default": ""
-		},
-		"error": {
-			"type": "string",
-			"default": ""
-		},
-
 		"min": {
 			"type": "integer",
 			"default": 0
@@ -53,6 +44,14 @@
 		"defaultValue": {
 			"type": "number",
 			"default": 0
+		},
+		"hasLabels": {
+			"type": "boolean",
+			"default": true
+		},
+		"hasTicks": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"parent": [ "gutenberg-form/form-fields" ]

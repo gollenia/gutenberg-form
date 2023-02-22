@@ -8,6 +8,10 @@
 		"width": {
 			"type": "integer",
 			"default": 6
+		},
+		"defaultValue": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"parent": [ "gutenberg-form/form-fields" ]

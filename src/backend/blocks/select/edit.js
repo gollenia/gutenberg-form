@@ -2,6 +2,7 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { Icon } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -19,11 +20,12 @@ const edit = ( props ) => {
 		attributes: {
 			width,
 			required,
+			multiSelect,
 			pattern,
 			label,
 			fieldid,
 			help,
-			error,
+			placeholder,
 			options,
 			hasEmptyOption,
 		},
@@ -45,7 +47,9 @@ const edit = ( props ) => {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),
@@ -101,15 +105,26 @@ const edit = ( props ) => {
 				</div>
 			</div>
 			<div className="ctx:form-field__select">
-				<select>
+				<select
+					multiple={ multiSelect }
+					onChange={ ( event ) => {
+						setAttributes( {
+							placeholder: event.target.value,
+						} );
+					} }
+				>
 					{ hasEmptyOption && (
-						<option value="">
-							{ __( 'Make a selection', 'gutenberg-form' ) }
+						<option selected={ placeholder === '' }>
+							{ help ??
+								__( 'Make a selection', 'gutenberg-form' ) }
 						</option>
 					) }
 					{ options.map( ( option, index ) => {
 						return (
-							<option key={ index } value={ index }>
+							<option
+								key={ index }
+								selected={ placeholder === option }
+							>
 								{ option }
 							</option>
 						);

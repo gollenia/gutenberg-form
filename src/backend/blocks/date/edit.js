@@ -2,6 +2,7 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { Icon } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -16,16 +17,7 @@ import Inspector from './inspector.js';
  */
 const edit = ( props ) => {
 	const {
-		attributes: {
-			width,
-			required,
-			pattern,
-			placeholder,
-			label,
-			fieldid,
-			help,
-			error,
-		},
+		attributes: { width, required, placeholder, label, fieldid, min, max },
 		setAttributes,
 	} = props;
 
@@ -44,7 +36,9 @@ const edit = ( props ) => {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),
@@ -104,6 +98,8 @@ const edit = ( props ) => {
 				autocomplete="off"
 				value={ placeholder }
 				type="date"
+				min={ min }
+				max={ max }
 				onChange={ ( event ) =>
 					setAttributes( { placeholder: event.target.value } )
 				}

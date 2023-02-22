@@ -39,12 +39,43 @@ const Inspector = ( props ) => {
 						setAttributes( { required: value } )
 					}
 				/>
-				<TextControl
+				<SelectControl
 					label={ __( 'Pattern', 'gutenberg-form' ) }
 					help={ __(
-						'Regular expression to prevent wrong or illegal input',
+						'Help text for the input field',
 						'gutenberg-form'
 					) }
+					options={ [
+						{
+							label: __(
+								'Allow all characters',
+								'gutenberg-form'
+							),
+							value: '',
+						},
+						{
+							label: __( 'Letters only', 'gutenberg-form' ),
+							value: 'letters',
+						},
+						{
+							label: __(
+								'Letters, dots and dashes',
+								'gutenberg-form'
+							),
+							value: 'letters-dots-dashes',
+						},
+						{
+							label: __( 'Alphanumeric', 'gutenberg-form' ),
+							value: 'alphanumeric',
+						},
+						{
+							label: __(
+								'Alphanumeric with dots and dashes',
+								'gutenberg-form'
+							),
+							value: 'alphanumeric-dots-dashes',
+						},
+					] }
 					value={ pattern }
 					onChange={ ( value ) =>
 						setAttributes( { pattern: value } )

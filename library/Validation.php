@@ -13,7 +13,7 @@ class Validation {
 	}
 
 	private function email($field, $value) {
-		if(!is_email) return false;
+		if(!is_email()) return false;
 		return true;
 	}
 }

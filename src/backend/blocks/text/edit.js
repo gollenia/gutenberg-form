@@ -43,11 +43,27 @@ const edit = ( props ) => {
 		setAttributes( { fieldid: value.toLowerCase() } );
 	};
 
+	const getPattern = () => {
+		if ( ! pattern ) return;
+		switch ( pattern ) {
+			case 'letters':
+				return '[a-zA-Z\\u00C0-\\u024F\\s]+';
+			case 'letters-dots-dashes':
+				return '[a-zA-Z\\u00C0-\\u024F\\-\\.\\s]+';
+			case 'alphanumeric':
+				return '[a-zA-Z0-9\\u00C0-\\u024F\\s]+';
+			case 'alphanumeric-dots-dashes':
+				return '[a-zA-Z0-9\\u00C0-\\u024F\\-\\.\\s]+';
+		}
+	};
+
 	const blockProps = useBlockProps( {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),
@@ -108,15 +124,17 @@ const edit = ( props ) => {
 					) }
 				</div>
 			</div>
-
-			<input
-				autocomplete="off"
-				value={ placeholder }
-				type="text"
-				onChange={ ( event ) =>
-					setAttributes( { placeholder: event.target.value } )
-				}
-			/>
+			<form>
+				<input
+					autocomplete="off"
+					value={ placeholder }
+					pattern={ getPattern() }
+					type="text"
+					onChange={ ( event ) =>
+						setAttributes( { placeholder: event.target.value } )
+					}
+				/>
+			</form>
 		</div>
 	);
 };

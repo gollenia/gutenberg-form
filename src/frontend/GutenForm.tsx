@@ -39,8 +39,9 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 				setStatus( 'LOADED' );
 
 				const fieldTemplate = {};
-				Object.entries( data ).map(
+				Object.entries( data.fields ).map(
 					( [ key, field ]: [ string, any ] ) => {
+						console.log( field );
 						fieldTemplate[ key ] = field.settings.defaultValue;
 					}
 				);
@@ -92,7 +93,6 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 						type={ field.type }
 						settings={ field.settings }
 						onChange={ ( value ) => {
-							console.log( key, value );
 							setForm( ( fields: any ) => {
 								return {
 									...fields,

@@ -36,12 +36,7 @@ const User = ( props ) => {
 								<Icon icon="no-alt" />
 							</Button>
 						</div>
-						<p className="ctx:mail-editor-help">
-							{ __(
-								'This mail will be sent to the website visitor who fills out the form',
-								'gutenberg-form'
-							) }
-						</p>
+
 						<div className="ctx:mail-editor-header">
 							<CheckboxControl
 								label={ __(

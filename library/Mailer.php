@@ -35,7 +35,7 @@ class Mailer {
 		$content = $this->render_template($template) ?? "There has been an error with yout mailer template. Please check your settings.";
 		$subject = get_post_meta($this->form->id, '_mail_subject', true) ?? "New Mail from " . get_bloginfo('name') . "";
 
-        $adminMail = wp_mail( $addresses, $subject, $content, array('Content-Type: text/html; charset=UTF-8'));
+        $adminMail = wp_mail( $addresses, $subject, $content, ['Content-Type: text/html; charset=UTF-8']);
 		$userMail = true;
 		if($send_user_mail && $this->form->get_formatted_value('email')) {
 			$content = $this->render_template(get_post_meta($this->form->id, '_user_mail_template', true)) ?? "There has been an error with yout mailer template. Please check your settings.";
@@ -48,7 +48,7 @@ class Mailer {
 	public function render_template($template) {
 		$template = str_replace("{page_title}", get_the_title($this->form->id), $template);
 		$template = str_replace("{form_title}", get_the_title($this->form->page_id), $template);
-		$template = str_replace("{form_url}", get_permalink($this->form->page_id), $template);
+		$template = str_replace("{page_url}", get_permalink($this->form->page_id), $template);
 		$template = str_replace("{all_fields}", $this->form->get_formatted_values(), $template);
 
 		preg_replace_callback('/{(.*?)}/', function($matches) use (&$template) {

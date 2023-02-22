@@ -37,15 +37,6 @@ const Inspector = ( props ) => {
 				/>
 
 				<TextControl
-					label={ __( 'Pattern', 'gutenberg-form' ) }
-					help={ __(
-						'Help text for the input field',
-						'gutenberg-form'
-					) }
-					value={ help }
-					onChange={ ( value ) => setAttributes( { help: value } ) }
-				/>
-				<TextControl
 					label={ __( 'Error message', 'gutenberg-form' ) }
 					help={ __(
 						'Text to display when the user types in invalid or insufficient data',

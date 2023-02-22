@@ -2,6 +2,7 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { Icon } from '@wordpress/components';
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
@@ -17,16 +18,7 @@ import Inspector from './inspector.js';
  */
 const edit = ( props ) => {
 	const {
-		attributes: {
-			width,
-			required,
-			pattern,
-			label,
-			fieldid,
-			help,
-			error,
-			region,
-		},
+		attributes: { width, required, placeholder, label, fieldid, region },
 		setAttributes,
 	} = props;
 
@@ -65,7 +57,9 @@ const edit = ( props ) => {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),
@@ -121,11 +115,19 @@ const edit = ( props ) => {
 					) }
 				</div>
 			</div>
-			<select>
+			<select
+				onChange={ ( event ) => {
+					setAttributes( { placeholder: event.target.value } );
+				} }
+			>
 				{ countries.map( ( country, index ) => {
 					if ( ! country ) return <></>;
 					return (
-						<option key={ index } value={ country.value }>
+						<option
+							key={ index }
+							value={ country.value }
+							selected={ placeholder == country.value }
+						>
 							{ country.label }
 						</option>
 					);

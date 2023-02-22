@@ -10,6 +10,7 @@ type Props = {
 	lang: string;
 	help: string;
 	disabled: boolean;
+
 	onChange: ( value: string ) => void;
 };
 
@@ -19,7 +20,16 @@ type Option = {
 };
 
 const Country = ( props: Props ) => {
-	const { onChange, lang, help, disabled } = props;
+	const {
+		onChange,
+		lang,
+		help,
+		disabled,
+		placeholder,
+		required,
+		name,
+		label,
+	} = props;
 
 	const classes = [
 		'select',
@@ -28,6 +38,7 @@ const Country = ( props: Props ) => {
 	].join( ' ' );
 
 	const [ countries, setCountries ] = useState< Array< any > >( [] );
+	const [ selectedCountry, setSelectedCountry ] = useState( placeholder );
 
 	const fetchCountries = async () => {
 		const response = await fetch(
@@ -51,24 +62,29 @@ const Country = ( props: Props ) => {
 	const onChangeHandler = (
 		event: React.ChangeEvent< HTMLSelectElement >
 	) => {
+		setSelectedCountry( event.target.value );
 		onChange( event.target.value );
 	};
 
 	return (
 		<div className={ classes }>
-			<label>{ props.label }</label>
+			<label>{ label }</label>
 			<select
-				name={ props.name }
-				required={ props.required }
+				name={ name }
+				required={ required }
 				onChange={ onChangeHandler }
 				disabled={ disabled }
 			>
-				<option value="" disabled selected>
+				<option value="" disabled selected={ selectedCountry == '' }>
 					{ help ?? __( 'Select country', 'gutenberg-form' ) }
 				</option>
 				{ countries.map( ( country: Option, index ) => {
 					return (
-						<option key={ index } value={ country.value }>
+						<option
+							key={ index }
+							value={ country.value }
+							selected={ selectedCountry == country.value }
+						>
 							{ country.label }
 						</option>
 					);

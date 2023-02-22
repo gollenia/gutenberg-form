@@ -2,6 +2,7 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { Icon } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
@@ -35,7 +36,9 @@ const edit = ( props ) => {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),
@@ -98,10 +101,11 @@ const edit = ( props ) => {
 								<input
 									type="radio"
 									name={ index }
-									value={ index }
-									checked={ placeholder == index }
+									checked={ placeholder == option }
 									onChange={ () => {
-										setAttributes( { placeholder: index } );
+										setAttributes( {
+											placeholder: option,
+										} );
 									} }
 								/>
 								<label>{ option }</label>

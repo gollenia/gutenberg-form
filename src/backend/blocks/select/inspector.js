@@ -3,9 +3,7 @@ import {
 	CheckboxControl,
 	PanelBody,
 	RangeControl,
-	SelectControl,
 	TextareaControl,
-	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
@@ -20,6 +18,7 @@ const Inspector = ( props ) => {
 			options,
 			hasEmptyOption,
 			hint,
+			multiSelect,
 		},
 		setAttributes,
 	} = props;
@@ -52,43 +51,7 @@ const Inspector = ( props ) => {
 						setAttributes( { hasEmptyOption: value } )
 					}
 				/>
-				<TextControl
-					label={ __( 'Help', 'gutenberg-form' ) }
-					help={ __(
-						'Alternate text for the empty option',
-						'gutenberg-form'
-					) }
-					value={ help }
-					disabled={ ! hasEmptyOption }
-					onChange={ ( value ) => setAttributes( { help: value } ) }
-				/>
-				<SelectControl
-					label={ __( 'Browser hint', 'gutenberg-form' ) }
-					help={ __( 'Select the browser hint', 'gutenberg-form' ) }
-					value={ hint }
-					onChange={ ( value ) => setAttributes( { hint: value } ) }
-					options={ [
-						{ label: __( 'Default', 'gutenberg-form' ), value: '' },
-						{
-							label: __( 'Title', 'gutenberg-form' ),
-							value: 'honorific-prefix',
-						},
-						{
-							label: __( 'Gender', 'gutenberg-form' ),
-							value: 'sex',
-						},
-					] }
-				/>
 
-				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to inform the user that a choice has to be made',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
-				/>
 				<TextareaControl
 					label={ __( 'Options', 'gutenberg-form' ) }
 					value={ options.join( '\n' ) }
@@ -99,6 +62,14 @@ const Inspector = ( props ) => {
 						'Options for the select control. Each line represents one option',
 						'gutenberg-form'
 					) }
+				/>
+
+				<CheckboxControl
+					label={ __( 'Multi select', 'gutenberg-form' ) }
+					checked={ multiSelect }
+					onChange={ ( value ) =>
+						setAttributes( { multiSelect: value } )
+					}
 				/>
 			</PanelBody>
 			<PanelBody

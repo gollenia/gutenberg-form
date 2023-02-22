@@ -22,14 +22,6 @@
 			"default": ""
 		},
 		"placeholder": {
-			"type": "integer",
-			"default": 0
-		},
-		"help": {
-			"type": "string",
-			"default": ""
-		},
-		"error": {
 			"type": "string",
 			"default": ""
 		},

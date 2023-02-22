@@ -37,9 +37,9 @@ const Inspector = ( props ) => {
 		}
 		return (
 			<>
-				{ __( 'from', 'gutenberg-form' ) } { maxAge.result }
+				{ __( 'from', 'gutenberg-form' ) }: { maxAge.result }
 				<br />
-				{ __( 'to', 'gutenberg-form' ) } { minAge.result }
+				{ __( 'to', 'gutenberg-form' ) }: { minAge.result }
 			</>
 		);
 	};
@@ -65,15 +65,6 @@ const Inspector = ( props ) => {
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>
 				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to display when the user types in invalid or insufficient data',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
-				/>
-				<TextControl
 					label={ __( 'Lowest Date', 'gutenberg-form' ) }
 					help={ __(
 						'e.g. maximal age for an attendee',
@@ -93,10 +84,12 @@ const Inspector = ( props ) => {
 					onChange={ ( value ) => setAttributes( { max: value } ) }
 					type="date"
 				/>
-				<p className="age-info">
+				<p className="ctx:form-age-info">
+					<div className="ctx:fom-age-info-title">
+						{ __( 'Date calculator', 'gutenberg-form' ) }
+					</div>
 					<TextControl
 						label={ __( 'Reference Date', 'gutenberg-form' ) }
-						help={ __( 'Only for testing', 'gutenberg-form' ) }
 						value={ referenceDate }
 						onChange={ ( value ) => {
 							setReferenceDate( value );

@@ -1,13 +1,26 @@
+import React from 'react';
+
 type Props = {
 	label: string;
 	help: string;
 	width: number;
 	disabled: boolean;
+	required: boolean;
+	placeholder: boolean;
+	toggle: boolean;
 	onChange: ( value: boolean ) => void;
 };
 
 const Checkbox = ( props: Props ) => {
-	const { label, help, width, onChange, disabled } = props;
+	const {
+		help,
+		width,
+		onChange,
+		disabled,
+		placeholder,
+		required,
+		toggle,
+	} = props;
 
 	const onChangeHandler = (
 		event: React.ChangeEvent< HTMLInputElement >
@@ -15,19 +28,44 @@ const Checkbox = ( props: Props ) => {
 		onChange( event.target.checked );
 	};
 
-	const classes = [ 'checkbox', 'grid__column--span-' + width ].join( ' ' );
+	const classes = [
+		toggle ? 'toggle' : 'checkbox',
+		'grid__column--span-' + width,
+	].join( ' ' );
 
 	return (
-		<div className={ classes }>
-			<label>
-				<input
-					type="checkbox"
-					onChange={ onChangeHandler }
-					disabled={ disabled }
-				/>
-				{ help }
-			</label>
-		</div>
+		<>
+			{ toggle ? (
+				<div className={ classes }>
+					<label>
+						<div className="toggle__control">
+							<input
+								defaultChecked={ placeholder }
+								type="checkbox"
+								required={ required }
+								onChange={ onChangeHandler }
+								disabled={ disabled }
+							/>
+							<span className="toggle__switch"></span>
+						</div>
+						<span>{ help }</span>
+					</label>
+				</div>
+			) : (
+				<div className={ classes }>
+					<label>
+						<input
+							defaultChecked={ placeholder }
+							type="checkbox"
+							required={ required }
+							onChange={ onChangeHandler }
+							disabled={ disabled }
+						/>
+						<span>{ help }</span>
+					</label>
+				</div>
+			) }
+		</>
 	);
 };
 

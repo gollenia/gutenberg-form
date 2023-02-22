@@ -55,7 +55,7 @@ class FormFields {
 			$attrs = array_merge(self::load_block_defaults($type), $block['attrs']);
 			$field = ['type' => $type, 'settings' => $attrs];
 			if($type === 'html') $field['settings']['content'] = render_block($block);
-			$name = self::get_field_name($block, $type);
+			$name = self::get_field_name($attrs, $type);
 			$cleanedBlocks[$name] = $field;
 		}
 
@@ -82,11 +82,12 @@ class FormFields {
 	 * @param [type] $type
 	 * @return void
 	 */
-	private static function get_field_name($block, $type) {
+	private static function get_field_name($attrs, $type) {
 		if(!$type) return;
 		if($type == "submit") return "submit";
 		if($type == "html") return "html";
-		return $block['attrs']['fieldid'];
+		
+		return $attrs['fieldid'];
 	}
 
 	public function validate($data) {
@@ -112,6 +113,7 @@ class FormFields {
 	 */
 	private static function load_block_defaults($type) {
 		$defaults = [];
+		
 		if(!file_exists(__DIR__ . "/../src/backend/blocks/" . $type . "/block.json")) return $defaults;
 		$block_data = json_decode( file_get_contents(__DIR__ . "/../src/backend/blocks/" . $type . "/block.json") );
 		foreach($block_data->attributes as $key => $value) {

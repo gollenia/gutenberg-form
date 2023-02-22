@@ -65,16 +65,6 @@ const Inspector = ( props ) => {
 					value={ help }
 					onChange={ ( value ) => setAttributes( { help: value } ) }
 				/>
-
-				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to inform the user that a choice has to be made',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
-				/>
 			</PanelBody>
 			<PanelBody
 				title={ __( 'Appearance', 'gutenberg-form' ) }

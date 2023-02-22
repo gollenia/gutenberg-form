@@ -7,7 +7,7 @@
 	"attributes": {
 		"fieldid": {
 			"type": "string",
-			"default": ""
+			"default": "country"
 		},
 		"width": {
 			"type": "integer",
@@ -31,11 +31,7 @@
 		},
 		"region": {
 			"type": "string",
-			"default": ""
-		},
-		"error": {
-			"type": "string",
-			"default": ""
+			"default": "world"
 		},
 		"placeholder": {
 			"type": "string",

@@ -1,11 +1,5 @@
 import { InspectorControls } from '@wordpress/block-editor';
-import {
-	Button,
-	Icon,
-	PanelBody,
-	TextControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { Button, Icon, PanelBody, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import icons from './icons.js';
 
@@ -20,6 +14,7 @@ const Inspector = ( props ) => {
 			style,
 			help,
 			error,
+			toggle,
 		},
 		setAttributes,
 	} = props;
@@ -37,16 +32,6 @@ const Inspector = ( props ) => {
 						setAttributes( { required: value } )
 					}
 				/>
-
-				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to inform the user that this checkbox must be checked',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
-				/>
 			</PanelBody>
 			<PanelBody
 				title={ __( 'Appearance', 'gutenberg-form' ) }
@@ -61,10 +46,8 @@ const Inspector = ( props ) => {
 					</label>
 					<div className="styleSelector">
 						<Button
-							onClick={ () =>
-								setAttributes( { style: 'checkbox' } )
-							}
-							className={ style == 'checkbox' ? 'active' : '' }
+							onClick={ () => setAttributes( { toggle: false } ) }
+							className={ ! toggle ? 'active' : '' }
 						>
 							<Icon
 								size="64"
@@ -74,10 +57,8 @@ const Inspector = ( props ) => {
 							<div>{ __( 'Box', 'gutenberg-form' ) }</div>
 						</Button>
 						<Button
-							onClick={ () =>
-								setAttributes( { style: 'toggle' } )
-							}
-							className={ style == 'toggle' ? 'active' : '' }
+							onClick={ () => setAttributes( { toggle: true } ) }
+							className={ toggle ? 'active' : '' }
 						>
 							<Icon
 								size="64"

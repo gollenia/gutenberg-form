@@ -2,7 +2,6 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	TextareaControl,
-	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
@@ -27,15 +26,6 @@ const Inspector = ( props ) => {
 					}
 				/>
 
-				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to inform the user that a choice has to be made',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
-				/>
 				<TextareaControl
 					label={ __( 'Options', 'gutenberg-form' ) }
 					value={ options.join( '\n' ) }

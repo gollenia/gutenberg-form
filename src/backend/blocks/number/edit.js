@@ -21,12 +21,9 @@ const edit = ( props ) => {
 		attributes: {
 			width,
 			required,
-			pattern,
 			placeholder,
 			label,
 			fieldid,
-			help,
-			error,
 			range,
 			min,
 			max,
@@ -51,7 +48,9 @@ const edit = ( props ) => {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),

@@ -11,11 +11,24 @@ type Props = {
 	help: string;
 	hint: string;
 	disabled: boolean;
+	multiSelect: boolean;
 	onChange: ( value: string ) => void;
 };
 
 const Select = ( props: Props ) => {
-	const { onChange, options, hasEmptyOption, help, hint, disabled } = props;
+	const {
+		onChange,
+		options,
+		hasEmptyOption,
+		help,
+		hint,
+		disabled,
+		placeholder,
+		multiSelect,
+		required,
+		label,
+		name,
+	} = props;
 
 	const classes = [
 		'select',
@@ -31,16 +44,18 @@ const Select = ( props: Props ) => {
 
 	return (
 		<div className={ classes }>
-			<label>{ props.label }</label>
+			<label>{ label }</label>
 			<select
-				name={ props.name }
-				required={ props.required }
+				name={ name }
+				required={ required }
 				onChange={ onChangeHandler }
 				autoComplete={ hint }
 				disabled={ disabled }
+				multiple={ multiSelect }
+				defaultValue={ placeholder }
 			>
 				{ hasEmptyOption && (
-					<option value="" disabled selected>
+					<option value="" disabled>
 						{ help ?? __( 'Make a selection', 'gutenberg-form' ) }
 					</option>
 				) }

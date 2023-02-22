@@ -2,12 +2,13 @@
  * Wordpress dependencies
  */
 import { RichText, useBlockProps } from '@wordpress/block-editor';
-import { CheckboxControl, ToggleControl } from '@wordpress/components';
+import { CheckboxControl, Icon, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 /**
  * Internal dependencies
  */
+import icons from './icons.js';
 import Inspector from './inspector.js';
 
 /**
@@ -18,18 +19,18 @@ const edit = ( props ) => {
 	const {
 		attributes: {
 			width,
-			required,
-			label,
 			fieldid,
 			help,
-			style,
 			placeholder,
+			label,
+			required,
+			toggle,
 		},
 		setAttributes,
 	} = props;
 
 	const validFieldId = () => {
-		const validPattern = new RegExp( '([a-zA-Z0-9_]){3,40}' );
+		const validPattern = new RegExp( '([a-zA-Z0-9_]){2,40}' );
 		return validPattern.test( fieldid );
 	};
 
@@ -43,7 +44,7 @@ const edit = ( props ) => {
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
-			validFieldId() == false || help === ''
+			validFieldId() == false || help === '' || label === ''
 				? 'ctx:form-field--error'
 				: '',
 		]
@@ -56,7 +57,27 @@ const edit = ( props ) => {
 			<Inspector { ...props } />
 
 			<div className="ctx:form-field__caption">
-				<div className="ctx:form-field__description"></div>
+				<div className="ctx:form-field__info">
+					<Icon icon={ icons.checkbox } />
+					<div className="ctx:form-field__description">
+						<span>
+							<RichText
+								tagName="span"
+								className="ctx:form-details__label"
+								value={ label }
+								placeholder={ __( 'Label', 'gutenberg-form' ) }
+								onChange={ ( value ) =>
+									setAttributes( { label: value } )
+								}
+							/>
+
+							<span>{ required ? '*' : '' }</span>
+						</span>
+						<span className="ctx:form-field__label">
+							{ __( 'Label (for emails)', 'gutenberg-form' ) }
+						</span>
+					</div>
+				</div>
 
 				<div className="ctx:form-field__name">
 					<RichText
@@ -83,7 +104,14 @@ const edit = ( props ) => {
 			</div>
 
 			<div className="label">
-				{ style == 'checkbox' && (
+				{ toggle ? (
+					<ToggleControl
+						checked={ placeholder }
+						onChange={ ( value ) =>
+							setAttributes( { placeholder: value } )
+						}
+					/>
+				) : (
 					<CheckboxControl
 						checked={ placeholder }
 						onChange={ ( value ) =>
@@ -92,14 +120,6 @@ const edit = ( props ) => {
 					/>
 				) }
 
-				{ style == 'toggle' && (
-					<ToggleControl
-						checked={ placeholder }
-						onChange={ ( value ) =>
-							setAttributes( { placeholder: value } )
-						}
-					/>
-				) }
 				<RichText
 					tagName="p"
 					className="ctx:form-details__label critical"

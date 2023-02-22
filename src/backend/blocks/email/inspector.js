@@ -1,10 +1,5 @@
 import { InspectorControls } from '@wordpress/block-editor';
-import {
-	PanelBody,
-	RangeControl,
-	TextControl,
-	ToggleControl,
-} from '@wordpress/components';
+import { PanelBody, RangeControl, ToggleControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
 const Inspector = ( props ) => {
@@ -37,24 +32,6 @@ const Inspector = ( props ) => {
 					onChange={ ( value ) =>
 						setAttributes( { required: value } )
 					}
-				/>
-				<TextControl
-					label={ __( 'Help', 'gutenberg-form' ) }
-					help={ __(
-						'Help text for the input field',
-						'gutenberg-form'
-					) }
-					value={ help }
-					onChange={ ( value ) => setAttributes( { help: value } ) }
-				/>
-				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to display when the user types in invalid or insufficient data',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
 				/>
 			</PanelBody>
 			<PanelBody

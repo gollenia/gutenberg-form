@@ -1,10 +1,10 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
 	Button,
+	CheckboxControl,
 	Icon,
 	PanelBody,
 	RangeControl,
-	TextControl,
 	ToggleControl,
 	__experimentalNumberControl as NumberControl,
 } from '@wordpress/components';
@@ -16,18 +16,14 @@ const Inspector = ( props ) => {
 		attributes: {
 			width,
 			required,
-			pattern,
 			fieldid,
-			label,
-			name,
-			help,
-			error,
 			range,
 			min,
 			max,
 			step,
-
 			placeholder,
+			hasLabels,
+			hasTicks,
 		},
 		setAttributes,
 	} = props;
@@ -77,24 +73,6 @@ const Inspector = ( props ) => {
 					max={ max }
 					onChange={ ( value ) => setAttributes( { step: value } ) }
 				/>
-				<TextControl
-					label={ __( 'Help', 'gutenberg-form' ) }
-					help={ __(
-						'Details about how to fill this field',
-						'gutenberg-form'
-					) }
-					value={ help }
-					onChange={ ( value ) => setAttributes( { help: value } ) }
-				/>
-				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to display when the user types in invalid or insufficient data',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
-				/>
 			</PanelBody>
 			<PanelBody
 				title={ __( 'Appearance', 'gutenberg-form' ) }
@@ -121,6 +99,22 @@ const Inspector = ( props ) => {
 						<span>{ __( 'Range', 'gutenberg-form' ) }</span>
 					</Button>
 				</div>
+
+				<CheckboxControl
+					label={ __( 'Show labels', 'gutenberg-form' ) }
+					checked={ hasLabels }
+					onChange={ ( value ) =>
+						setAttributes( { hasLabels: value } )
+					}
+				/>
+
+				<CheckboxControl
+					label={ __( 'Show ticks', 'gutenberg-form' ) }
+					checked={ hasTicks }
+					onChange={ ( value ) =>
+						setAttributes( { hasTicks: value } )
+					}
+				/>
 
 				<RangeControl
 					label={ __( 'Width', 'gutenberg-form' ) }

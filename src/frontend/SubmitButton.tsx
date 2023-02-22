@@ -31,7 +31,8 @@ const SubmitButton = ( props: Props ) => {
 			return <i className="material-icons">done</i>;
 		if ( status == 'SUBMITTING' )
 			return <i className="material-icons">mail</i>;
-		if ( status == 'ERROR' ) return <i className="material-icons">error</i>;
+		if ( status == 'ERROR' )
+			return <i className="material-icons">sentiment_dissatisfied</i>;
 	};
 
 	return (

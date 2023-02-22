@@ -44,7 +44,9 @@ const edit = ( props ) => {
 	const blockProps = useBlockProps( {
 		className: [
 			'ctx:form-field',
-			validFieldId() == false ? 'ctx:form-field--error' : '',
+			validFieldId() == false || label === ''
+				? 'ctx:form-field--error'
+				: '',
 		]
 			.filter( Boolean )
 			.join( ' ' ),

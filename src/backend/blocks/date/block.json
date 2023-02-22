@@ -7,7 +7,7 @@
 	"attributes": {
 		"fieldid": {
 			"type": "string",
-			"default": ""
+			"default": "birthdate"
 		},
 		"width": {
 			"type": "integer",
@@ -37,14 +37,10 @@
 			"type": "boolean",
 			"default": true
 		},
-		"error": {
-			"type": "string",
-			"default": ""
-		},
 		"defaultValue": {
 			"type": "string",
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ]
+	"parent": [ "gutenberg-form/form-fields" ]
 }

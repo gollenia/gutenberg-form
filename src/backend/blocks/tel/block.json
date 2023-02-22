@@ -7,7 +7,7 @@
 	"attributes": {
 		"fieldid": {
 			"type": "string",
-			"default": "email"
+			"default": "phone"
 		},
 		"width": {
 			"type": "integer",

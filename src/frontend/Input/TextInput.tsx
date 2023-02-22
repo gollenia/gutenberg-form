@@ -1,13 +1,13 @@
-import { useRef } from 'react';
-
 type TextInputProps = {
 	label: string;
 	placeholder: string;
 	name: string;
 	required: boolean;
 	help: string;
+	pattern: string;
 	width: number;
 	disabled: boolean;
+	error: string;
 	value: string;
 	onChange: ( value: string ) => void;
 };
@@ -18,18 +18,38 @@ const TextInput = ( props: TextInputProps ) => {
 		label,
 		placeholder,
 		name,
+		pattern,
 		required,
 		width,
 		disabled,
 		help,
 		onChange,
 	} = props;
-	const textInputRef = useRef( null );
+
+	const getPattern = () => {
+		if ( ! pattern ) return;
+		switch ( pattern ) {
+			case 'letters':
+				return '[a-zA-Z\\u00C0-\\u024F\\s]+';
+			case 'letters-dots-dashes':
+				return '[a-zA-Z\\u00C0-\\u024F\\-\\.\\s]+';
+			case 'alphanumeric':
+				return '[a-zA-Z0-9\\u00C0-\\u024F\\s]+';
+			case 'alphanumeric-dots-dashes':
+				return '[a-zA-Z0-9\\u00C0-\\u024F\\-\\.\\s]+';
+		}
+	};
 
 	const onChangeHandler = (
 		event: React.ChangeEvent< HTMLInputElement >
 	) => {
 		onChange( event.target.value );
+	};
+
+	const setInvalidity = ( event: any ) => {
+		if ( ! props.error ) return;
+		console.log( event );
+		event.target.setCustomValidity( props.error );
 	};
 
 	const classes = [
@@ -46,8 +66,10 @@ const TextInput = ( props: TextInputProps ) => {
 				name={ name }
 				autoComplete={ help }
 				required={ required }
+				onInvalid={ setInvalidity }
 				disabled={ disabled }
 				placeholder={ placeholder }
+				pattern={ getPattern() }
 				type="text"
 				onChange={ onChangeHandler }
 			/>

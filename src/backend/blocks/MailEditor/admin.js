@@ -36,12 +36,7 @@ const Admin = ( props ) => {
 								<Icon icon="no-alt" />
 							</Button>
 						</div>
-						<p className="ctx:mail-editor-help">
-							{ __(
-								'This mail will be sent to the recipients below',
-								'gutenberg-form'
-							) }
-						</p>
+						
 						<div className="ctx:mail-editor-header">
 							<TextControl
 								label={ __( 'Subject', 'gutenberg-form' ) }

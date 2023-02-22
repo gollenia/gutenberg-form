@@ -30,8 +30,8 @@
 			"default": ""
 		},
 		"placeholder": {
-			"type": "boolean",
-			"default": false
+			"type": "string",
+			"default": ""
 		},
 		"help": {
 			"type": "string",
@@ -48,6 +48,10 @@
 		"defaultValue": {
 			"type": "string",
 			"default": ""
+		},
+		"multiSelect": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"parent": [ "gutenberg-form/form-fields" ]
