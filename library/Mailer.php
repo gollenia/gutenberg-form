@@ -28,22 +28,29 @@ class Mailer {
 
 	public function send() {
         $template = get_post_meta($this->form->id, '_mail_template', true);
-		$send_user_mail = get_post_meta($this->form->id, '_mail_user_enabled', true);
+		$send_user_mail = get_post_meta($this->form->id, '_user_mail_enabled', true);
 		$addresses = $this->get_addresses();
 		if(empty($addresses)) return false;
 		
 		$content = $this->render_template($template) ?? "There has been an error with yout mailer template. Please check your settings.";
 		$subject = get_post_meta($this->form->id, '_mail_subject', true) ?? "New Mail from " . get_bloginfo('name') . "";
+		$userMail = $this->get_user_email();
 
-        $adminMail = wp_mail( $addresses, $subject, $content, ['Content-Type: text/html; charset=UTF-8']);
-		$userMail = true;
-		if($send_user_mail && $this->form->get_formatted_value('email')) {
+        $adminMailSuccess = wp_mail( $addresses, $subject, $content, ['Content-Type: text/html; charset=UTF-8']);
+		$userMailSuccess = true;
+		if($send_user_mail && $userMail) {
 			$content = $this->render_template(get_post_meta($this->form->id, '_user_mail_template', true)) ?? "There has been an error with yout mailer template. Please check your settings.";
-			$userMail = wp_mail( $this->form->get_formatted_value('email'), get_post_meta($this->form->id, '_user_mail_subject', true), $content, array('Content-Type: text/html; charset=UTF-8'));
+			$userMailSuccess = wp_mail( $userMail, get_post_meta($this->form->id, '_user_mail_subject', true), $content, array('Content-Type: text/html; charset=UTF-8'));
 		}
 
-		return $adminMail && $userMail;
+		return $adminMailSuccess && $userMailSuccess;
     }
+
+	public function get_user_email() {
+		if($this->form->get_formatted_value('email')) return $this->form->get_formatted_value('email');
+		if($this->form->get_formatted_value('mail')) return $this->form->get_formatted_value('mail');
+		return false;
+	}
 
 	public function render_template($template) {
 		$template = str_replace("{page_title}", get_the_title($this->form->id), $template);
