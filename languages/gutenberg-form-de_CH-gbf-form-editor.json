@@ -5,7 +5,7 @@
 			"": {
 				"domain": "messages",
 				"plural_forms": "nplurals=2; plural=(n != 1);",
-				"lang": "de_AT"
+				"lang": "de_CH"
 			},
 			"Recipients": [ "Empfänger" ],
 			"Mail addresses": [ "E-Mail-Adressen" ],
@@ -26,7 +26,7 @@
 			],
 			"Error": [ "Fehler" ],
 			"Error message": [ "Fehlermeldung" ],
-			"Size": [ "Größe" ],
+			"Size": [ "Grösse" ],
 			"Number of columns the input field will occupy": [
 				"Anzahl der Spalten, die das Eingabefeld belegen wird"
 			],
@@ -146,7 +146,30 @@
 			"Form title": [ "Formularname" ],
 			"All fields": [ "Alle Felder" ],
 			"Page URL": [ "Seiten-URL" ],
-			"Save": [ "Speichern" ]
+			"Save": [ "Speichern" ],
+			"Allow all characters": [ "Alle Zeichen erlauben" ],
+			"Letters only": [ "Nur Buchstaben" ],
+			"Letters, dots and dashes": [
+				"Buchstaben, Punkte und Bindestriche"
+			],
+			"Alphanumeric": [ "Buchstaben und Zahlen" ],
+			"Alphanumeric with dots and dashes": [
+				"Buchstaben, Zahlen, Punkte und Bindestriche"
+			],
+			"Browser hint": [ "Browserhinweis" ],
+			"Give a hint for the browser's autocomplete": [
+				"Geben Sie einen Hinweis für die Browser-Autocomplete-Funktion an"
+			],
+			"None": [ "Keine" ],
+			"Data": [ "Daten" ],
+			"Appearance": [ "Darstellung" ],
+			"Style": [ "Stil" ],
+			"Text to display when no country is selected": [
+				"Text, der angezeigt wird, wenn kein Land ausgewählt ist"
+			],
+			"Date calculator": [ "Datumsrechner" ],
+			"Multi select": [ "Mehrfachauswahl möglich" ],
+			"Label (for emails)": [ "Bezeichnung (für E-Mails)" ]
 		}
 	}
 }
