@@ -29,7 +29,7 @@ const Inspector = ( props ) => {
 	} = props;
 
 	const lockFieldId = [ 'first_name', 'last_name' ].includes( fieldid );
-
+	console.log( min, max );
 	return (
 		<InspectorControls>
 			<PanelBody
@@ -50,7 +50,7 @@ const Inspector = ( props ) => {
 						label={ __( 'Minimum value', 'gutenberg-form' ) }
 						value={ min }
 						onChange={ ( value ) => {
-							if ( placeholder < min ) {
+							if ( placeholder < value ) {
 								setAttributes( { placeholder: value } );
 							}
 							setAttributes( { min: value } );
@@ -60,7 +60,7 @@ const Inspector = ( props ) => {
 						label={ __( 'Maximum value', 'gutenberg-form' ) }
 						value={ max }
 						onChange={ ( value ) => {
-							if ( placeholder > max ) {
+							if ( placeholder > value ) {
 								setAttributes( { placeholder: max } );
 							}
 							setAttributes( { max: value } );
