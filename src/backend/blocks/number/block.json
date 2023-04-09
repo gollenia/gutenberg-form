@@ -10,7 +10,7 @@
 			"default": ""
 		},
 		"width": {
-			"type": "integer",
+			"type": "number",
 			"default": 6
 		},
 		"required": {
@@ -22,19 +22,19 @@
 			"default": ""
 		},
 		"placeholder": {
-			"type": "integer",
+			"type": "number",
 			"default": 0
 		},
 		"min": {
-			"type": "integer",
+			"type": "number",
 			"default": 0
 		},
 		"max": {
-			"type": "integer",
+			"type": "number",
 			"default": 10
 		},
 		"step": {
-			"type": "integer",
+			"type": "number",
 			"default": 1
 		},
 		"range": {
