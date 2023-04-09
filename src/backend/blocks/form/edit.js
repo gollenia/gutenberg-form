@@ -58,8 +58,6 @@ const edit = ( props ) => {
 		return result;
 	}, [] );
 
-	console.log( forms );
-
 	return (
 		<>
 			<div { ...blockProps }>
@@ -84,7 +82,7 @@ const edit = ( props ) => {
 				</div>
 
 				<div className="components-placeholder__learn-more">
-					<ExternalLink href="/wp-admin/edit.php?post_type=gbf-form#general"	>
+					<ExternalLink href="/wp-admin/edit.php?post_type=gbf-form#general">
 						{ __( 'Create a new form', 'gutenberg-form' ) }
 					</ExternalLink>
 				</div>
