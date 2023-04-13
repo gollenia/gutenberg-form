@@ -36,11 +36,11 @@ class Mailer {
 		$subject = get_post_meta($this->form->id, '_mail_subject', true) ?? "New Mail from " . get_bloginfo('name') . "";
 		$userMail = $this->get_user_email();
 
-        $adminMailSuccess = wp_mail( $addresses, $subject, $content, ['Content-Type: text/html; charset=UTF-8']);
+        $adminMailSuccess = wp_mail( $addresses, $subject, htmlspecialchars_decode($content), ['Content-Type: text/html; charset=UTF-8']);
 		$userMailSuccess = true;
 		if($send_user_mail && $userMail) {
 			$content = $this->render_template(get_post_meta($this->form->id, '_user_mail_template', true)) ?? "There has been an error with yout mailer template. Please check your settings.";
-			$userMailSuccess = wp_mail( $userMail, get_post_meta($this->form->id, '_user_mail_subject', true), $content, array('Content-Type: text/html; charset=UTF-8'));
+			$userMailSuccess = wp_mail( $userMail, get_post_meta($this->form->id, '_user_mail_subject', true), htmlspecialchars_decode($content), array('Content-Type: text/html; charset=UTF-8'));
 		}
 
 		return $adminMailSuccess && $userMailSuccess;
