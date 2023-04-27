@@ -29,6 +29,8 @@ const TextInput = ( props: TextInputProps ) => {
 	const getPattern = () => {
 		if ( ! pattern ) return;
 		switch ( pattern ) {
+			case 'numbers':
+				return '[0-9\\s]+';
 			case 'letters':
 				return '[a-zA-Z\\u00C0-\\u024F\\s]+';
 			case 'letters-dots-dashes':
