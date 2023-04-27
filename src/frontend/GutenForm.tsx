@@ -55,6 +55,7 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 
 	const handleSubmit = ( event: any ) => {
 		event.preventDefault();
+		if ( status == 'SUBMITTING' || status == 'SUCCESS' ) return;
 		const data = { fields: form, id, page };
 		setStatus( 'SUBMITTING' );
 		fetch( `/wp-json/gbf-form/v2/submit/`, {

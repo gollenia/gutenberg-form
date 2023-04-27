@@ -19,9 +19,11 @@ const SubmitButton = ( props: Props ) => {
 	const buttonClasses = [
 		'button',
 		status == 'LOADED' ? 'button--primary' : '',
-		status == 'SUCCESS' ? 'button--icon button--success' : '',
+		status == 'SUCCESS'
+			? 'button--icon button--success cursor-not-allowed'
+			: '',
 		status == 'SUBMITTING'
-			? 'button--icon button--primary button--icon-animated'
+			? 'button--icon button--primary button--icon-animated cursor-default'
 			: '',
 	].join( ' ' );
 
