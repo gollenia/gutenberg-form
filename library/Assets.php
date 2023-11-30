@@ -29,7 +29,7 @@ class Assets {
 
        	add_action('wp_enqueue_scripts', function() {
 			if(is_admin()) return;
-        	wp_enqueue_script('gbf-frontend', plugin_dir_url(__FILE__) . "../assets/frontend.js", [], false, true);
+        	wp_enqueue_script('gbf-frontend', plugin_dir_url(__FILE__) . "../build/frontend.js", [], false, true);
     	});
 
 		return $instance;
@@ -50,7 +50,7 @@ class Assets {
 	 * @return void
 	 */
     public function register_assets() {
-		$dir = __DIR__ . "/../assets/";
+		$dir = __DIR__ . "/../build/";
 
 		if ( ! file_exists( $dir . "backend.asset.php" ) || ! file_exists( $dir . "frontend.asset.php" ) ) {
 			  throw new \Error(
@@ -62,7 +62,7 @@ class Assets {
 
 		wp_register_script(
 			$this->assets['editor_script'],
-			plugins_url( '../assets/backend.js', __FILE__ ),
+			plugins_url( '../build/backend.js', __FILE__ ),
 			$script_asset['dependencies'],
 			$script_asset['version']
 		);
@@ -70,7 +70,7 @@ class Assets {
 
 		wp_register_style(
 			$this->assets['editor_style'],
-			plugins_url( '../assets/backend.css', __FILE__ ),
+			plugins_url( '../build/backend.css', __FILE__ ),
 			array(),
 			$script_asset['version']
 		);
