@@ -2,19 +2,15 @@
  * WordPress Dependencies
  */
 
-const TerserPlugin = require( 'terser-webpack-plugin' );
-const path = require( 'path' );
-const defaults = require( '@wordpress/scripts/config/webpack.config.js' );
+const TerserPlugin = require('terser-webpack-plugin');
+const path = require('path');
+const defaults = require('@wordpress/scripts/config/webpack.config.js');
 
 module.exports = {
 	...defaults,
 	...{
 		entry: {
-			backend: path.resolve(
-				process.cwd(),
-				'src/backend/',
-				'backend.js'
-			),
+			backend: path.resolve(process.cwd(), 'src/backend/', 'backend.js'),
 			frontend: path.resolve(
 				process.cwd(),
 				'src/frontend/',
@@ -23,7 +19,7 @@ module.exports = {
 		},
 		output: {
 			filename: '[name].js',
-			path: path.resolve( process.cwd(), 'assets' ),
+			path: path.resolve(process.cwd(), 'build'),
 		},
 		module: {
 			...defaults.module,
@@ -47,14 +43,14 @@ module.exports = {
 			extensions: [
 				'.ts',
 				'.tsx',
-				...( defaults.resolve
-					? defaults.resolve.extensions || [ '.js', '.jsx' ]
-					: [] ),
+				...(defaults.resolve
+					? defaults.resolve.extensions || ['.js', '.jsx']
+					: []),
 			],
 		},
 		optimization: {
 			minimizer: [
-				new TerserPlugin( {
+				new TerserPlugin({
 					terserOptions: {
 						output: {
 							comments: /translators:/i,
@@ -64,10 +60,10 @@ module.exports = {
 							drop_console: true,
 						},
 						mangle: {
-							reserved: [ '__', '_n', '_nx', '_x' ],
+							reserved: ['__', '_n', '_nx', '_x'],
 						},
 					},
-				} ),
+				}),
 			],
 		},
 	},
