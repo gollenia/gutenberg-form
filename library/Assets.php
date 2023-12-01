@@ -52,11 +52,7 @@ class Assets {
     public function register_assets() {
 		$dir = __DIR__ . "/../build/";
 
-		if ( ! file_exists( $dir . "backend.asset.php" ) || ! file_exists( $dir . "frontend.asset.php" ) ) {
-			  throw new \Error(
-					  'You need to run `npm start` or `yarn build` for the gutenberg forms first.'
-			 );
-		}
+		if ( ! file_exists( $dir . "backend.asset.php" ) || ! file_exists( $dir . "frontend.asset.php" ) ) return;
 
 		$script_asset = require( $dir . "backend.asset.php" );
 
