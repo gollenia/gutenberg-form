@@ -10,12 +10,8 @@ module.exports = {
 	...defaults,
 	...{
 		entry: {
-			backend: path.resolve(process.cwd(), 'src/backend/', 'backend.js'),
-			frontend: path.resolve(
-				process.cwd(),
-				'src/frontend/',
-				'frontend.tsx'
-			),
+			backend: path.resolve(process.cwd(), 'src/', 'backend.js'),
+			frontend: path.resolve(process.cwd(), 'src/', 'frontend.tsx'),
 		},
 		output: {
 			filename: '[name].js',
