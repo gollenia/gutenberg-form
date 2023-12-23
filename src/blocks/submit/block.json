@@ -1,11 +1,11 @@
 {
 	"name": "gutenberg-form/submit",
 	"apiVersion": 2,
-	"title": "Text Field",
+	"title": "Submut",
 	"description": "Lets the user type a short text",
 	"category": "widgets",
 	"attributes": {
-		"fieldid": {
+		"name": {
 			"type": "string",
 			"default": "submit"
 		},
@@ -20,13 +20,69 @@
 		"label": {
 			"type": "string",
 			"default": ""
+		},
+		"buttonBackgroundColor": {
+			"type": "string",
+			"default": "primary"
+		},
+		"buttonTextColor": {
+			"type": "string",
+			"default": "white"
+		},
+		"customButtonBackgroundColor": {
+			"type": "string",
+			"default": ""
+		},
+		"customButtonTextColor": {
+			"type": "string",
+			"default": ""
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"spacing": {
+					"padding": {
+						"top": "0.6rem",
+						"right": "1rem",
+						"bottom": "0.6rem",
+						"left": "1rem"
+					}
+				}
+			}
 		}
 	},
-	"parent": [ "gutenberg-form/form-container" ],
+	"parent": ["gutenberg-form/form-fields"],
 	"supports": {
 		"html": false,
-		"reusable": false,
 		"multiple": false,
-		"injector": false
-	}
+		"injector": true,
+		"__experimentalBorder": {
+			"color": true,
+			"radius": true,
+			"style": false,
+			"width": false,
+			"__experimentalDefaultControls": {
+				"radius": true,
+				"style": false,
+				"width": true,
+				"linked": false,
+				"color": true
+			}
+		},
+		"spacing": {
+			"padding": true,
+			"margin": true
+		}
+	},
+	"styles": [
+		{
+			"name": "fill",
+			"label": "Fill",
+			"isDefault": true
+		},
+		{
+			"name": "outline",
+			"label": "Outline"
+		}
+	]
 }

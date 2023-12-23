@@ -17,63 +17,59 @@ type Field = {
 
 type Status = 'LOADING' | 'LOADED' | 'ERROR' | 'SUBMITTING' | 'SUCCESS';
 
-type Fields = { [ key: string ]: Field[] };
+type Fields = { [key: string]: Field[] };
 
-const GutenForm: FC< GutenFormProps > = ( props ) => {
+const GutenForm: FC<GutenFormProps> = (props) => {
 	const { id, lang, page } = props;
-	const [ status, setStatus ] = useState< Status >( 'LOADING' );
-	const [ fields, setFields ] = useState< Array< any > >( [] );
-	const [ form, setForm ] = useState< any >( {} );
-	const [ submitButton, setSubmitButton ] = useState< any >( {} );
+	const [status, setStatus] = useState<Status>('LOADING');
+	const [fields, setFields] = useState<Array<any>>([]);
+	const [form, setForm] = useState<any>({});
+	const [submitButton, setSubmitButton] = useState<any>({});
 
-	const formRef = useRef( null );
+	const formRef = useRef(null);
 
-	useEffect( () => {
-		if ( ! id ) return;
-		fetch( `/wp-json/gbf-form/v2/form/${ id }` )
-			.then( ( response ) => response.json() )
-			.then( ( data ) => {
-				setFields( data.fields );
-				setSubmitButton( data.submit );
-				setStatus( 'LOADED' );
+	useEffect(() => {
+		if (!id) return;
+		fetch(`/wp-json/gbf-form/v2/form/${id}`)
+			.then((response) => response.json())
+			.then((data) => {
+				setFields(data.fields);
+				setSubmitButton(data.submit);
+				setStatus('LOADED');
 
 				const fieldTemplate = {};
-				Object.entries( data.fields ).map(
-					( [ key, field ]: [ string, any ] ) => {
-						console.log( field );
-						fieldTemplate[ key ] = field.settings.defaultValue;
+				Object.entries(data.fields).map(
+					([key, field]: [string, any]) => {
+						fieldTemplate[key] = field.settings.defaultValue;
 					}
 				);
 
-				setForm( fieldTemplate );
-			} );
-	}, [] );
+				setForm(fieldTemplate);
+			});
+	}, []);
 
-	if ( fields.length == 0 ) return <></>;
+	if (fields.length == 0) return <></>;
 
-	console.log( fields );
-
-	const handleSubmit = ( event: any ) => {
+	const handleSubmit = (event: any) => {
 		event.preventDefault();
-		if ( status == 'SUBMITTING' || status == 'SUCCESS' ) return;
+		if (status == 'SUBMITTING' || status == 'SUCCESS') return;
 		const data = { fields: form, id, page };
-		setStatus( 'SUBMITTING' );
-		fetch( `/wp-json/gbf-form/v2/submit/`, {
+		setStatus('SUBMITTING');
+		fetch(`/wp-json/gbf-form/v2/submit/`, {
 			method: 'POST',
-			body: JSON.stringify( data ),
+			body: JSON.stringify(form),
 			headers: {
 				'Content-Type': 'application/json',
 			},
-		} )
-			.then( ( response ) => response.json() )
-			.then( ( data ) => {
-				console.log( data );
-				setStatus( data.success ? 'SUCCESS' : 'ERROR' );
-			} );
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				setStatus(data.success ? 'SUCCESS' : 'ERROR');
+			});
 	};
 
-	if ( status == 'LOADING' )
-		return <>{ __( 'Form is beeing loaded', 'gutenberg-form' ) }</>;
+	if (status == 'LOADING')
+		return <>{__('Form is beeing loaded', 'gutenberg-form')}</>;
 
 	const classes = [
 		'form grid xl:grid--columns-6 grid--gap-8',
@@ -81,32 +77,32 @@ const GutenForm: FC< GutenFormProps > = ( props ) => {
 		status == 'ERROR' ? 'form--error' : '',
 		status == 'SUBMITTING' ? 'form--submitting' : '',
 		status == 'SUCCESS' ? 'form--submitted' : '',
-	].join( ' ' );
+	].join(' ');
 	return (
-		<form className={ classes } ref={ formRef } onSubmit={ handleSubmit }>
-			{ Object.entries( fields ).map( ( [ key, field ], index ) => {
+		<form className={classes} ref={formRef} onSubmit={handleSubmit}>
+			{Object.entries(fields).map(([key, field], index) => {
 				return (
 					<InputField
-						disabled={ status == 'SUBMITTING' }
-						lang={ lang }
-						key={ index }
-						type={ field.type }
-						settings={ field.settings }
-						onChange={ ( value ) => {
-							setForm( ( fields: any ) => {
+						disabled={status == 'SUBMITTING'}
+						lang={lang}
+						key={index}
+						type={field.type}
+						settings={field.settings}
+						onChange={(value) => {
+							setForm((fields: any) => {
 								return {
 									...fields,
-									[ key ]: value,
+									[key]: value,
 								};
-							} );
-						} }
+							});
+						}}
 					/>
 				);
-			} ) }
+			})}
 			<SubmitButton
-				{ ...submitButton }
-				status={ status }
-				onClick={ handleSubmit }
+				{...submitButton}
+				status={status}
+				onClick={handleSubmit}
 			/>
 		</form>
 	);

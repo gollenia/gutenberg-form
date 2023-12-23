@@ -15,7 +15,7 @@ import Inspector from './inspector.js';
  * @param {Props} props
  * @return {JSX.Element} Element
  */
-const edit = ( props ) => {
+const edit = (props) => {
 	const {
 		attributes: {
 			width,
@@ -23,7 +23,7 @@ const edit = ( props ) => {
 			multiSelect,
 			pattern,
 			label,
-			fieldid,
+			name,
 			help,
 			placeholder,
 			options,
@@ -33,17 +33,17 @@ const edit = ( props ) => {
 	} = props;
 
 	const validFieldId = () => {
-		const validPattern = new RegExp( '([a-zA-Z0-9_]){3,40}' );
-		return validPattern.test( fieldid );
+		const validPattern = new RegExp('([a-zA-Z0-9_]){3,40}');
+		return validPattern.test(name);
 	};
 
-	const setFieldId = ( value ) => {
+	const setFieldId = (value) => {
 		value = value.toLowerCase();
-		value = value.replace( /\s/g, '_' );
-		setAttributes( { fieldid: value.toLowerCase() } );
+		value = value.replace(/\s/g, '_');
+		setAttributes({ name: value.toLowerCase() });
 	};
 
-	const blockProps = useBlockProps( {
+	const blockProps = useBlockProps({
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
@@ -51,32 +51,32 @@ const edit = ( props ) => {
 				? 'ctx:form-field--error'
 				: '',
 		]
-			.filter( Boolean )
-			.join( ' ' ),
-	} );
+			.filter(Boolean)
+			.join(' '),
+	});
 
 	return (
-		<div { ...blockProps }>
-			<Inspector { ...props } />
+		<div {...blockProps}>
+			<Inspector {...props} />
 			<div className="ctx:form-field__caption">
 				<div className="ctx:form-field__info">
-					<Icon icon={ icon } />
+					<Icon icon={icon} />
 					<div className="ctx:form-field__description">
 						<span>
 							<RichText
 								tagName="span"
 								className="ctx:form-details__label"
-								value={ label }
-								placeholder={ __( 'Label', 'gutenberg-form' ) }
-								onChange={ ( value ) =>
-									setAttributes( { label: value } )
+								value={label}
+								placeholder={__('Label', 'gutenberg-form')}
+								onChange={(value) =>
+									setAttributes({ label: value })
 								}
 							/>
 
-							<span>{ required ? '*' : '' }</span>
+							<span>{required ? '*' : ''}</span>
 						</span>
 						<span className="ctx:form-field__label">
-							{ __( 'Label for the field', 'gutenberg-form' ) }
+							{__('Label for the field', 'gutenberg-form')}
 						</span>
 					</div>
 				</div>
@@ -85,50 +85,49 @@ const edit = ( props ) => {
 					<RichText
 						tagName="p"
 						className="ctx:form-details__label"
-						value={ fieldid }
-						placeholder={ __( 'Slug', 'gutenberg-form' ) }
-						onChange={ ( value ) => setFieldId( value ) }
+						value={name}
+						placeholder={__('Slug', 'gutenberg-form')}
+						onChange={(value) => setFieldId(value)}
 					/>
-					{ validFieldId() == false && (
+					{validFieldId() == false && (
 						<span className="ctx:form-field__error-message">
-							{ __(
+							{__(
 								'Please type in a unique itentifier for the field',
 								'gutenberg-form'
-							) }
+							)}
 						</span>
-					) }
-					{ validFieldId() && (
+					)}
+					{validFieldId() && (
 						<span className="ctx:form-field__label">
-							{ __( 'Unique identifier', 'gutenberg-form' ) }
+							{__('Unique identifier', 'gutenberg-form')}
 						</span>
-					) }
+					)}
 				</div>
 			</div>
 			<div className="ctx:form-field__select">
 				<select
-					multiple={ multiSelect }
-					onChange={ ( event ) => {
-						setAttributes( {
+					multiple={multiSelect}
+					onChange={(event) => {
+						setAttributes({
 							placeholder: event.target.value,
-						} );
-					} }
+						});
+					}}
 				>
-					{ hasEmptyOption && (
-						<option selected={ placeholder === '' }>
-							{ help ??
-								__( 'Make a selection', 'gutenberg-form' ) }
+					{hasEmptyOption && (
+						<option selected={placeholder === ''}>
+							{help ?? __('Make a selection', 'gutenberg-form')}
 						</option>
-					) }
-					{ options.map( ( option, index ) => {
+					)}
+					{options.map((option, index) => {
 						return (
 							<option
-								key={ index }
-								selected={ placeholder === option }
+								key={index}
+								selected={placeholder === option}
 							>
-								{ option }
+								{option}
 							</option>
 						);
-					} ) }
+					})}
 				</select>
 			</div>
 		</div>

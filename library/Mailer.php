@@ -43,7 +43,7 @@ class Mailer {
 			$userMailSuccess = wp_mail( $userMail, get_post_meta($this->form->id, '_user_mail_subject', true), htmlspecialchars_decode($content), array('Content-Type: text/html; charset=UTF-8'));
 		}
 
-		return $adminMailSuccess && $userMailSuccess;
+		return $adminMailSuccess;
     }
 
 	public function get_user_email() {
@@ -53,11 +53,10 @@ class Mailer {
 	}
 
 	public function render_template($template) {
-		$template = str_replace("{page_title}", get_the_title($this->form->id), $template);
-		$template = str_replace("{form_title}", get_the_title($this->form->page_id), $template);
+		$template = str_replace("{page_title}", get_the_title($this->form->page_id), $template);
 		$template = str_replace("{page_url}", get_permalink($this->form->page_id), $template);
 		$template = str_replace("{all_fields}", $this->form->get_formatted_values(), $template);
-
+		$template =	str_replace("{form_name}", get_the_title($this->form->id), $template);
 		preg_replace_callback('/{(.*?)}/', function($matches) use (&$template) {
 			$template = str_replace($matches[0], $this->form->get_formatted_value($matches[1]), $template);
 		}, $template);
@@ -69,8 +68,8 @@ class Mailer {
 		$template .= '<br/><br/>';
 		$template .= '{all_fields}';
 		$template .= '<br/><br/>';
-		$template .= __('The form has been sent from:', 'gutenberg-form');
-		$template .= ' <a href={form_url}>{form_title}</a>';
+		$template .= __('The form has been sent from the {form_name} form:', 'gutenberg-form');
+		$template .= ' <a href={page_url}>{page_title}</a>';
 		return $template;
 	}
 

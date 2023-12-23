@@ -1,42 +1,37 @@
 /**
  * Wordpress dependencies
  */
-import {
-	Inserter,
-	useBlockProps,
-	useInnerBlocksProps,
-} from '@wordpress/block-editor';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { select, useSelect } from '@wordpress/data';
 import { __ } from '@wordpress/i18n';
 
-export default function Edit( { ...props } ) {
-	console.log( props.context );
-	if ( props.context?.postType !== 'gbf-form' ) {
+export default function Edit({ ...props }) {
+	if (props.context?.postType !== 'gbf-form') {
 		return (
 			<div className="gbf-alert">
 				<h3>
-					{ __(
+					{__(
 						'This block is only usable in the forms post type',
 						'gutenberg-form'
-					) }
+					)}
 				</h3>
 				<p>
-					{ __(
+					{__(
 						'If you want to add a form to this page, use the Form block',
 						'gutenberg-form'
-					) }
+					)}
 				</p>
 			</div>
 		);
 	}
 	const { clientId } = props;
-	const blockProps = useBlockProps();
+	const blockProps = useBlockProps({ className: 'ctx:form' });
 
-	const postType = useSelect( select( 'core/editor' ).getCurrentPostType );
-	if ( [ 'gbf-form' ].includes( postType ) ) {
+	const postType = useSelect(select('core/editor').getCurrentPostType);
+	if (['gbf-form'].includes(postType)) {
 		document
-			.getElementsByClassName( 'edit-post-fullscreen-mode-close' )[ 0 ]
-			?.setAttribute( 'href', 'edit.php?post_type=gbf-form' );
+			.getElementsByClassName('edit-post-fullscreen-mode-close')[0]
+			?.setAttribute('href', 'edit.php?post_type=gbf-form');
 	}
 
 	const allowedBlocks = [
@@ -50,58 +45,45 @@ export default function Edit( { ...props } ) {
 		'gutenberg-form/form-checkbox',
 		'gutenberg-form/form-date',
 		'gutenberg-form/form-html',
+		'gutenberg-form/form-hidden',
+		'gutenberg-form/submit',
 	];
 
 	const template = [
 		[
 			'gutenberg-form/form-text',
-			{ fieldid: 'name', label: __( 'Name', 'gutenberg-form' ) },
+			{
+				name: 'prename',
+				width: 6,
+				label: __('Name', 'gutenberg-form'),
+			},
+			[],
+		],
+		[
+			'gutenberg-form/form-text',
+			{
+				name: 'surname',
+				width: 6,
+				label: __('Name', 'gutenberg-form'),
+			},
 			[],
 		],
 		[
 			'gutenberg-form/form-email',
-			{ fieldid: 'email', label: __( 'Email', 'gutenberg-form' ) },
+			{ name: 'email', label: __('Email', 'gutenberg-form') },
 			[],
 		],
 		[
 			'gutenberg-form/form-textarea',
-			{ fieldid: 'message', label: __( 'Message', 'gutenberg-form' ) },
+			{ name: 'message', label: __('Message', 'gutenberg-form') },
 			[],
 		],
 	];
 
-	const innerBlocksProps = useInnerBlocksProps( blockProps, {
+	const innerBlocksProps = useInnerBlocksProps(blockProps, {
 		allowedBlocks,
 		template,
-		renderAppender: false,
-	} );
+	});
 
-	function SectionAppender( { rootClientId } ) {
-		return (
-			<Inserter
-				rootClientId={ rootClientId }
-				renderToggle={ ( { onToggle, disabled } ) => (
-					<a
-						className="components-button is-primary"
-						onClick={ onToggle }
-					>
-						{ __( 'Add Field', 'gutenberg-form' ) }
-					</a>
-				) }
-				isAppender
-			/>
-		);
-	}
-
-	return (
-		<form autocomplete="off" className="ctx:form-form">
-			<div
-				{ ...innerBlocksProps }
-				className="ctx:form-form__container"
-			></div>
-			<div className="ctx:form-form__appender">
-				<SectionAppender rootClientId={ clientId } />
-			</div>
-		</form>
-	);
+	return <form autocomplete="off" {...innerBlocksProps}></form>;
 }

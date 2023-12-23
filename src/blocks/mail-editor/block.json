@@ -1,7 +1,7 @@
 {
 	"name": "gutenberg-form/mail-editor",
 	"apiVersion": 2,
-	"title": "E-Mail Editor",
+	"title": "Response",
 	"description": "Create a mail template for the form which will be sent to the recipient.",
 	"category": "widgets",
 	"attributes": {
@@ -18,8 +18,8 @@
 			"default": true
 		}
 	},
-	"usesContext": [ "gutenberg-form/recordId" ],
-	"parent": [ "gutenberg-form/form-container" ],
+	"usesContext": ["gutenberg-form/recordId"],
+	"parent": ["gutenberg-form/form-container"],
 	"supports": {
 		"html": false,
 		"reusable": false,

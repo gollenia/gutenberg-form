@@ -5,7 +5,7 @@
 	"description": "Lets the user specify a date",
 	"category": "widgets",
 	"attributes": {
-		"fieldid": {
+		"name": {
 			"type": "string",
 			"default": "birthdate"
 		},
@@ -42,5 +42,5 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": ["gutenberg-form/form-fields"]
 }

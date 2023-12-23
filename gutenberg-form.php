@@ -19,6 +19,7 @@ require_once plugin_dir_path( __FILE__ ) . 'library/FormFields.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/FormPost.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Mailer.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Assets.php';
+require_once plugin_dir_path( __FILE__ ) . 'library/ResponseContent.php';
 $assets = Contexis\GutenbergForm\Assets::init();
 
 

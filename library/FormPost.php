@@ -215,17 +215,18 @@ class FormPost {
 		], true );
 	}
 
-	
+	/**
+	 * Get Form data
+	 *
+	 * @param [type] $params
+	 * @return void
+	 */
 	public function get_rest_data($params) {
-
 		$id = $params['id'];
+		$page_id = $params['page_id'];
 		if(!$id) return false;
-
-		
 		$submit = ["label" => get_post_meta($id, '_form_submit_title', true), "alignment" => get_post_meta($id, '_form_submit_align', true)];
-		return ["fields" => FormFields::get_form_data($id, get_the_ID()), "submit" => $submit];
-
-	
+		return ["fields" => array_values(FormFields::get_form_data($id, $page_id)), "submit" => $submit];
 	}
 
 	public function get_mail_template() {

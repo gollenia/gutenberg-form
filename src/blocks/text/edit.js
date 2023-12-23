@@ -16,7 +16,7 @@ import lock from './lockIcon.js';
  * @param {Props} props
  * @return {JSX.Element} Element
  */
-const edit = ( props ) => {
+const edit = (props) => {
 	const {
 		attributes: {
 			width,
@@ -24,28 +24,28 @@ const edit = ( props ) => {
 			pattern,
 			placeholder,
 			label,
-			fieldid,
+			name,
 			help,
 			error,
 		},
 		setAttributes,
 	} = props;
 
-	const lockFieldId = [ 'first_name', 'last_name' ].includes( fieldid );
+	const lockFieldId = ['first_name', 'last_name'].includes(name);
 	const validFieldId = () => {
-		const validPattern = new RegExp( '([a-zA-Z0-9_]){3,40}' );
-		return validPattern.test( fieldid );
+		const validPattern = new RegExp('([a-zA-Z0-9_]){3,40}');
+		return validPattern.test(name);
 	};
 
-	const setFieldId = ( value ) => {
+	const setFieldId = (value) => {
 		value = value.toLowerCase();
-		value = value.replace( /\s/g, '-' );
-		setAttributes( { fieldid: value.toLowerCase() } );
+		value = value.replace(/\s/g, '-');
+		setAttributes({ name: value.toLowerCase() });
 	};
 
 	const getPattern = () => {
-		if ( ! pattern ) return;
-		switch ( pattern ) {
+		if (!pattern) return;
+		switch (pattern) {
 			case 'letters':
 				return '[a-zA-Z\\u00C0-\\u024F\\s]+';
 			case 'letters-dots-dashes':
@@ -57,7 +57,7 @@ const edit = ( props ) => {
 		}
 	};
 
-	const blockProps = useBlockProps( {
+	const blockProps = useBlockProps({
 		className: [
 			'ctx:form-field',
 			'ctx:form-field--' + width,
@@ -65,73 +65,73 @@ const edit = ( props ) => {
 				? 'ctx:form-field--error'
 				: '',
 		]
-			.filter( Boolean )
-			.join( ' ' ),
-	} );
+			.filter(Boolean)
+			.join(' '),
+	});
 
 	return (
-		<div { ...blockProps }>
-			<Inspector { ...props } />
+		<div {...blockProps}>
+			<Inspector {...props} />
 			<div className="ctx:form-field__caption">
 				<div className="ctx:form-field__info">
-					<Icon icon={ icon } />
+					<Icon icon={icon} />
 					<div className="ctx:form-field__description">
 						<span>
 							<RichText
 								tagName="span"
 								className="ctx:form-details__label"
-								value={ label }
-								placeholder={ __( 'Label', 'gutenberg-form' ) }
-								onChange={ ( value ) =>
-									setAttributes( { label: value } )
+								value={label}
+								placeholder={__('Label', 'gutenberg-form')}
+								onChange={(value) =>
+									setAttributes({ label: value })
 								}
 							/>
 
-							<span>{ required ? '*' : '' }</span>
+							<span>{required ? '*' : ''}</span>
 						</span>
 						<span className="ctx:form-field__label">
-							{ __( 'Label for the field', 'gutenberg-form' ) }
+							{__('Label for the field', 'gutenberg-form')}
 						</span>
 					</div>
 				</div>
 				<div className="ctx:form-field__name">
-					{ ! lockFieldId && (
+					{!lockFieldId && (
 						<RichText
 							tagName="p"
 							className="ctx:form-details__label"
-							value={ fieldid }
-							placeholder={ __( 'Slug', 'gutenberg-form' ) }
-							onChange={ ( value ) => setFieldId( value ) }
+							value={name}
+							placeholder={__('Slug', 'gutenberg-form')}
+							onChange={(value) => setFieldId(value)}
 						/>
-					) }
-					{ lockFieldId && (
+					)}
+					{lockFieldId && (
 						<span className="ctx:form-details__label--lock">
-							{ fieldid } <Icon icon={ lock } size={ 14 } />
+							{name} <Icon icon={lock} size={14} />
 						</span>
-					) }
-					{ validFieldId() == false && (
+					)}
+					{validFieldId() == false && (
 						<span className="ctx:form-field__error-message">
-							{ __(
+							{__(
 								'Please type in a unique itentifier for the field',
 								'gutenberg-form'
-							) }
+							)}
 						</span>
-					) }
-					{ validFieldId() && (
+					)}
+					{validFieldId() && (
 						<span className="ctx:form-field__label">
-							{ __( 'Unique identifier', 'gutenberg-form' ) }
+							{__('Unique identifier', 'gutenberg-form')}
 						</span>
-					) }
+					)}
 				</div>
 			</div>
 			<form>
 				<input
 					autocomplete="off"
-					value={ placeholder }
-					pattern={ getPattern() }
+					value={placeholder}
+					pattern={getPattern()}
 					type="text"
-					onChange={ ( event ) =>
-						setAttributes( { placeholder: event.target.value } )
+					onChange={(event) =>
+						setAttributes({ placeholder: event.target.value })
 					}
 				/>
 			</form>

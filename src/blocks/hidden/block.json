@@ -1,0 +1,30 @@
+{
+	"name": "gutenberg-form/hidden",
+	"apiVersion": 2,
+	"title": "Hidden Field",
+	"description": "Add data to the form that is not visible to the user.",
+	"category": "widgets",
+	"attributes": {
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"width": {
+			"type": "integer",
+			"default": 6
+		},
+		"label": {
+			"type": "string",
+			"default": ""
+		},
+		"defaulValue": {
+			"type": "string",
+			"default": ""
+		},
+		"valueType": {
+			"type": "string",
+			"default": ""
+		}
+	},
+	"parent": ["gutenberg-form/form-fields"]
+}

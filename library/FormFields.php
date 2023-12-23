@@ -11,9 +11,10 @@ class FormFields {
 	public int $id = 0;
 	public int $page_id = 0;
 
-	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit'];
 
-	public function __construct($id, $page_id) {
+	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit', 'hidden'];
+
+	public function __construct($id, $page_id = 0) {
 		$this->id = $id;
 		$this->page_id = $page_id;
 		$this->fields = self::get_form_data($id);
@@ -22,12 +23,12 @@ class FormFields {
 	/**
 	 * Load post and get form data from parsed blocks
 	 *
-	 * @param [type] $id
-	 * @return void
+	 * @param int $id The ID of the form post
+	 * @return array Associative array with field data
 	 */
-	public static function get_form_data($id) {
+	public static function get_form_data($id, $page_id=0): array {
 		$form = get_post($id);
-		if(!$form || $form->post_type !== FormPost::POST_TYPE) return false;
+		if(!$form || $form->post_type !== FormPost::POST_TYPE) return [];
 		$blocks = parse_blocks( $form->post_content );
 
 		// extract blocks from form-container
@@ -48,16 +49,33 @@ class FormFields {
 			}
 		}
 		
-		$cleanedBlocks = [];
+	
 		foreach($fieldBlocks as $block) {
 			$type = self::get_field_type($block);
 			if(!in_array($type, self::ALLOWED_FIELDS)) continue;
 			$attrs = array_merge(self::load_block_defaults($type), $block['attrs']);
-			$field = ['type' => $type, 'settings' => $attrs];
-			if($type === 'html') $field['settings']['content'] = render_block($block);
-			$name = self::get_field_name($attrs, $type);
-			$cleanedBlocks[$name] = $field;
+			$field = $attrs;
+			$field['type'] = $type;
+			$field['name'] = self::get_field_name($attrs, $type);
+			if($type === 'html') $field['content'] = render_block($block);
+			
+			$cleanedBlocks[$field['name']] = $field;
+			
 		}
+
+		$cleanedBlocks['id'] = [
+			"type" => "hidden",
+			"label" => "ID",
+			"name" => "id",
+			"defaultValue" => $id,
+		];
+
+		$cleanedBlocks['page_id'] = [
+			"type" => "hidden",
+			"label" => "Page ID",
+			"name" => "page_id",
+			"defaultValue" => $page_id,
+		];
 
 		return $cleanedBlocks;
 	}
@@ -85,24 +103,21 @@ class FormFields {
 	private static function get_field_name($attrs, $type) {
 		if(!$type) return;
 		if($type == "submit") return "submit";
-		if($type == "html") return self::generateId();
+		if($type == "html" || !key_exists('name', $attrs)) return substr(str_shuffle("abcdefghijklmnopqrstuvwxyz"), 0, 7);
 		
-		return $attrs['fieldid'];
+		return $attrs['name'];
 	}
 
 	public function validate($data) {
 		$valid = true;
 		$messages = [];
 		foreach($this->fields as $name => $field) {
-			$this->fields[$name]['value'] = $data[$name];
 			if($field['type'] == "submit") continue;
 			if($field['type'] == "html") continue;
-			$valid = $this->validate_field($field, $data[$name]) && $valid;
-			if(!$valid) {
-				$messages[$name] = $this->get_error_message($field, $data[$name]);
-			}
+			$this->fields[$name]['value'] = $data[$name];
+			$valid = true;
 		}
-		return ["success" => $valid, "errors" => $messages];
+		return ["success" => $valid, $this->fields];
 	}
 
 	/**
@@ -114,8 +129,8 @@ class FormFields {
 	private static function load_block_defaults($type) {
 		$defaults = [];
 		
-		if(!file_exists(__DIR__ . "/../src/backend/blocks/" . $type . "/block.json")) return $defaults;
-		$block_data = json_decode( file_get_contents(__DIR__ . "/../src/backend/blocks/" . $type . "/block.json") );
+		if(!file_exists(__DIR__ . "/../build/blocks/" . $type . "/block.json")) return $defaults;
+		$block_data = json_decode( file_get_contents(__DIR__ . "/../build/blocks/" . $type . "/block.json") );
 		foreach($block_data->attributes as $key => $value) {
 			$defaults[$key] = $value->default;
 		}
@@ -124,43 +139,40 @@ class FormFields {
 
 	private function validate_field($field, $value) {
 		$valid = true;
-		if(!key_exists('type', $field['settings'])) return true;
-		if($field['settings']['required'] && empty($value)) {
+		if(!key_exists('type', $field)) return true;
+		if($field['required'] ?? false && empty($value)) {
 			$valid = false;
 		}
-		if($field['settings']['type'] == "email" && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
+		if($field['type'] == "email" && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
 			$valid = false;
 		}
-		if($field['settings']['type'] == "number" && !is_numeric($value)) {
+		if($field['type'] == "number" && !is_numeric($value)) {
 			$valid = false;
 		}
-		if($field['settings']['type'] == "date" && !strtotime($value)) {
+		if($field['type'] == "date" && !strtotime($value)) {
 			$valid = false;
 		}
-		if($field['settings']['type'] == "checkbox" && !is_array($value)) {
+		if($field['type'] == "checkbox" && !is_array($value)) {
 			$valid = false;
 		}
-		if($field['settings']['type'] == "radio" && !is_string($value)) {
+		if($field['type'] == "radio" && !is_string($value)) {
 			$valid = false;
 		}
 		return $valid;
 	}
 
 	private function get_error_message($field, $value) {
-		if($field['settings']['required'] && empty($value)) {
-			return $field['settings']['requiredMessage'];
-		}
-		if($field['settings']['type'] == "email" && !filter_var($value, FILTER_VALIDATE_EMAIL)) {
-			return $field['settings']['invalidEmailMessage'];
-		}
+		
 	}
 
 	public function get_formatted_values() {
 		$values = "<ul>";;
 		foreach($this->fields as $name => $field) {
 			if($field['type'] == "submit") continue;
+			if($field['type'] == "hidden") continue;
 			if($field['type'] == "html") continue;
-			$values .= "<li><strong>" . $field['settings']['label'] . "</strong>: " . $this->get_formatted_value($name) . "</li>";
+			if($field['name'] == "id") continue;
+			$values .= "<li><strong>" . $field['label'] . "</strong>: " . $this->get_formatted_value($name) . "</li>";
 		}
 		$values .= "</ul>";
 
@@ -170,17 +182,13 @@ class FormFields {
 	public function get_formatted_value($fieldName) {
 		if(!key_exists($fieldName, $this->fields)) return "";
 		$field = $this->fields[$fieldName];
-		return $field['value'];
-	}
-
-	private static function generateId() {
-		$characters = 'abcdefghijklmnopqrstuvwxyz';
-		$charactersLength = strlen($characters);
-		$randomString = '';
-		for ($i = 0; $i < 6; $i++) {
-			$randomString .= $characters[random_int(0, $charactersLength - 1)];
+		if($field['type'] == "email") {
+			return "<a href='mailto:" . $field['value'] . "'>" . $field['value'] . "</a>";
 		}
-		return $randomString;
+		if($field['type'] == "checkbox") {
+			return $field['value'] ? __("Yes") : __("No");
+		}
+		return $field['value'];
 	}
 
 }

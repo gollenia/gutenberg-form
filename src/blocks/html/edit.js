@@ -5,12 +5,12 @@ import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
 import Inspector from './inspector.js';
 
-export default function Edit( { ...props } ) {
+export default function Edit({ ...props }) {
 	const {
 		attributes: { width },
 	} = props;
 
-	const template = [ [ 'core/paragraph' ] ];
+	const template = [['core/paragraph']];
 	const allowedBlocks = [
 		'core/paragraph',
 		'core/heading',
@@ -25,17 +25,17 @@ export default function Edit( { ...props } ) {
 		{ allowedBlocks, template, templateLock: false }
 	);
 
-	const blockProps = useBlockProps( {
-		className: [ 'ctx:form-html', 'ctx:form-html--' + width ]
-			.filter( Boolean )
-			.join( ' ' ),
-	} );
+	const blockProps = useBlockProps({
+		className: ['ctx:form-html', 'ctx:form-html--' + width]
+			.filter(Boolean)
+			.join(' '),
+	});
 
 	return (
-		<div { ...blockProps }>
-			<Inspector { ...props } />
+		<div {...blockProps}>
+			<Inspector {...props} />
 
-			<div { ...innerBlocksProps }></div>
+			<div {...innerBlocksProps}></div>
 		</div>
 	);
 }

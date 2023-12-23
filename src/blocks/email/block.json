@@ -5,7 +5,7 @@
 	"description": "Lets the user type an email address.",
 	"category": "widgets",
 	"attributes": {
-		"fieldid": {
+		"name": {
 			"type": "string",
 			"default": ""
 		},
@@ -30,5 +30,5 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": ["gutenberg-form/form-fields"]
 }

@@ -5,7 +5,7 @@
 	"description": "Lets the user select a country",
 	"category": "widgets",
 	"attributes": {
-		"fieldid": {
+		"name": {
 			"type": "string",
 			"default": "country"
 		},
@@ -38,5 +38,5 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": ["gutenberg-form/form-fields"]
 }

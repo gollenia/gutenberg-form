@@ -32,6 +32,13 @@ class Assets {
         	wp_enqueue_script('gbf-frontend', plugin_dir_url(__FILE__) . "../build/frontend.js", [], false, true);
     	});
 
+		wp_enqueue_style(
+			'gbf-frontend-style',
+			plugins_url( '../build/frontend.css', __FILE__ ),
+			array(),
+			'1.0.0'
+		);
+
 		return $instance;
     }
 

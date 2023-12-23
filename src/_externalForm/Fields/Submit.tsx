@@ -5,22 +5,22 @@ type Props = {
 	disabled: boolean;
 };
 
-const Submit = ( props: Props ) => {
+const Submit = (props: Props) => {
 	const { label, width, alignment, disabled } = props;
 
 	const classes = [
 		'flex',
-		'grid__column--span-' + width,
+		'input--width-' + width,
 		'flex--align-center',
 		alignment == 'right' ? 'flex--justify-end' : '',
-	].join( ' ' );
+	].join(' ');
 	return (
-		<div className={ classes }>
+		<div className={classes}>
 			<input
 				className="button button--primary"
 				type="submit"
-				value={ label }
-				disabled={ disabled }
+				value={label}
+				disabled={disabled}
 			/>
 		</div>
 	);

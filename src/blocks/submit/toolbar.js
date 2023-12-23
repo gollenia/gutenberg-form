@@ -1,15 +1,16 @@
 import { AlignmentToolbar, BlockControls } from '@wordpress/block-editor';
 
-const Toolbar = ( props ) => {
-	const { meta, setMeta } = props;
+const Toolbar = (props) => {
+	const {
+		attributes: { alignment },
+		setAttributes,
+	} = props;
 
 	return (
 		<BlockControls>
 			<AlignmentToolbar
-				value={ meta._form_submit_align }
-				onChange={ ( value ) =>
-					setMeta( { _form_submit_align: value } )
-				}
+				value={alignment}
+				onChange={(value) => setAttributes({ alignment: value })}
 			/>
 		</BlockControls>
 	);

@@ -5,7 +5,7 @@
 	"description": "Lets the user type a phone number.",
 	"category": "widgets",
 	"attributes": {
-		"fieldid": {
+		"name": {
 			"type": "string",
 			"default": "phone"
 		},
@@ -38,5 +38,5 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": ["gutenberg-form/form-fields"]
 }

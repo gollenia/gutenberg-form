@@ -1,4 +1,7 @@
 .ctx\:form-submit {
+}
+
+.ctx\:form-field__submit-wrapper {
 	display: flex;
 	margin-top: 2rem;
 	&--center {
@@ -8,10 +11,9 @@
 	&--right {
 		justify-content: flex-end;
 	}
+}
 
-	&__button {
-		background: var(--wp-admin-theme-color);
-		padding: 8px 15px;
-		color: #fff;
-	}
+.wp-block-gutenberg-form-submit {
+	border-radius: 0 !important;
+	border: 1px solid #909090 !important;
 }
