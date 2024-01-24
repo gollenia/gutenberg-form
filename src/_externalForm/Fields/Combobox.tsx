@@ -6,17 +6,17 @@ export type ComboboxProps = {
 	name: string;
 	required: boolean;
 	width: number;
-	options?: Array<string>;
+	options?: Array< string >;
 	hasEmptyOption?: boolean;
 	help: string;
 	hint: string;
 	disabled: boolean;
 	multiple: boolean;
 	customError: string;
-	onChange: (value: string) => void;
+	onChange: ( value: string ) => void;
 };
 
-const Combobox = (props: ComboboxProps) => {
+const Combobox = ( props: ComboboxProps ) => {
 	const {
 		onChange,
 		options,
@@ -33,45 +33,43 @@ const Combobox = (props: ComboboxProps) => {
 	} = props;
 
 	const classes = [
+		'ctx-form-field',
 		'select',
 		'input--width-' + width,
 		props.required ? 'select--required' : '',
-	].join(' ');
+	].join( ' ' );
 
-	const inputRef = useRef<HTMLSelectElement>(null);
+	const inputRef = useRef< HTMLSelectElement >( null );
 
-	const onChangeHandler = (event: any) => {
-		onChange(event.target.value);
+	const onChangeHandler = ( event: any ) => {
+		onChange( event.target.value );
 	};
 
 	return (
-		<div className={classes}>
-			<label>{label}</label>
+		<div className={ classes }>
+			<label>{ label }</label>
 			<select
-				name={name}
-				required={required}
-				onChange={onChangeHandler}
-				autoComplete={hint}
-				disabled={disabled}
-				multiple={multiple}
-				defaultValue={placeholder}
+				name={ name }
+				required={ required }
+				onChange={ onChangeHandler }
+				autoComplete={ hint }
+				disabled={ disabled }
+				multiple={ multiple }
+				defaultValue={ placeholder }
 			>
-				{hasEmptyOption && (
+				{ hasEmptyOption && (
 					<option value="" disabled>
-						{help ?? 'Make a selection'}
+						{ help ?? 'Make a selection' }
 					</option>
-				)}
-				{options &&
-					options.map((option, index) => {
-						return <option key={index}>{option}</option>;
-					})}
+				) }
+				{ options &&
+					options.map( ( option, index ) => {
+						return <option key={ index }>{ option }</option>;
+					} ) }
 			</select>
-			{!inputRef?.current?.validity.valid &&
-				inputRef.current?.validationMessage && (
-					<span className="input__error">
-						{inputRef.current?.validationMessage}
-					</span>
-				)}
+			{ ! inputRef?.current?.validity.valid && inputRef.current?.validationMessage && (
+				<span className="input__error">{ inputRef.current?.validationMessage }</span>
+			) }
 		</div>
 	);
 };

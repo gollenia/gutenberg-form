@@ -8,51 +8,37 @@ export type TextAreaProps = {
 	width: number;
 	disabled: boolean;
 	rows: number;
-	onChange: (value: string) => void;
+	onChange: ( value: string ) => void;
 };
 
-const TextArea = (props: TextAreaProps) => {
-	const {
-		label,
-		placeholder,
-		name,
-		required,
-		width,
-		rows,
-		disabled,
-		onChange,
-	} = props;
+const TextArea = ( props: TextAreaProps ) => {
+	const { label, placeholder, name, required, width, rows, disabled, onChange } = props;
 
-	const textInputRef = useRef<HTMLTextAreaElement>(null);
+	const textInputRef = useRef< HTMLTextAreaElement >( null );
 
-	const onChangeHandler = (event: any) => {
-		onChange(event.target.value);
+	const onChangeHandler = ( event: any ) => {
+		onChange( event.target.value );
 	};
 
-	const classes = [
-		'textarea',
-		'input--width-' + width,
-		required ? 'input--required' : '',
-	].join(' ');
+	const classes = [ 'ctx-form-field', 'textarea', 'input--width-' + width, required ? 'input--required' : '' ].join(
+		' '
+	);
 
 	return (
-		<div className={classes}>
-			<label>{label}</label>
+		<div className={ classes }>
+			<label>{ label }</label>
 			<textarea
-				name={name}
-				required={required}
-				disabled={disabled}
-				rows={rows}
-				ref={textInputRef}
-				placeholder={placeholder}
-				onChange={onChangeHandler}
+				name={ name }
+				required={ required }
+				disabled={ disabled }
+				rows={ rows }
+				ref={ textInputRef }
+				placeholder={ placeholder }
+				onChange={ onChangeHandler }
 			></textarea>
-			{!textInputRef?.current?.validity.valid &&
-				textInputRef.current?.validationMessage && (
-					<span className="input__error">
-						{textInputRef.current?.validationMessage}
-					</span>
-				)}
+			{ ! textInputRef?.current?.validity.valid && textInputRef.current?.validationMessage && (
+				<span className="input__error">{ textInputRef.current?.validationMessage }</span>
+			) }
 		</div>
 	);
 };

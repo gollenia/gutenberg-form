@@ -1,4 +1,3 @@
-
 export type HTMLBlockProps = {
 	content: string;
 	width: number;
@@ -6,14 +5,9 @@ export type HTMLBlockProps = {
 
 const HTMLBlock = ( props: HTMLBlockProps ) => {
 	const { content, width } = props;
-	const classes = [ 'core-block', 'ctx-form-field-w' + width, ].join( ' ' );
+	const classes = [ 'ctx-form-field', 'core-block', 'ctx-form-field-w' + width ].join( ' ' );
 
-	return (
-		<div
-			className={ classes }
-			dangerouslySetInnerHTML={ { __html: content } }
-		/>
-	);
+	return <div className={ classes } dangerouslySetInnerHTML={ { __html: content } } />;
 };
 
 export default HTMLBlock;

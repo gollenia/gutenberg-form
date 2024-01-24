@@ -41,55 +41,52 @@ type InputProps = {
 	min?: number;
 	max?: number;
 	type: InputFieldTypes;
-	onChange: (value: any) => void;
+	onChange: ( value: any ) => void;
 };
 
-const TextInput = (props: InputProps) => {
-	const [touched, setTouched] = useState(false);
-	const inputRef = useRef<HTMLInputElement>(null);
+const TextInput = ( props: InputProps ) => {
+	const [ touched, setTouched ] = useState( false );
+	const inputRef = useRef< HTMLInputElement >( null );
 
 	const { label, required, width, onChange } = props;
 
-	const onChangeHandler = (event: any) => {
-		onChange(event.target.value);
+	const onChangeHandler = ( event: any ) => {
+		onChange( event.target.value );
 	};
 
-	const setInvalidity = (event: any) => {
-		if (!props.customError) return;
-		event.target.setCustomValidity(props.customError);
+	const setInvalidity = ( event: any ) => {
+		if ( ! props.customError ) return;
+		event.target.setCustomValidity( props.customError );
 	};
 
 	const classes = [
+		'ctx-form-field',
 		'input',
 		'input--width-' + width,
 		required ? 'input--required' : '',
-		!inputRef?.current?.validity.valid && touched ? 'error' : '',
-	].join(' ');
+		! inputRef?.current?.validity.valid && touched ? 'error' : '',
+	].join( ' ' );
 
 	return (
-		<div className={classes}>
-			<label>{label}</label>
+		<div className={ classes }>
+			<label>{ label }</label>
 			<input
-				placeholder={props.placeholder}
-				name={props.name}
-				required={required}
-				onBlur={() => setTouched(true)}
-				type={props.type}
-				autoComplete={props.autoComplete}
-				disabled={props.disabled}
-				pattern={props.pattern ? props.pattern : undefined}
-				defaultValue={props.defaultValue}
-				ref={inputRef}
-				onInvalid={setInvalidity}
-				onChange={onChangeHandler}
+				placeholder={ props.placeholder }
+				name={ props.name }
+				required={ required }
+				onBlur={ () => setTouched( true ) }
+				type={ props.type }
+				autoComplete={ props.autoComplete }
+				disabled={ props.disabled }
+				pattern={ props.pattern ? props.pattern : undefined }
+				defaultValue={ props.defaultValue }
+				ref={ inputRef }
+				onInvalid={ setInvalidity }
+				onChange={ onChangeHandler }
 			/>
-			{!inputRef?.current?.validity.valid &&
-				touched &&
-				inputRef.current?.validationMessage && (
-					<span className="error-message">
-						{inputRef.current?.validationMessage}
-					</span>
-				)}
+			{ ! inputRef?.current?.validity.valid && touched && inputRef.current?.validationMessage && (
+				<span className="error-message">{ inputRef.current?.validationMessage }</span>
+			) }
 		</div>
 	);
 };

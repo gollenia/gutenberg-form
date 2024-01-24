@@ -1,6 +1,7 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/form",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Form",
 	"description": "Add a form as Block to a page.",
 	"category": "widgets",
@@ -10,5 +11,6 @@
 			"default": ""
 		}
 	},
-	"usesContext": [ "postType" ]
+	"usesContext": ["postType"],
+	"render": "file:./render.php"
 }

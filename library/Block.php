@@ -1,109 +1,64 @@
 <?php
 
-namespace Contexis\GutenbergForm;
 
-use Contexis\GutenbergForm\Assets;
 
-interface BlockInterface
-{
-    public function __construct(Assets $assets, array $blocks = []);
-    public function register() : void;
-    public function render($attributes, $content, $full_data);
-    public function get_template($name) : string;
-    public function get_meta($block);
-}
 
-class Block implements BlockInterface {
+function gb_forms_block_init() {
 
-    public array $blocks = [];
+	$dir = __DIR__ . "/../build/";
+	
+	if ( ! file_exists( $dir . "backend.asset.php" ) || ! file_exists( $dir . "frontend.asset.php" ) ) return;
 
-    public $blocks_to_register = [];
+	if(is_admin()) {
 
-    public $args;
+		$script_asset = require( $dir . "backend.asset.php" );
 
-    public function __construct(Assets $assets, array $blocks = []) {
+		wp_enqueue_script(
+			'gbf-form-editor',
+			plugins_url( '../build/backend.js', __FILE__ ),
+			$script_asset['dependencies'],
+			$script_asset['version']
+		);
 
-		if(empty($blocks) && empty($this->blocks)) return;
-		
-		if(!empty($blocks)) $this->blocks = $blocks;
-        
-        foreach($this->blocks as $block) {
-            $meta = array_merge($assets->get(), $this->get_meta($block));
-			
-			$meta['render_callback'] = [$this, "render"];
-            if($meta) {
-                array_push($this->blocks_to_register, $meta); 
-            }
-        }
-    }
+		wp_set_script_translations( 'gbf-form-editor', 'gutenberg-form', plugin_dir_path( __FILE__ ) . '../languages' );
 
-	public static function init(Assets $assets, array $blocks = []) {
-		$instance = new self($assets, $blocks);
-		$instance->register();
+		wp_register_style(
+			'gbf-form-style',
+			plugins_url( '../build/backend.css', __FILE__ ),
+			array(),
+			$script_asset['version']
+		);
 	}
 
-    public function get_meta($block) :array{
-        $filename = plugin_dir_path( __FILE__ ) . "../build/blocks/" . $block . "/block.json";
-        
-        if(!file_exists($filename)) return [];
+	if(!is_admin()) {
 
-        $string = file_get_contents($filename);
-        return json_decode($string, true);
-    }
-
-    public function register() : void {
-        $blocks = $this->blocks_to_register;
-        $args = $this->args;
-        $args['render_callback'] = [$this, "render"];
-        
-        add_action( 'init', function() use(&$blocks, &$args){
-
-            for($i = 0; $i < count($blocks); $i++) {	
-				if(empty($blocks[$i]) || !key_exists('name', $blocks[$i])) continue;		
-                register_block_type(
-                    $blocks[$i]["name"], $blocks[$i]
-                );
-            }
-            
-        });    
-    }
-
+		$script_asset = require( $dir . "frontend.asset.php" );
+        wp_enqueue_script(
+			'gbf-frontend', 
+			plugin_dir_url(__FILE__) . "../build/frontend.js", 
+			$script_asset['dependencies'], 
+			$script_asset['version'],
+			true);
+    	
+		wp_enqueue_style(
+			'gbf-frontend-style',
+			plugins_url( '../build/frontend.css', __FILE__ ),
+			[],
+			$script_asset['version']
+		);
+	}
 	
 
-    public function render($attributes, $content, $full_data) {
-        $template = $this->get_template($full_data->name);
+	$blocks = [
+		'container',
+		'form'
+	];
+	
 
-        if(!$template) return '';
-
-        $attributes['content'] = $content;
-
-        if(count($full_data->parsed_block['innerBlocks']) > 0) {
-            $attributes['children'] = $full_data->parsed_block['innerBlocks'];
-        }
-
-		// implement rendering mechanism here
-		return "<div class='download-block download-block--" . $full_data->name . "id='" . $full_data->name . "'></div>";
-        
-        
-    }
-
-    public function get_template($name) : string {
-        $filename = substr($name, strpos($name, "/")+1) . ".twig";
-		
-
-		if(file_exists(get_stylesheet_directory() . "/plugins/timber-blocks/" . $filename)) {
-            return get_stylesheet_directory() . '/plugins/timber-blocks/' . $filename;
-        }
-
-        if(file_exists(get_template_directory() . "/plugins/timber-blocks/" . $filename)) {
-            return get_template_directory() . '/plugins/timber-blocks/' . $filename;
-        }
-
-        if(file_exists(plugin_dir_path( __FILE__ ) . '../../templates/' . $filename)) {
-            return plugin_dir_path( __FILE__ ) . '../../templates/' . $filename;
-        }
-
-        return false;
-    }
-
+	foreach($blocks as $block) {
+		register_block_type( __DIR__ . '/../build/blocks/'.$block );
+	}
+	
 }
+
+add_action( 'init', 'gb_forms_block_init' );

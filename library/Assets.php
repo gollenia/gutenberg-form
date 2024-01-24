@@ -57,26 +57,7 @@ class Assets {
 	 * @return void
 	 */
     public function register_assets() {
-		$dir = __DIR__ . "/../build/";
-
-		if ( ! file_exists( $dir . "backend.asset.php" ) || ! file_exists( $dir . "frontend.asset.php" ) ) return;
-
-		$script_asset = require( $dir . "backend.asset.php" );
-
-		wp_register_script(
-			$this->assets['editor_script'],
-			plugins_url( '../build/backend.js', __FILE__ ),
-			$script_asset['dependencies'],
-			$script_asset['version']
-		);
-		wp_set_script_translations( $this->assets['editor_script'], 'gutenberg-form', plugin_dir_path( __FILE__ ) . '../languages' );
-
-		wp_register_style(
-			$this->assets['editor_style'],
-			plugins_url( '../build/backend.css', __FILE__ ),
-			array(),
-			$script_asset['version']
-		);
+		
 		
 	}
 
