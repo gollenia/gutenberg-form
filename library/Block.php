@@ -22,7 +22,7 @@ function gb_forms_block_init() {
 
 		wp_set_script_translations( 'gbf-form-editor', 'gutenberg-form', plugin_dir_path( __FILE__ ) . '../languages' );
 
-		wp_register_style(
+		wp_enqueue_style(
 			'gbf-form-style',
 			plugins_url( '../build/backend.css', __FILE__ ),
 			array(),
