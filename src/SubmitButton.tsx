@@ -6,7 +6,7 @@ type Props = {
 	status: string;
 };
 
-const SubmitButton = ( props: Props ) => {
+const SubmitButton = (props: Props) => {
 	const { label, width, alignment, disabled, status } = props;
 
 	const classes = [
@@ -14,7 +14,7 @@ const SubmitButton = ( props: Props ) => {
 		'grid__column--span-' + width,
 		'flex--align-center',
 		alignment == 'right' ? 'flex--justify-end' : '',
-	].join( ' ' );
+	].join(' ');
 
 	const buttonClasses = [
 		'button',
@@ -25,26 +25,30 @@ const SubmitButton = ( props: Props ) => {
 		status == 'SUBMITTING'
 			? 'button--icon button--primary button--icon-animated cursor-default'
 			: '',
-	].join( ' ' );
+	].join(' ');
 
 	const buttonLabel = () => {
-		if ( status == 'LOADED' ) return label;
-		if ( status == 'SUCCESS' )
-			return <i className="material-icons">done</i>;
-		if ( status == 'SUBMITTING' )
-			return <i className="material-icons">mail</i>;
-		if ( status == 'ERROR' )
-			return <i className="material-icons">sentiment_dissatisfied</i>;
+		if (status == 'LOADED') return label;
+		if (status == 'SUCCESS')
+			return (
+				<i className="material-icons material-symbols-outlined">done</i>
+			);
+		if (status == 'SUBMITTING')
+			return (
+				<i className="material-icons material-symbols-outlined">mail</i>
+			);
+		if (status == 'ERROR')
+			return (
+				<i className="material-icons material-symbols-outlined">
+					sentiment_dissatisfied
+				</i>
+			);
 	};
 
 	return (
-		<div className={ classes }>
-			<button
-				className={ buttonClasses }
-				type="submit"
-				disabled={ disabled }
-			>
-				{ buttonLabel() }
+		<div className={classes}>
+			<button className={buttonClasses} type="submit" disabled={disabled}>
+				{buttonLabel()}
 			</button>
 		</div>
 	);

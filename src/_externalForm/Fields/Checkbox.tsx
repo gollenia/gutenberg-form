@@ -15,7 +15,7 @@ type Props = {
 
 const Checkbox = (props: Props) => {
 	const { label, width, onChange, type, value, help } = props;
-
+	console.log('Checkbox', props);
 	const inputRef = useRef<HTMLInputElement>(null);
 
 	const onChangeHandler = (event: any) => {
