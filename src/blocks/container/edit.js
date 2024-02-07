@@ -47,11 +47,11 @@ export default function Edit({ ...props }) {
 
 	const template = [
 		[
-			'gutenberg-form/mail-.editor',
+			'gutenberg-form/mail-editor',
 			{ lock: { remove: true, move: true } },
 			[],
 		],
-		['gutenberg-form/submit', {}, []],
+		['gutenberg-form/fields', {}, []],
 	];
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {

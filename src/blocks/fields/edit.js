@@ -78,6 +78,11 @@ export default function Edit({ ...props }) {
 			{ name: 'message', label: __('Message', 'gutenberg-form') },
 			[],
 		],
+		[
+			'gutenberg-form/submit',
+			{ name: 'submit', label: __('Submit', 'gutenberg-form') },
+			[],
+		],
 	];
 
 	const innerBlocksProps = useInnerBlocksProps(blockProps, {
