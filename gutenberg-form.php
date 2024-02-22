@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Gutenberg Form
  * Description:     Create Forms easily in Gutenberg
- * Version:         1.0.0
+ * Version:         1.1.0
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
