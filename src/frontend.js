@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 
-import Form from './_externalForm';
+import Form from '@contexis/wp-react-form';
 
 const gbf_init = () => {
 	const forms = document.getElementsByClassName('gbf-form');

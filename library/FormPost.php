@@ -59,13 +59,11 @@ class FormPost {
 				['gutenberg-form/form-container', [], [
 					['gutenberg-form/mail-editor', ["lock" => [ "move" => true, "remove" => true ]]],
 					['gutenberg-form/form-fields', ["lock" => [ "move" => true, "remove" => true ]], [
-						['gutenberg-form/text', ["required" => true, "width" => 6, "label" => __('Name', 'gutenberg-form'), "fieldid" => 'name']],
-						['gutenberg-form/email', ["required" => true, "width" => 6, "label" => __('Email', 'gutenberg-form'), "fieldid" => 'email']],
-						['gutenberg-form/textarea', ["required" => true, "width" => 6, "label" => __('Message', 'gutenberg-form'), "fieldid" => 'message']],
-						
-					]],
-					
-					['gutenberg-form/submit', ["lock" => [ "move" => true, "remove" => true ]]]
+						['gutenberg-form/text', ["required" => true, "width" => 6, "label" => __('Name', 'gutenberg-form'), "name" => 'name']],
+						['gutenberg-form/email', ["required" => true, "width" => 6, "label" => __('Email', 'gutenberg-form'), "name" => 'email']],
+						['gutenberg-form/textarea', ["required" => true, "width" => 6, "label" => __('Message', 'gutenberg-form'), "name" => 'message']],
+						['gutenberg-form/submit', ["lock" => [ "move" => true, "remove" => true ], "width" => 6, "label" => __('Submit', 'gutenberg-form')]]
+					]]
 				]	
 			]],
 			'labels' => [
