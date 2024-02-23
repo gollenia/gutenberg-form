@@ -19,7 +19,7 @@ require_once plugin_dir_path( __FILE__ ) . 'library/FormFields.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/FormPost.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Mailer.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/ResponseContent.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/Block.php';
+require_once plugin_dir_path( __FILE__ ) . 'Block.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Field.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Submit.php';
 
