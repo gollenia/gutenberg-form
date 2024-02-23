@@ -3,14 +3,17 @@
 	"apiVersion": 2,
 	"title": "Form Fields Collection",
 	"description": "Basic form container block",
+	"textdomain": "gutenberg-form",
 	"category": "layout",
 	"attributes": {},
-	"usesContext": [ "postType" ],
-	"parent": [ "gutenberg-form/form-container" ],
+	"usesContext": ["postType"],
+	"parent": ["gutenberg-form/form-container"],
 	"supports": {
 		"html": false,
 		"reusable": false,
 		"multiple": false,
 		"injector": false
-	}
+	},
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

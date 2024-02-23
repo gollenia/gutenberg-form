@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Phone Field",
 	"description": "Lets the user type a phone number.",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
@@ -38,5 +39,7 @@
 			"default": ""
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

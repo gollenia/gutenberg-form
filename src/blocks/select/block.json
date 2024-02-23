@@ -4,6 +4,7 @@
 	"title": "Select",
 	"description": "Lets the user select something",
 	"category": "widgets",
+	"textdomain": "gutenberg-form",
 	"attributes": {
 		"name": {
 			"type": "string",
@@ -54,5 +55,7 @@
 			"default": false
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Text Block",
 	"description": "Headline or text block",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"width": {
@@ -14,5 +15,7 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

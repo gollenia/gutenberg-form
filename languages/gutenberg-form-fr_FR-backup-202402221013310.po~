@@ -1,0 +1,104 @@
+# Copyright (C) 2021 Thomas Gollenia
+# This file is distributed under the same license as the gutenberg-form plugin.
+msgid ""
+msgstr ""
+"Project-Id-Version: CTX-Products 0.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
+"Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.4.0\n"
+"X-Domain: gutenberg-form"
+
+#. Plugin Name of the plugin
+msgid "Form"
+msgstr "Former"
+
+msgid "Forms"
+msgstr "Formes"
+
+msgid "Display forms on your blog."
+msgstr "Afficher des formulaires sur votre blog."
+
+msgid "Add new Form"
+msgstr "Ajouter un nouveau formulaire"
+
+msgid "Edit Form"
+msgstr "Modifier le formulaire"
+
+msgid "New Form"
+msgstr "Nouveau formulaire"
+
+msgid "View Form"
+msgstr "Voir le formulaire"
+
+msgid "View Forms"
+msgstr "Voir les formulaires"
+
+msgid "Search Forms"
+msgstr "Rechercher des formulaires"
+
+msgid "No Forms found"
+msgstr "Aucun formulaire trouvé"
+
+msgid "No Forms found in trash"
+msgstr "Aucun formulaire trouvé dans la corbeille"
+
+msgid "All Forms"
+msgstr "Tous les formulaires"
+
+msgid "Form Archives"
+msgstr "Archives de formulaires"
+
+msgid "Form Attributes"
+msgstr "Attributs de formulaire"
+
+msgid "Insert into Form"
+msgstr "Insérer dans le formulaire"
+
+msgid "Recipient"
+msgstr "Destinataire"
+
+msgid "Copy to Admin"
+msgstr "Copie à l'administrateur"
+
+msgid "Yes"
+msgstr "Oui"
+
+msgid "No"
+msgstr "Non"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Message"
+msgstr "Message"
+
+msgid "First Name"
+msgstr "Prénom"
+
+msgid "Last Name"
+msgstr "Nom de famille"
+
+msgid "Send"
+msgstr "Envoyer"
+
+msgid "New form submission on %s"
+msgstr "Nouvelle soumission de formulaire sur %s"
+
+msgid "A new message has been sent from a form on your website."
+msgstr "Un nouveau message a été envoyé depuis un formulaire sur votre site."
+
+msgid "The form has been sent from:"
+msgstr "Le formulaire a été envoyé de:"
+
+msgid "Thank you for your message."
+msgstr "Merci pour votre message."
+
+msgid "You will hear from us as soon as possible."
+msgstr "Vous entendrez parler de nous dès que possible."

@@ -14,7 +14,7 @@ const Inspector = (props) => {
 			width,
 			required,
 			pattern,
-			fieldid,
+
 			label,
 			name,
 			help,
@@ -23,7 +23,7 @@ const Inspector = (props) => {
 		setAttributes,
 	} = props;
 
-	const lockFieldId = ['first_name', 'last_name'].includes(fieldid);
+	const lockFieldId = ['first_name', 'last_name'].includes(name);
 
 	return (
 		<InspectorControls>

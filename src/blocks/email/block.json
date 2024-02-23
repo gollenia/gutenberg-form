@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Email Field",
 	"description": "Lets the user type an email address.",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
@@ -30,5 +31,7 @@
 			"default": ""
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

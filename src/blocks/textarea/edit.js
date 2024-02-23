@@ -14,7 +14,7 @@ import Inspector from './inspector.js';
  * @param {Props} props
  * @return {JSX.Element} Element
  */
-const edit = ( props ) => {
+const edit = (props) => {
 	const {
 		attributes: {
 			width,
@@ -22,7 +22,7 @@ const edit = ( props ) => {
 			pattern,
 			placeholder,
 			label,
-			fieldid,
+			name,
 			rows,
 			help,
 			error,
@@ -31,49 +31,49 @@ const edit = ( props ) => {
 	} = props;
 
 	const validFieldId = () => {
-		const validPattern = new RegExp( '([a-zA-Z0-9_]){3,40}' );
-		return validPattern.test( fieldid );
+		const validPattern = new RegExp('([a-zA-Z0-9_]){3,40}');
+		return validPattern.test(name);
 	};
 
-	const setFieldId = ( value ) => {
+	const setFieldId = (value) => {
 		value = value.toLowerCase();
-		value = value.replace( /\s/g, '-' );
-		setAttributes( { fieldid: value.toLowerCase() } );
+		value = value.replace(/\s/g, '-');
+		setAttributes({ name: value.toLowerCase() });
 	};
 
-	const blockProps = useBlockProps( {
+	const blockProps = useBlockProps({
 		className: [
 			'ctx:form-field',
 			validFieldId() == false || label === ''
 				? 'ctx:form-field--error'
 				: '',
 		]
-			.filter( Boolean )
-			.join( ' ' ),
-	} );
+			.filter(Boolean)
+			.join(' '),
+	});
 
 	return (
-		<div { ...blockProps }>
-			<Inspector { ...props } />
+		<div {...blockProps}>
+			<Inspector {...props} />
 			<div className="ctx:form-field__caption">
 				<div className="ctx:form-field__info">
-					<Icon icon={ icon } />
+					<Icon icon={icon} />
 					<div className="ctx:form-field__description">
 						<span>
 							<RichText
 								tagName="span"
 								className="ctx:form-details__label"
-								value={ label }
-								placeholder={ __( 'Label', 'gutenberg-form' ) }
-								onChange={ ( value ) =>
-									setAttributes( { label: value } )
+								value={label}
+								placeholder={__('Label', 'gutenberg-form')}
+								onChange={(value) =>
+									setAttributes({ label: value })
 								}
 							/>
 
-							<span>{ required ? '*' : '' }</span>
+							<span>{required ? '*' : ''}</span>
 						</span>
 						<span className="ctx:form-field__label">
-							{ __( 'Label for the field', 'gutenberg-form' ) }
+							{__('Label for the field', 'gutenberg-form')}
 						</span>
 					</div>
 				</div>
@@ -82,35 +82,35 @@ const edit = ( props ) => {
 					<RichText
 						tagName="p"
 						className="ctx:form-details__label"
-						value={ fieldid }
-						placeholder={ __( 'Slug', 'ctx-blocks' ) }
-						onChange={ ( value ) => setFieldId( value ) }
+						value={name}
+						placeholder={__('Slug', 'ctx-blocks')}
+						onChange={(value) => setFieldId(value)}
 					/>
-					{ validFieldId() == false && (
+					{validFieldId() == false && (
 						<span className="ctx:form-field__error-message">
-							{ __(
+							{__(
 								'Please type in a unique itentifier for the field',
 								'gutenberg-form'
-							) }
+							)}
 						</span>
-					) }
-					{ validFieldId() && (
+					)}
+					{validFieldId() && (
 						<span className="ctx:form-field__label">
-							{ __( 'Unique identifier', 'gutenberg-form' ) }
+							{__('Unique identifier', 'gutenberg-form')}
 						</span>
-					) }
+					)}
 				</div>
 			</div>
 
 			<textarea
-				rows={ rows }
+				rows={rows}
 				autocomplete="off"
 				type="text"
-				onChange={ ( event ) =>
-					setAttributes( { placeholder: event.target.value } )
+				onChange={(event) =>
+					setAttributes({ placeholder: event.target.value })
 				}
 			>
-				{ placeholder }
+				{placeholder}
 			</textarea>
 		</div>
 	);

@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Form",
 	"description": "Add a form as Block to a page.",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"formPost": {
@@ -12,5 +13,7 @@
 		}
 	},
 	"usesContext": ["postType"],
-	"render": "file:./render.php"
+	"render": "file:./render.php",
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

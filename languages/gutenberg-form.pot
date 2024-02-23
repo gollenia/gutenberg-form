@@ -1,0 +1,706 @@
+# Copyright (C) 2024 Thomas Gollenia
+# This file is distributed under the GPL-2.0-or-later.
+msgid ""
+msgstr ""
+"Project-Id-Version: Gutenberg Form 1.1.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gbf-form-editor\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-02-22T14:55:52+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.9.0\n"
+"X-Domain: gutenberg-form\n"
+
+#. Plugin Name of the plugin
+msgid "Gutenberg Form"
+msgstr ""
+
+#. Description of the plugin
+msgid "Create Forms easily in Gutenberg"
+msgstr ""
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr ""
+
+#: library/FormPost.php:49
+#: library/FormPost.php:70
+msgid "Forms"
+msgstr ""
+
+#: library/FormPost.php:57
+msgid "Display forms on your blog."
+msgstr ""
+
+#: library/FormPost.php:62
+#: build/index.js:1
+msgid "Name"
+msgstr ""
+
+#: library/FormPost.php:63
+#: build/index.js:1
+msgid "Email"
+msgstr ""
+
+#: library/FormPost.php:64
+#: build/index.js:1
+msgid "Message"
+msgstr ""
+
+#: library/FormPost.php:65
+#: build/index.js:1
+msgid "Submit"
+msgstr ""
+
+#: library/FormPost.php:71
+msgid "Form"
+msgstr ""
+
+#: library/FormPost.php:72
+#: library/FormPost.php:73
+msgid "Add new Form"
+msgstr ""
+
+#: library/FormPost.php:74
+msgid "Edit Form"
+msgstr ""
+
+#: library/FormPost.php:75
+msgid "New Form"
+msgstr ""
+
+#: library/FormPost.php:76
+msgid "View Form"
+msgstr ""
+
+#: library/FormPost.php:77
+msgid "View Forms"
+msgstr ""
+
+#: library/FormPost.php:78
+msgid "Search Forms"
+msgstr ""
+
+#: library/FormPost.php:79
+msgid "No Forms found"
+msgstr ""
+
+#: library/FormPost.php:80
+msgid "No Forms found in trash"
+msgstr ""
+
+#: library/FormPost.php:81
+msgid "All Forms"
+msgstr ""
+
+#: library/FormPost.php:82
+msgid "Form Archives"
+msgstr ""
+
+#: library/FormPost.php:83
+msgid "Form Attributes"
+msgstr ""
+
+#: library/FormPost.php:84
+msgid "Insert into Form"
+msgstr ""
+
+#: library/FormPost.php:85
+msgid "Filter Forms list"
+msgstr ""
+
+#: library/FormPost.php:86
+msgid "Forms list navigation"
+msgstr ""
+
+#: library/FormPost.php:87
+msgid "Forms list"
+msgstr ""
+
+#: library/FormPost.php:88
+msgid "Form published"
+msgstr ""
+
+#: library/FormPost.php:89
+msgid "Form published privately"
+msgstr ""
+
+#: library/FormPost.php:90
+msgid "Form reverted to draft"
+msgstr ""
+
+#: library/FormPost.php:108
+#: build/index.js:1
+msgid "Recipient"
+msgstr ""
+
+#: library/FormPost.php:109
+msgid "Copy to Admin"
+msgstr ""
+
+#: library/FormPost.php:138
+msgid "Yes"
+msgstr ""
+
+#: library/FormPost.php:140
+msgid "No"
+msgstr ""
+
+#: library/FormPost.php:153
+msgid "New form submission on %s"
+msgstr ""
+
+#: library/FormPost.php:154
+msgid "Your form submission on %s"
+msgstr ""
+
+#: library/FormPost.php:158
+msgid "Send"
+msgstr ""
+
+#: library/FormPost.php:231
+msgid "You have received a new message from your website contact form. These are the values the user filled out:<br/><br/>{full_data}"
+msgstr ""
+
+#: library/Mailer.php:67
+msgid "A new message has been sent from a form on your website."
+msgstr ""
+
+#: library/Mailer.php:71
+msgid "The form has been sent from the {form_name} form:"
+msgstr ""
+
+#: library/Mailer.php:77
+msgid "Thank you for your message."
+msgstr ""
+
+#: library/Mailer.php:81
+msgid "You will hear from us as soon as possible"
+msgstr ""
+
+#: build/index.js:1
+msgid "Data"
+msgstr ""
+
+#: build/index.js:1
+msgid "Required"
+msgstr ""
+
+#: build/index.js:1
+msgid "Appearance"
+msgstr ""
+
+#: build/index.js:1
+msgid "Style"
+msgstr ""
+
+#: build/index.js:1
+msgid "Box"
+msgstr ""
+
+#: build/index.js:1
+msgid "Toggle"
+msgstr ""
+
+#: build/index.js:1
+msgid "Label"
+msgstr ""
+
+#: build/index.js:1
+msgid "Label (for emails)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Slug"
+msgstr ""
+
+#: build/index.js:1
+msgid "Please type in a unique itentifier for the field"
+msgstr ""
+
+#: build/index.js:1
+msgid "Unique identifier"
+msgstr ""
+
+#: build/index.js:1
+msgid "What should your visitor say \"yes\" to?"
+msgstr ""
+
+#: build/index.js:1
+msgid "This block is only usable in the forms post type"
+msgstr ""
+
+#: build/index.js:1
+msgid "If you want to add a form to this page, use the Form block"
+msgstr ""
+
+#: build/index.js:1
+msgid "Region"
+msgstr ""
+
+#: build/index.js:1
+msgid "Empty option"
+msgstr ""
+
+#: build/index.js:1
+msgid "Text to display when no country is selected"
+msgstr ""
+
+#: build/index.js:1
+msgid "Width"
+msgstr ""
+
+#: build/index.js:1
+msgid "Number of columns the input field will occupy"
+msgstr ""
+
+#: build/index.js:1
+msgid "Label for the field"
+msgstr ""
+
+#: build/index.js:1
+msgid "Help"
+msgstr ""
+
+#: build/index.js:1
+msgid "Treat as birthday"
+msgstr ""
+
+#: build/index.js:1
+msgid "Lowest Date"
+msgstr ""
+
+#: build/index.js:1
+msgid "e.g. maximal age for an attendee"
+msgstr ""
+
+#: build/index.js:1
+msgid "Highest Date"
+msgstr ""
+
+#: build/index.js:1
+msgid "e.g. minimal age for an attendee"
+msgstr ""
+
+#: build/index.js:1
+msgid "Date calculator"
+msgstr ""
+
+#: build/index.js:1
+msgid "Reference Date"
+msgstr ""
+
+#: build/index.js:1
+msgid "at best"
+msgstr ""
+
+#: build/index.js:1
+msgid "at least"
+msgstr ""
+
+#: build/index.js:1
+msgid "from"
+msgstr ""
+
+#: build/index.js:1
+msgid "to"
+msgstr ""
+
+#: build/index.js:1
+msgid "Please type in a unique identifier for the field"
+msgstr ""
+
+#: build/index.js:1
+msgid "No forms found"
+msgstr ""
+
+#: build/index.js:1
+msgid "No form selected"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select a form"
+msgstr ""
+
+#: build/index.js:1
+msgid "Create a new form"
+msgstr ""
+
+#: build/index.js:1
+msgid "Pattern"
+msgstr ""
+
+#: build/index.js:1
+msgid "Help text for the input field"
+msgstr ""
+
+#: build/index.js:1
+msgid "Page ID"
+msgstr ""
+
+#: build/index.js:1
+msgid "Browser hint"
+msgstr ""
+
+#: build/index.js:1
+msgid "Give a hint for the browser's autocomplete"
+msgstr ""
+
+#: build/index.js:1
+msgid "None"
+msgstr ""
+
+#: build/index.js:1
+msgid "Disable Autocomplete"
+msgstr ""
+
+#: build/index.js:1
+msgid "Error message"
+msgstr ""
+
+#: build/index.js:1
+msgid "Text to display when the user types in invalid or insufficient data"
+msgstr ""
+
+#: build/index.js:1
+msgid "Select Type"
+msgstr ""
+
+#: build/index.js:1
+msgid "Security Token"
+msgstr ""
+
+#: build/index.js:1
+msgid "User (if logged in)"
+msgstr ""
+
+#: build/index.js:1
+msgid "Custom Value"
+msgstr ""
+
+#: build/index.js:1
+msgid "Value Type"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show the page where the form is submitted from"
+msgstr ""
+
+#: build/index.js:1
+msgid "Add a security token to prevent spam"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show the user id of the user who submitted the form"
+msgstr ""
+
+#: build/index.js:1
+msgid "Admin Mail"
+msgstr ""
+
+#: build/index.js:1
+msgid "Subject"
+msgstr ""
+
+#: build/index.js:1
+msgid "Send a copy to the site admin"
+msgstr ""
+
+#: build/index.js:1
+msgid "Mail Content"
+msgstr ""
+
+#: build/index.js:1
+msgid "Save"
+msgstr ""
+
+#: build/index.js:1
+msgid "User Mail"
+msgstr ""
+
+#: build/index.js:1
+msgid "Send mail to website visitor"
+msgstr ""
+
+#: build/index.js:1
+msgid "Thank you"
+msgstr ""
+
+#: build/index.js:1
+msgid "Your message has been sent"
+msgstr ""
+
+#: build/index.js:1
+msgid "All fields"
+msgstr ""
+
+#: build/index.js:1
+msgid "Form title"
+msgstr ""
+
+#: build/index.js:1
+msgid "Page title"
+msgstr ""
+
+#: build/index.js:1
+msgid "Page URL"
+msgstr ""
+
+#: build/index.js:1
+msgid "Feedback"
+msgstr ""
+
+#: build/index.js:1
+msgid "Minimum value"
+msgstr ""
+
+#: build/index.js:1
+msgid "Maximum value"
+msgstr ""
+
+#: build/index.js:1
+msgid "Step"
+msgstr ""
+
+#: build/index.js:1
+msgid "Input"
+msgstr ""
+
+#: build/index.js:1
+msgid "Range"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show labels"
+msgstr ""
+
+#: build/index.js:1
+msgid "Show ticks"
+msgstr ""
+
+#: build/index.js:1
+msgid "Options"
+msgstr ""
+
+#: build/index.js:1
+msgid "Options for the radio control. Each line represents one option"
+msgstr ""
+
+#: build/index.js:1
+msgid "An empty option ist shown and selected as default"
+msgstr ""
+
+#: build/index.js:1
+msgid "Options for the select control. Each line represents one option"
+msgstr ""
+
+#: build/index.js:1
+msgid "Multi select"
+msgstr ""
+
+#: build/index.js:1
+msgid "Make a selection"
+msgstr ""
+
+#: build/index.js:1
+msgid "Submit button"
+msgstr ""
+
+#: build/index.js:1
+msgid "Allow all characters"
+msgstr ""
+
+#: build/index.js:1
+msgid "Letters only"
+msgstr ""
+
+#: build/index.js:1
+msgid "Letters, dots and dashes"
+msgstr ""
+
+#: build/index.js:1
+msgid "Alphanumeric"
+msgstr ""
+
+#: build/index.js:1
+msgid "Alphanumeric with dots and dashes"
+msgstr ""
+
+#: build/index.js:1
+msgid "Height"
+msgstr ""
+
+#: build/index.js:1
+msgid "Number of text rows"
+msgstr ""
+
+#: build/blocks/checkbox/block.json
+msgctxt "block title"
+msgid "Checkbox"
+msgstr ""
+
+#: build/blocks/checkbox/block.json
+#: build/blocks/radio/block.json
+msgctxt "block description"
+msgid "Lets the user check something"
+msgstr ""
+
+#: build/blocks/container/block.json
+msgctxt "block title"
+msgid "Form Container"
+msgstr ""
+
+#: build/blocks/container/block.json
+#: build/blocks/fields/block.json
+msgctxt "block description"
+msgid "Basic form container block"
+msgstr ""
+
+#: build/blocks/country/block.json
+msgctxt "block title"
+msgid "Country"
+msgstr ""
+
+#: build/blocks/country/block.json
+msgctxt "block description"
+msgid "Lets the user select a country"
+msgstr ""
+
+#: build/blocks/date/block.json
+msgctxt "block title"
+msgid "Date Field"
+msgstr ""
+
+#: build/blocks/date/block.json
+msgctxt "block description"
+msgid "Lets the user specify a date"
+msgstr ""
+
+#: build/blocks/email/block.json
+msgctxt "block title"
+msgid "Email Field"
+msgstr ""
+
+#: build/blocks/email/block.json
+msgctxt "block description"
+msgid "Lets the user type an email address."
+msgstr ""
+
+#: build/blocks/fields/block.json
+msgctxt "block title"
+msgid "Form Fields Collection"
+msgstr ""
+
+#: build/blocks/form/block.json
+msgctxt "block title"
+msgid "Form"
+msgstr ""
+
+#: build/blocks/form/block.json
+msgctxt "block description"
+msgid "Add a form as Block to a page."
+msgstr ""
+
+#: build/blocks/hidden/block.json
+msgctxt "block title"
+msgid "Hidden Field"
+msgstr ""
+
+#: build/blocks/hidden/block.json
+msgctxt "block description"
+msgid "Add data to the form that is not visible to the user."
+msgstr ""
+
+#: build/blocks/html/block.json
+msgctxt "block title"
+msgid "Text Block"
+msgstr ""
+
+#: build/blocks/html/block.json
+msgctxt "block description"
+msgid "Headline or text block"
+msgstr ""
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block title"
+msgid "Response"
+msgstr ""
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block description"
+msgid "Create a mail template for the form which will be sent to the recipient."
+msgstr ""
+
+#: build/blocks/number/block.json
+msgctxt "block title"
+msgid "Number Field"
+msgstr ""
+
+#: build/blocks/number/block.json
+msgctxt "block description"
+msgid "Lets the user give a number or a range of numbers"
+msgstr ""
+
+#: build/blocks/radio/block.json
+msgctxt "block title"
+msgid "Radio Select"
+msgstr ""
+
+#: build/blocks/select/block.json
+msgctxt "block title"
+msgid "Select"
+msgstr ""
+
+#: build/blocks/select/block.json
+msgctxt "block description"
+msgid "Lets the user select something"
+msgstr ""
+
+#: build/blocks/submit/block.json
+msgctxt "block title"
+msgid "Submit"
+msgstr ""
+
+#: build/blocks/submit/block.json
+#: build/blocks/text/block.json
+msgctxt "block description"
+msgid "Lets the user type a short text"
+msgstr ""
+
+#: build/blocks/submit/block.json
+msgctxt "block style label"
+msgid "Fill"
+msgstr ""
+
+#: build/blocks/submit/block.json
+msgctxt "block style label"
+msgid "Outline"
+msgstr ""
+
+#: build/blocks/tel/block.json
+msgctxt "block title"
+msgid "Phone Field"
+msgstr ""
+
+#: build/blocks/tel/block.json
+msgctxt "block description"
+msgid "Lets the user type a phone number."
+msgstr ""
+
+#: build/blocks/text/block.json
+msgctxt "block title"
+msgid "Text Field"
+msgstr ""
+
+#: build/blocks/textarea/block.json
+msgctxt "block title"
+msgid "Text Area"
+msgstr ""
+
+#: build/blocks/textarea/block.json
+msgctxt "block description"
+msgid "Lets the user type a longer text"
+msgstr ""

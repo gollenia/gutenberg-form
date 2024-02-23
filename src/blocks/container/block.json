@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Form Container",
 	"description": "Basic form container block",
+	"textdomain": "gutenberg-form",
 	"category": "layout",
 	"attributes": {
 		"recordId": {
@@ -10,7 +11,7 @@
 			"default": ""
 		}
 	},
-	"usesContext": [ "postType" ],
+	"usesContext": ["postType"],
 	"providesContext": {
 		"gutenberg-form/recordId": "recordId"
 	},
@@ -19,5 +20,7 @@
 		"reusable": false,
 		"multiple": false,
 		"injector": false
-	}
+	},
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

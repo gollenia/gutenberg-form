@@ -5,100 +5,787 @@ msgstr ""
 "Project-Id-Version: CTX-Products 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
 "Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language-Team: Deutsch\n"
 "Language: de_DE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: gutenberg-form"
+"PO-Revision-Date: 2024-02-22 10:13+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: gutenberg-form\n"
+"Plural-Forms: nplurals=2; plural=n != 1;"
 
-#. Plugin Name of the plugin
-msgid "Form"
-msgstr "Formular"
+#: library/Mailer.php:67
+msgid "A new message has been sent from a form on your website."
+msgstr ""
+"Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet."
 
-msgid "Forms"
-msgstr "Formulare"
+#: build/backend.js:1863 build/backend.js:1637
+msgid "Add a security token to prevent spam"
+msgstr "Sicherheitstoken hinzufügen, um Spam zu verhindern"
 
-msgid "Display forms on your blog."
-msgstr "Formulare auf deinem Blog anzeigen."
-
+#: library/FormPost.php:72 library/FormPost.php:73
 msgid "Add new Form"
 msgstr "Neues Formular hinzufügen"
 
-msgid "Edit Form"
-msgstr "Formular bearbeiten"
+#: build/backend.js:2302 build/backend.js:2490 build/backend.js:1950
+#: build/backend.js:2193
+msgid "Admin Mail"
+msgstr "Admin-Mail"
 
-msgid "New Form"
-msgstr "Neues Formular"
+#: build/backend.js:2437 build/backend.js:2127
+msgid "All fields"
+msgstr "Alle Felder"
 
-msgid "View Form"
-msgstr "Formular ansehen"
-
-msgid "View Forms"
-msgstr "Formulare ansehen"
-
-msgid "Search Forms"
-msgstr "Formulare suchen"
-
-msgid "No Forms found"
-msgstr "Keine Formulare gefunden"
-
-msgid "No Forms found in trash"
-msgstr "Keine Formulare im Papierkorb gefunden"
-
+#: library/FormPost.php:81
 msgid "All Forms"
 msgstr "Alle Formulare"
 
-msgid "Form Archives"
-msgstr "Formulararchive"
+#: build/backend.js:4368 build/backend.js:3845
+msgid "Allow all characters"
+msgstr "Alle Zeichen erlauben"
 
-msgid "Form Attributes"
-msgstr "Formularattribute"
+#: build/backend.js:4377 build/backend.js:3860
+msgid "Alphanumeric"
+msgstr "Alphanumerisch"
 
-msgid "Insert into Form"
-msgstr "In Formular einfügen"
+#: build/backend.js:4380 build/backend.js:3864
+msgid "Alphanumeric with dots and dashes"
+msgstr "Alphanumerisch mit Punkten und Bindestrichen"
 
-msgid "Recipient"
-msgstr "Empfänger"
+#: build/backend.js:3553 build/backend.js:3130
+msgid "An empty option ist shown and selected as default"
+msgstr "Eine leere Option wird angezeigt und als Standard ausgewählt"
 
+#: build/backend.js:327 build/backend.js:781 build/backend.js:1113
+#: build/backend.js:1361 build/backend.js:2053 build/backend.js:2249
+#: build/backend.js:3006 build/backend.js:3573 build/backend.js:4101
+#: build/backend.js:4448 build/backend.js:4721 build/backend.js:284
+#: build/backend.js:674 build/backend.js:992 build/backend.js:1199
+#: build/backend.js:1792 build/backend.js:1902 build/backend.js:2665
+#: build/backend.js:3162 build/backend.js:3617 build/backend.js:3920
+#: build/backend.js:4143
+msgid "Appearance"
+msgstr "Aussehen"
+
+#: build/backend.js:1059 build/backend.js:915
+msgid "at best"
+msgstr "maximal"
+
+#: build/backend.js:1062 build/backend.js:920
+msgid "at least"
+msgstr "mindestens"
+
+#: build/blocks/form/block.json
+msgctxt "block description"
+msgid "Add a form as Block to a page."
+msgstr "Formular als Block zu einer Seite hinzufügen."
+
+#: build/blocks/hidden/block.json
+msgctxt "block description"
+msgid "Add data to the form that is not visible to the user."
+msgstr "Daten zum Formular hinzufügen, die für den Benutzer nicht sichtbar sind."
+
+#: build/blocks/container/block.json build/blocks/fields/block.json
+msgctxt "block description"
+msgid "Basic form container block"
+msgstr "Grundlegender Formular-Container-Block"
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block description"
+msgid ""
+"Create a mail template for the form which will be sent to the recipient."
+msgstr "E-Mail-Vorlage für das Formular erstellen, die an den Empfänger gesendet wird."
+
+#: build/blocks/html/block.json
+msgctxt "block description"
+msgid "Headline or text block"
+msgstr "Überschriften- oder Textblock"
+
+#: build/blocks/checkbox/block.json build/blocks/radio/block.json
+msgctxt "block description"
+msgid "Lets the user check something"
+msgstr "Ermöglicht dem Benutzer, etwas anzukreuzen"
+
+#: build/blocks/number/block.json
+msgctxt "block description"
+msgid "Lets the user give a number or a range of numbers"
+msgstr "Ermöglicht dem Benutzer, eine Zahl oder einen Zahlenbereich anzugeben"
+
+#: build/blocks/country/block.json
+msgctxt "block description"
+msgid "Lets the user select a country"
+msgstr "Ermöglicht dem Benutzer, ein Land auszuwählen"
+
+#: build/blocks/select/block.json
+msgctxt "block description"
+msgid "Lets the user select something"
+msgstr "Ermöglicht dem Benutzer, etwas auszuwählen"
+
+#: build/blocks/date/block.json
+msgctxt "block description"
+msgid "Lets the user specify a date"
+msgstr "Ermöglicht dem Benutzer, ein Datum anzugeben"
+
+#: build/blocks/textarea/block.json
+msgctxt "block description"
+msgid "Lets the user type a longer text"
+msgstr "Ermöglicht dem Benutzer, einen längeren Text einzugeben"
+
+#: build/blocks/tel/block.json
+msgctxt "block description"
+msgid "Lets the user type a phone number."
+msgstr "Ermöglicht dem Benutzer, eine Telefonnummer einzugeben."
+
+#: build/blocks/submit/block.json build/blocks/text/block.json
+msgctxt "block description"
+msgid "Lets the user type a short text"
+msgstr "Ermöglicht dem Benutzer, einen kurzen Text einzugeben"
+
+#: build/blocks/email/block.json
+msgctxt "block description"
+msgid "Lets the user type an email address."
+msgstr "Ermöglicht dem Benutzer, eine E-Mail-Adresse einzugeben."
+
+#: build/blocks/submit/block.json
+msgctxt "block style label"
+msgid "Fill"
+msgstr "Ausfüllen"
+
+#: build/blocks/submit/block.json
+msgctxt "block style label"
+msgid "Outline"
+msgstr "Umriss"
+
+#: build/blocks/checkbox/block.json
+msgctxt "block title"
+msgid "Checkbox"
+msgstr "Checkbox"
+
+#: build/blocks/country/block.json
+msgctxt "block title"
+msgid "Country"
+msgstr "Land"
+
+#: build/blocks/date/block.json
+msgctxt "block title"
+msgid "Date Field"
+msgstr "Datumsfeld"
+
+#: build/blocks/email/block.json
+msgctxt "block title"
+msgid "Email Field"
+msgstr "E-Mail-Feld"
+
+#: build/blocks/form/block.json
+msgctxt "block title"
+msgid "Form"
+msgstr "Formular"
+
+#: build/blocks/container/block.json
+msgctxt "block title"
+msgid "Form Container"
+msgstr "Formular-Container"
+
+#: build/blocks/fields/block.json
+msgctxt "block title"
+msgid "Form Fields Collection"
+msgstr "Formularfelder-Sammlung"
+
+#: build/blocks/hidden/block.json
+msgctxt "block title"
+msgid "Hidden Field"
+msgstr "Verstecktes Feld"
+
+#: build/blocks/number/block.json
+msgctxt "block title"
+msgid "Number Field"
+msgstr "Zahlenfeld"
+
+#: build/blocks/tel/block.json
+msgctxt "block title"
+msgid "Phone Field"
+msgstr "Telefonfeld"
+
+#: build/blocks/radio/block.json
+msgctxt "block title"
+msgid "Radio Select"
+msgstr "Radioschalter"
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block title"
+msgid "Response"
+msgstr "Antwort"
+
+#: build/blocks/select/block.json
+msgctxt "block title"
+msgid "Select"
+msgstr "Auswählen"
+
+#: build/blocks/submit/block.json
+msgctxt "block title"
+msgid "Submit"
+msgstr "Abschicken"
+
+#: build/blocks/textarea/block.json
+msgctxt "block title"
+msgid "Text Area"
+msgstr "Nachrichtenfeld"
+
+#: build/blocks/html/block.json
+msgctxt "block title"
+msgid "Text Block"
+msgstr "Textblock"
+
+#: build/blocks/text/block.json
+msgctxt "block title"
+msgid "Text Field"
+msgstr "Textfeld"
+
+#: build/backend.js:343 build/backend.js:304
+msgid "Box"
+msgstr "Box"
+
+#: build/backend.js:1993 build/backend.js:4388 build/backend.js:1747
+#: build/backend.js:3875
+msgid "Browser hint"
+msgstr "Browser-Hinweis"
+
+#: library/FormPost.php:109
 msgid "Copy to Admin"
 msgstr "Kopie an Admin"
 
-msgid "Yes"
-msgstr "Ja"
+#: build/backend.js:1649 build/backend.js:1438
+msgid "Create a new form"
+msgstr "Neues Formular erstellen"
 
-msgid "No"
-msgstr "Nein"
+#. Description of the plugin
+msgid "Create Forms easily in Gutenberg"
+msgstr "Erstelle Formulare einfach in Gutenberg"
 
+#: build/backend.js:1791 build/backend.js:1858 build/backend.js:1527
+#: build/backend.js:1620
+msgid "Custom Value"
+msgstr "Benutzerdefinierter Wert"
+
+#: build/backend.js:318 build/backend.js:758 build/backend.js:1070
+#: build/backend.js:1351 build/backend.js:1972 build/backend.js:2961
+#: build/backend.js:3295 build/backend.js:3542 build/backend.js:4078
+#: build/backend.js:4355 build/backend.js:4705 build/backend.js:272
+#: build/backend.js:645 build/backend.js:939 build/backend.js:1186
+#: build/backend.js:1727 build/backend.js:2627 build/backend.js:2888
+#: build/backend.js:3115 build/backend.js:3586 build/backend.js:3833
+#: build/backend.js:4121
+msgid "Data"
+msgstr "Daten"
+
+#: build/backend.js:1105 build/backend.js:978
+msgid "Date calculator"
+msgstr "Datumsrechner"
+
+#: build/backend.js:2000 build/backend.js:4395 build/backend.js:1756
+#: build/backend.js:3884
+msgid "Disable Autocomplete"
+msgstr "Autofill deaktivieren"
+
+#: library/FormPost.php:57
+msgid "Display forms on your blog."
+msgstr "Formulare auf deinem Blog anzeigen."
+
+#: build/backend.js:1087 build/backend.js:958
+msgid "e.g. maximal age for an attendee"
+msgstr "z.B. maximales Alter für einen Teilnehmer"
+
+#: build/backend.js:1095 build/backend.js:968
+msgid "e.g. minimal age for an attendee"
+msgstr "z.B. minimales Alter für einen Teilnehmer"
+
+#: library/FormPost.php:74
+msgid "Edit Form"
+msgstr "Formular bearbeiten"
+
+#: library/FormPost.php:63 build/backend.js:1457 build/backend.js:1293
 msgid "Email"
 msgstr "E-Mail"
 
+#: build/backend.js:774 build/backend.js:3552 build/backend.js:664
+#: build/backend.js:3129
+msgid "Empty option"
+msgstr "Leere Option"
+
+#: build/backend.js:2046 build/backend.js:4094 build/backend.js:4441
+#: build/backend.js:4714 build/backend.js:1782 build/backend.js:3607
+#: build/backend.js:3910 build/backend.js:4133
+msgid "Error message"
+msgstr "Fehlermeldung"
+
+#: build/backend.js:2498 build/backend.js:2207
+msgid "Feedback"
+msgstr "Feedback"
+
+#: library/FormPost.php:85
+msgid "Filter Forms list"
+msgstr "Formularliste filtern"
+
+#: library/FormPost.php:71
+msgid "Form"
+msgstr "Formular"
+
+#: library/FormPost.php:82
+msgid "Form Archives"
+msgstr "Formulararchive"
+
+#: library/FormPost.php:83
+msgid "Form Attributes"
+msgstr "Formularattribute"
+
+#: library/FormPost.php:88
+msgid "Form published"
+msgstr "Formular veröffentlicht"
+
+#: library/FormPost.php:89
+msgid "Form published privately"
+msgstr "Formular privat veröffentlicht"
+
+#: library/FormPost.php:90
+msgid "Form reverted to draft"
+msgstr "Formular zurück in Entwurf"
+
+#: build/backend.js:2441 build/backend.js:2132
+msgid "Form title"
+msgstr "Formulartitel"
+
+#: library/FormPost.php:49 library/FormPost.php:70
+msgid "Forms"
+msgstr "Formulare"
+
+#: library/FormPost.php:87
+msgid "Forms list"
+msgstr "Formularliste"
+
+#: library/FormPost.php:86
+msgid "Forms list navigation"
+msgstr "Formularliste-Navigation"
+
+#: build/backend.js:1067 build/backend.js:929
+msgid "from"
+msgstr "von"
+
+#: build/backend.js:1994 build/backend.js:4389 build/backend.js:1748
+#: build/backend.js:3876
+msgid "Give a hint for the browser's autocomplete"
+msgstr "Gib einen Hinweis für die automatische Vervollständigung des Browsers"
+
+#. Plugin Name of the plugin
+msgid "Gutenberg Form"
+msgstr "Gutenberg-Formular"
+
+#: build/backend.js:4733 build/backend.js:4158
+msgid "Height"
+msgstr "Höhe"
+
+#: build/backend.js:1079 build/backend.js:951
+msgid "Help"
+msgstr "Hilfe"
+
+#: build/backend.js:1983 build/backend.js:4088 build/backend.js:4366
+#: build/backend.js:1736 build/backend.js:3599 build/backend.js:3842
+msgid "Help text for the input field"
+msgstr "Hilfetext für das Eingabefeld"
+
+#: build/backend.js:1094 build/backend.js:967
+msgid "Highest Date"
+msgstr "Spätestes Datum"
+
+#: build/backend.js:389 build/backend.js:1434 build/backend.js:344
+#: build/backend.js:1239
+msgid "If you want to add a form to this page, use the Form block"
+msgstr "Wenn du ein Formular zu dieser Seite hinzufügen möchtest, verwende den Formular-Block"
+
+#: build/backend.js:3019 build/backend.js:2674
+msgid "Input"
+msgstr "Eingabe"
+
+#: library/FormPost.php:84
+msgid "Insert into Form"
+msgstr "In Formular einfügen"
+
+#: build/backend.js:152 build/backend.js:601 build/backend.js:916
+#: build/backend.js:1209 build/backend.js:1825 build/backend.js:2793
+#: build/backend.js:3157 build/backend.js:3397 build/backend.js:3684
+#: build/backend.js:3947 build/backend.js:4213 build/backend.js:4569
+#: build/backend.js:120 build/backend.js:512 build/backend.js:804
+#: build/backend.js:1074 build/backend.js:1567 build/backend.js:2476
+#: build/backend.js:2775 build/backend.js:2986 build/backend.js:3274
+#: build/backend.js:3485 build/backend.js:3721 build/backend.js:4008
+msgid "Label"
+msgstr "Bezeichnung"
+
+#: build/backend.js:158 build/backend.js:129
+msgid "Label (for emails)"
+msgstr "Bezeichnung (für E-Mails)"
+
+#: build/backend.js:607 build/backend.js:922 build/backend.js:1215
+#: build/backend.js:1831 build/backend.js:2799 build/backend.js:3163
+#: build/backend.js:3403 build/backend.js:3953 build/backend.js:4219
+#: build/backend.js:4575 build/backend.js:521 build/backend.js:813
+#: build/backend.js:1083 build/backend.js:1574 build/backend.js:2485
+#: build/backend.js:2784 build/backend.js:2995 build/backend.js:3494
+#: build/backend.js:3730 build/backend.js:4017
+msgid "Label for the field"
+msgstr "Bezeichnung für das Feld"
+
+#: build/backend.js:4371 build/backend.js:3849
+msgid "Letters only"
+msgstr "Nur Buchstaben"
+
+#: build/backend.js:4374 build/backend.js:3853
+msgid "Letters, dots and dashes"
+msgstr "Buchstaben, Punkte und Bindestriche"
+
+#: build/backend.js:1086 build/backend.js:957
+msgid "Lowest Date"
+msgstr "Frühestes Datum"
+
+#: build/backend.js:2343 build/backend.js:2680 build/backend.js:2002
+#: build/backend.js:2356
+msgid "Mail Content"
+msgstr "E-Mail-Inhalt"
+
+#: build/backend.js:3426 build/backend.js:3034
+msgid "Make a selection"
+msgstr "Eine Auswahl treffen"
+
+#: build/backend.js:2986 build/backend.js:2647
+msgid "Maximum value"
+msgstr "Maximalwert"
+
+#: library/FormPost.php:64 build/backend.js:1460 build/backend.js:1298
 msgid "Message"
 msgstr "Nachricht"
 
-msgid "First Name"
-msgstr "Vorname"
+#: build/backend.js:2973 build/backend.js:2637
+msgid "Minimum value"
+msgstr "Minimalwert"
 
-msgid "Last Name"
-msgstr "Nachname"
+#: build/backend.js:3567 build/backend.js:3154
+msgid "Multi select"
+msgstr "Mehrfachauswahl"
 
-msgid "Send"
-msgstr "Abschicken"
+#: library/FormPost.php:62 build/backend.js:1450 build/backend.js:1454
+#: build/backend.js:1278 build/backend.js:1287
+msgid "Name"
+msgstr "Name"
 
+#: library/FormPost.php:75
+msgid "New Form"
+msgstr "Neues Formular"
+
+#: library/FormPost.php:153
 msgid "New form submission on %s"
 msgstr "Neue Formular-Eingabe auf %s"
 
-msgid "A new message has been sent from a form on your website."
-msgstr "Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet."
+#: library/FormPost.php:140
+msgid "No"
+msgstr "Nein"
 
-msgid "The form has been sent from:"
-msgstr "Das Formular wurde gesendet von:"
+#: build/backend.js:1625 build/backend.js:1406
+msgid "No form selected"
+msgstr "Kein Formular ausgewählt"
 
+#: library/FormPost.php:79
+msgid "No Forms found"
+msgstr "Keine Formulare gefunden"
+
+#: build/backend.js:1613 build/backend.js:1391
+msgid "No forms found"
+msgstr "Keine Formulare gefunden"
+
+#: library/FormPost.php:80
+msgid "No Forms found in trash"
+msgstr "Keine Formulare im Papierkorb gefunden"
+
+#: build/backend.js:1997 build/backend.js:4392 build/backend.js:1753
+#: build/backend.js:3881
+msgid "None"
+msgstr "Keine"
+
+#: build/backend.js:785 build/backend.js:1117 build/backend.js:1365
+#: build/backend.js:2057 build/backend.js:2253 build/backend.js:3042
+#: build/backend.js:3577 build/backend.js:4105 build/backend.js:4452
+#: build/backend.js:4725 build/backend.js:679 build/backend.js:997
+#: build/backend.js:1204 build/backend.js:1797 build/backend.js:1907
+#: build/backend.js:2700 build/backend.js:3167 build/backend.js:3622
+#: build/backend.js:3925 build/backend.js:4148
+msgid "Number of columns the input field will occupy"
+msgstr "Anzahl der Spalten, die das Eingabefeld einnehmen wird"
+
+#: build/backend.js:4734 build/backend.js:4159
+msgid "Number of text rows"
+msgstr "Anzahl der Textzeilen"
+
+#: build/backend.js:3304 build/backend.js:3560 build/backend.js:2900
+#: build/backend.js:3142
+msgid "Options"
+msgstr "Optionen"
+
+#: build/backend.js:3309 build/backend.js:2905
+msgid "Options for the radio control. Each line represents one option"
+msgstr "Optionen für die Radiosteuerung. Jede Zeile stellt eine Option dar"
+
+#: build/backend.js:3565 build/backend.js:3147
+msgid "Options for the select control. Each line represents one option"
+msgstr "Optionen für die Auswahlschaltfläche. Jede Zeile stellt eine Option dar"
+
+#: build/backend.js:1782 build/backend.js:1985 build/backend.js:1515
+#: build/backend.js:1739
+msgid "Page ID"
+msgstr "Seiten-ID"
+
+#: build/backend.js:2445 build/backend.js:2137
+msgid "Page title"
+msgstr "Seitentitel"
+
+#: build/backend.js:2449 build/backend.js:2142
+msgid "Page URL"
+msgstr "Seiten-URL"
+
+#: build/backend.js:1982 build/backend.js:4087 build/backend.js:4365
+#: build/backend.js:1735 build/backend.js:3598 build/backend.js:3841
+msgid "Pattern"
+msgstr "Muster"
+
+#: build/backend.js:1230 build/backend.js:1105
+msgid "Please type in a unique identifier for the field"
+msgstr "Bitte gib einen eindeutigen Bezeichner für das Feld ein"
+
+#: build/backend.js:168 build/backend.js:617 build/backend.js:932
+#: build/backend.js:1846 build/backend.js:2814 build/backend.js:3173
+#: build/backend.js:3413 build/backend.js:3963 build/backend.js:4234
+#: build/backend.js:4585 build/backend.js:144 build/backend.js:536
+#: build/backend.js:828 build/backend.js:1595 build/backend.js:2507
+#: build/backend.js:2799 build/backend.js:3010 build/backend.js:3509
+#: build/backend.js:3751 build/backend.js:4032
+msgid "Please type in a unique itentifier for the field"
+msgstr "Bitte gib einen eindeutigen Bezeichner für das Feld ein"
+
+#: build/backend.js:3028 build/backend.js:2682
+msgid "Range"
+msgstr "Bereich"
+
+#: library/FormPost.php:108 build/backend.js:2320 build/backend.js:1973
+msgid "Recipient"
+msgstr "Empfänger"
+
+#: build/backend.js:1106 build/backend.js:981
+msgid "Reference Date"
+msgstr "Referenzdatum"
+
+#: build/backend.js:767 build/backend.js:657
+msgid "Region"
+msgstr "Region"
+
+#: build/backend.js:321 build/backend.js:761 build/backend.js:1073
+#: build/backend.js:1354 build/backend.js:1975 build/backend.js:2964
+#: build/backend.js:3298 build/backend.js:3545 build/backend.js:4081
+#: build/backend.js:4358 build/backend.js:4708 build/backend.js:276
+#: build/backend.js:649 build/backend.js:943 build/backend.js:1190
+#: build/backend.js:1729 build/backend.js:2629 build/backend.js:2892
+#: build/backend.js:3119 build/backend.js:3590 build/backend.js:3835
+#: build/backend.js:4125
+msgid "Required"
+msgstr "Erforderlich"
+
+#: build/backend.js:2367 build/backend.js:2704 build/backend.js:2040
+#: build/backend.js:2394
+msgid "Save"
+msgstr "Speichern"
+
+#: library/FormPost.php:78
+msgid "Search Forms"
+msgstr "Formulare suchen"
+
+#: build/backend.js:1785 build/backend.js:1519
+msgid "Security Token"
+msgstr "Sicherheitstoken"
+
+#: build/backend.js:1636 build/backend.js:1643 build/backend.js:1419
+#: build/backend.js:1427
+msgid "Select a form"
+msgstr "Wähle ein Formular aus"
+
+#: build/backend.js:1779 build/backend.js:1511
+msgid "Select Type"
+msgstr "Typ auswählen"
+
+#: library/FormPost.php:158
+msgid "Send"
+msgstr "Abschicken"
+
+#: build/backend.js:2330 build/backend.js:1984
+msgid "Send a copy to the site admin"
+msgstr "Eine Kopie an den Website-Administrator senden"
+
+#: build/backend.js:2657 build/backend.js:2327
+msgid "Send mail to website visitor"
+msgstr "E-Mail an Website-Besucher senden"
+
+#: build/backend.js:3029 build/backend.js:2687
+msgid "Show labels"
+msgstr "Bezeichnungen anzeigen"
+
+#: build/backend.js:1863 build/backend.js:1629
+msgid "Show the page where the form is submitted from"
+msgstr "Die Seite anzeigen, von der das Formular gesendet wird"
+
+#: build/backend.js:1863 build/backend.js:1645
+msgid "Show the user id of the user who submitted the form"
+msgstr "Die Benutzer-ID des Benutzers anzeigen, der das Formular gesendet hat"
+
+#: build/backend.js:3035 build/backend.js:2693
+msgid "Show ticks"
+msgstr "Häkchen anzeigen"
+
+#: build/backend.js:164 build/backend.js:613 build/backend.js:928
+#: build/backend.js:1221 build/backend.js:1837 build/backend.js:2805
+#: build/backend.js:3169 build/backend.js:3409 build/backend.js:3959
+#: build/backend.js:4225 build/backend.js:139 build/backend.js:531
+#: build/backend.js:823 build/backend.js:1094 build/backend.js:1584
+#: build/backend.js:2496 build/backend.js:2794 build/backend.js:3005
+#: build/backend.js:3504 build/backend.js:3740
+msgid "Slug"
+msgstr "Slug"
+
+#: build/backend.js:2999 build/backend.js:2658
+msgid "Step"
+msgstr "Schritt"
+
+#: build/backend.js:332 build/backend.js:292
+msgid "Style"
+msgstr "Stil"
+
+#: build/backend.js:2310 build/backend.js:2666 build/backend.js:1962
+#: build/backend.js:2340
+msgid "Subject"
+msgstr "Betreff"
+
+#: library/FormPost.php:65 build/backend.js:1463 build/backend.js:1303
+msgid "Submit"
+msgstr "Abschicken"
+
+#: build/backend.js:3673 build/backend.js:3260
+msgid "Submit button"
+msgstr "Abschicken-Schaltfläche"
+
+#: build/backend.js:775 build/backend.js:665
+msgid "Text to display when no country is selected"
+msgstr "Text, der angezeigt wird, wenn kein Land ausgewählt ist"
+
+#: build/backend.js:2047 build/backend.js:4095 build/backend.js:4442
+#: build/backend.js:4715 build/backend.js:1783 build/backend.js:3608
+#: build/backend.js:3911 build/backend.js:4134
+msgid "Text to display when the user types in invalid or insufficient data"
+msgstr "Text, der angezeigt wird, wenn der Benutzer ungültige oder unzureichende Daten eingibt"
+
+#: build/backend.js:2429 build/backend.js:2106
+msgid "Thank you"
+msgstr "Danke"
+
+#: library/Mailer.php:77
 msgid "Thank you for your message."
 msgstr "Vielen Dank für deine Nachricht."
 
-msgid "You will hear from us as soon as possible."
+#: library/Mailer.php:71
+msgid "The form has been sent from the {form_name} form:"
+msgstr "Das Formular wurde vom Formular {form_name} gesendet:"
+
+#: build/backend.js:389 build/backend.js:1434 build/backend.js:338
+#: build/backend.js:1233
+msgid "This block is only usable in the forms post type"
+msgstr "Dieser Block ist nur im Formulartyp verwendbar"
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr "Thomas Gollenia"
+
+#: build/backend.js:1067 build/backend.js:931
+msgid "to"
+msgstr "bis"
+
+#: build/backend.js:352 build/backend.js:315
+msgid "Toggle"
+msgstr "Umschalten"
+
+#: build/backend.js:1080 build/backend.js:952
+msgid "Treat as birthday"
+msgstr "Als Geburtstag behandeln"
+
+#: build/backend.js:170 build/backend.js:619 build/backend.js:934
+#: build/backend.js:1232 build/backend.js:1848 build/backend.js:2816
+#: build/backend.js:3175 build/backend.js:3415 build/backend.js:3965
+#: build/backend.js:4236 build/backend.js:4587 build/backend.js:152
+#: build/backend.js:544 build/backend.js:836 build/backend.js:1113
+#: build/backend.js:1603 build/backend.js:2515 build/backend.js:2807
+#: build/backend.js:3018 build/backend.js:3517 build/backend.js:3759
+#: build/backend.js:4040
+msgid "Unique identifier"
+msgstr "Eindeutiger Bezeichner"
+
+#: build/backend.js:1788 build/backend.js:1523
+msgid "User (if logged in)"
+msgstr "Benutzer (wenn angemeldet)"
+
+#: build/backend.js:2494 build/backend.js:2649 build/backend.js:2200
+#: build/backend.js:2315
+msgid "User Mail"
+msgstr "Benutzer-Mail"
+
+#: build/backend.js:1851 build/backend.js:1611
+msgid "Value Type"
+msgstr "Werttyp"
+
+#: library/FormPost.php:76
+msgid "View Form"
+msgstr "Formular ansehen"
+
+#: library/FormPost.php:77
+msgid "View Forms"
+msgstr "Formulare ansehen"
+
+#: build/backend.js:187 build/backend.js:180
+msgid "What should your visitor say \"yes\" to?"
+msgstr "Zu was soll dein Besucher \"Ja\" sagen?"
+
+#: build/backend.js:784 build/backend.js:1116 build/backend.js:1364
+#: build/backend.js:2056 build/backend.js:2252 build/backend.js:3041
+#: build/backend.js:3576 build/backend.js:4104 build/backend.js:4451
+#: build/backend.js:4724 build/backend.js:678 build/backend.js:996
+#: build/backend.js:1203 build/backend.js:1796 build/backend.js:1906
+#: build/backend.js:2699 build/backend.js:3166 build/backend.js:3621
+#: build/backend.js:3924 build/backend.js:4147
+msgid "Width"
+msgstr "Breite"
+
+#: library/FormPost.php:138
+msgid "Yes"
+msgstr "Ja"
+
+#: library/FormPost.php:231
+msgid ""
+"You have received a new message from your website contact form. These are "
+"the values the user filled out:<br/><br/>{full_data}"
+msgstr "Sie haben eine neue Nachricht von Ihrem Website-Kontaktformular erhalten. Dies sind die Werte, die der Benutzer ausgefüllt hat:<br/><br/>{full_data}"
+
+#: library/Mailer.php:81
+#| msgid "You will hear from us as soon as possible."
+msgid "You will hear from us as soon as possible"
 msgstr "Wir melden uns so bald wie möglich bei dir."
+
+#: library/FormPost.php:154
+msgid "Your form submission on %s"
+msgstr "Deine Formular-Eingabe auf %s"
+
+#: build/backend.js:2431 build/backend.js:2113
+msgid "Your message has been sent"
+msgstr "Ihre Nachricht wurde gesendet"

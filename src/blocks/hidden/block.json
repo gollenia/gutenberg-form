@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Hidden Field",
 	"description": "Add data to the form that is not visible to the user.",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
@@ -26,5 +27,7 @@
 			"default": ""
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

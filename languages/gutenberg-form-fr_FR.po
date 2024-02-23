@@ -4,101 +4,710 @@ msgid ""
 msgstr ""
 "Project-Id-Version: CTX-Products 0.1.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
-"Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: \n"
+"Language-Team: French (France)\n"
 "Language: fr_FR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.4.0\n"
-"X-Domain: gutenberg-form"
+"PO-Revision-Date: 2024-02-22 10:29+0000\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Domain: gutenberg-form\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Loco-Version: 2.6.6; wp-6.4.3"
 
-#. Plugin Name of the plugin
-msgid "Form"
-msgstr "Former"
-
-msgid "Forms"
-msgstr "Formes"
-
-msgid "Display forms on your blog."
-msgstr "Afficher des formulaires sur votre blog."
-
-msgid "Add new Form"
-msgstr "Ajouter un nouveau formulaire"
-
-msgid "Edit Form"
-msgstr "Modifier le formulaire"
-
-msgid "New Form"
-msgstr "Nouveau formulaire"
-
-msgid "View Form"
-msgstr "Voir le formulaire"
-
-msgid "View Forms"
-msgstr "Voir les formulaires"
-
-msgid "Search Forms"
-msgstr "Rechercher des formulaires"
-
-msgid "No Forms found"
-msgstr "Aucun formulaire trouvé"
-
-msgid "No Forms found in trash"
-msgstr "Aucun formulaire trouvé dans la corbeille"
-
-msgid "All Forms"
-msgstr "Tous les formulaires"
-
-msgid "Form Archives"
-msgstr "Archives de formulaires"
-
-msgid "Form Attributes"
-msgstr "Attributs de formulaire"
-
-msgid "Insert into Form"
-msgstr "Insérer dans le formulaire"
-
-msgid "Recipient"
-msgstr "Destinataire"
-
-msgid "Copy to Admin"
-msgstr "Copie à l'administrateur"
-
-msgid "Yes"
-msgstr "Oui"
-
-msgid "No"
-msgstr "Non"
-
-msgid "Email"
-msgstr "Email"
-
-msgid "Message"
-msgstr "Message"
-
-msgid "First Name"
-msgstr "Prénom"
-
-msgid "Last Name"
-msgstr "Nom de famille"
-
-msgid "Send"
-msgstr "Envoyer"
-
-msgid "New form submission on %s"
-msgstr "Nouvelle soumission de formulaire sur %s"
-
+#: library/Mailer.php:67
 msgid "A new message has been sent from a form on your website."
 msgstr "Un nouveau message a été envoyé depuis un formulaire sur votre site."
 
-msgid "The form has been sent from:"
-msgstr "Le formulaire a été envoyé de:"
+#: build/backend.js:1
+msgid "Add a security token to prevent spam"
+msgstr "Ajoutez un jeton de sécurité pour éviter le spam"
 
+#: library/FormPost.php:72 library/FormPost.php:73
+msgid "Add new Form"
+msgstr "Ajouter un nouveau formulaire"
+
+#: build/backend.js:1
+msgid "Admin Mail"
+msgstr "Courrier administrateur"
+
+#: build/backend.js:1
+msgid "All fields"
+msgstr "Tous les champs"
+
+#: library/FormPost.php:81
+msgid "All Forms"
+msgstr "Tous les formulaires"
+
+#: build/backend.js:1
+msgid "Allow all characters"
+msgstr "Autoriser tous les caractères"
+
+#: build/backend.js:1
+msgid "Alphanumeric"
+msgstr "Alphanumérique"
+
+#: build/backend.js:1
+msgid "Alphanumeric with dots and dashes"
+msgstr "Alphanumérique avec points et tirets"
+
+#: build/backend.js:1
+msgid "An empty option ist shown and selected as default"
+msgstr "Une option vide est affichée et sélectionnée par défaut"
+
+#: build/backend.js:1
+msgid "Appearance"
+msgstr "Apparence"
+
+#: build/backend.js:1
+msgid "at best"
+msgstr "au mieux"
+
+#: build/backend.js:1
+msgid "at least"
+msgstr "au moins"
+
+#: build/blocks/form/block.json
+msgctxt "block description"
+msgid "Add a form as Block to a page."
+msgstr "Ajoutez un formulaire en tant que bloc à une page."
+
+#: build/blocks/hidden/block.json
+msgctxt "block description"
+msgid "Add data to the form that is not visible to the user."
+msgstr ""
+"Ajoutez des données au formulaire qui ne sont pas visibles par l'utilisateur."
+
+#: build/blocks/container/block.json build/blocks/fields/block.json
+msgctxt "block description"
+msgid "Basic form container block"
+msgstr "Bloc de conteneur de formulaire de base"
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block description"
+msgid ""
+"Create a mail template for the form which will be sent to the recipient."
+msgstr ""
+"Créez un modèle de courrier pour le formulaire qui sera envoyé au "
+"destinataire."
+
+#: build/blocks/html/block.json
+msgctxt "block description"
+msgid "Headline or text block"
+msgstr "Bloc de titre ou de texte"
+
+#: build/blocks/checkbox/block.json build/blocks/radio/block.json
+msgctxt "block description"
+msgid "Lets the user check something"
+msgstr "Permet à l'utilisateur de vérifier quelque chose"
+
+#: build/blocks/number/block.json
+msgctxt "block description"
+msgid "Lets the user give a number or a range of numbers"
+msgstr "Permet à l'utilisateur de donner un nombre ou une plage de nombres"
+
+#: build/blocks/country/block.json
+msgctxt "block description"
+msgid "Lets the user select a country"
+msgstr "Permet à l'utilisateur de sélectionner un pays"
+
+#: build/blocks/select/block.json
+msgctxt "block description"
+msgid "Lets the user select something"
+msgstr "Permet à l'utilisateur de sélectionner quelque chose"
+
+#: build/blocks/date/block.json
+msgctxt "block description"
+msgid "Lets the user specify a date"
+msgstr "Permet à l'utilisateur de spécifier une date"
+
+#: build/blocks/textarea/block.json
+msgctxt "block description"
+msgid "Lets the user type a longer text"
+msgstr "Permet à l'utilisateur de taper un texte plus long"
+
+#: build/blocks/tel/block.json
+msgctxt "block description"
+msgid "Lets the user type a phone number."
+msgstr "Permet à l'utilisateur de taper un numéro de téléphone."
+
+#: build/blocks/submit/block.json build/blocks/text/block.json
+msgctxt "block description"
+msgid "Lets the user type a short text"
+msgstr "Permet à l'utilisateur de taper un texte court"
+
+#: build/blocks/email/block.json
+msgctxt "block description"
+msgid "Lets the user type an email address."
+msgstr "Permet à l'utilisateur de taper une adresse e-mail."
+
+#: build/blocks/submit/block.json
+msgctxt "block style label"
+msgid "Fill"
+msgstr "Remplir"
+
+#: build/blocks/submit/block.json
+msgctxt "block style label"
+msgid "Outline"
+msgstr "Contour"
+
+#: build/blocks/checkbox/block.json
+msgctxt "block title"
+msgid "Checkbox"
+msgstr "Case à cocher"
+
+#: build/blocks/country/block.json
+msgctxt "block title"
+msgid "Country"
+msgstr "Pays"
+
+#: build/blocks/date/block.json
+msgctxt "block title"
+msgid "Date Field"
+msgstr "Champ de date"
+
+#: build/blocks/email/block.json
+msgctxt "block title"
+msgid "Email Field"
+msgstr "Champ d'e-mail"
+
+#: build/blocks/form/block.json
+msgctxt "block title"
+msgid "Form"
+msgstr "Formulaire"
+
+#: build/blocks/container/block.json
+msgctxt "block title"
+msgid "Form Container"
+msgstr "Conteneur de formulaire"
+
+#: build/blocks/fields/block.json
+msgctxt "block title"
+msgid "Form Fields Collection"
+msgstr "Collection de champs de formulaire"
+
+#: build/blocks/hidden/block.json
+msgctxt "block title"
+msgid "Hidden Field"
+msgstr "Champ caché"
+
+#: build/blocks/number/block.json
+msgctxt "block title"
+msgid "Number Field"
+msgstr "Champ de nombre"
+
+#: build/blocks/tel/block.json
+msgctxt "block title"
+msgid "Phone Field"
+msgstr "Champ de téléphone"
+
+#: build/blocks/radio/block.json
+msgctxt "block title"
+msgid "Radio Select"
+msgstr "Sélection radio"
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block title"
+msgid "Response"
+msgstr "Réponse"
+
+#: build/blocks/select/block.json
+msgctxt "block title"
+msgid "Select"
+msgstr "Sélectionner"
+
+#: build/blocks/submit/block.json
+msgctxt "block title"
+msgid "Submit"
+msgstr "Soumettre"
+
+#: build/blocks/textarea/block.json
+msgctxt "block title"
+msgid "Text Area"
+msgstr "Zone de texte"
+
+#: build/blocks/html/block.json
+msgctxt "block title"
+msgid "Text Block"
+msgstr "Bloc de texte"
+
+#: build/blocks/text/block.json
+msgctxt "block title"
+msgid "Text Field"
+msgstr "Champ de texte"
+
+#: build/backend.js:1
+msgid "Box"
+msgstr "Boîte"
+
+#: build/backend.js:1
+msgid "Browser hint"
+msgstr "Indication du navigateur"
+
+#: library/FormPost.php:109
+msgid "Copy to Admin"
+msgstr "Copie à l'administrateur"
+
+#: build/backend.js:1
+msgid "Create a new form"
+msgstr "Créer un nouveau formulaire"
+
+#. Description of the plugin
+msgid "Create Forms easily in Gutenberg"
+msgstr "Créez facilement des formulaires dans Gutenberg"
+
+#: build/backend.js:1
+msgid "Custom Value"
+msgstr "Valeur personnalisée"
+
+#: build/backend.js:1
+msgid "Data"
+msgstr "Données"
+
+#: build/backend.js:1
+msgid "Date calculator"
+msgstr "Calculateur de date"
+
+#: build/backend.js:1
+msgid "Disable Autocomplete"
+msgstr "Désactiver l'autocomplétion"
+
+#: library/FormPost.php:57
+msgid "Display forms on your blog."
+msgstr "Afficher des formulaires sur votre blog."
+
+#: build/backend.js:1
+msgid "e.g. maximal age for an attendee"
+msgstr "par exemple, âge maximal pour un participant"
+
+#: build/backend.js:1
+msgid "e.g. minimal age for an attendee"
+msgstr "par exemple, âge minimal pour un participant"
+
+#: library/FormPost.php:74
+msgid "Edit Form"
+msgstr "Modifier le formulaire"
+
+#: library/FormPost.php:63 build/backend.js:1
+msgid "Email"
+msgstr "Email"
+
+#: build/backend.js:1
+msgid "Empty option"
+msgstr "Option vide"
+
+#: build/backend.js:1
+msgid "Error message"
+msgstr "Message d'erreur"
+
+#: build/backend.js:1
+msgid "Feedback"
+msgstr "Retour"
+
+#: library/FormPost.php:85
+msgid "Filter Forms list"
+msgstr "Filtrer la liste des formulaires"
+
+#: library/FormPost.php:71
+msgid "Form"
+msgstr "Former"
+
+#: library/FormPost.php:82
+msgid "Form Archives"
+msgstr "Archives de formulaires"
+
+#: library/FormPost.php:83
+msgid "Form Attributes"
+msgstr "Attributs de formulaire"
+
+#: library/FormPost.php:88
+msgid "Form published"
+msgstr "Formulaire publié"
+
+#: library/FormPost.php:89
+msgid "Form published privately"
+msgstr "Formulaire publié en privé"
+
+#: library/FormPost.php:90
+msgid "Form reverted to draft"
+msgstr "Formulaire revenu à l'état de brouillon"
+
+#: build/backend.js:1
+msgid "Form title"
+msgstr "Titre du formulaire"
+
+#: library/FormPost.php:49 library/FormPost.php:70
+msgid "Forms"
+msgstr "Formes"
+
+#: library/FormPost.php:87
+msgid "Forms list"
+msgstr "Liste des formulaires"
+
+#: library/FormPost.php:86
+msgid "Forms list navigation"
+msgstr "Navigation dans la liste des formulaires"
+
+#: build/backend.js:1
+msgid "from"
+msgstr "de"
+
+#: build/backend.js:1
+msgid "Give a hint for the browser's autocomplete"
+msgstr "Donnez une indication pour l'autocomplétion du navigateur"
+
+#. Plugin Name of the plugin
+msgid "Gutenberg Form"
+msgstr "Gutenberg Form"
+
+#: build/backend.js:1
+msgid "Height"
+msgstr "Hauteur"
+
+#: build/backend.js:1
+msgid "Help"
+msgstr "Aide"
+
+#: build/backend.js:1
+msgid "Help text for the input field"
+msgstr "Texte d'aide pour le champ de saisie"
+
+#: build/backend.js:1
+msgid "Highest Date"
+msgstr "Date la plus élevée"
+
+#: build/backend.js:1
+msgid "If you want to add a form to this page, use the Form block"
+msgstr ""
+"Si vous souhaitez ajouter un formulaire à cette page, utilisez le bloc Form"
+
+#: build/backend.js:1
+msgid "Input"
+msgstr "Entrée"
+
+#: library/FormPost.php:84
+msgid "Insert into Form"
+msgstr "Insérer dans le formulaire"
+
+#: build/backend.js:1
+msgid "Label"
+msgstr "Étiquette"
+
+#: build/backend.js:1
+msgid "Label (for emails)"
+msgstr "Étiquette (pour les e-mails)"
+
+#: build/backend.js:1
+msgid "Label for the field"
+msgstr "Étiquette pour le champ"
+
+#: build/backend.js:1
+msgid "Letters only"
+msgstr "Lettres uniquement"
+
+#: build/backend.js:1
+msgid "Letters, dots and dashes"
+msgstr "Lettres, points et tirets"
+
+#: build/backend.js:1
+msgid "Lowest Date"
+msgstr "Date la plus basse"
+
+#: build/backend.js:1
+msgid "Mail Content"
+msgstr "Contenu du courrier"
+
+#: build/backend.js:1
+msgid "Make a selection"
+msgstr "Faire une sélection"
+
+#: build/backend.js:1
+msgid "Maximum value"
+msgstr "Valeur maximale"
+
+#: library/FormPost.php:64 build/backend.js:1
+msgid "Message"
+msgstr "Message"
+
+#: build/backend.js:1
+msgid "Minimum value"
+msgstr "Valeur minimale"
+
+#: build/backend.js:1
+msgid "Multi select"
+msgstr "Sélection multiple"
+
+#: library/FormPost.php:62 build/backend.js:1
+msgid "Name"
+msgstr "Nom"
+
+#: library/FormPost.php:75
+msgid "New Form"
+msgstr "Nouveau formulaire"
+
+#: library/FormPost.php:153
+msgid "New form submission on %s"
+msgstr "Nouvelle soumission de formulaire sur %s"
+
+#: library/FormPost.php:140
+msgid "No"
+msgstr "Non"
+
+#: build/backend.js:1
+msgid "No form selected"
+msgstr "Aucun formulaire sélectionné"
+
+#: library/FormPost.php:79
+msgid "No Forms found"
+msgstr "Aucun formulaire trouvé"
+
+#: build/backend.js:1
+msgid "No forms found"
+msgstr "Aucun formulaire trouvé"
+
+#: library/FormPost.php:80
+msgid "No Forms found in trash"
+msgstr "Aucun formulaire trouvé dans la corbeille"
+
+#: build/backend.js:1
+msgid "None"
+msgstr "Aucun"
+
+#: build/backend.js:1
+msgid "Number of columns the input field will occupy"
+msgstr "Nombre de colonnes que le champ de saisie occupera"
+
+#: build/backend.js:1
+msgid "Number of text rows"
+msgstr "Nombre de lignes de texte"
+
+#: build/backend.js:1
+msgid "Options"
+msgstr "Options"
+
+#: build/backend.js:1
+msgid "Options for the radio control. Each line represents one option"
+msgstr "Options pour la radiocommande. Chaque ligne représente une option"
+
+#: build/backend.js:1
+msgid "Options for the select control. Each line represents one option"
+msgstr ""
+"Options pour la commande de sélection. Chaque ligne représente une option"
+
+#: build/backend.js:1
+msgid "Page ID"
+msgstr "Identifiant de la page"
+
+#: build/backend.js:1
+msgid "Page title"
+msgstr "Titre de la page"
+
+#: build/backend.js:1
+msgid "Page URL"
+msgstr "URL de la page"
+
+#: build/backend.js:1
+msgid "Pattern"
+msgstr "Motif"
+
+#: build/backend.js:1
+msgid "Please type in a unique identifier for the field"
+msgstr "Veuillez saisir un identifiant unique pour le champ"
+
+#: build/backend.js:1
+msgid "Please type in a unique itentifier for the field"
+msgstr "Veuillez saisir un identifiant unique pour le champ"
+
+#: build/backend.js:1
+msgid "Range"
+msgstr "Plage"
+
+#: library/FormPost.php:108 build/backend.js:1
+msgid "Recipient"
+msgstr "Destinataire"
+
+#: build/backend.js:1
+msgid "Reference Date"
+msgstr "Date de référence"
+
+#: build/backend.js:1
+msgid "Region"
+msgstr "Région"
+
+#: build/backend.js:1
+msgid "Required"
+msgstr "Requis"
+
+#: build/backend.js:1
+msgid "Save"
+msgstr "Enregistrer"
+
+#: library/FormPost.php:78
+msgid "Search Forms"
+msgstr "Rechercher des formulaires"
+
+#: build/backend.js:1
+msgid "Security Token"
+msgstr "Jeton de sécurité"
+
+#: build/backend.js:1
+msgid "Select a form"
+msgstr "Sélectionner un formulaire"
+
+#: build/backend.js:1
+msgid "Select Type"
+msgstr "Sélectionner le type"
+
+#: library/FormPost.php:158
+msgid "Send"
+msgstr "Envoyer"
+
+#: build/backend.js:1
+msgid "Send a copy to the site admin"
+msgstr "Envoyer une copie à l'administrateur du site"
+
+#: build/backend.js:1
+msgid "Send mail to website visitor"
+msgstr "Envoyer un courrier au visiteur du site Web"
+
+#: build/backend.js:1
+msgid "Show labels"
+msgstr "Afficher les étiquettes"
+
+#: build/backend.js:1
+msgid "Show the page where the form is submitted from"
+msgstr "Afficher la page à partir de laquelle le formulaire est soumis"
+
+#: build/backend.js:1
+msgid "Show the user id of the user who submitted the form"
+msgstr "Afficher l'identifiant de l'utilisateur qui a soumis le formulaire"
+
+#: build/backend.js:1
+msgid "Show ticks"
+msgstr "Afficher les coches"
+
+#: build/backend.js:1
+msgid "Slug"
+msgstr "Slug"
+
+#: build/backend.js:1
+msgid "Step"
+msgstr "Étape"
+
+#: build/backend.js:1
+msgid "Style"
+msgstr "Style"
+
+#: build/backend.js:1
+msgid "Subject"
+msgstr "Sujet"
+
+#: library/FormPost.php:65 build/backend.js:1
+msgid "Submit"
+msgstr "Soumettre"
+
+#: build/backend.js:1
+msgid "Submit button"
+msgstr "Bouton de soumission"
+
+#: build/backend.js:1
+msgid "Text to display when no country is selected"
+msgstr "Texte à afficher lorsqu'aucun pays n'est sélectionné"
+
+#: build/backend.js:1
+msgid "Text to display when the user types in invalid or insufficient data"
+msgstr ""
+"Texte à afficher lorsque l'utilisateur saisit des données invalides ou "
+"insuffisantes"
+
+#: build/backend.js:1
+msgid "Thank you"
+msgstr "Merci"
+
+#: library/Mailer.php:77
 msgid "Thank you for your message."
 msgstr "Merci pour votre message."
 
-msgid "You will hear from us as soon as possible."
+#: library/Mailer.php:71
+msgid "The form has been sent from the {form_name} form:"
+msgstr "Le formulaire a été envoyé depuis le formulaire {form_name}:"
+
+#: build/backend.js:1
+msgid "This block is only usable in the forms post type"
+msgstr ""
+"Ce bloc n'est utilisable que dans le type de publication des formulaires"
+
+#. Author of the plugin
+msgid "Thomas Gollenia"
+msgstr "Thomas Gollenia"
+
+#: build/backend.js:1
+msgid "to"
+msgstr "à"
+
+#: build/backend.js:1
+msgid "Toggle"
+msgstr "Basculer"
+
+#: build/backend.js:1
+msgid "Treat as birthday"
+msgstr "Traiter comme un anniversaire"
+
+#: build/backend.js:1
+msgid "Unique identifier"
+msgstr "Identifiant unique"
+
+#: build/backend.js:1
+msgid "User (if logged in)"
+msgstr "Utilisateur (si connecté)"
+
+#: build/backend.js:1
+msgid "User Mail"
+msgstr "Courrier de l'utilisateur"
+
+#: build/backend.js:1
+msgid "Value Type"
+msgstr "Type de valeur"
+
+#: library/FormPost.php:76
+msgid "View Form"
+msgstr "Voir le formulaire"
+
+#: library/FormPost.php:77
+msgid "View Forms"
+msgstr "Voir les formulaires"
+
+#: build/backend.js:1
+msgid "What should your visitor say \"yes\" to?"
+msgstr "À quoi votre visiteur devrait-il dire \"oui\" ?"
+
+#: build/backend.js:1
+msgid "Width"
+msgstr "Largeur"
+
+#: library/FormPost.php:138
+msgid "Yes"
+msgstr "Oui"
+
+#: library/FormPost.php:231
+msgid ""
+"You have received a new message from your website contact form. These are "
+"the values the user filled out:<br/><br/>{full_data}"
+msgstr ""
+"Vous avez reçu un nouveau message provenant du formulaire de contact de "
+"votre site Web. Voici les valeurs renseignées par l'utilisateur :<br/><br/>"
+"{full_data}"
+
+#: library/Mailer.php:81
+msgid "You will hear from us as soon as possible"
 msgstr "Vous entendrez parler de nous dès que possible."
+
+#: library/FormPost.php:154
+msgid "Your form submission on %s"
+msgstr "Votre soumission de formulaire sur %s"
+
+#: build/backend.js:1
+msgid "Your message has been sent"
+msgstr "Votre message a été envoyé"

@@ -3,9 +3,10 @@
 	"apiVersion": 2,
 	"title": "Text Area",
 	"description": "Lets the user type a longer text",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
-		"fieldid": {
+		"name": {
 			"type": "string",
 			"default": ""
 		},
@@ -46,5 +47,7 @@
 			"default": ""
 		}
 	},
-	"parent": [ "gutenberg-form/form-fields" ]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

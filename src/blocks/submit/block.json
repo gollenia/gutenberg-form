@@ -1,8 +1,9 @@
 {
 	"name": "gutenberg-form/submit",
 	"apiVersion": 2,
-	"title": "Submut",
+	"title": "Submit",
 	"description": "Lets the user type a short text",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
@@ -14,8 +15,8 @@
 			"default": 6
 		},
 		"alignment": {
-			"type": "right",
-			"default": ""
+			"type": "string",
+			"default": "right"
 		},
 		"label": {
 			"type": "string",
@@ -84,5 +85,7 @@
 			"name": "outline",
 			"label": "Outline"
 		}
-	]
+	],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

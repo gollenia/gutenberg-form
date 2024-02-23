@@ -9,14 +9,10 @@ import icon from './icon';
 /**
  * Wordpress dependencies
  */
-import { __ } from '@wordpress/i18n';
 
-const { name, title, description } = metadata;
+const { name } = metadata;
 
 const settings = {
-	...metadata,
-	title: __( title, 'gutenberg-form' ),
-	description: __( description, 'gutenberg-form' ),
 	icon,
 	edit: Edit,
 	save: () => {

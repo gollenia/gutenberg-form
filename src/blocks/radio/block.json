@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Radio Select",
 	"description": "Lets the user check something",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
@@ -34,5 +35,7 @@
 			"default": ""
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }

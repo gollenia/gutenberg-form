@@ -3,6 +3,7 @@
 	"apiVersion": 2,
 	"title": "Checkbox",
 	"description": "Lets the user check something",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
@@ -42,5 +43,7 @@
 			"default": false
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"]
+	"parent": ["gutenberg-form/form-fields"],
+	"editorStyle": "gbf-form-editor-style",
+	"editorScript": "gbf-form-editor"
 }
