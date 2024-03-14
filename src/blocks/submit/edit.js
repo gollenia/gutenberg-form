@@ -65,7 +65,6 @@ const SubmitEdit = (props) => {
 	]
 		.filter(Boolean)
 		.join(' ');
-	console.log(props);
 
 	return (
 		<div {...blockProps}>
