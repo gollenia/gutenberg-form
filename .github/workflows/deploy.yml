@@ -30,6 +30,6 @@ jobs:
                   switches: -avzr --delete --include gutenberg-form.zip --include version.txt --include "readme.md" --include "changelog.md" --exclude "*"
                   path: /
                   remote_path: ${{ secrets.PACKAGE_PATH }}
-                  remote_host: ${{ secrets.ALLINCL_SERVER }}
-                  remote_user: ${{ secrets.ALLINCL_USER }}
-                  remote_key: ${{ secrets.ALLINCL_KEY }}
+                  remote_host: ${{ secrets.KIDS_TEAM_SERVER }}
+                  remote_user: ${{ secrets.KIDS_TEAM_USER }}
+                  remote_key: ${{ secrets.KIDS_TEAM_KEY }}
