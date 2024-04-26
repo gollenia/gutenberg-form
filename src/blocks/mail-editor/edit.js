@@ -32,7 +32,7 @@ const edit = (props) => {
 
 	const parentBlock = useSelect(
 		(select) =>
-			select('core/editor').getBlocksByClientId(
+			select('core/block-editor').getBlocksByClientId(
 				context['gutenberg-form/recordId']
 			),
 		[]
