@@ -40,12 +40,7 @@ function gb_forms_block_init() {
 			$script_asset['version'],
 			true);
     	
-		wp_enqueue_style(
-			'gbf-frontend-style',
-			plugins_url( '/build/frontend.css', __FILE__ ),
-			[],
-			$script_asset['version']
-		);
+		
 	}
 	
 
