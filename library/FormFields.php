@@ -12,7 +12,7 @@ class FormFields {
 	public int $page_id = 0;
 
 
-	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit', 'hidden'];
+	const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit', 'hidden', 'combobox'];
 
 	public function __construct($id, $page_id = 0) {
 		$this->id = $id;
@@ -55,7 +55,7 @@ class FormFields {
 			if(!in_array($type, self::ALLOWED_FIELDS)) continue;
 			$attrs = array_merge(self::load_block_defaults($type), $block['attrs']);
 			$field = $attrs;
-			$field['type'] = $type;
+			$field['type'] = $field['type'] ? $field['type'] : $type;
 			$field['name'] = self::get_field_name($attrs, $type);
 			if($type === 'html') $field['content'] = render_block($block);
 			
