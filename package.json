@@ -18,7 +18,7 @@
 		"lang": "node ./languages/compile.js"
 	},
 	"dependencies": {
-		"@contexis/wp-react-form": "^1.0.11",
+		"@contexis/wp-react-form": "^1.0.14",
 		"@types/node": "^18.11.9",
 		"@types/react": "^18.0.25",
 		"@types/react-dom": "^18.0.9",
@@ -30,7 +30,7 @@
 	"devDependencies": {
 		"@wordpress/eslint-plugin": "^9.3.0",
 		"@wordpress/prettier-config": "^1.1.1",
-		"@wordpress/scripts": "^26.18.0",
+		"@wordpress/scripts": "^27.7.0",
 		"eslint": "^7.32.0",
 		"ts-loader": "^9.4.1",
 		"typescript": "^4.9.3"
