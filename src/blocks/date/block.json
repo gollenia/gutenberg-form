@@ -41,6 +41,10 @@
 		"defaultValue": {
 			"type": "string",
 			"default": ""
+		},
+		"customErrorMessage": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"parent": ["gutenberg-form/form-fields"],

@@ -30,7 +30,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"error": {
+		"customErrorMessage": {
 			"type": "string",
 			"default": ""
 		},

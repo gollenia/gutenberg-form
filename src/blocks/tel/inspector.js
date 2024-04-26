@@ -7,59 +7,49 @@ import {
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
-const Inspector = ( props ) => {
+const Inspector = (props) => {
 	const {
-		attributes: { width, required, help, error },
+		attributes: { width, required, help, error, customErrorMessage },
 		setAttributes,
 	} = props;
 
 	return (
 		<InspectorControls>
-			<PanelBody
-				title={ __( 'Data', 'gutenberg-form' ) }
-				initialOpen={ true }
-			>
+			<PanelBody title={__('Data', 'gutenberg-form')} initialOpen={true}>
 				<ToggleControl
-					label={ __( 'Required', 'gutenberg-form' ) }
-					checked={ required }
-					onChange={ ( value ) =>
-						setAttributes( { required: value } )
-					}
+					label={__('Required', 'gutenberg-form')}
+					checked={required}
+					onChange={(value) => setAttributes({ required: value })}
 				/>
 
 				<TextControl
-					label={ __( 'Pattern', 'gutenberg-form' ) }
-					help={ __(
-						'Help text for the input field',
-						'gutenberg-form'
-					) }
-					value={ help }
-					onChange={ ( value ) => setAttributes( { help: value } ) }
+					label={__('Pattern', 'gutenberg-form')}
+					help={__('Help text for the input field', 'gutenberg-form')}
+					value={help}
+					onChange={(value) => setAttributes({ help: value })}
 				/>
 				<TextControl
-					label={ __( 'Error message', 'gutenberg-form' ) }
-					help={ __(
-						'Text to display when the user types in invalid or insufficient data',
-						'gutenberg-form'
-					) }
-					value={ error }
-					onChange={ ( value ) => setAttributes( { error: value } ) }
+					label={__('Custom Error Message', 'gutenberg-form')}
+					value={customErrorMessage}
+					onChange={(value) =>
+						setAttributes({ customErrorMessage: value })
+					}
 				/>
 			</PanelBody>
 			<PanelBody
-				title={ __( 'Appearance', 'gutenberg-form' ) }
-				initialOpen={ true }
+				title={__('Appearance', 'gutenberg-form')}
+				initialOpen={true}
 			>
 				<RangeControl
-					label={ __( 'Width', 'gutenberg-form' ) }
-					help={ __(
+					label={__('Width', 'gutenberg-form')}
+					help={__(
 						'Number of columns the input field will occupy',
 						'gutenberg-form'
-					) }
-					value={ width }
-					max={ 6 }
-					min={ 1 }
-					onChange={ ( value ) => setAttributes( { width: value } ) }
+					)}
+					value={width}
+					max={6}
+					min={1}
+					onChange={(value) => setAttributes({ width: value })}
 				/>
 			</PanelBody>
 		</InspectorControls>

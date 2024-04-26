@@ -18,6 +18,10 @@
 			"type": "boolean",
 			"default": false
 		},
+		"autoComplete": {
+			"type": "string",
+			"default": ""
+		},
 		"pattern": {
 			"type": "string",
 			"default": ""
@@ -34,13 +38,21 @@
 			"type": "string",
 			"default": ""
 		},
-		"error": {
+		"customErrorMessage": {
 			"type": "string",
 			"default": ""
 		},
 		"defaultValue": {
 			"type": "string",
 			"default": ""
+		},
+		"min": {
+			"type": "integer",
+			"default": 0
+		},
+		"max": {
+			"type": "integer",
+			"default": 0
 		}
 	},
 	"parent": ["gutenberg-form/form-fields"],

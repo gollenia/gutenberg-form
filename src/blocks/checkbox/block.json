@@ -41,6 +41,10 @@
 		"toggle": {
 			"type": "boolean",
 			"default": false
+		},
+		"customErrorMessage": {
+			"type": "string",
+			"default": ""
 		}
 	},
 	"parent": ["gutenberg-form/form-fields"],

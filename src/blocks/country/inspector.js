@@ -9,77 +9,80 @@ import {
 import { useEffect, useState } from '@wordpress/element';
 import { __ } from '@wordpress/i18n';
 
-const Inspector = ( props ) => {
+const Inspector = (props) => {
 	const {
-		attributes: { width, required, error, region, help },
+		attributes: { width, required, region, help, customErrorMessage },
 		setAttributes,
 	} = props;
 
-	const [ regions, setRegions ] = useState( [] );
+	const [regions, setRegions] = useState([]);
 
 	const fetchRegions = async () => {
 		const response = await fetch(
 			'https://countries.kids-team.com/regions/de'
 		);
 		const data = await response.json();
-		const items = Object.entries( data ).map( ( [ key, value ] ) => {
+		const items = Object.entries(data).map(([key, value]) => {
 			return {
 				value: key,
 				label: value,
 			};
-		} );
-		setRegions( items );
+		});
+		setRegions(items);
 	};
 
-	useEffect( () => {
+	useEffect(() => {
 		fetchRegions();
-	}, [] );
+	}, []);
 
 	return (
 		<InspectorControls>
-			<PanelBody
-				title={ __( 'Data', 'gutenberg-form' ) }
-				initialOpen={ true }
-			>
+			<PanelBody title={__('Data', 'gutenberg-form')} initialOpen={true}>
 				<ToggleControl
-					label={ __( 'Required', 'gutenberg-form' ) }
-					checked={ required }
-					onChange={ ( value ) =>
-						setAttributes( { required: value } )
-					}
+					label={__('Required', 'gutenberg-form')}
+					checked={required}
+					onChange={(value) => setAttributes({ required: value })}
 				/>
 
 				<SelectControl
-					label={ __( 'Region', 'gutenberg-form' ) }
-					value={ region }
-					options={ regions }
-					onChange={ ( value ) => setAttributes( { region: value } ) }
+					label={__('Region', 'gutenberg-form')}
+					value={region}
+					options={regions}
+					onChange={(value) => setAttributes({ region: value })}
 				/>
 
 				<TextControl
-					label={ __( 'Empty option', 'gutenberg-form' ) }
-					help={ __(
+					label={__('Empty option', 'gutenberg-form')}
+					help={__(
 						'Text to display when no country is selected',
 						'gutenberg-form'
-					) }
-					value={ help }
-					onChange={ ( value ) => setAttributes( { help: value } ) }
+					)}
+					value={help}
+					onChange={(value) => setAttributes({ help: value })}
+				/>
+
+				<TextControl
+					label={__('Custom Error Message', 'gutenberg-form')}
+					value={customErrorMessage}
+					onChange={(value) =>
+						setAttributes({ customErrorMessage: value })
+					}
 				/>
 			</PanelBody>
 			<PanelBody
-				title={ __( 'Appearance', 'gutenberg-form' ) }
-				initialOpen={ true }
+				title={__('Appearance', 'gutenberg-form')}
+				initialOpen={true}
 			>
 				<RangeControl
-					label={ __( 'Width', 'gutenberg-form' ) }
-					help={ __(
+					label={__('Width', 'gutenberg-form')}
+					help={__(
 						'Number of columns the input field will occupy',
 						'gutenberg-form'
-					) }
-					value={ width }
-					max={ 6 }
-					min={ 1 }
-					onChange={ ( value ) => setAttributes( { width: value } ) }
+					)}
+					value={width}
+					max={6}
+					min={1}
+					onChange={(value) => setAttributes({ width: value })}
 				/>
 			</PanelBody>
 		</InspectorControls>

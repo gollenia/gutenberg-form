@@ -1,5 +1,6 @@
 import { InspectorControls } from '@wordpress/block-editor';
 import {
+	__experimentalNumberControl as NumberControl,
 	PanelBody,
 	RangeControl,
 	SelectControl,
@@ -10,7 +11,18 @@ import { __ } from '@wordpress/i18n';
 
 const Inspector = (props) => {
 	const {
-		attributes: { width, required, pattern, label, name, help, error },
+		attributes: {
+			width,
+			required,
+			pattern,
+			label,
+			name,
+			help,
+			customErrorMessage,
+			autoComplete,
+			min,
+			max,
+		},
 		setAttributes,
 	} = props;
 
@@ -35,30 +47,40 @@ const Inspector = (props) => {
 						},
 						{
 							label: __('Letters only', 'gutenberg-form'),
-							value: 'letters',
+							value: '[\\p{Letter}\\p{Mark}\\s]+',
 						},
 						{
-							label: __(
-								'Letters, dots and dashes',
-								'gutenberg-form'
-							),
-							value: 'letters-dots-dashes',
+							label: __('Numbers only', 'gutenberg-form'),
+							value: '[0-9]+',
 						},
 						{
 							label: __('Alphanumeric', 'gutenberg-form'),
-							value: 'alphanumeric',
-						},
-						{
-							label: __(
-								'Alphanumeric with dots and dashes',
-								'gutenberg-form'
-							),
-							value: 'alphanumeric-dots-dashes',
+							value: '[\\p{Letter}\\p{Mark}0-9\\s]+',
 						},
 					]}
 					value={pattern}
 					onChange={(value) => setAttributes({ pattern: value })}
 				/>
+				<NumberControl
+					label={__('Min length', 'gutenberg-form')}
+					help={__(
+						'Minimum number of characters required',
+						'gutenberg-form'
+					)}
+					value={min}
+					onChange={(value) => setAttributes({ min: value })}
+				/>
+
+				<NumberControl
+					label={__('Max length', 'gutenberg-form')}
+					help={__(
+						'Maximum number of characters allowed',
+						'gutenberg-form'
+					)}
+					value={max}
+					onChange={(value) => setAttributes({ max: value })}
+				/>
+
 				<SelectControl
 					label={__('Browser hint', 'gutenberg-form')}
 					help={__(
@@ -91,8 +113,8 @@ const Inspector = (props) => {
 						{ value: 'postal-code', label: 'Postal code' },
 						{ value: 'language', label: 'Language' },
 					]}
-					value={help}
-					onChange={(value) => setAttributes({ help: value })}
+					value={autoComplete}
+					onChange={(value) => setAttributes({ autoComplete: value })}
 				/>
 				<TextControl
 					label={__('Error message', 'gutenberg-form')}
@@ -100,8 +122,10 @@ const Inspector = (props) => {
 						'Text to display when the user types in invalid or insufficient data',
 						'gutenberg-form'
 					)}
-					value={error}
-					onChange={(value) => setAttributes({ error: value })}
+					value={customErrorMessage}
+					onChange={(value) =>
+						setAttributes({ customErrorMessage: value })
+					}
 				/>
 			</PanelBody>
 			<PanelBody

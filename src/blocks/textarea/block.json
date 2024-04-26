@@ -38,7 +38,7 @@
 			"type": "number",
 			"default": 3
 		},
-		"error": {
+		"customErrorMessage": {
 			"type": "string",
 			"default": ""
 		},
