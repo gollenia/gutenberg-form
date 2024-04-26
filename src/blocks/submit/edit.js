@@ -88,7 +88,7 @@ const SubmitEdit = (props) => {
 					className={buttonClasses}
 					value={label}
 					allowedFormats={[]}
-					placeholder={__('Label', 'gutenberg-form')}
+					placeholder={__('Submit', 'gutenberg-form')}
 					onChange={(value) => setAttributes({ label: value })}
 				/>
 			</div>
