@@ -1,0 +1,105 @@
+.sortable-list {
+	margin-bottom: 24px;
+	&__items {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+
+	label {
+		font-size: 11px;
+		font-weight: 500;
+		line-height: 1.4;
+		text-transform: uppercase;
+		display: inline-block;
+		margin-bottom: calc(8px);
+		padding: 0px;
+	}
+
+	.help {
+		margin-top: calc(8px);
+		font-size: 12px;
+		font-style: normal;
+		color: rgb(117, 117, 117);
+		margin-bottom: revert;
+	}
+
+	.hidden {
+		display: none;
+	}
+
+	&__ghost {
+		border: 1px solid #007cba;
+		padding: 4px 8px;
+		border-radius: 2px;
+		background-color: #bce0f5;
+	}
+
+	&__input {
+		margin-bottom: 10px !important;
+	}
+
+	&__item {
+		transition: all 0.3s;
+		cursor: move;
+
+		position: relative;
+		overflow: visible;
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0px;
+			margin-bottom: -9px;
+			left: 0px;
+			right: 0px;
+			width: 100%;
+			height: 2px;
+			transition: all 0.3s;
+			transform: scaleX(0);
+		}
+
+		&__inner {
+			border: 1px solid #dddddd;
+			padding: 4px 8px;
+			border-radius: 2px;
+			background-color: #f4f4f4;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+
+			button {
+				background: transparent;
+				border: none;
+				padding: 0px;
+				cursor: pointer;
+				width: 20px;
+				height: 20px;
+				display: grid;
+				place-items: center;
+				&:hover {
+					fill: #007cba;
+				}
+			}
+		}
+
+		&.drag-over {
+			&::after {
+				transform: scaleX(1);
+				width: 100%;
+				height: 2px;
+				background-color: #007cba;
+			}
+			margin-bottom: 10px;
+		}
+
+		&.dragging {
+			opacity: 0.3;
+		}
+	}
+
+	&__clone {
+		opacity: 0.5;
+		background-color: #f0f0f0;
+	}
+}

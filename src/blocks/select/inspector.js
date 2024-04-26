@@ -3,89 +3,96 @@ import {
 	CheckboxControl,
 	PanelBody,
 	RangeControl,
-	TextareaControl,
+	TextControl,
 	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import SortableControl from './../../common/SortableControl/SortableControl';
 
-const Inspector = ( props ) => {
+const Inspector = (props) => {
 	const {
 		attributes: {
 			width,
 			required,
 			help,
-			error,
+			customErrorMessage,
 			options,
 			hasEmptyOption,
 			hint,
-			multiSelect,
+			type,
 		},
 		setAttributes,
 	} = props;
 
 	return (
 		<InspectorControls>
-			<PanelBody
-				title={ __( 'Data', 'gutenberg-form' ) }
-				initialOpen={ true }
-			>
+			<PanelBody title={__('Data', 'gutenberg-form')} initialOpen={true}>
 				<ToggleControl
-					label={ __( 'Required', 'gutenberg-form' ) }
-					checked={ required }
-					onChange={ ( value ) =>
-						setAttributes( {
+					label={__('Required', 'gutenberg-form')}
+					checked={required}
+					onChange={(value) =>
+						setAttributes({
 							required: value,
 							hasEmptyOption: value,
-						} )
+						})
 					}
 				/>
 				<CheckboxControl
-					label={ __( 'Empty option', 'gutenberg-form' ) }
-					help={ __(
+					label={__('Empty option', 'gutenberg-form')}
+					help={__(
 						'An empty option ist shown and selected as default',
 						'gutenberg-form'
-					) }
-					checked={ hasEmptyOption }
-					disabled={ required }
-					onChange={ ( value ) =>
-						setAttributes( { hasEmptyOption: value } )
+					)}
+					checked={hasEmptyOption}
+					disabled={required}
+					onChange={(value) =>
+						setAttributes({ hasEmptyOption: value })
 					}
 				/>
 
-				<TextareaControl
-					label={ __( 'Options', 'gutenberg-form' ) }
-					value={ options.join( '\n' ) }
-					onChange={ ( value ) =>
-						setAttributes( { options: value.split( '\n' ) } )
+				<TextControl
+					label={__('Custom Error Message', 'gutenberg-form')}
+					value={customErrorMessage}
+					onChange={(value) =>
+						setAttributes({ customErrorMessage: value })
 					}
-					help={ __(
-						'Options for the select control. Each line represents one option',
-						'gutenberg-form'
-					) }
 				/>
 
 				<CheckboxControl
-					label={ __( 'Multi select', 'gutenberg-form' ) }
-					checked={ multiSelect }
-					onChange={ ( value ) =>
-						setAttributes( { multiSelect: value } )
+					label={__('Combo Box', 'gutenberg-form')}
+					help={__(
+						'Allow users to enter a custom value',
+						'gutenberg-form'
+					)}
+					checked={type === 'combobox'}
+					onChange={(value) =>
+						setAttributes({ type: value ? 'combobox' : 'select' })
 					}
 				/>
 			</PanelBody>
 			<PanelBody
-				title={ __( 'Appearance', 'gutenberg-form' ) }
-				initialOpen={ true }
+				title={__('Options', 'gutenberg-form')}
+				initialOpen={true}
+			>
+				<SortableControl
+					items={options}
+					onChange={(value) => setAttributes({ options: value })}
+				/>
+			</PanelBody>
+			<PanelBody
+				title={__('Appearance', 'gutenberg-form')}
+				initialOpen={true}
 			>
 				<RangeControl
-					label={ __( 'Width', 'gutenberg-form' ) }
-					help={ __(
+					label={__('Width', 'gutenberg-form')}
+					help={__(
 						'Number of columns the input field will occupy',
 						'gutenberg-form'
-					) }
-					value={ width }
-					max={ 6 }
-					min={ 1 }
-					onChange={ ( value ) => setAttributes( { width: value } ) }
+					)}
+					value={width}
+					max={6}
+					min={1}
+					onChange={(value) => setAttributes({ width: value })}
 				/>
 			</PanelBody>
 		</InspectorControls>

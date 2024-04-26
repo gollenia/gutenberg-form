@@ -38,7 +38,7 @@
 			"type": "string",
 			"default": ""
 		},
-		"error": {
+		"customErrorMessage": {
 			"type": "string",
 			"default": ""
 		},
@@ -50,9 +50,9 @@
 			"type": "string",
 			"default": ""
 		},
-		"multiSelect": {
-			"type": "boolean",
-			"default": false
+		"type": {
+			"type": "string",
+			"default": "select"
 		}
 	},
 	"parent": ["gutenberg-form/form-fields"],
