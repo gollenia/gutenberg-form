@@ -55,7 +55,7 @@ class FormFields {
 			if(!in_array($type, self::ALLOWED_FIELDS)) continue;
 			$attrs = array_merge(self::load_block_defaults($type), $block['attrs']);
 			$field = $attrs;
-			$field['type'] = $field['type'] ? $field['type'] : $type;
+			$field['type'] = key_exists('type', $field) ? $field['type'] : $type;
 			$field['name'] = self::get_field_name($attrs, $type);
 			if($type === 'html') $field['content'] = render_block($block);
 			
@@ -84,7 +84,7 @@ class FormFields {
 	 * Get field type from block name
 	 *
 	 * @param [type] $block
-	 * @return void
+	 * @return string
 	 */
 	private static function get_field_type($block) {
 		$type = "";
@@ -124,7 +124,7 @@ class FormFields {
 	 * Load default values from block.json
 	 *
 	 * @param string $type
-	 * @return void
+	 * @return array
 	 */
 	private static function load_block_defaults($type) {
 		$defaults = [];
@@ -187,6 +187,15 @@ class FormFields {
 		}
 		if($field['type'] == "checkbox") {
 			return $field['value'] ? __("Yes") : __("No");
+		}
+		return $field['value'];
+	}
+
+	public function get_value($fieldName) {
+		if(!key_exists($fieldName, $this->fields)) return false;
+		$field = $this->fields[$fieldName];
+		if($field['type'] == "checkbox") {
+			return $field['value'] ? true : false;
 		}
 		return $field['value'];
 	}
