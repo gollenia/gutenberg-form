@@ -35,7 +35,7 @@ const Inspector = (props) => {
 				<ColorGradientSettingsDropdown
 					settings={[
 						{
-							label: __('Button Background', 'ctx-blocks'),
+							label: __('Button Background', 'events'),
 							colorValue:
 								buttonBackgroundColor.color ||
 								customButtonBackgroundColor,
@@ -57,7 +57,7 @@ const Inspector = (props) => {
 				<ColorGradientSettingsDropdown
 					settings={[
 						{
-							label: __('Button Text Color', 'ctx-blocks'),
+							label: __('Button Text Color', 'events'),
 							colorValue:
 								buttonTextColor.color || customButtonTextColor,
 							onColorChange: (value) => {
