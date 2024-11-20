@@ -47,8 +47,8 @@ class Mailer {
     }
 
 	public function get_user_email() {
-		if($this->form->get_formatted_value('email')) return $this->form->get_formatted_value('email');
-		if($this->form->get_formatted_value('mail')) return $this->form->get_formatted_value('mail');
+		if($this->form->get_value('email')) return $this->form->get_value('email');
+		if($this->form->get_value('mail')) return $this->form->get_value('mail');
 		return false;
 	}
 
