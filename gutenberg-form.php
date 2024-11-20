@@ -22,9 +22,9 @@ require_once plugin_dir_path( __FILE__ ) . 'library/ResponseContent.php';
 require_once plugin_dir_path( __FILE__ ) . 'Block.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Field.php';
 require_once plugin_dir_path( __FILE__ ) . 'library/Submit.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/Update.php';
 
-\Contexis\GutenbergForm\Update::init('gutenberg-form');
+
+
 
 
 add_action('plugins_loaded', 'ctx_form_plugin_textdomain');
