@@ -76,7 +76,7 @@ const Form = (props: FormProps) => {
 
 	const handleSubmit = (event: any) => {
 		const formData = { ...form, ...extraData };
-		console.log('submitting', formData);
+
 		event.preventDefault();
 		if (onSubmit) {
 			onSubmit(event, formData);
