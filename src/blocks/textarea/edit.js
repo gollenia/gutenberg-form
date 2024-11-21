@@ -83,7 +83,7 @@ const edit = (props) => {
 						tagName="p"
 						className="ctx:form-details__label"
 						value={name}
-						placeholder={__('Slug', 'ctx-blocks')}
+						placeholder={__('Slug', 'gutenberg-form')}
 						onChange={(value) => setFieldId(value)}
 					/>
 					{validFieldId() == false && (
