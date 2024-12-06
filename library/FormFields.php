@@ -58,9 +58,8 @@ class FormFields {
 			$field['type'] = key_exists('type', $field) ? $field['type'] : $type;
 			$field['name'] = self::get_field_name($attrs, $type);
 			if($type === 'html') $field['content'] = render_block($block);
-			
+			if($type === 'hidden') $field['defaultValue'] = self::get_hidden_field_value($field, $page_id);
 			$cleanedBlocks[$field['name']] = $field;
-			
 		}
 
 		$cleanedBlocks['id'] = [
@@ -78,6 +77,27 @@ class FormFields {
 		];
 
 		return $cleanedBlocks;
+	}
+
+	static function get_hidden_field_value($field, $page_id) {
+		if($field['type'] !== "hidden") {
+			return;
+		}
+		switch ($field['valueType']) {
+			case 'token':
+				return wp_create_nonce( 'wp_rest' );
+				break;
+			case 'page_id':
+				return $page_id;
+				break;
+			case 'user_id':
+				return get_current_user_id();
+				break;
+			
+			default:
+				return $field['defaultValue'];
+				break;
+		}
 	}
 
 	/**
