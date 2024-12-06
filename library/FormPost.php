@@ -156,7 +156,8 @@ class FormPost {
 			["_user_mail_enabled", 'boolean', false],
 			["_mail_template", 'string', Mailer::get_default_admin_template()],
 			["_form_submit_title", 'string', __('Send', 'gutenberg-form')],
-			["_form_submit_align", 'string', 'right']
+			["_form_submit_align", 'string', 'right'],
+			["_feedback_form_collapse", 'boolean', false]
 		];
 
 		foreach($meta_array as $meta) {
@@ -225,6 +226,12 @@ class FormPost {
 		if(!$id) return false;
 		$submit = ["label" => get_post_meta($id, '_form_submit_title', true), "alignment" => get_post_meta($id, '_form_submit_align', true)];
 		return ["fields" => array_values(FormFields::get_form_data($id, $page_id)), "submit" => $submit];
+	}
+
+	function get_classes($id) {
+		$classes = [];
+		$classes[] = get_post_meta($id, '_feedback_form_collapse', true) ? 'form-collapsed' : '';
+		return $classes;
 	}
 
 	public function get_mail_template() {

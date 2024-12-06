@@ -1,0 +1,10 @@
+.ctx-form.form-collapsed {
+	.ctx-form-field {
+		display: none;
+	}
+
+	.ctx-form__response {
+		position: relative;
+		grid-column: span 6;
+	}
+}

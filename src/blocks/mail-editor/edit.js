@@ -23,8 +23,8 @@ const edit = (props) => {
 	const [userVisible, setUserVisible] = useState(false);
 	const [feedbackVisible, setFeedbackVisible] = useState(false);
 
-	const { context } = props;
-
+	const { context, setAttributes, attributes } = props;
+	const { collapsAfterSubmit } = attributes;
 	const postType = useSelect(
 		(select) => select('core/editor').getCurrentPostType(),
 		[]
@@ -151,7 +151,7 @@ const edit = (props) => {
 				<Button
 					variant="secondary"
 					icon={icons.user}
-					onClick={() => setFeedbackVisible(!userVisible)}
+					onClick={() => setFeedbackVisible(!feedbackVisible)}
 				>
 					{__('Feedback', 'gutenberg-form')}
 				</Button>
@@ -173,7 +173,7 @@ const edit = (props) => {
 				insertCode={insertCode}
 			/>
 			{feedbackVisible && (
-				<div className="ctx:mail-editor-body">
+				<div className="ctx:feedback">
 					<div {...innerBlocksProps} />
 				</div>
 			)}

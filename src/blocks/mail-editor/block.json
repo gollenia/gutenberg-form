@@ -17,6 +17,10 @@
 		"subject": {
 			"type": "string",
 			"default": true
+		},
+		"collapsAfterSubmit": {
+			"type": "boolean",
+			"default": false
 		}
 	},
 	"usesContext": ["gutenberg-form/recordId"],
