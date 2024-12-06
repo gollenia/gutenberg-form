@@ -6,15 +6,14 @@ import { registerPlugin } from '@wordpress/plugins';
 /**
  * Plugin dependencies.
  */
-import mailEditor from './mail-editor';
-import mailRecipients from './mail-recipients';
+import feedback from './feedback';
 
-const plugins = [ mailEditor, mailRecipients ];
+const plugins = [feedback];
 
 const registerPlugins = () => {
-	plugins.forEach( ( plugin ) => {
-		registerPlugin( plugin.name, plugin.settings );
-	} );
+	plugins.forEach((plugin) => {
+		registerPlugin(plugin.name, plugin.settings);
+	});
 };
 
 export default registerPlugins;

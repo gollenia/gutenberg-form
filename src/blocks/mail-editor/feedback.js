@@ -7,7 +7,7 @@ import { __ } from '@wordpress/i18n';
 import { useState } from 'react';
 
 export default function Edit({ ...props }) {
-	const { setAttributes, isVisible } = props;
+	const { setAttributes, visible, setVisible, blockProps } = props;
 
 	const allowedBlocks = [
 		'core/paragraph',
@@ -44,8 +44,11 @@ export default function Edit({ ...props }) {
 
 	return (
 		<>
-			{isVisible && (
-				<Modal title="This is my modal" onRequestClose={closeModal}>
+			{visible && (
+				<Modal
+					title="This is my modal"
+					onRequestClose={() => setVisible(!visible)}
+				>
 					<div {...innerBlocksProps} />
 				</Modal>
 			)}

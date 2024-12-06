@@ -1,7 +1,7 @@
 /**
  * Wordpress dependencies
  */
-import { RichText, useBlockProps } from '@wordpress/block-editor';
+import { useBlockProps } from '@wordpress/block-editor';
 import { Flex, Icon, SelectControl, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 
@@ -45,7 +45,7 @@ const edit = (props) => {
 		},
 	];
 
-	const lockFieldId = ['first_name', 'last_name'].includes(name);
+	
 	const validFieldId = () => {
 		const validPattern = new RegExp('([a-zA-Z0-9_]){3,40}');
 		return validPattern.test(name);
@@ -76,15 +76,7 @@ const edit = (props) => {
 					<Icon icon={icon} />
 					<div className="ctx:form-field__description">
 						<span>
-							<RichText
-								tagName="span"
-								className="ctx:form-details__label"
-								value={label}
-								placeholder={__('Label', 'gutenberg-form')}
-								onChange={(value) =>
-									setAttributes({ label: value })
-								}
-							/>
+							{__('Hidden field', 'gutenberg-form')}
 						</span>
 						<span className="ctx:form-field__label">
 							{__('Label for the field', 'gutenberg-form')}
@@ -93,19 +85,13 @@ const edit = (props) => {
 				</div>
 				<div className="ctx:form-field__name">
 					{!lockFieldId && (
-						<RichText
-							tagName="p"
-							className="ctx:form-details__label"
-							value={name}
-							placeholder={__('Slug', 'gutenberg-form')}
-							onChange={(value) => setFieldId(value)}
-						/>
+						<span>{ valueTypeOptions[</span>
 					)}
-					{lockFieldId && (
-						<span className="ctx:form-details__label--lock">
-							{name} <Icon icon={lock} size={14} />
-						</span>
-					)}
+					
+					<span className="ctx:form-details__label--lock">
+						{name} <Icon icon={lock} size={14} />
+					</span>
+					
 					{validFieldId() == false && (
 						<span className="ctx:form-field__error-message">
 							{__(
