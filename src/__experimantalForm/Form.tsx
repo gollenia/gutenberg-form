@@ -14,6 +14,7 @@ type Response = {
 type FormProps = {
 	data: Array<any>;
 	formUrl: string;
+	className: string;
 	onSubmit: (event: any, data: any) => void | null;
 	onSubmissionFinished?: (response: Response) => void;
 	validate: boolean;
@@ -29,6 +30,7 @@ const Form = (props: FormProps) => {
 	const {
 		data,
 		formUrl,
+		className,
 		onSubmit,
 		submitUrl,
 		onChange,
@@ -60,7 +62,7 @@ const Form = (props: FormProps) => {
 			.then((response) => response.json())
 			.then((data) => {
 				setFields(data.fields);
-
+				console.log(data);
 				setStatus('LOADED');
 
 				const fieldTemplate: any = {};
@@ -147,6 +149,7 @@ const Form = (props: FormProps) => {
 	};
 
 	const classes = [
+		className,
 		'ctx-form',
 		status == 'LOADED' ? 'ctx-form--loaded' : '',
 		status == 'ERROR' ? 'ctx-form--error' : '',
