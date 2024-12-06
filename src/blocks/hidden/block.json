@@ -21,10 +21,6 @@
 		"defaulValue": {
 			"type": "string",
 			"default": ""
-		},
-		"valueType": {
-			"type": "string",
-			"default": ""
 		}
 	},
 	"parent": ["gutenberg-form/form-fields"],
