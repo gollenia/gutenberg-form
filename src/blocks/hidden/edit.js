@@ -84,9 +84,6 @@ const edit = (props) => {
 					</div>
 				</div>
 				<div className="ctx:form-field__name">
-					{!lockFieldId && (
-						<span>{ valueTypeOptions[</span>
-					)}
 					
 					<span className="ctx:form-details__label--lock">
 						{name} <Icon icon={lock} size={14} />
