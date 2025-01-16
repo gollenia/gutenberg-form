@@ -8,8 +8,8 @@
 	"category": "widgets",
 	"attributes": {
 		"formPost": {
-			"type": "string",
-			"default": ""
+			"type": "number",
+			"default": 0
 		}
 	},
 	"usesContext": ["postType"],
