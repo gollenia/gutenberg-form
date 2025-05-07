@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Gutenberg Form
  * Description:     Create Forms easily in Gutenberg
- * Version:         1.2.0
+ * Version:         1.2.1
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -33,5 +33,5 @@ add_action('plugins_loaded', 'ctx_form_plugin_textdomain');
 new \Contexis\GutenbergForm\Update(
 	__FILE__,
 	'gollenia',
-	'ctx-blocks'
+	'gutenberg-form'
 );
