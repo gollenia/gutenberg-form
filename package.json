@@ -1,44 +1,46 @@
 {
-	"name": "gutenberg-form",
-	"version": "1.2.0",
-	"description": "Wordpress plugin to create forms with Gutenberg blocks",
-	"author": "kids-team Österreich",
-	"prettier": "@wordpress/prettier-config",
-	"license": "GPL-2.0-or-later",
-	"main": "assets/index.js",
-	"scripts": {
-		"build": "wp-scripts build src/index.js src/frontend.js",
-		"start": "wp-scripts start src/index.js src/frontend.js",
-		"make-pot": "wp i18n make-pot . languages/gutenberg-form.pot --slug=gbf-form-editor --domain=gutenberg-form --exclude=node_modules,src",
-		"make-json": "wp i18n make-json languages/ --no-purge",
-		"format:js": "wp-scripts format-js",
-		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
-		"packages-update": "wp-scripts packages-update",
-		"lang": "node ./languages/compile.js"
-	},
-	"dependencies": {
-		"@contexis/wp-react-form": "^1.1.5",
-		"@types/node": "^18.11.18",
-		"@types/react": "^18.3.12",
-		"@types/react-dom": "^18.3.1",
-		"@wordpress/icons": "^10.14.0",
-		"colord": "^2.9.3",
-		"react": "^18.3.1",
-		"react-dom": "^18.3.1"
-	},
-	"devDependencies": {
-		"@wordpress/eslint-plugin": "^21.5.0",
-		"@wordpress/prettier-config": "^4.12.0",
-		"@wordpress/scripts": "^30.5.1",
-		"eslint": "^9.15.0",
-		"ts-loader": "^9.5.1",
-		"typescript": "^5.6.3"
-	},
-	"browserslist": [
-		"> 1%",
-		"last 3 versions",
-		"not dead",
-		"not ie <= 11"
-	]
+  "name": "gutenberg-form",
+  "version": "1.1.1",
+  "description": "Wordpress plugin to create forms with Gutenberg blocks",
+  "author": "kids-team Österreich",
+  "prettier": "@wordpress/prettier-config",
+  "license": "GPL-2.0-or-later",
+  "main": "assets/index.js",
+  "scripts": {
+    "build": "wp-scripts build src/index.js src/frontend.js",
+    "start": "wp-scripts start src/index.js src/frontend.js",
+    "make-pot": "wp i18n make-pot . languages/gutenberg-form.pot --slug=gbf-form-editor --domain=gutenberg-form --exclude=node_modules,src",
+    "make-json": "wp i18n make-json languages/ --no-purge",
+    "format:js": "wp-scripts format-js",
+    "lint:css": "wp-scripts lint-style",
+    "lint:js": "wp-scripts lint-js",
+    "packages-update": "wp-scripts packages-update",
+    "lang": "node ./languages/compile.js",
+    "release": "wp-github-plugin gutenberg-form.php --tag"
+  },
+  "dependencies": {
+    "@contexis/wp-react-form": "^1.1.5",
+    "@types/node": "^18.11.18",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@wordpress/icons": "^10.22.0",
+    "colord": "^2.9.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^22.8.0",
+    "@wordpress/prettier-config": "^4.22.0",
+    "@wordpress/scripts": "^30.15.0",
+    "eslint": "^9.15.0",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.6.3",
+    "wp-github-plugin": "^1.0.4"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 3 versions",
+    "not dead",
+    "not ie <= 11"
+  ]
 }
