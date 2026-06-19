@@ -1,6 +1,6 @@
 {
 	"name": "gutenberg-form/mail-editor",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Response",
 	"description": "Create a mail template for the form which will be sent to the recipient.",
 	"textdomain": "gutenberg-form",

@@ -1,17 +1,21 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/select",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Select",
 	"description": "Lets the user select something",
 	"category": "widgets",
-	"textdomain": "gutenberg-form",
 	"attributes": {
 		"name": {
 			"type": "string",
 			"default": ""
 		},
+		"context": {
+			"type": "string",
+			"default": ""
+		},
 		"width": {
-			"type": "integer",
+			"type": "number",
 			"default": 6
 		},
 		"required": {
@@ -34,28 +38,16 @@
 			"type": "string",
 			"default": ""
 		},
-		"help": {
+		"description": {
 			"type": "string",
 			"default": ""
 		},
-		"customErrorMessage": {
-			"type": "string",
-			"default": ""
-		},
-		"hint": {
-			"type": "string",
-			"default": ""
-		},
-		"defaultValue": {
-			"type": "string",
-			"default": ""
-		},
-		"type": {
-			"type": "string",
-			"default": "select"
+		"visibilityRule": {
+			"type": "object",
+			"default": null
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"],
-	"editorStyle": "gbf-form-editor-style",
-	"editorScript": "gbf-form-editor"
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }

@@ -1,17 +1,21 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/date",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Date Field",
-	"textdomain": "gutenberg-form",
 	"description": "Lets the user specify a date",
 	"category": "widgets",
 	"attributes": {
 		"name": {
 			"type": "string",
-			"default": "birthdate"
+			"default": ""
+		},
+		"context": {
+			"type": "string",
+			"default": ""
 		},
 		"width": {
-			"type": "integer",
+			"type": "number",
 			"default": 6
 		},
 		"required": {
@@ -19,35 +23,31 @@
 			"default": false
 		},
 		"min": {
-			"type": "datetime",
+			"type": "string",
 			"default": ""
 		},
 		"max": {
-			"type": "datetime",
+			"type": "string",
 			"default": ""
 		},
 		"label": {
 			"type": "string",
 			"default": ""
 		},
-		"placeholder": {
-			"type": "string",
-			"default": ""
-		},
-		"help": {
-			"type": "boolean",
-			"default": true
-		},
 		"defaultValue": {
 			"type": "string",
 			"default": ""
 		},
-		"customErrorMessage": {
+		"description": {
 			"type": "string",
 			"default": ""
+		},
+		"visibilityRule": {
+			"type": "object",
+			"default": null
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"],
-	"editorStyle": "gbf-form-editor-style",
-	"editorScript": "gbf-form-editor"
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }

@@ -56,10 +56,11 @@ function gb_forms_block_init() {
 		'html',
 		'mail-editor',
 		'number',
+		'phone',
 		'radio',
+		'response',
 		'select',
 		'submit',
-		'tel',
 		'text',
 		'textarea'
 	];

@@ -1,17 +1,21 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/email",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Email Field",
 	"description": "Lets the user type an email address.",
-	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
 			"type": "string",
 			"default": ""
 		},
+		"context": {
+			"type": "string",
+			"default": ""
+		},
 		"width": {
-			"type": "integer",
+			"type": "number",
 			"default": 6
 		},
 		"required": {
@@ -26,16 +30,16 @@
 			"type": "string",
 			"default": ""
 		},
-		"defaultValue": {
+		"description": {
 			"type": "string",
 			"default": ""
 		},
-		"customErrorMessage": {
-			"type": "string",
-			"default": ""
+		"visibilityRule": {
+			"type": "object",
+			"default": null
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"],
-	"editorStyle": "gbf-form-editor-style",
-	"editorScript": "gbf-form-editor"
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }

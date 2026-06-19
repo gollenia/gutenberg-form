@@ -1,12 +1,16 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/number",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Number Field",
 	"description": "Lets the user give a number or a range of numbers",
-	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"context": {
 			"type": "string",
 			"default": ""
 		},
@@ -53,9 +57,17 @@
 		"hasTicks": {
 			"type": "boolean",
 			"default": false
+		},
+		"variant": {
+			"type": "string",
+			"default": "default"
+		},
+		"visibilityRule": {
+			"type": "object",
+			"default": null
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"],
-	"editorStyle": "gbf-form-editor-style",
-	"editorScript": "gbf-form-editor"
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }

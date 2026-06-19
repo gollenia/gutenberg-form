@@ -1,6 +1,6 @@
 {
 	"name": "gutenberg-form/hidden",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Hidden Field",
 	"description": "Add data to the form that is not visible to the user.",
 	"textdomain": "gutenberg-form",

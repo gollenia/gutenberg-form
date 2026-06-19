@@ -1,6 +1,6 @@
 {
 	"name": "gutenberg-form/submit",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Submit",
 	"description": "Lets the user type a short text",
 	"textdomain": "gutenberg-form",

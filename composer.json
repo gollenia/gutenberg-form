@@ -1,0 +1,28 @@
+{
+	"name": "contexis/gutenberg-form",
+	"description": "WordPress plugin to create forms with Gutenberg blocks",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/gollenia/wp-github-updater"
+		}
+	],
+	"require": {
+		"contexis/wp-github-updater": "^0.1.0",
+		"ueberdosis/tiptap-php": "^2.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Contexis\\GutenbergForm\\": "includes/"
+		},
+		"files": [
+			"Block.php"
+		]
+	},
+	"config": {
+		"optimize-autoloader": true,
+		"sort-packages": true
+	}
+}

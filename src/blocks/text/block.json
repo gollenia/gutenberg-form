@@ -1,26 +1,26 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/text",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Text Field",
 	"description": "Lets the user type a short text",
-	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
 			"type": "string",
 			"default": ""
 		},
+		"context": {
+			"type": "string",
+			"default": ""
+		},
 		"width": {
-			"type": "integer",
+			"type": "number",
 			"default": 6
 		},
 		"required": {
 			"type": "boolean",
 			"default": false
-		},
-		"autoComplete": {
-			"type": "string",
-			"default": ""
 		},
 		"pattern": {
 			"type": "string",
@@ -34,28 +34,16 @@
 			"type": "string",
 			"default": ""
 		},
-		"help": {
+		"description": {
 			"type": "string",
 			"default": ""
 		},
-		"customErrorMessage": {
-			"type": "string",
-			"default": ""
-		},
-		"defaultValue": {
-			"type": "string",
-			"default": ""
-		},
-		"min": {
-			"type": "integer",
-			"default": 0
-		},
-		"max": {
-			"type": "integer",
-			"default": 0
+		"visibilityRule": {
+			"type": "object",
+			"default": null
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"],
-	"editorStyle": "gbf-form-editor-style",
-	"editorScript": "gbf-form-editor"
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }

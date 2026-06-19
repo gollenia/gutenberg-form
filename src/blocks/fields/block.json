@@ -1,6 +1,6 @@
 {
 	"name": "gutenberg-form/form-fields",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Form Fields Collection",
 	"description": "Basic form container block",
 	"textdomain": "gutenberg-form",

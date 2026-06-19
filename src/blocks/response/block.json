@@ -1,0 +1,17 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "gutenberg-form/response",
+	"apiVersion": 3,
+	"title": "Response",
+	"description": "Website feedback shown after a successful form submission.",
+	"textdomain": "gutenberg-form",
+	"category": "widgets",
+	"parent": ["gutenberg-form/form-container"],
+	"supports": {
+		"html": false,
+		"reusable": false,
+		"multiple": false
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

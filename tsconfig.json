@@ -1,0 +1,51 @@
+{
+	"compilerOptions": {
+		"target": "ESNext",
+		"lib": ["dom", "dom.iterable", "esnext"],
+		"module": "esnext",
+		"moduleResolution": "bundler",
+		"resolveJsonModule": true,
+		"types": ["node"],
+		"jsx": "react-jsx",
+		"jsxImportSource": "react",
+		"paths": {
+			"@events/form": ["./src/editor/blocks/form/_shared"],
+			"@events/form/*": ["./src/editor/blocks/form/_shared/*"],
+
+			"@events/details": ["./src/editor/blocks/details/_shared"],
+			"@events/details/*": ["./src/editor/blocks/details/_shared/*"],
+
+			"@events/datatable": ["./src/shared/datatable"],
+			"@events/datatable/*": ["./src/shared/datatable/*"],
+
+			"@events/adminfields": ["./src/shared/adminfields"],
+			"@events/adminfields/*": ["./src/shared/adminfields/*"],
+
+			"@events/emails": ["./src/shared/emails"],
+			"@events/emails/*": ["./src/shared/emails/*"],
+
+			"@events/i18n": ["./src/shared/i18n"],
+			"@events/i18n/*": ["./src/shared/i18n/*"],
+
+			"@events/utilities": ["./src/shared/utilities"],
+			"@events/utilities/*": ["./src/shared/utilities/*"],
+
+			"@wordpress/*": ["./node_modules/@wordpress/*"]
+		},
+		"strict": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"skipLibCheck": true,
+		"esModuleInterop": true,
+		"allowUnusedLabels": false,
+		"allowSyntheticDefaultImports": true,
+		"noUncheckedSideEffectImports": true,
+		"noFallthroughCasesInSwitch": true,
+		"allowUnreachableCode": false,
+		"noUncheckedIndexedAccess": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"erasableSyntaxOnly": true,
+		"noErrorTruncation": false
+	},
+	"include": ["src/**/*", "globals.d.ts"]
+}

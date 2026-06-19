@@ -1,9 +1,10 @@
-.ctx\:form-field {
+.ctx\:event-field {
 	padding: 1rem 1rem;
-	background-color: #ffffff !important;
-	border: 1px solid #909090;
+	background: #ffffff;
 	grid-column: auto / span 6;
 	box-sizing: border-box;
+	align-items: stretch !important;
+	max-width: 1200px !important;
 
 	&--6 {
 		grid-column: auto / span 6;
@@ -29,14 +30,14 @@
 		grid-column: auto / span 1;
 	}
 
-	input[type="text"] {
+	input[type='text'] {
 		width: 100%;
 		color: #999;
 	}
 
 	&--error {
 		background: #fcf4f4 !important;
-		border-color: #ff0000 !important;
+		box-shadow: inset 0 0 0 1px #b32d2e !important;
 	}
 
 	&__caption {
@@ -50,20 +51,20 @@
 		}
 	}
 
-	&__name {
+	&__sublabel {
+		font-size: 0.8rem;
+		color: #999;
+	}
+
+	&__info {
 		display: flex;
-		flex-direction: column;
-		align-items: flex-end;
+		align-items: center;
+		gap: .5rem;
 	}
 
 	&__description {
 		display: flex;
-		flex-direction: column;
-	}
-
-	&__label {
-		font-size: 0.8rem;
-		color: #999;
+    flex-direction: column;	
 	}
 
 	&__error-message {
@@ -71,10 +72,15 @@
 		font-size: 0.8rem;
 		margin-top: 0.25rem;
 	}
+}
 
-	&__info {
+.ctx\:event-details {
+	&__label--lock {
 		display: flex;
-		gap: 10px;
 		align-items: center;
+
+		svg {
+			margin-left: 5px;
+		}
 	}
 }

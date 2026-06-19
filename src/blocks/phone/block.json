@@ -1,0 +1,45 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"name": "gutenberg-form/phone",
+	"apiVersion": 3,
+	"title": "Phone Field",
+	"description": "Lets the user type a phone number.",
+	"category": "widgets",
+	"attributes": {
+		"name": {
+			"type": "string",
+			"default": ""
+		},
+		"context": {
+			"type": "string",
+			"default": ""
+		},
+		"width": {
+			"type": "number",
+			"default": 6
+		},
+		"required": {
+			"type": "boolean",
+			"default": true
+		},
+		"label": {
+			"type": "string",
+			"default": "Phone"
+		},
+		"placeholder": {
+			"type": "string",
+			"default": ""
+		},
+		"description": {
+			"type": "string",
+			"default": ""
+		},
+		"visibilityRule": {
+			"type": "object",
+			"default": null
+		}
+	},
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
+}

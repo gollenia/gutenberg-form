@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     Gutenberg Form
  * Description:     Create Forms easily in Gutenberg
- * Version:         1.2.1
+ * Version:         1.3.0
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
@@ -10,27 +10,26 @@
  *
  */
 
- //Add translation
-function ctx_form_plugin_textdomain() {
-    load_plugin_textdomain('gutenberg-form', false, dirname( plugin_basename( __FILE__ ) ).'/languages');
+declare(strict_types=1);
+
+if (!defined('ABSPATH')) {
+	exit;
 }
 
-require_once plugin_dir_path( __FILE__ ) . 'library/FormFields.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/FormPost.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/Mailer.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/ResponseContent.php';
-require_once plugin_dir_path( __FILE__ ) . 'Block.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/Field.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/Submit.php';
-require_once plugin_dir_path( __FILE__ ) . 'library/Update.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
+add_action('plugins_loaded', static function (): void {
+	load_plugin_textdomain(
+		'gutenberg-form',
+		false,
+		dirname(plugin_basename(__FILE__)) . '/languages'
+	);
+});
 
+\Contexis\GutenbergForm\Form\FormPost::init();
+\Contexis\GutenbergForm\Http\Submit::init();
 
-
-
-add_action('plugins_loaded', 'ctx_form_plugin_textdomain');
-
-new \Contexis\GutenbergForm\Update(
+new \Contexis\GutenbergForm\System\Update(
 	__FILE__,
 	'gollenia',
 	'gutenberg-form'

@@ -1,17 +1,21 @@
 {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"name": "gutenberg-form/radio",
-	"apiVersion": 2,
+	"apiVersion": 3,
 	"title": "Radio Select",
 	"description": "Lets the user check something",
-	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
 			"type": "string",
 			"default": ""
 		},
+		"context": {
+			"type": "string",
+			"default": ""
+		},
 		"width": {
-			"type": "integer",
+			"type": "number",
 			"default": 6
 		},
 		"required": {
@@ -23,6 +27,10 @@
 			"default": ""
 		},
 		"placeholder": {
+			"type": "number",
+			"default": 0
+		},
+		"description": {
 			"type": "string",
 			"default": ""
 		},
@@ -30,12 +38,12 @@
 			"type": "array",
 			"default": []
 		},
-		"defaultValue": {
-			"type": "string",
-			"default": ""
+		"visibilityRule": {
+			"type": "object",
+			"default": null
 		}
 	},
-	"parent": ["gutenberg-form/form-fields"],
-	"editorStyle": "gbf-form-editor-style",
-	"editorScript": "gbf-form-editor"
+	"parent": ["gutenberg-form/form-container"],
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css"
 }
