@@ -5,10 +5,10 @@
 	"author": "kids-team Österreich",
 	"prettier": "@wordpress/prettier-config",
 	"license": "GPL-2.0-or-later",
-  "main": "assets/index.js",
-  "scripts": {
-    "build": "wp-scripts build src/index.js src/frontend.js",
-    "start": "wp-scripts start src/index.js src/frontend.js",
+	"main": "assets/index.js",
+	"scripts": {
+		"build": "wp-scripts build index=src/index.ts frontend=src/frontend.tsx",
+		"start": "wp-scripts start index=src/index.ts frontend=src/frontend.tsx",
 		"make-pot": "wp i18n make-pot . languages/gutenberg-form.pot --slug=gbf-form-editor --domain=gutenberg-form --exclude=node_modules,src",
 		"make-json": "wp i18n make-json languages/ --no-purge",
 		"format:js": "biome format --write src package.json biome.json tsconfig.json globals.d.ts",
@@ -19,7 +19,7 @@
 		"release": "wp-github-plugin gutenberg-form.php --tag"
 	},
 	"dependencies": {
-		"@contexis/wp-react-form": "^2.3.3",
+		"@contexis/wp-react-form": "^2.6.2",
 		"@tiptap/pm": "^3.22.3",
 		"@tiptap/react": "^3.22.3",
 		"@tiptap/starter-kit": "^3.22.3",
@@ -37,9 +37,9 @@
 		"@types/wordpress__core-data": "^2.4.5",
 		"@types/wordpress__data": "^6.0.2",
 		"@types/wordpress__editor": "^14.3.1",
-		"@wordpress/scripts": "^30.15.0",
-		"ts-loader": "^9.5.1",
-		"typescript": "^5.6.3",
+		"@wordpress/scripts": "^32.4.1",
+		"ts-loader": "^9.6.2",
+		"typescript": "^6.0.3",
 		"wp-github-plugin": "^1.0.4"
 	},
 	"browserslist": [

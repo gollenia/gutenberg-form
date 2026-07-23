@@ -205,9 +205,9 @@ export default function Edit(props: ContainerEditProps) {
 	}, [activeTab, childBlocks]);
 
 	return (
-		<form autoComplete="off" className="ctx:form-form">
+		<form autoComplete="off" className="ctx-form-form">
 			<TabPanel
-				className="ctx:form-form__tabs"
+				className="ctx-form-form__tabs"
 				activeClass="is-active"
 				onSelect={(tabName) =>
 					setActiveTab((tabName as 'fields' | 'response') ?? 'fields')
@@ -222,7 +222,7 @@ export default function Edit(props: ContainerEditProps) {
 						{...innerBlocksProps}
 						className={[
 							innerBlocksProps.className,
-							'ctx:form-form__wrapper',
+							'ctx-form-form__wrapper',
 							`is-editing-${activeTab}`,
 						]
 							.filter(Boolean)

@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:     Gutenberg Form
- * Description:     Create Forms easily in Gutenberg
+ * Plugin Name:     CTX Form
+ * Description:     Create forms easily in Gutenberg
  * Version:         1.3.0
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later

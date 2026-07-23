@@ -1,4 +1,4 @@
-.ctx\:form-details {
+.ctx-form-details {
 	&__label--lock {
 		display: flex;
 		align-items: center;
@@ -9,7 +9,7 @@
 	}
 }
 
-.ctx\:form-field {
+.ctx-form-field {
 	input[type="number"] {
 		width: 100%;
 		color: #999;
@@ -96,7 +96,7 @@
 	}
 }
 
-.ctx\:form__panel-row {
+.ctx-form__panel-row {
 	display: flex;
 	gap: 1rem;
 	margin-bottom: 1rem;

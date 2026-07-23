@@ -44,7 +44,7 @@ const edit = (props: EditProps) => {
 				setAttributes={setAttributes}
 				clientId={props.clientId}
 			/>
-			<div className="ctx:event-field__select">
+			<div className="ctx-form-field__select">
 				<fieldset>
 					{attributes.options.map((option, index) => {
 						const optionId = `${attributes.name}-${index}`;

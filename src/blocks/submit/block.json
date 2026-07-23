@@ -21,71 +21,14 @@
 		"label": {
 			"type": "string",
 			"default": ""
-		},
-		"buttonBackgroundColor": {
-			"type": "string",
-			"default": "primary"
-		},
-		"buttonTextColor": {
-			"type": "string",
-			"default": "white"
-		},
-		"customButtonBackgroundColor": {
-			"type": "string",
-			"default": ""
-		},
-		"customButtonTextColor": {
-			"type": "string",
-			"default": ""
-		},
-		"style": {
-			"type": "object",
-			"default": {
-				"spacing": {
-					"padding": {
-						"top": "0.6rem",
-						"right": "1rem",
-						"bottom": "0.6rem",
-						"left": "1rem"
-					}
-				}
-			}
 		}
 	},
 	"parent": ["gutenberg-form/form-fields"],
 	"supports": {
 		"html": false,
 		"multiple": false,
-		"injector": true,
-		"__experimentalBorder": {
-			"color": true,
-			"radius": true,
-			"style": false,
-			"width": false,
-			"__experimentalDefaultControls": {
-				"radius": true,
-				"style": false,
-				"width": true,
-				"linked": false,
-				"color": true
-			}
-		},
-		"spacing": {
-			"padding": true,
-			"margin": true
-		}
+		"injector": true
 	},
-	"styles": [
-		{
-			"name": "fill",
-			"label": "Fill",
-			"isDefault": true
-		},
-		{
-			"name": "outline",
-			"label": "Outline"
-		}
-	],
 	"editorStyle": "gbf-form-editor-style",
 	"editorScript": "gbf-form-editor"
 }

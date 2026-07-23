@@ -1,4 +1,4 @@
-.ctx\:event-field {
+.ctx-form-field {
 	padding: 1rem 1rem;
 	background: #ffffff;
 	grid-column: auto / span 6;
@@ -74,7 +74,7 @@
 	}
 }
 
-.ctx\:event-details {
+.ctx-form-details {
 	&__label--lock {
 		display: flex;
 		align-items: center;

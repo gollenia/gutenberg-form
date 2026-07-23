@@ -21,7 +21,7 @@ const ContextControl = ({ value, onChange, clientId }: ContextControlProps) => {
 	return (
 		<>
 			<TextControl
-				className="ctx:event-field__context-combobox"
+				className="ctx-form-field__context-combobox"
 				label={__('Context', 'gutenberg-form')}
 				value={value}
 				onChange={(value) => {
@@ -31,7 +31,7 @@ const ContextControl = ({ value, onChange, clientId }: ContextControlProps) => {
 
 			{contextOptions.length > 0 && (
 				<>
-					<span className="ctx:event-field__context-suggestions-label">
+					<span className="ctx-form-field__context-suggestions-label">
 						{__('Existing contexts:', 'gutenberg-form')}
 					</span>
 					<Flex justify="flex-start">

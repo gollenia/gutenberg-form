@@ -1,8 +1,25 @@
 import { unregisterBlockType } from '@wordpress/blocks';
 import { select } from '@wordpress/data';
 import domReady from '@wordpress/dom-ready';
-import registerBlocks from './blocks/blocks';
 import registerPlugins from './plugins/plugins';
+import './blocks/checkbox';
+import './blocks/container';
+import './blocks/country';
+import './blocks/date';
+import './blocks/email';
+import './blocks/fields';
+import './blocks/form';
+import './blocks/hidden';
+import './blocks/html';
+import './blocks/mail-editor';
+import './blocks/number';
+import './blocks/phone';
+import './blocks/radio';
+import './blocks/response';
+import './blocks/select';
+import './blocks/submit';
+import './blocks/text';
+import './blocks/textarea';
 
 declare global {
 	interface Window {
@@ -10,7 +27,6 @@ declare global {
 	}
 }
 
-registerBlocks();
 registerPlugins();
 
 domReady(() => {

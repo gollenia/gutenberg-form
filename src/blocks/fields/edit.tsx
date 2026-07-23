@@ -79,7 +79,7 @@ export default function Edit(props: FieldsEditProps) {
 		);
 	}
 
-	const blockProps = useBlockProps({ className: 'ctx:form' });
+	const blockProps = useBlockProps({ className: 'ctx-form' });
 	const postType = useSelect(
 		() => (select('core/editor') as any).getCurrentPostType() as string,
 		[],

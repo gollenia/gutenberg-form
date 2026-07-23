@@ -105,7 +105,7 @@ const Edit = ({ context }: MailEditorProps) => {
 		postType,
 		'meta',
 	) ?? [null, () => null]) as [Record<string, unknown>, (meta: Record<string, unknown>) => void];
-	const blockProps = useBlockProps({ className: 'ctx:mail-editor' });
+	const blockProps = useBlockProps({ className: 'ctx-mail-editor' });
 	const innerBlocksProps = useInnerBlocksProps(
 		{},
 			{
@@ -116,7 +116,7 @@ const Edit = ({ context }: MailEditorProps) => {
 
 	return (
 		<div {...blockProps}>
-			<div className="ctx:mail-editor-trigger">
+			<div className="ctx-mail-editor-trigger">
 				<Button variant="primary" icon={icons.admin} onClick={() => setAdminVisible((visible) => !visible)}>
 					{__('Admin Mail', 'gutenberg-form')}
 				</Button>
@@ -144,7 +144,7 @@ const Edit = ({ context }: MailEditorProps) => {
 				insertCode={insertCode}
 			/>
 			{feedbackVisible && (
-				<div className="ctx:feedback">
+				<div className="ctx-feedback">
 					<div {...innerBlocksProps} />
 				</div>
 			)}

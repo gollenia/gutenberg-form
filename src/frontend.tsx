@@ -1,13 +1,14 @@
 import { createRoot } from 'react-dom/client';
-import Form from '@contexis/wp-react-form';
 import './frontend.scss';
 
-const gbfInit = (): void => {
+const gbfInit = async (): Promise<void> => {
 	const forms = document.querySelectorAll<HTMLElement>('.gbf-form');
 
 	if (forms.length === 0) {
 		return;
 	}
+
+	const { default: Form } = await import('@contexis/wp-react-form/form');
 
 	forms.forEach((form) => {
 		const id = form.getAttribute('data-id');
@@ -29,4 +30,4 @@ const gbfInit = (): void => {
 	});
 };
 
-gbfInit();
+void gbfInit();

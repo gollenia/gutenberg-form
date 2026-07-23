@@ -83,7 +83,7 @@ const edit = (props: EditProps) => {
 				)}
 				<RichText
 					tagName="p"
-					className="ctx:event-details__label"
+					className="ctx-form-details__label"
 					value={attributes.description}
 					required={true}
 					placeholder={__(

@@ -1,3 +1,4 @@
+import { registerBlockType } from '@wordpress/blocks';
 import { withColors } from '@wordpress/block-editor';
 import metadata from './block.json';
 import Edit from './edit';
@@ -12,5 +13,7 @@ const settings = {
 	edit: withColors({ buttonColor: 'buttonColor' })(Edit),
 	save: () => null,
 };
+
+registerBlockType(name, settings);
 
 export { name, settings };

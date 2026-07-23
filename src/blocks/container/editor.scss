@@ -4,19 +4,19 @@
 	}
 }
 
-.ctx\:form-form__tabs {
+.ctx-form-form__tabs {
 	margin-bottom: 1rem;
 }
 
-.ctx\:form-form__wrapper.is-editing-fields [data-type='gutenberg-form/response'] {
+.ctx-form-form__wrapper.is-editing-fields [data-type='gutenberg-form/response'] {
 	display: none;
 }
 
-.ctx\:form-form__wrapper {
+.ctx-form-form__wrapper {
 	padding-top: 2rem;
 }
 
-.ctx\:form-form__wrapper.is-editing-response
+.ctx-form-form__wrapper.is-editing-response
 	[data-type='gutenberg-form/form-fields'] {
 	display: none;
 }

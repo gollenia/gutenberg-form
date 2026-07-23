@@ -1,11 +1,11 @@
-.ctx\:mail-editor-trigger {
+.ctx-mail-editor-trigger {
 	margin-bottom: 1rem;
 	display: flex;
 	align-items: center;
 	gap: 1rem;
 }
 
-.ctx\:mail-editor-backdrop {
+.ctx-mail-editor-backdrop {
 	position: fixed;
 	display: grid;
 	place-items: center;
@@ -19,7 +19,7 @@
 	z-index: 999;
 }
 
-.ctx\:mail-editor-help {
+.ctx-mail-editor-help {
 	font-family:
 		-apple-system,
 		BlinkMacSystemFont,
@@ -35,7 +35,7 @@
 }
 
 // Path: src/backend/blocks/MailEditor/editor.scss
-.ctx\:mail-editor-window {
+.ctx-mail-editor-window {
 	background: #fff;
 	z-index: 1000;
 	box-sizing: border-box;
@@ -50,7 +50,7 @@
 	max-width: 850px;
 }
 
-.ctx\:mail-editor-title {
+.ctx-mail-editor-title {
 	font-family:
 		-apple-system,
 		BlinkMacSystemFont,
@@ -68,13 +68,13 @@
 	border-bottom: 1px solid #bbb;
 }
 
-.ctx\:mail-editor-header {
+.ctx-mail-editor-header {
 	padding: 1rem;
 	border-bottom: 1px solid #bbb;
 	background: #f1f1f1;
 }
 
-.ctx\:mail-editor-body {
+.ctx-mail-editor-body {
 	padding: 1rem;
 	flex: 1;
 	display: flex;
@@ -82,7 +82,7 @@
 	background: #f1f1f1;
 }
 
-.ctx\:mail-editor-code {
+.ctx-mail-editor-code {
 	height: 200px;
 	padding: 6px 8px;
 	box-shadow: 0 0 0 transparent;
@@ -99,7 +99,7 @@
 	background-color: #fff;
 }
 
-label.ctx\:mail-editor-label {
+label.ctx-mail-editor-label {
 	font-size: 11px;
 	font-weight: 500;
 	line-height: 1.4;
@@ -119,7 +119,7 @@ label.ctx\:mail-editor-label {
 		sans-serif;
 }
 
-.ctx\:mail-editor-fields {
+.ctx-mail-editor-fields {
 	display: flex;
 	gap: 1rem;
 	padding: 0rem 1rem 1rem 1rem;
@@ -127,7 +127,7 @@ label.ctx\:mail-editor-label {
 	flex-wrap: wrap;
 }
 
-.ctx\:mail-editor-field {
+.ctx-mail-editor-field {
 	font-family:
 		-apple-system,
 		BlinkMacSystemFont,
@@ -146,17 +146,17 @@ label.ctx\:mail-editor-label {
 	cursor: pointer;
 }
 
-.ctx\:mail-editor-field-generic {
+.ctx-mail-editor-field-generic {
 	background-color: #bdd8ff;
 	border-color: #81b6ff;
 }
 
-.ctx\:mail-editor-field-generic:hover {
+.ctx-mail-editor-field-generic:hover {
 	background-color: #adcefc;
 	border-color: #569dff;
 }
 
-.ctx\:mail-editor-field-field:hover {
+.ctx-mail-editor-field-field:hover {
 	background-color: #effe8a;
 	border-color: #a9bd26;
 }
@@ -165,7 +165,7 @@ span.ctx-field {
 	background: #ffd7bd;
 }
 
-.ctx\:mail-editor-footer {
+.ctx-mail-editor-footer {
 	border-top: 1px solid #bbb;
 	padding: 1rem;
 	display: flex;

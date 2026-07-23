@@ -1,3 +1,4 @@
+import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';
 import { __ } from '@wordpress/i18n';
 import metadata from './block.json';
@@ -15,5 +16,7 @@ const settings = {
 	edit: Edit,
 	save: () => <InnerBlocks.Content />,
 };
+
+registerBlockType(name, settings);
 
 export { name, settings };

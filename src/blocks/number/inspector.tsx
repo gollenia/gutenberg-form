@@ -66,7 +66,7 @@ const Inspector = (props: InspectorProps) => {
 					onChange={(value) => setAttributes({ required: value })}
 				/>
 
-				<div className="ctx:form__panel-row">
+				<div className="ctx-form__panel-row">
 					<NumberControl
 						label={__('Minimum value', 'gutenberg-form')}
 						value={min}

@@ -35,10 +35,10 @@ export default function useFieldProps(
 					: undefined,
 		},
 		className: [
-			'ctx:event-field components-placeholder block-editor-media-placeholder is-large',
-			`ctx:event-field--${width || 6}`,
-			hasError ? 'ctx:event-field--error' : '',
-			context ? `ctx:event-field--${context}` : '',
+			'ctx-form-field components-placeholder block-editor-media-placeholder is-large',
+			`ctx-form-field--${width || 6}`,
+			hasError ? 'ctx-form-field--error' : '',
+			context ? `ctx-form-field--${context}` : '',
 			className,
 		]
 			.filter(Boolean)

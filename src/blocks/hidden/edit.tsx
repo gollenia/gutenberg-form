@@ -38,8 +38,8 @@ const Edit = ({ attributes, setAttributes }: EditProps) => {
 
 	const blockProps = useBlockProps({
 		className: [
-			'ctx:form-field',
-			!isValidFieldId(name) || label === '' ? 'ctx:form-field--error' : '',
+			'ctx-form-field',
+			!isValidFieldId(name) || label === '' ? 'ctx-form-field--error' : '',
 		]
 			.filter(Boolean)
 			.join(' '),
@@ -48,29 +48,29 @@ const Edit = ({ attributes, setAttributes }: EditProps) => {
 	return (
 		<div {...blockProps}>
 			<Inspector attributes={attributes} setAttributes={setAttributes} />
-			<div className="ctx:form-field__caption">
-				<div className="ctx:form-field__info">
+			<div className="ctx-form-field__caption">
+				<div className="ctx-form-field__info">
 					<Icon icon={icon} />
-					<div className="ctx:form-field__description">
+					<div className="ctx-form-field__description">
 						<span>{__('Hidden field', 'gutenberg-form')}</span>
-						<span className="ctx:form-field__label">
+						<span className="ctx-form-field__label">
 							{__('Label for the field', 'gutenberg-form')}
 						</span>
 					</div>
 				</div>
-				<div className="ctx:form-field__name">
-					<span className="ctx:form-details__label--lock">
+				<div className="ctx-form-field__name">
+					<span className="ctx-form-details__label--lock">
 						{name} <Icon icon={lockIcon} size={14} />
 					</span>
 					{!isValidFieldId(name) ? (
-						<span className="ctx:form-field__error-message">
+						<span className="ctx-form-field__error-message">
 							{__(
 								'Please type in a unique itentifier for the field',
 								'gutenberg-form',
 							)}
 						</span>
 					) : (
-						<span className="ctx:form-field__label">
+						<span className="ctx-form-field__label">
 							{__('Unique identifier', 'gutenberg-form')}
 						</span>
 					)}

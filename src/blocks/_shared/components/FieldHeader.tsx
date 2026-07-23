@@ -40,7 +40,7 @@ const FieldHeader = ({
 			<FlexItem>
 				<RichText
 					tagName="span"
-					className={`ctx:label-input ${!isLabelValid ? 'ctx:input-error' : ''}`}
+					className={`ctx-label-input ${!isLabelValid ? 'ctx-input-error' : ''}`}
 					value={label}
 					placeholder={__('Enter label here...', 'gutenberg-form')}
 					onChange={(value) => setAttributes({ label: value })}

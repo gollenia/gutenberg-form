@@ -1,7 +1,7 @@
-.ctx\:form-submit {
+.ctx-form-submit {
 }
 
-.ctx\:form-field__submit-wrapper {
+.ctx-form-field__submit-wrapper {
 	display: flex;
 	margin-top: 2rem;
 	&--center {
@@ -16,4 +16,15 @@
 .wp-block-gutenberg-form-submit {
 	border-radius: 0 !important;
 	border: 1px solid #909090 !important;
+}
+
+
+.gutenberg-form-submit-button span {
+	background-color: #111111;
+	border-radius: 0;
+	color: #ffffff;	
+	font-size: 1rem;
+	font-weight: 600;
+	padding: 0.5rem 1rem;
+	transition: all 0.2s ease-in-out;
 }

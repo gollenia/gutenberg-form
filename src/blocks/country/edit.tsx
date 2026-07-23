@@ -64,7 +64,7 @@ const edit = (props: EditProps) => {
 				onChange={(event) => {
 					setAttributes({ defaultValue: event });
 				}}
-				className="ctx:event-field__input"
+				className="ctx-form-field__input"
 				value={defaultValue}
 			>
 				{countryCodes.map((country) => {

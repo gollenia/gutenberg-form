@@ -36,7 +36,7 @@ export default function Edit(props: EditProps) {
 	);
 
 	const blockProps = useBlockProps({
-		className: ['ctx:event-html', `ctx:event-html--${width}`]
+		className: ['ctx-form-html', `ctx-form-html--${width}`]
 			.filter(Boolean)
 			.join(' '),
 	});

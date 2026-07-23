@@ -1,8 +1,8 @@
-# Gutenberg Form
+# CTX Form
 
 **A Gutenberg-native form builder using Custom Post Types and blocks.**
 
-Gutenberg Form is a lightweight, developer-friendly WordPress plugin that allows you to create and manage forms using Gutenberg blocks. Forms are saved as Custom Post Types and can be inserted into any post or page using a dedicated Form Selector block.
+CTX Form is a lightweight, developer-friendly WordPress plugin that allows you to create and manage forms using Gutenberg blocks. Forms are saved as Custom Post Types and can be inserted into any post or page using a dedicated Form Selector block.
 
 ---
 

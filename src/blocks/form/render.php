@@ -1,8 +1,18 @@
 <?php
-$lang = explode("_", get_locale())[0];
-$formId = $attributes['formPost'];
-$pageId = get_the_ID();
-$classes = get_post_meta($formId, '_feedback_form_collapse', true) ? 'form-collapsed' : '';
+if ( ! empty( $attributes['formPost'] ) ) {
+	wp_enqueue_script( 'gbf-frontend' );
+	wp_enqueue_style( 'gbf-frontend-style' );
+}
 
-$result = "<div class='gbf-form' data-id='" . $formId . "' data-lang='" . $lang . "' data-page='" . $pageId . "' data-class='" . $classes . "'></div>";
-echo $result;
+$lang    = explode( '_', get_locale() )[0];
+$form_id = isset( $attributes['formPost'] ) ? (int) $attributes['formPost'] : 0;
+$page_id = get_the_ID();
+$classes = $form_id && get_post_meta( $form_id, '_feedback_form_collapse', true ) ? 'form-collapsed' : '';
+
+return sprintf(
+	"<div class='gbf-form' data-id='%d' data-lang='%s' data-page='%d' data-class='%s'></div>",
+	$form_id,
+	esc_attr( $lang ),
+	(int) $page_id,
+	esc_attr( $classes )
+);
