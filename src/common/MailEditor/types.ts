@@ -17,7 +17,16 @@ export type EmailTemplateMentionItem =
 			kind: 'command';
 			label: string;
 			searchText: string;
-			command: 'bulletList' | 'orderedList';
+			command:
+				| 'heading1'
+				| 'heading2'
+				| 'bulletList'
+				| 'orderedList'
+				| 'horizontalRule'
+				| 'infoBox'
+				| 'link'
+				| 'button'
+				| 'allFields';
 	  };
 
 export type ThemeColor = {

@@ -120,3 +120,38 @@ export const MailTokenNode = Node.create({
 		return String(node.attrs.token || '');
 	},
 });
+
+export const MailButtonNode = Node.create({
+	name: 'mailButton',
+	group: 'inline',
+	inline: true,
+	content: 'text*',
+
+	addAttributes() {
+		return {
+			href: { default: '' },
+			label: { default: '' },
+		};
+	},
+
+	parseHTML() {
+		return [{ tag: 'a[data-type="mail-button"]' }];
+	},
+
+	renderHTML({ HTMLAttributes, node }) {
+		return [
+			'a',
+			mergeAttributes(HTMLAttributes, {
+				'data-type': 'mail-button',
+				href: node.attrs.href,
+				style:
+					'display:inline-block;padding:10px 16px;background:#3858e9;color:#ffffff;text-decoration:none;border-radius:4px;',
+			}),
+			0,
+		];
+	},
+
+	renderText({ node }) {
+		return String(node.attrs.label || 'Button');
+	},
+});

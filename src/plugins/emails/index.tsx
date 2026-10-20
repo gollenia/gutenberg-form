@@ -1,4 +1,4 @@
-import { Button, Spinner } from '@wordpress/components';
+import { Button, Flex, Spinner } from '@wordpress/components';
 import { useSelect } from '@wordpress/data';
 import { PluginDocumentSettingPanel } from '@wordpress/editor';
 import { lazy, Suspense, useState } from '@wordpress/element';
@@ -7,7 +7,11 @@ import icons from '../../blocks/mail-editor/icons';
 
 const coreData = (globalThis as any).wp?.coreData;
 const useEntityProp = coreData?.useEntityProp as
-	| ((kind: string, name: string, property: string) => [Record<string, unknown>, (meta: Record<string, unknown>) => void])
+	| ((
+			kind: string,
+			name: string,
+			property: string,
+	  ) => [Record<string, unknown>, (meta: Record<string, unknown>) => void])
 	| undefined;
 
 const Admin = lazy(() => import('../../blocks/mail-editor/admin'));
@@ -124,31 +128,33 @@ const EmailSettings = () => {
 						'gutenberg-form',
 					)}
 				</p>
-				<Button
-					variant="primary"
-					icon={icons.admin}
-					onClick={() => setAdminVisible(true)}
-				>
-					{__('Edit admin mail', 'gutenberg-form')}
-				</Button>
-				<Button
-					variant="secondary"
-					icon={icons.user}
-					onClick={() => setUserVisible(true)}
-				>
-					{__('Edit user mail', 'gutenberg-form')}
-				</Button>
+				<Flex gap="4" direction="column">
+					<Button
+						variant="primary"
+						icon={icons.admin}
+						onClick={() => setAdminVisible(true)}
+					>
+						{__('Edit admin mail', 'gutenberg-form')}
+					</Button>
+					<Button
+						variant="secondary"
+						icon={icons.user}
+						onClick={() => setUserVisible(true)}
+					>
+						{__('Edit user mail', 'gutenberg-form')}
+					</Button>
+				</Flex>
 			</PluginDocumentSettingPanel>
 			{adminVisible || userVisible ? (
 				<Suspense fallback={<Spinner />}>
 					<Admin
 						visible={adminVisible}
-					setVisible={setAdminVisible}
-					meta={meta}
-					setMeta={setMeta}
-					getAvailableFields={getAvailableFields}
-					insertCode={insertCode}
-				/>
+						setVisible={setAdminVisible}
+						meta={meta}
+						setMeta={setMeta}
+						getAvailableFields={getAvailableFields}
+						insertCode={insertCode}
+					/>
 					<User
 						visible={userVisible}
 						setVisible={setUserVisible}
