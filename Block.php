@@ -19,10 +19,20 @@ function gb_forms_block_init() {
 
 		wp_set_script_translations( 'gbf-form-editor', 'gutenberg-form', plugin_dir_path( __FILE__ ) . '/languages' );
 
+		if ( file_exists( $dir . 'style-index.css' ) ) {
+			wp_register_style(
+				'gbf-form-editor-shared-style',
+				plugins_url( '/build/style-index.css', __FILE__ ),
+				array(),
+				$script_asset['version']
+			);
+			wp_style_add_data( 'gbf-form-editor-shared-style', 'rtl', 'replace' );
+		}
+
 		wp_register_style(
 			'gbf-form-editor-style',
 			plugins_url( '/build/index.css', __FILE__ ),
-			array(),
+			array( 'gbf-form-editor-shared-style' ),
 			$script_asset['version']
 		);
 	} else {

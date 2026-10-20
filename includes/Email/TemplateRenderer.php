@@ -50,7 +50,7 @@ final class TemplateRenderer
 
 		$document = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
 
-		return (new Editor([
+		$html = (new Editor([
 			'extensions' => [
 				new StarterKit([
 					'codeBlock' => false,
@@ -64,6 +64,12 @@ final class TemplateRenderer
 			],
 			'content' => $document,
 		]))->getHTML();
+
+		return (string) preg_replace(
+			'/<blockquote>(.*?)<\\/blockquote>/is',
+			'<div style="margin:0 0 16px;padding:12px 16px;border-left:4px solid #3858e9;background:#f0f6fc;">$1</div>',
+			$html
+		);
 	}
 
 	private function looksLikeTiptapJson(string $template): bool

@@ -61,10 +61,13 @@
 }
 
 .ctx-email-editor__surface .tiptap blockquote {
+	display: block;
 	margin: 0 0 12px;
 	padding: 12px 16px;
 	border-left: 4px solid #3858e9;
+	border-radius: 0 4px 4px 0;
 	background: #f0f6fc;
+	color: #1d2327;
 }
 
 .ctx-email-editor__surface .tiptap blockquote p:last-child {
