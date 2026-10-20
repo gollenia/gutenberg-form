@@ -1,6 +1,7 @@
 {
 	"name": "contexis/gutenberg-form",
 	"description": "WordPress plugin to create forms with Gutenberg blocks",
+	"version": "1.3.0",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
 	"repositories": [
@@ -17,9 +18,7 @@
 		"psr-4": {
 			"Contexis\\GutenbergForm\\": "includes/"
 		},
-		"files": [
-			"Block.php"
-		]
+		"files": ["Block.php"]
 	},
 	"config": {
 		"optimize-autoloader": true,
