@@ -17,6 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/Block.php';
 
 add_action('plugins_loaded', static function (): void {
 	load_plugin_textdomain(
