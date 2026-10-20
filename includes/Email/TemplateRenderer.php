@@ -5,11 +5,13 @@ declare(strict_types=1);
 namespace Contexis\GutenbergForm\Email;
 
 use Contexis\GutenbergForm\Email\Tiptap\MailTokenNode;
+use Contexis\GutenbergForm\Email\Tiptap\MailButtonNode;
 use Contexis\GutenbergForm\Email\Tiptap\TextColorMark;
 use Contexis\GutenbergForm\Form\FormFields;
 use Tiptap\Editor;
 use Tiptap\Extensions\StarterKit;
 use Tiptap\Marks\Underline;
+use Tiptap\Marks\Link;
 
 final class TemplateRenderer
 {
@@ -46,20 +48,21 @@ final class TemplateRenderer
 			return $template;
 		}
 
+		$document = json_decode($template, true, 512, JSON_THROW_ON_ERROR);
+
 		return (new Editor([
 			'extensions' => [
 				new StarterKit([
-					'heading' => false,
-					'blockquote' => false,
 					'codeBlock' => false,
-					'horizontalRule' => false,
 					'strike' => false,
 				]),
 				new Underline(),
+				new Link(),
 				new TextColorMark(),
 				new MailTokenNode(),
+				new MailButtonNode(),
 			],
-			'content' => $template,
+			'content' => $document,
 		]))->getHTML();
 	}
 

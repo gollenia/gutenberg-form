@@ -1,33 +1,35 @@
 import { createRoot } from 'react-dom/client';
+import Form from '@contexis/wp-react-form/form';
 import './frontend.scss';
 
-const gbfInit = async (): Promise<void> => {
+const gbfInit = (): void => {
 	const forms = document.querySelectorAll<HTMLElement>('.gbf-form');
 
 	if (forms.length === 0) {
 		return;
 	}
 
-	const { default: Form } = await import('@contexis/wp-react-form/form');
-
 	forms.forEach((form) => {
 		const id = form.getAttribute('data-id');
 		const pageId = form.getAttribute('data-page') ?? '';
+		const formUrl = form.getAttribute('data-form-url') ?? '';
+		const submitUrl = form.getAttribute('data-submit-url') ?? '';
 
-		if (!id) {
+		if (!id || !formUrl || !submitUrl) {
 			return;
 		}
 
 		createRoot(form).render(
 			<Form
 				data={[]}
-				formUrl={`/wp-json/gbf-form/v2/form/${id}?page_id=${pageId}`}
+				formUrl={formUrl}
 				onSubmit={undefined}
-				submitUrl="/wp-json/gbf-form/v2/submit/"
+				submitUrl={submitUrl}
+				extraData={{ id, page_id: pageId }}
 				validate={true}
 			/>,
 		);
 	});
 };
 
-void gbfInit();
+gbfInit();

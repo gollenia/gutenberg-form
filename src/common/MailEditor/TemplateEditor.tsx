@@ -22,7 +22,6 @@ const TemplateEditor = ({
 	availableFields,
 	extraControls = null,
 }: TemplateEditorProps) => {
-	const editorSurfaceRef = useRef<HTMLDivElement | null>(null);
 	const subjectInputRef = useRef<HTMLInputElement | null>(null);
 	const bodyEditor = useBodyEditor({ body, onBodyChange, availableFields });
 	const subjectMentions = useSubjectMentions({
@@ -62,11 +61,11 @@ const TemplateEditor = ({
 						{__('Type @ for tokens and / for formatting commands in the body.', 'gutenberg-form')}
 					</p>
 					<BodyToolbar editor={bodyEditor.editor} colors={themeTextColors} />
-					<div className="ctx-email-editor__surface" ref={editorSurfaceRef}>
+					<div className="ctx-email-editor__surface">
 						<EditorContent editor={bodyEditor.editor} />
 						{bodyEditor.commandState ? (
 							<MentionPopover
-								anchor={editorSurfaceRef.current}
+								anchor={bodyEditor.mentionAnchor}
 								items={bodyEditor.items}
 								selectedIndex={bodyEditor.selectedIndex}
 								popoverClassName="ctx-email-editor__mentions-popover"

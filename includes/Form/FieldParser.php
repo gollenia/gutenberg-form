@@ -6,7 +6,7 @@ namespace Contexis\GutenbergForm\Form;
 
 final class FieldParser
 {
-	private const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit', 'hidden', 'combobox'];
+	private const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'phone', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit', 'hidden', 'combobox'];
 
 	public function parse(int $formId, int $pageId = 0): array
 	{
@@ -27,7 +27,7 @@ final class FieldParser
 
 			$attrs = array_merge($this->loadBlockDefaults($type), $block['attrs'] ?? []);
 			$field = $attrs;
-			$field['type'] = array_key_exists('type', $field) ? $field['type'] : $type;
+			$field['type'] = array_key_exists('type', $field) ? $field['type'] : ($type === 'phone' ? 'tel' : $type);
 			$field['name'] = $this->getFieldName($attrs, $type);
 			$field['visibilityRule'] = $this->sanitizeVisibilityRule($field['visibilityRule'] ?? null);
 			$field['pattern'] = $this->sanitizePattern($field['pattern'] ?? null);
@@ -67,19 +67,34 @@ final class FieldParser
 				continue;
 			}
 
-			foreach ($block['innerBlocks'] ?? [] as $innerBlock) {
-				if (($innerBlock['blockName'] ?? null) === 'gutenberg-form/form-fields') {
-					return $innerBlock['innerBlocks'] ?? [];
-				}
-			}
+			return $this->getDescendantBlocks($block['innerBlocks'] ?? []);
 		}
 
 		return [];
 	}
 
+	/**
+	 * Form fields may be direct children of the form container or be grouped in
+	 * a form-fields block. Flattening the descendants supports both structures.
+	 *
+	 * @param array<int, array<string, mixed>> $blocks
+	 * @return array<int, array<string, mixed>>
+	 */
+	private function getDescendantBlocks(array $blocks): array
+	{
+		$result = [];
+
+		foreach ($blocks as $block) {
+			$result[] = $block;
+			$result = array_merge($result, $this->getDescendantBlocks($block['innerBlocks'] ?? []));
+		}
+
+		return $result;
+	}
+
 	private function getFieldType(array $block): string
 	{
-		[$namespace, $type] = explode('/', $block['blockName']);
+		[$namespace, $type] = array_pad(explode('/', (string) ($block['blockName'] ?? ''), 2), 2, '');
 
 		return $namespace === 'gutenberg-form' ? $type : '';
 	}

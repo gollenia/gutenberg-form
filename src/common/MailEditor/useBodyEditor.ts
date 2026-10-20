@@ -1,8 +1,10 @@
 import { useEditor } from '@tiptap/react';
+import Link from '@tiptap/extension-link';
 import StarterKit from '@tiptap/starter-kit';
 import { useEffect, useRef, useState } from '@wordpress/element';
-import { MailTokenNode, TextColorMark, UnderlineMark } from './extensions';
+import { MailButtonNode, MailTokenNode, TextColorMark, UnderlineMark } from './extensions';
 import { getBodyCommandState, getBodyMentionItems } from './mentionUtils';
+import type { MailMentionAnchor } from './MentionPopover';
 import type { AvailableField, EmailTemplateMentionItem } from './types';
 
 type Props = {
@@ -59,16 +61,15 @@ const useBodyEditor = ({ body, onBodyChange, availableFields }: Props) => {
 		immediatelyRender: false,
 		extensions: [
 			StarterKit.configure({
-				heading: false,
-				blockquote: false,
 				codeBlock: false,
 				hardBreak: true,
-				horizontalRule: false,
 				strike: false,
 			}),
+			Link.configure({ openOnClick: false }),
 			UnderlineMark,
 			TextColorMark,
 			MailTokenNode,
+			MailButtonNode,
 		],
 		content: parseBodyContent(body || ''),
 		onUpdate: ({ editor: currentEditor }) => {
@@ -151,10 +152,58 @@ const useBodyEditor = ({ body, onBodyChange, availableFields }: Props) => {
 				},
 			]);
 		} else if (item.kind === 'command') {
-			if (item.command === 'bulletList') {
-				chain.toggleBulletList();
-			} else {
-				chain.toggleOrderedList();
+			switch (item.command) {
+				case 'heading1':
+					chain.toggleHeading({ level: 1 });
+					break;
+				case 'heading2':
+					chain.toggleHeading({ level: 2 });
+					break;
+				case 'bulletList':
+					chain.toggleBulletList();
+					break;
+				case 'orderedList':
+					chain.toggleOrderedList();
+					break;
+				case 'horizontalRule':
+					chain.setHorizontalRule();
+					break;
+				case 'infoBox':
+					chain.toggleBlockquote();
+					break;
+				case 'allFields':
+					chain.insertContent({
+						type: 'mailToken',
+						attrs: { token: '{all_fields}', label: 'All fields' },
+					});
+					break;
+				case 'link': {
+					const href = window.prompt('URL');
+					if (href) {
+						chain.insertContent({
+							type: 'text',
+							text: window.prompt('Link text') || href,
+							marks: [{ type: 'link', attrs: { href } }],
+						});
+					}
+					break;
+				}
+				case 'button': {
+					const href = window.prompt('Button URL');
+					if (href) {
+						chain.insertContent({
+							type: 'mailButton',
+							attrs: { href },
+							content: [
+								{
+									type: 'text',
+									text: window.prompt('Button label') || 'Button',
+								},
+							],
+						});
+					}
+					break;
+				}
 			}
 		}
 
@@ -162,6 +211,23 @@ const useBodyEditor = ({ body, onBodyChange, availableFields }: Props) => {
 		setCommandState(null);
 		setSelectedIndex(0);
 	};
+
+	const mentionAnchor: MailMentionAnchor | null =
+		editor && commandState
+			? {
+					ownerDocument: editor.view.dom.ownerDocument,
+					getBoundingClientRect: () => {
+						const coordinates = editor.view.coordsAtPos(commandState.to);
+
+						return new DOMRect(
+							coordinates.left,
+							coordinates.bottom,
+							Math.max(coordinates.right - coordinates.left, 1),
+							1,
+						);
+					},
+				}
+			: null;
 
 	useEffect(() => {
 		if (!editor) {
@@ -183,6 +249,7 @@ const useBodyEditor = ({ body, onBodyChange, availableFields }: Props) => {
 	return {
 		editor,
 		commandState,
+		mentionAnchor,
 		items,
 		selectedIndex,
 		insertMention,

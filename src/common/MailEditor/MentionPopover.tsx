@@ -2,12 +2,17 @@ import { Button, Popover } from '@wordpress/components';
 import type { EmailTemplateMentionItem } from './types';
 
 type Props = {
-	anchor: Element | null;
+	anchor: Element | MailMentionAnchor | null;
 	items: EmailTemplateMentionItem[];
 	selectedIndex: number;
 	popoverClassName?: string;
 	onSelect: (item: EmailTemplateMentionItem) => void;
 	onClose?: () => void;
+};
+
+export type MailMentionAnchor = {
+	getBoundingClientRect: () => DOMRect;
+	ownerDocument?: Document;
 };
 
 const MentionPopover = ({

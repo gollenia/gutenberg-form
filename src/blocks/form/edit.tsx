@@ -26,51 +26,53 @@ interface EditProps {
 
 const Edit = ({ attributes: { formPost }, setAttributes }: EditProps) => {
 	const blockProps = useBlockProps({
-		className: 'ctx-form-placeholder',
+		className: 'components-placeholder',
 	});
 
-	const forms = useSelect(
-		(selectFn): FormSelectOption[] => {
-			const rawData = (selectFn('core') as any).getEntityRecords('postType', 'gbf-form', {
+	const forms = useSelect((selectFn): FormSelectOption[] => {
+		const rawData = (selectFn('core') as any).getEntityRecords(
+			'postType',
+			'gbf-form',
+			{
 				per_page: -1,
-			}) as FormEntity[] | null;
+			},
+		) as FormEntity[] | null;
 
-			if (!rawData) {
-				return [
-					{
-						value: '',
-						label: __('No forms found', 'gutenberg-form'),
-						disabled: true,
-					},
-				];
-			}
+		if (!rawData) {
+			return [
+				{
+					value: '',
+					label: __('No forms found', 'gutenberg-form'),
+					disabled: true,
+				},
+			];
+		}
 
-			return rawData.map((form) => ({
-				value: String(form.id),
-				label: form.title.raw,
-			}));
-		},
-		[],
-	);
+		return rawData.map((form) => ({
+			value: String(form.id),
+			label: form.title.raw,
+		}));
+	}, []);
 
 	return (
 		<div {...blockProps}>
-			<div>
-				<div className="components-placeholder__label">
-					<Icon icon={icon} />
-					{__('Select a form', 'gutenberg-form')}
-				</div>
-				<form className="components-placeholder__fieldset">
-					<ComboboxControl
-						value={String(formPost || '')}
-						onChange={(value) =>
-							setAttributes({ formPost: value ? Number(value) : 0 })
-						}
-						placeholder={__('Select a form', 'gutenberg-form')}
-						options={forms}
-					/>
-				</form>
+			<div className="components-placeholder__label">
+				<Icon icon={icon} />
+				{__('Select a form', 'gutenberg-form')}
 			</div>
+			<div className="components-placeholder__instructions">
+				{__('Please select a form to display its fields.', 'gutenberg-form')}
+			</div>
+			<form className="components-placeholder__fieldset">
+				<ComboboxControl
+					value={String(formPost || '')}
+					onChange={(value) =>
+						setAttributes({ formPost: value ? Number(value) : 0 })
+					}
+					placeholder={__('Select a form', 'gutenberg-form')}
+					options={forms}
+				/>
+			</form>
 
 			<div className="components-placeholder__learn-more">
 				<ExternalLink href="/wp-admin/edit.php?post_type=gbf-form#general">
