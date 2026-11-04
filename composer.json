@@ -1,32 +1,32 @@
 {
-	"name": "contexis/gutenberg-form",
-	"description": "WordPress plugin to create forms with Gutenberg blocks",
-	"version": "1.3.0",
-	"type": "wordpress-plugin",
-	"license": "GPL-2.0-or-later",
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/gollenia/wp-github-updater"
-		}
-	],
-	"require": {
-		"contexis/wp-github-updater": "^0.3.3",
-		"ueberdosis/tiptap-php": "^2.1"
-	},
-	"autoload": {
-		"psr-4": {
-			"Contexis\\GutenbergForm\\": "includes/"
-		}
-	},
-	"extra": {
-		"wp-github-release": {
-			"plugin_file": "gutenberg-form.php",
-			"build_command": "npm run build"
-		}
-	},
-	"config": {
-		"optimize-autoloader": true,
-		"sort-packages": true
-	}
+    "name": "contexis/gutenberg-form",
+    "description": "WordPress plugin to create forms with Gutenberg blocks",
+    "version": "1.3.1",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0-or-later",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/gollenia/wp-github-updater"
+        }
+    ],
+    "require": {
+        "contexis/wp-github-updater": "^0.3.3",
+        "ueberdosis/tiptap-php": "^2.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "Contexis\\GutenbergForm\\": "includes/"
+        }
+    },
+    "extra": {
+        "wp-github-release": {
+            "plugin_file": "gutenberg-form.php",
+            "build_command": "npm run build"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    }
 }

@@ -2,7 +2,7 @@
 /**
  * Plugin Name:     CTX Form
  * Description:     Create forms easily in Gutenberg
- * Version:         1.3.0
+ * Version:         1.3.1
  * Author:          Thomas Gollenia
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
