@@ -9,6 +9,7 @@
 	"usesContext": ["postType"],
 	"parent": ["gutenberg-form/form-container"],
 	"supports": {
+		"__experimentalToolbar": false,
 		"html": false,
 		"reusable": false,
 		"multiple": false,

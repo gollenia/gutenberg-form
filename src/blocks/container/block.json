@@ -16,6 +16,7 @@
 		"gutenberg-form/recordId": "recordId"
 	},
 	"supports": {
+		"__experimentalToolbar": false,
 		"html": false,
 		"reusable": false,
 		"multiple": false,
