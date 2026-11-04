@@ -11,12 +11,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
-"PO-Revision-Date: 2024-02-22 14:56+0000\n"
+"PO-Revision-Date: 2026-10-20 16:52+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: gutenberg-form\n"
 "Plural-Forms: nplurals=2; plural=n != 1;"
 
-#: library/Mailer.php:67
+#: includes/Email/TemplateDefaults.php:21
+msgid " form:"
+msgstr "form"
+
+#: includes/Email/TemplateDefaults.php:13
 msgid "A new message has been sent from a form on your website."
 msgstr ""
 "Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet."
@@ -25,7 +29,8 @@ msgstr ""
 msgid "Add a security token to prevent spam"
 msgstr "Sicherheitstoken hinzufügen, um Spam zu verhindern"
 
-#: library/FormPost.php:72 library/FormPost.php:73
+#: includes/Form/WordPress/FormPostType.php:39
+#: includes/Form/WordPress/FormPostType.php:40
 msgid "Add new Form"
 msgstr "Neues Formular hinzufügen"
 
@@ -34,40 +39,29 @@ msgid "Admin Mail"
 msgstr "Admin-Mail"
 
 #: build/index.js:1
+msgid "Africa"
+msgstr "Afrika"
+
+#: includes/Email/TemplateDefaults.php:16
+#: includes/Email/TemplateDefaults.php:36 build/index.js:1
 msgid "All fields"
 msgstr "Alle Felder"
 
-#: library/FormPost.php:81
+#: includes/Form/WordPress/FormPostType.php:48
 msgid "All Forms"
 msgstr "Alle Formulare"
-
-#: build/index.js:1
-msgid "Allow all characters"
-msgstr "Alle Zeichen erlauben"
-
-#: build/index.js:1
-msgid "Alphanumeric"
-msgstr "Alphanumerisch"
-
-#: build/index.js:1
-msgid "Alphanumeric with dots and dashes"
-msgstr "Alphanumerisch mit Punkten und Bindestrichen"
-
-#: build/index.js:1
-msgid "An empty option ist shown and selected as default"
-msgstr "Eine leere Option wird angezeigt und als Standard ausgewählt"
 
 #: build/index.js:1
 msgid "Appearance"
 msgstr "Aussehen"
 
 #: build/index.js:1
-msgid "at best"
-msgstr "maximal"
+msgid "Asia"
+msgstr "Asien"
 
 #: build/index.js:1
-msgid "at least"
-msgstr "mindestens"
+msgid "Behavior"
+msgstr "Verhalten"
 
 #: build/blocks/form/block.json
 msgctxt "block description"
@@ -128,7 +122,7 @@ msgctxt "block description"
 msgid "Lets the user type a longer text"
 msgstr "Ermöglicht dem Benutzer, einen längeren Text einzugeben"
 
-#: build/blocks/tel/block.json
+#: build/blocks/phone/block.json
 msgctxt "block description"
 msgid "Lets the user type a phone number."
 msgstr "Ermöglicht dem Benutzer, eine Telefonnummer einzugeben."
@@ -143,15 +137,10 @@ msgctxt "block description"
 msgid "Lets the user type an email address."
 msgstr "Ermöglicht dem Benutzer, eine E-Mail-Adresse einzugeben."
 
-#: build/blocks/submit/block.json
-msgctxt "block style label"
-msgid "Fill"
-msgstr "Ausfüllen"
-
-#: build/blocks/submit/block.json
-msgctxt "block style label"
-msgid "Outline"
-msgstr "Umriss"
+#: build/blocks/response/block.json
+msgctxt "block description"
+msgid "Website feedback shown after a successful form submission."
+msgstr "Feedback-Nachricht auf der Webseite nach dem Absenden des Formulars"
 
 #: build/blocks/checkbox/block.json
 msgctxt "block title"
@@ -198,7 +187,7 @@ msgctxt "block title"
 msgid "Number Field"
 msgstr "Zahlenfeld"
 
-#: build/blocks/tel/block.json
+#: build/blocks/phone/block.json
 msgctxt "block title"
 msgid "Phone Field"
 msgstr "Telefonfeld"
@@ -208,7 +197,7 @@ msgctxt "block title"
 msgid "Radio Select"
 msgstr "Radioschalter"
 
-#: build/blocks/mail-editor/block.json
+#: build/blocks/mail-editor/block.json build/blocks/response/block.json
 msgctxt "block title"
 msgid "Response"
 msgstr "Antwort"
@@ -239,6 +228,14 @@ msgid "Text Field"
 msgstr "Textfeld"
 
 #: build/index.js:1
+msgid "Blue"
+msgstr "Blau"
+
+#: build/index.js:1
+msgid "Body"
+msgstr "Körper"
+
+#: build/index.js:1
 msgid "Box"
 msgstr "Box"
 
@@ -246,7 +243,35 @@ msgstr "Box"
 msgid "Browser hint"
 msgstr "Browser-Hinweis"
 
-#: library/FormPost.php:109
+#: build/index.js:1
+msgid "Bullets"
+msgstr "Liste"
+
+#: build/index.js:1
+msgid "Button Background"
+msgstr "Button Hintergrund"
+
+#: build/index.js:1
+msgid "Button Text Color"
+msgstr "Button textfarbe"
+
+#: build/index.js:1
+msgid "Checked"
+msgstr "Checked"
+
+#: build/index.js:1
+msgid "Collapse form when feedback is displayed"
+msgstr "Form einklappen wenn das Feedback gezeigt wird"
+
+#: build/index.js:1
+msgid "Configure the admin and visitor emails for this form."
+msgstr "E-Mails für diese Form bearbeiten"
+
+#: build/index.js:1
+msgid "Context"
+msgstr "Kontext"
+
+#: includes/Form/WordPress/FormColumns.php:18
 msgid "Copy to Admin"
 msgstr "Kopie an Admin"
 
@@ -255,26 +280,50 @@ msgid "Create a new form"
 msgstr "Neues Formular erstellen"
 
 #. Description of the plugin
-msgid "Create Forms easily in Gutenberg"
+#: gutenberg-form.php
+#, fuzzy
+#| msgid "Create Forms easily in Gutenberg"
+msgid "Create forms easily in Gutenberg"
 msgstr "Erstelle Formulare einfach in Gutenberg"
+
+#. Plugin Name of the plugin
+#: gutenberg-form.php
+msgid "CTX Form"
+msgstr "CTX Form"
 
 #: build/index.js:1
 msgid "Custom Value"
 msgstr "Benutzerdefinierter Wert"
 
 #: build/index.js:1
+msgid "DACH"
+msgstr "DACH"
+
+#: build/index.js:1
 msgid "Data"
 msgstr "Daten"
 
 #: build/index.js:1
-msgid "Date calculator"
-msgstr "Datumsrechner"
+msgid "Default Value"
+msgstr "Standardwert"
+
+#: build/index.js:1
+msgid "Dependencies"
+msgstr "Abhängigkeiten"
+
+#: build/index.js:1
+msgid "Description"
+msgstr "Beschreibung"
+
+#: build/index.js:1
+msgid "Description for the input field"
+msgstr "Beschribung für Eingabefeld"
 
 #: build/index.js:1
 msgid "Disable Autocomplete"
 msgstr "Autofill deaktivieren"
 
-#: library/FormPost.php:57
+#: includes/Form/WordPress/FormPostType.php:21
 msgid "Display forms on your blog."
 msgstr "Formulare auf deinem Blog anzeigen."
 
@@ -286,93 +335,122 @@ msgstr "z.B. maximales Alter für einen Teilnehmer"
 msgid "e.g. minimal age for an attendee"
 msgstr "z.B. minimales Alter für einen Teilnehmer"
 
-#: library/FormPost.php:74
+#: build/index.js:1
+msgid "Edit admin mail"
+msgstr "Admin Mail"
+
+#: includes/Form/WordPress/FormPostType.php:41
 msgid "Edit Form"
 msgstr "Formular bearbeiten"
 
-#: library/FormPost.php:63 build/index.js:1
+#: build/index.js:1
+msgid "Edit user mail"
+msgstr "Besucher Mail"
+
+#: includes/Form/WordPress/FormPostType.php:30 build/index.js:1
 msgid "Email"
 msgstr "E-Mail"
+
+#: build/index.js:1
+msgid "Emails"
+msgstr "E-Mails"
 
 #: build/index.js:1
 msgid "Empty option"
 msgstr "Leere Option"
 
 #: build/index.js:1
+msgid "Enter label here..."
+msgstr "Label hier eingeben"
+
+#: build/index.js:1
 msgid "Error message"
 msgstr "Fehlermeldung"
+
+#: build/index.js:1
+msgid "Europe"
+msgstr "Europa"
+
+#: build/index.js:1
+msgid "Existing contexts:"
+msgstr "Existierende Kontexte:"
 
 #: build/index.js:1
 msgid "Feedback"
 msgstr "Feedback"
 
-#: library/FormPost.php:85
+#: build/index.js:1
+msgid "Field"
+msgstr "Feld"
+
+#: includes/Form/WordPress/FormPostType.php:52
 msgid "Filter Forms list"
 msgstr "Formularliste filtern"
 
-#: library/FormPost.php:71
+#: includes/Form/WordPress/FormPostType.php:38 build/index.js:1
 msgid "Form"
 msgstr "Formular"
 
-#: library/FormPost.php:82
+#: includes/Form/WordPress/FormPostType.php:49
 msgid "Form Archives"
 msgstr "Formulararchive"
 
-#: library/FormPost.php:83
+#: includes/Form/WordPress/FormPostType.php:50
 msgid "Form Attributes"
 msgstr "Formularattribute"
 
-#: library/FormPost.php:88
+#: includes/Form/WordPress/FormPostType.php:55
 msgid "Form published"
 msgstr "Formular veröffentlicht"
 
-#: library/FormPost.php:89
+#: includes/Form/WordPress/FormPostType.php:56
 msgid "Form published privately"
 msgstr "Formular privat veröffentlicht"
 
-#: library/FormPost.php:90
+#: includes/Form/WordPress/FormPostType.php:57
 msgid "Form reverted to draft"
 msgstr "Formular zurück in Entwurf"
 
-#: build/index.js:1
+#: includes/Email/TemplateDefaults.php:20 build/index.js:1
 msgid "Form title"
 msgstr "Formulartitel"
 
-#: library/FormPost.php:49 library/FormPost.php:70
+#: includes/Form/WordPress/FormPostType.php:14
+#: includes/Form/WordPress/FormPostType.php:37
 msgid "Forms"
 msgstr "Formulare"
 
-#: library/FormPost.php:87
+#: includes/Form/WordPress/FormPostType.php:54
 msgid "Forms list"
 msgstr "Formularliste"
 
-#: library/FormPost.php:86
+#: includes/Form/WordPress/FormPostType.php:53
 msgid "Forms list navigation"
 msgstr "Formularliste-Navigation"
-
-#: build/index.js:1
-msgid "from"
-msgstr "von"
 
 #: build/index.js:1
 msgid "Give a hint for the browser's autocomplete"
 msgstr "Gib einen Hinweis für die automatische Vervollständigung des Browsers"
 
-#. Plugin Name of the plugin
-msgid "Gutenberg Form"
-msgstr "Gutenberg-Formular"
+#: build/index.js:1
+msgid "Green"
+msgstr "Grün"
 
 #: build/index.js:1
 msgid "Height"
 msgstr "Höhe"
 
 #: build/index.js:1
-msgid "Help"
-msgstr "Hilfe"
+msgid "Help text for the date field"
+msgstr "Hilfetext für Datumsfeld"
 
 #: build/index.js:1
 msgid "Help text for the input field"
 msgstr "Hilfetext für das Eingabefeld"
+
+#: build/index.js:1
+msgid "Hidden field"
+msgstr "Verstecktes Feld"
 
 #: build/index.js:1
 msgid "Highest Date"
@@ -388,37 +466,17 @@ msgstr ""
 msgid "Input"
 msgstr "Eingabe"
 
-#: library/FormPost.php:84
+#: includes/Form/WordPress/FormPostType.php:51
 msgid "Insert into Form"
 msgstr "In Formular einfügen"
-
-#: build/index.js:1
-msgid "Label"
-msgstr "Bezeichnung"
-
-#: build/index.js:1
-msgid "Label (for emails)"
-msgstr "Bezeichnung (für E-Mails)"
 
 #: build/index.js:1
 msgid "Label for the field"
 msgstr "Bezeichnung für das Feld"
 
 #: build/index.js:1
-msgid "Letters only"
-msgstr "Nur Buchstaben"
-
-#: build/index.js:1
-msgid "Letters, dots and dashes"
-msgstr "Buchstaben, Punkte und Bindestriche"
-
-#: build/index.js:1
 msgid "Lowest Date"
 msgstr "Frühestes Datum"
-
-#: build/index.js:1
-msgid "Mail Content"
-msgstr "E-Mail-Inhalt"
 
 #: build/index.js:1
 msgid "Make a selection"
@@ -428,7 +486,7 @@ msgstr "Eine Auswahl treffen"
 msgid "Maximum value"
 msgstr "Maximalwert"
 
-#: library/FormPost.php:64 build/index.js:1
+#: includes/Form/WordPress/FormPostType.php:31 build/index.js:1
 msgid "Message"
 msgstr "Nachricht"
 
@@ -436,31 +494,25 @@ msgstr "Nachricht"
 msgid "Minimum value"
 msgstr "Minimalwert"
 
-#: build/index.js:1
-msgid "Multi select"
-msgstr "Mehrfachauswahl"
-
-#: library/FormPost.php:62 build/index.js:1
+#: includes/Form/WordPress/FormPostType.php:29 build/index.js:1
 msgid "Name"
 msgstr "Name"
 
-#: library/FormPost.php:75
+#: includes/Form/WordPress/FormPostType.php:42
 msgid "New Form"
 msgstr "Neues Formular"
 
-#: library/FormPost.php:153
+#: includes/Form/WordPress/FormMeta.php:17
+#, php-format
 msgid "New form submission on %s"
 msgstr "Neue Formular-Eingabe auf %s"
 
-#: library/FormPost.php:140
+#: includes/Form/FieldFormatter.php:48
+#: includes/Form/WordPress/FormColumns.php:37
 msgid "No"
 msgstr "Nein"
 
-#: build/index.js:1
-msgid "No form selected"
-msgstr "Kein Formular ausgewählt"
-
-#: library/FormPost.php:79
+#: includes/Form/WordPress/FormPostType.php:46
 msgid "No Forms found"
 msgstr "Keine Formulare gefunden"
 
@@ -468,13 +520,17 @@ msgstr "Keine Formulare gefunden"
 msgid "No forms found"
 msgstr "Keine Formulare gefunden"
 
-#: library/FormPost.php:80
+#: includes/Form/WordPress/FormPostType.php:47
 msgid "No Forms found in trash"
 msgstr "Keine Formulare im Papierkorb gefunden"
 
 #: build/index.js:1
 msgid "None"
 msgstr "Keine"
+
+#: build/index.js:1
+msgid "North America"
+msgstr "Nordamerika"
 
 #: build/index.js:1
 msgid "Number of columns the input field will occupy"
@@ -485,17 +541,20 @@ msgid "Number of text rows"
 msgstr "Anzahl der Textzeilen"
 
 #: build/index.js:1
+msgid "Numbers"
+msgstr "Nummern"
+
+#: build/index.js:1
+msgid "Oceania"
+msgstr "Oceanien"
+
+#: build/index.js:1
 msgid "Options"
 msgstr "Optionen"
 
 #: build/index.js:1
-msgid "Options for the radio control. Each line represents one option"
-msgstr "Optionen für die Radiosteuerung. Jede Zeile stellt eine Option dar"
-
-#: build/index.js:1
-msgid "Options for the select control. Each line represents one option"
-msgstr ""
-"Optionen für die Auswahlschaltfläche. Jede Zeile stellt eine Option dar"
+msgid "Orange"
+msgstr "Orang"
 
 #: build/index.js:1
 msgid "Page ID"
@@ -505,7 +564,7 @@ msgstr "Seiten-ID"
 msgid "Page title"
 msgstr "Seitentitel"
 
-#: build/index.js:1
+#: includes/Email/TemplateDefaults.php:24 build/index.js:1
 msgid "Page URL"
 msgstr "Seiten-URL"
 
@@ -514,8 +573,16 @@ msgid "Pattern"
 msgstr "Muster"
 
 #: build/index.js:1
-msgid "Please type in a unique identifier for the field"
-msgstr "Bitte gib einen eindeutigen Bezeichner für das Feld ein"
+msgid "Placeholder text"
+msgstr "Platzhaltertext"
+
+#: includes/Form/FieldValidator.php:71
+msgid "Please check your input"
+msgstr "Bitte die Eingabe überprüfen"
+
+#: build/index.js:1
+msgid "Please select a form to display its fields."
+msgstr "Wählen Sie eine Form aus um ihre Felder anzuzeigen"
 
 #: build/index.js:1
 msgid "Please type in a unique itentifier for the field"
@@ -525,33 +592,37 @@ msgstr "Bitte gib einen eindeutigen Bezeichner für das Feld ein"
 msgid "Range"
 msgstr "Bereich"
 
-#: library/FormPost.php:108 build/index.js:1
+#: includes/Form/WordPress/FormColumns.php:17 build/index.js:1
 msgid "Recipient"
 msgstr "Empfänger"
 
 #: build/index.js:1
-msgid "Reference Date"
-msgstr "Referenzdatum"
+msgid "Red"
+msgstr "Rot"
 
 #: build/index.js:1
 msgid "Region"
 msgstr "Region"
 
 #: build/index.js:1
+msgid "Regular expression to prevent wrong or illegal input"
+msgstr "Reguläre Ausdrücke um ungültige Eingaben zu vermeiden"
+
+#: build/index.js:1
 msgid "Required"
 msgstr "Erforderlich"
 
-#: build/index.js:1
-msgid "Save"
-msgstr "Speichern"
-
-#: library/FormPost.php:78
+#: includes/Form/WordPress/FormPostType.php:45
 msgid "Search Forms"
 msgstr "Formulare suchen"
 
 #: build/index.js:1
 msgid "Security Token"
 msgstr "Sicherheitstoken"
+
+#: build/index.js:1
+msgid "Select a field"
+msgstr "Feld auswählen"
 
 #: build/index.js:1
 msgid "Select a form"
@@ -561,7 +632,7 @@ msgstr "Wähle ein Formular aus"
 msgid "Select Type"
 msgstr "Typ auswählen"
 
-#: library/FormPost.php:158
+#: includes/Form/WordPress/FormMeta.php:22
 msgid "Send"
 msgstr "Abschicken"
 
@@ -590,8 +661,8 @@ msgid "Show ticks"
 msgstr "Häkchen anzeigen"
 
 #: build/index.js:1
-msgid "Slug"
-msgstr "Slug"
+msgid "South America"
+msgstr "Südamerika"
 
 #: build/index.js:1
 msgid "Step"
@@ -605,13 +676,17 @@ msgstr "Stil"
 msgid "Subject"
 msgstr "Betreff"
 
-#: library/FormPost.php:65 build/index.js:1
+#: includes/Form/WordPress/FormPostType.php:32 build/index.js:1
 msgid "Submit"
 msgstr "Abschicken"
 
 #: build/index.js:1
-msgid "Submit button"
-msgstr "Abschicken-Schaltfläche"
+msgid "Text"
+msgstr "Text"
+
+#: build/index.js:1
+msgid "Text color"
+msgstr "Textfarbe"
 
 #: build/index.js:1
 msgid "Text to display when no country is selected"
@@ -623,37 +698,46 @@ msgstr ""
 "Text, der angezeigt wird, wenn der Benutzer ungültige oder unzureichende "
 "Daten eingibt"
 
-#: build/index.js:1
+#: includes/Form/WordPress/FormPostType.php:25 build/index.js:1
 msgid "Thank you"
 msgstr "Danke"
 
-#: library/Mailer.php:77
+#: includes/Email/TemplateDefaults.php:33
 msgid "Thank you for your message."
 msgstr "Vielen Dank für deine Nachricht."
 
-#: library/Mailer.php:71
-msgid "The form has been sent from the {form_name} form:"
-msgstr "Das Formular wurde vom Formular {form_name} gesendet:"
+#: includes/Email/TemplateDefaults.php:19
+msgid "The form has been sent from the "
+msgstr "Die Form wurde gesendet von "
 
 #: build/index.js:1
 msgid "This block is only usable in the forms post type"
 msgstr "Dieser Block ist nur im Formulartyp verwendbar"
 
+#: includes/Form/FieldValidator.php:68
+msgid "This field is required"
+msgstr "Dieses Feld wird benötigt"
+
 #. Author of the plugin
+#: gutenberg-form.php
 msgid "Thomas Gollenia"
 msgstr "Thomas Gollenia"
-
-#: build/index.js:1
-msgid "to"
-msgstr "bis"
 
 #: build/index.js:1
 msgid "Toggle"
 msgstr "Umschalten"
 
 #: build/index.js:1
-msgid "Treat as birthday"
-msgstr "Als Geburtstag behandeln"
+msgid "Type @ for tokens and / for formatting commands in the body."
+msgstr "Tippe @ für Felder und / für Formatierungsblöcke"
+
+#: build/index.js:1
+msgid "Type @ in the subject to insert tokens."
+msgstr "Tippe @ ein um Formwerte einzufügen"
+
+#: build/index.js:1
+msgid "Unchecked"
+msgstr "Unchecked"
 
 #: build/index.js:1
 msgid "Unique identifier"
@@ -668,14 +752,18 @@ msgid "User Mail"
 msgstr "Benutzer-Mail"
 
 #: build/index.js:1
+msgid "Value"
+msgstr "Wert"
+
+#: build/index.js:1
 msgid "Value Type"
 msgstr "Werttyp"
 
-#: library/FormPost.php:76
+#: includes/Form/WordPress/FormPostType.php:43
 msgid "View Form"
 msgstr "Formular ansehen"
 
-#: library/FormPost.php:77
+#: includes/Form/WordPress/FormPostType.php:44
 msgid "View Forms"
 msgstr "Formulare ansehen"
 
@@ -687,27 +775,25 @@ msgstr "Zu was soll dein Besucher \"Ja\" sagen?"
 msgid "Width"
 msgstr "Breite"
 
-#: library/FormPost.php:138
+#: build/index.js:1
+msgid "World"
+msgstr "Welt"
+
+#: includes/Form/FieldFormatter.php:48
+#: includes/Form/WordPress/FormColumns.php:36
 msgid "Yes"
 msgstr "Ja"
 
-#: library/FormPost.php:231
-msgid ""
-"You have received a new message from your website contact form. These are "
-"the values the user filled out:<br/><br/>{full_data}"
-msgstr ""
-"Sie haben eine neue Nachricht von Ihrem Website-Kontaktformular erhalten. "
-"Dies sind die Werte, die der Benutzer ausgefüllt hat:<br/><br/>{full_data}"
-
-#: library/Mailer.php:81
+#: includes/Email/TemplateDefaults.php:39
 #| msgid "You will hear from us as soon as possible."
 msgid "You will hear from us as soon as possible"
 msgstr "Wir melden uns so bald wie möglich bei dir."
 
-#: library/FormPost.php:154
+#: includes/Form/WordPress/FormMeta.php:18
+#, php-format
 msgid "Your form submission on %s"
 msgstr "Deine Formular-Eingabe auf %s"
 
-#: build/index.js:1
+#: includes/Form/WordPress/FormPostType.php:26 build/index.js:1
 msgid "Your message has been sent"
 msgstr "Ihre Nachricht wurde gesendet"
