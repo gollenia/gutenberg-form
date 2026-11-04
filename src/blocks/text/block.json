@@ -22,9 +22,9 @@
 			"type": "boolean",
 			"default": false
 		},
-		"pattern": {
+		"validation": {
 			"type": "string",
-			"default": ""
+			"default": "none"
 		},
 		"label": {
 			"type": "string",

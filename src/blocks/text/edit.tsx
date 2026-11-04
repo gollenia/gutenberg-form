@@ -9,12 +9,14 @@ import {
 import icon from './icon';
 import Inspector from './inspector';
 
+export type TextValidation = 'none' | 'digits' | 'alphanumeric';
+
 export type TextAttributes = {
 	name: string;
 	context: string;
 	width: number;
 	required: boolean;
-	pattern?: string;
+	validation: TextValidation;
 	label: string;
 	placeholder: string;
 	visibilityRule?: VisibilityRule | null;

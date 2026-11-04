@@ -48,6 +48,10 @@ final class FieldValidator
 			return $isValid;
 		}
 
+		if (!$this->matchesTextValidation($field, $value)) {
+			return false;
+		}
+
 		return match ($field['type'] ?? '') {
 			'email' => filter_var($value, FILTER_VALIDATE_EMAIL) !== false && $isValid,
 			'number' => is_numeric($value) && $isValid,
@@ -55,6 +59,19 @@ final class FieldValidator
 			'checkbox' => is_bool($value) && $isValid,
 			'radio' => is_string($value) && $isValid,
 			default => $isValid,
+		};
+	}
+
+	private function matchesTextValidation(array $field, mixed $value): bool
+	{
+		if (($field['type'] ?? '') !== 'text') {
+			return true;
+		}
+
+		return match ($field['validation'] ?? 'none') {
+			'digits' => is_string($value) && preg_match('/\\A[0-9]+\\z/D', $value) === 1,
+			'alphanumeric' => is_string($value) && preg_match('/\\A(?:\\p{Latin}\\p{M}*|[0-9])+\\z/uD', $value) === 1,
+			default => true,
 		};
 	}
 

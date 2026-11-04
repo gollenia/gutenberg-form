@@ -7,6 +7,10 @@ namespace Contexis\GutenbergForm\Form;
 final class FieldParser
 {
 	private const ALLOWED_FIELDS = ['text', 'email', 'html', 'select', 'country', 'tel', 'phone', 'textarea', 'checkbox', 'date', 'number', 'radio', 'submit', 'hidden', 'combobox'];
+	private const TEXT_VALIDATION_PATTERNS = [
+		'digits' => '[0-9]+',
+		'alphanumeric' => '(?:\\p{Script=Latin}\\p{M}*|[0-9])+',
+	];
 
 	public function parse(int $formId, int $pageId = 0): array
 	{
@@ -30,7 +34,12 @@ final class FieldParser
 			$field['type'] = array_key_exists('type', $field) ? $field['type'] : ($type === 'phone' ? 'tel' : $type);
 			$field['name'] = $this->getFieldName($attrs, $type);
 			$field['visibilityRule'] = $this->sanitizeVisibilityRule($field['visibilityRule'] ?? null);
-			$field['pattern'] = $this->sanitizePattern($field['pattern'] ?? null);
+			if ($type === 'text') {
+				$field['validation'] = $this->sanitizeTextValidation($field['validation'] ?? null);
+				$field['pattern'] = self::TEXT_VALIDATION_PATTERNS[$field['validation']] ?? null;
+			} else {
+				$field['pattern'] = $this->sanitizePattern($field['pattern'] ?? null);
+			}
 
 			if ($type === 'html') {
 				$field['content'] = render_block($block);
@@ -139,6 +148,13 @@ final class FieldParser
 		$pattern = trim($pattern);
 
 		return $pattern === '' ? null : $pattern;
+	}
+
+	private function sanitizeTextValidation(mixed $validation): string
+	{
+		return is_string($validation) && array_key_exists($validation, self::TEXT_VALIDATION_PATTERNS)
+			? $validation
+			: 'none';
 	}
 
 	private function getHiddenFieldValue(array $field, int $pageId): mixed

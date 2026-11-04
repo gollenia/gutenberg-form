@@ -2,13 +2,13 @@ import { InspectorControls } from '@wordpress/block-editor';
 import {
 	PanelBody,
 	RangeControl,
-	TextControl,
+	SelectControl,
 	ToggleControl,
 } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { ContextControl, VisibilityRules } from '../_shared';
 
-import type { TextAttributes } from './edit';
+import type { TextAttributes, TextValidation } from './edit';
 
 interface InspectorProps {
 	attributes: TextAttributes;
@@ -18,7 +18,7 @@ interface InspectorProps {
 
 const Inspector = (props: InspectorProps) => {
 	const {
-		attributes: { width, required, pattern, name, visibilityRule, context },
+		attributes: { width, required, validation, name, visibilityRule, context },
 		setAttributes,
 		clientId,
 	} = props;
@@ -34,15 +34,19 @@ const Inspector = (props: InspectorProps) => {
 					disabled={lockName}
 					onChange={(value) => setAttributes({ required: value })}
 				/>
-				<TextControl
-					label={__('Pattern', 'gutenberg-form')}
-					help={__(
-						'Regular expression to prevent wrong or illegal input',
-						'events',
-					)}
-					value={pattern ?? ''}
+				<SelectControl
+					label={__('Input restriction', 'gutenberg-form')}
+					value={validation}
+					options={[
+						{ label: __('No restriction', 'gutenberg-form'), value: 'none' },
+						{ label: __('Digits only', 'gutenberg-form'), value: 'digits' },
+						{
+							label: __('Letters and numbers only', 'gutenberg-form'),
+							value: 'alphanumeric',
+						},
+					]}
 					onChange={(value) =>
-						setAttributes({ pattern: value === '' ? undefined : value })
+						setAttributes({ validation: value as TextValidation })
 					}
 				/>
 			</PanelBody>
