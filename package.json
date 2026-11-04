@@ -16,7 +16,7 @@
 		"lint:js": "biome check src package.json biome.json tsconfig.json globals.d.ts",
 		"packages-update": "wp-scripts packages-update",
 		"lang": "node ./languages/compile.js",
-		"release": "wp-github-plugin gutenberg-form.php --tag"
+		"release": "vendor/bin/wp-github-release"
 	},
 	"dependencies": {
 		"@contexis/wp-react-form": "^2.6.2",
@@ -39,8 +39,7 @@
 		"@types/wordpress__editor": "^14.3.1",
 		"@wordpress/scripts": "^32.4.1",
 		"ts-loader": "^9.6.2",
-		"typescript": "^6.0.3",
-		"wp-github-plugin": "^1.0.4"
+		"typescript": "^6.0.3"
 	},
 	"browserslist": [
 		"> 1%",

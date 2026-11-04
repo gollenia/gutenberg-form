@@ -4,9 +4,6 @@ declare(strict_types=1);
 
 namespace Contexis\GutenbergForm\System;
 
-use Contexis\WpGitHubUpdater\GitHubReleaseProvider;
-use Contexis\WpGitHubUpdater\GitHubRepository;
-use Contexis\WpGitHubUpdater\PluginMetadata;
 use Contexis\WpGitHubUpdater\WordPressPluginUpdater;
 
 class Update
@@ -17,14 +14,10 @@ class Update
 			return;
 		}
 
-		$plugin = PluginMetadata::fromPluginFile($plugin_file);
-		$repository = new GitHubRepository($repo_owner, $repo_name);
-		$releaseProvider = new GitHubReleaseProvider($repository, (string) $plugin->data['Version']);
-
-		(new WordPressPluginUpdater(
-			plugin: $plugin,
-			repository: $repository,
-			releaseProvider: $releaseProvider,
-		))->registerHooks();
+		WordPressPluginUpdater::fromPluginFile(
+			pluginFile: $plugin_file,
+			owner: $repo_owner,
+			repositoryName: $repo_name,
+		)->registerHooks();
 	}
 }

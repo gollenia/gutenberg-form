@@ -11,14 +11,19 @@
 		}
 	],
 	"require": {
-		"contexis/wp-github-updater": "^0.1.0",
+		"contexis/wp-github-updater": "^0.3.3",
 		"ueberdosis/tiptap-php": "^2.1"
 	},
 	"autoload": {
 		"psr-4": {
 			"Contexis\\GutenbergForm\\": "includes/"
-		},
-		"files": ["Block.php"]
+		}
+	},
+	"extra": {
+		"wp-github-release": {
+			"plugin_file": "gutenberg-form.php",
+			"build_command": "npm run build"
+		}
 	},
 	"config": {
 		"optimize-autoloader": true,
