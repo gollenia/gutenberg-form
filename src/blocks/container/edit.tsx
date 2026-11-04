@@ -27,12 +27,70 @@ const createDefaultResponseBlock = () =>
 		'gutenberg-form/response',
 		{ lock: { remove: true, move: true } },
 		[
-			createBlock('core/heading', {
-				content: __('Thank you', 'gutenberg-form'),
-			}),
-			createBlock('core/paragraph', {
-				content: __('Your message has been sent', 'gutenberg-form'),
-			}),
+			createBlock(
+				'core/group',
+				{
+					style: {
+						spacing: {
+							padding: {
+								top: 'var:preset|spacing|50',
+								bottom: 'var:preset|spacing|50',
+								left: 'var:preset|spacing|50',
+								right: 'var:preset|spacing|50',
+							},
+						},
+						color: { background: '#e6ffe6' },
+					},
+					layout: { type: 'constrained' },
+				},
+				[
+					createBlock(
+						'core/group',
+						{ layout: { type: 'flex', flexWrap: 'nowrap' } },
+						[
+							createBlock(
+								'core/group',
+								{
+									style: {
+										color: { background: '#46cf3a' },
+										border: {
+											radius: {
+												topLeft: '300px',
+												topRight: '300px',
+												bottomLeft: '300px',
+												bottomRight: '300px',
+											},
+										},
+										spacing: {
+											padding: { top: '0', bottom: '0', left: '0', right: '0' },
+										},
+									},
+									layout: { type: 'constrained' },
+								},
+								[
+									createBlock('core/icon', {
+										icon: 'core/check',
+										style: {
+											elements: {
+												link: { color: { text: 'var:preset|color|white' } },
+											},
+											dimensions: { width: '2.01rem' },
+										},
+										textColor: 'white',
+									}),
+								],
+							),
+							createBlock('core/heading', {
+								placeholder: __('Danke', 'gutenberg-form'),
+								content: __('Vielen Dank!', 'gutenberg-form'),
+							}),
+						],
+					),
+					createBlock('core/paragraph', {
+						placeholder: __('Ihre Nachricht wurde gesendet', 'gutenberg-form'),
+					}),
+				],
+			),
 		] as any,
 	);
 

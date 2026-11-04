@@ -11,11 +11,79 @@ const ALLOWED_BLOCKS = [
 ];
 
 const TEMPLATE = [
-	['core/heading', { content: __('Thank you', 'gutenberg-form') }, []],
 	[
-		'core/paragraph',
-		{ content: __('Your message has been sent', 'gutenberg-form') },
-		[],
+		'core/group',
+		{
+			style: {
+				spacing: {
+					padding: {
+						top: 'var:preset|spacing|50',
+						bottom: 'var:preset|spacing|50',
+						left: 'var:preset|spacing|50',
+						right: 'var:preset|spacing|50',
+					},
+				},
+				color: { background: '#e6ffe6' },
+			},
+			layout: { type: 'constrained' },
+		},
+		[
+			[
+				'core/group',
+				{ layout: { type: 'flex', flexWrap: 'nowrap' } },
+				[
+					[
+						'core/group',
+						{
+							style: {
+								color: { background: '#46cf3a' },
+								border: {
+									radius: {
+										topLeft: '300px',
+										topRight: '300px',
+										bottomLeft: '300px',
+										bottomRight: '300px',
+									},
+								},
+								spacing: {
+									padding: { top: '0', bottom: '0', left: '0', right: '0' },
+								},
+							},
+							layout: { type: 'constrained' },
+						},
+						[
+							[
+								'core/icon',
+								{
+									icon: 'core/check',
+									style: {
+										elements: {
+											link: { color: { text: 'var:preset|color|white' } },
+										},
+										dimensions: { width: '2.01rem' },
+									},
+									textColor: 'white',
+								},
+								[],
+							],
+						],
+					],
+					[
+						'core/heading',
+						{
+							placeholder: __('Danke', 'gutenberg-form'),
+							content: __('Vielen Dank!', 'gutenberg-form'),
+						},
+						[],
+					],
+				],
+			],
+			[
+				'core/paragraph',
+				{ placeholder: __('Ihre Nachricht wurde gesendet', 'gutenberg-form') },
+				[],
+			],
+		],
 	],
 ] as const;
 
