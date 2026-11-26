@@ -6,6 +6,8 @@ Alle wesentlichen Änderungen an CTX Form werden hier dokumentiert.
 
 ### Changed
 
+- Das Formular-Frontend verwendet die gemeinsame wp-ui-Runtime und teilt Skript und Basis-CSS mit kompatiblen Plugins.
+
 - Das GitHub-Release-Update und der Release-Ablauf verwenden die neue API von
   `wp-github-updater`.
 - Neue Response-Blöcke erhalten ein gestaltetes Erfolgs-Template mit Icon und

@@ -16,6 +16,12 @@ if (!defined('ABSPATH')) {
 	exit;
 }
 
+$wpUiDirectory = __DIR__ . '/build/wp-ui';
+$wpUiBootstrap = $wpUiDirectory . '/bootstrap.php';
+if (is_readable($wpUiBootstrap)) {
+	(require $wpUiBootstrap)(__FILE__, $wpUiDirectory);
+}
+
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/Block.php';
 

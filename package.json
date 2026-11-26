@@ -19,7 +19,7 @@
         "release": "vendor/bin/wp-github-release"
     },
     "dependencies": {
-        "@contexis/wp-react-form": "^2.6.2",
+        "@contexis/wp-ui": "1.1.0",
         "@tiptap/pm": "^3.22.3",
         "@tiptap/react": "^3.22.3",
         "@tiptap/starter-kit": "^3.22.3",

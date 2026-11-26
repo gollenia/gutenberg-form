@@ -35,7 +35,7 @@ function gb_forms_block_init() {
 			array( 'gbf-form-editor-shared-style' ),
 			$script_asset['version']
 		);
-	} else {
+	} elseif ( wp_script_is( 'wp-ui-v1', 'registered' ) ) {
 		$script_asset = require $dir . 'frontend.asset.php';
 
 		wp_register_script(
@@ -50,7 +50,7 @@ function gb_forms_block_init() {
 			wp_register_style(
 				'gbf-frontend-style',
 				plugins_url( '/build/frontend.css', __FILE__ ),
-				array(),
+				array( 'wp-ui-v1-style' ),
 				$script_asset['version']
 			);
 			wp_style_add_data( 'gbf-frontend-style', 'rtl', 'replace' );

@@ -1,5 +1,5 @@
+import Form from '@contexis/wp-ui/form';
 import { createRoot } from 'react-dom/client';
-import Form from '@contexis/wp-react-form/form';
 import './frontend.scss';
 
 const gbfInit = (): void => {
