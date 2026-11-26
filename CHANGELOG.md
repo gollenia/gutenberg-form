@@ -2,11 +2,16 @@
 
 Alle wesentlichen Änderungen an CTX Form werden hier dokumentiert.
 
-## Unreleased
+## 1.3.2 – 2026-11-26
 
 ### Changed
 
-- Das Formular-Frontend verwendet die gemeinsame wp-ui-Runtime und teilt Skript und Basis-CSS mit kompatiblen Plugins.
+- Das Formular-Frontend verwendet die gemeinsame wp-ui-Runtime und teilt
+  Skript und Basis-CSS mit kompatiblen Plugins.
+
+## 1.3.1 – 2026-11-04
+
+### Changed
 
 - Das GitHub-Release-Update und der Release-Ablauf verwenden die neue API von
   `wp-github-updater`.
