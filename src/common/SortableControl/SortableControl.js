@@ -1,6 +1,6 @@
 import { Icon, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
-import { useRef, useState } from 'react';
+import { useRef, useState } from '@wordpress/element';
 import './SortableControl.scss';
 const SortableControl = ({ items, onChange, label, help }) => {
 	const ghostItemRef = useRef();
