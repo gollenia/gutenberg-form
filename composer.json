@@ -22,6 +22,7 @@
     "extra": {
         "wp-github-release": {
             "plugin_file": "gutenberg-form.php",
+            "tag_prefix": "v",
             "build_command": "npm run build"
         }
     },
