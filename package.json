@@ -1,6 +1,6 @@
 {
     "name": "gutenberg-form",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "description": "Wordpress plugin to create forms with Gutenberg blocks",
     "author": "kids-team \u00d6sterreich",
     "prettier": "@wordpress/prettier-config",

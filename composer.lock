@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "aba341fa1099ea3fecf3dca63c654937",
+    "content-hash": "c2717b85f46f782977e2d2c9e2810aef",
     "packages": [
         {
             "name": "contexis/wp-github-updater",

@@ -2,6 +2,17 @@
 
 Alle wesentlichen Änderungen an CTX Form werden hier dokumentiert.
 
+## 1.3.3 – 2026-11-27
+
+### Fixed
+
+- Übersetzungen für Formularblöcke im Editor und für den Formular-Inhaltstyp korrigiert.
+
+### Changed
+
+- Das Formular-Frontend und das Sortierfeld nutzen die React-APIs von WordPress
+  über `@wordpress/element`.
+
 ## 1.3.2 – 2026-11-26
 
 ### Changed
