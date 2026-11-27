@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Country",
 	"description": "Lets the user select a country",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {

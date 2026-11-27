@@ -9,13 +9,13 @@
     "scripts": {
         "build": "wp-scripts build index=src/index.ts frontend=src/frontend.tsx",
         "start": "wp-scripts start index=src/index.ts frontend=src/frontend.tsx",
-        "make-pot": "wp i18n make-pot . languages/gutenberg-form.pot --slug=gbf-form-editor --domain=gutenberg-form --exclude=node_modules,src",
+        "make-pot": "wp i18n make-pot . languages/gutenberg-form.pot --slug=gutenberg-form --domain=gutenberg-form --exclude=node_modules,src,build/wp-ui",
         "make-json": "wp i18n make-json languages/ --no-purge",
         "format:js": "biome format --write src package.json biome.json tsconfig.json globals.d.ts",
         "lint:css": "wp-scripts lint-style",
         "lint:js": "biome check src package.json biome.json tsconfig.json globals.d.ts",
         "packages-update": "wp-scripts packages-update",
-        "lang": "node ./languages/compile.js",
+        "lang": "npm run make-json && wp i18n make-mo languages && wp i18n make-php languages/gutenberg-form-de_AT.po",
         "release": "vendor/bin/wp-github-release"
     },
     "dependencies": {

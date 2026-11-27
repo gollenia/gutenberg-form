@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Phone Field",
 	"description": "Lets the user type a phone number.",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {

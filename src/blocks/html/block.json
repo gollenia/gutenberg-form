@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Text Block",
 	"description": "Headline or text block",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"width": {

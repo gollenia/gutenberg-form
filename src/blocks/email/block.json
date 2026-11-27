@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Email Field",
 	"description": "Lets the user type an email address.",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {

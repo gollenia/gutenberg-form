@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Select",
 	"description": "Lets the user select something",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {

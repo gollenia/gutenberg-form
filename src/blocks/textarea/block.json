@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Text Area",
 	"description": "Lets the user type a longer text",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {

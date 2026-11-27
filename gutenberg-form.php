@@ -7,6 +7,7 @@
  * License:         GPL-2.0-or-later
  * License URI:     https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:     gutenberg-form
+ * Domain Path:     /languages
  *
  */
 
@@ -25,13 +26,13 @@ if (is_readable($wpUiBootstrap)) {
 require_once __DIR__ . '/vendor/autoload.php';
 require_once __DIR__ . '/Block.php';
 
-add_action('plugins_loaded', static function (): void {
+add_action('init', static function (): void {
 	load_plugin_textdomain(
 		'gutenberg-form',
 		false,
 		dirname(plugin_basename(__FILE__)) . '/languages'
 	);
-});
+}, 0);
 
 \Contexis\GutenbergForm\Form\FormPost::init();
 \Contexis\GutenbergForm\Http\Submit::init();

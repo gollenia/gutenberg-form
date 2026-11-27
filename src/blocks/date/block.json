@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Date Field",
 	"description": "Lets the user specify a date",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {

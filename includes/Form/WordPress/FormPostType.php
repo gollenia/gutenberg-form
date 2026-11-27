@@ -79,8 +79,8 @@ final class FormPostType
 				'item_published' => __('Form published', 'gutenberg-form'),
 				'item_published_privately' => __('Form published privately', 'gutenberg-form'),
 				'item_reverted_to_draft' => __('Form reverted to draft', 'gutenberg-form'),
-				'item_scheduled' => 'Form scheduled',
-				'item_updated' => 'Form updated',
+				'item_scheduled' => __('Form scheduled', 'gutenberg-form'),
+				'item_updated' => __('Form updated', 'gutenberg-form'),
 			],
 		]);
 	}

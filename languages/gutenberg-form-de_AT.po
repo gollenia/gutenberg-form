@@ -3,249 +3,625 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: CTX-Products 0.1.0\n"
-"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/ctx-blocks\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/gutenberg-form\n"
+"POT-Creation-Date: 2026-11-27T06:18:13+00:00\n"
+"PO-Revision-Date: 2026-10-20 16:52+0000\n"
 "Last-Translator: Thomas Gollenia <thomas@gollenia.at>\n"
 "Language-Team: Deutsch (Österreich)\n"
 "Language: de_AT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2021-05-05T15:46:05+02:00\n"
-"PO-Revision-Date: 2026-10-20 16:52+0000\n"
 "X-Generator: Loco https://localise.biz/\n"
 "X-Domain: gutenberg-form\n"
-"Plural-Forms: nplurals=2; plural=n != 1;"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: includes/Email/TemplateDefaults.php:21
-msgid " form:"
-msgstr "form"
+#. Plugin Name of the plugin
+#: gutenberg-form.php
+msgid "CTX Form"
+msgstr "CTX Form"
+
+#. Description of the plugin
+#: gutenberg-form.php
+msgid "Create forms easily in Gutenberg"
+msgstr "Erstelle Formulare einfach in Gutenberg"
+
+#. Author of the plugin
+#: gutenberg-form.php
+msgid "Thomas Gollenia"
+msgstr "Thomas Gollenia"
 
 #: includes/Email/TemplateDefaults.php:13
 msgid "A new message has been sent from a form on your website."
 msgstr ""
 "Es wurde eine neue Nachricht über ein Formular auf deiner Website gesendet."
 
-#: build/index.js:1
-msgid "Add a security token to prevent spam"
-msgstr "Sicherheitstoken hinzufügen, um Spam zu verhindern"
+#: includes/Email/TemplateDefaults.php:16
+#: includes/Email/TemplateDefaults.php:36 build/index.js:1
+msgid "All fields"
+msgstr "Alle Felder"
 
-#: includes/Form/WordPress/FormPostType.php:39
-#: includes/Form/WordPress/FormPostType.php:40
+#: includes/Email/TemplateDefaults.php:19
+msgid "The form has been sent from the "
+msgstr "Die Form wurde gesendet von "
+
+#: includes/Email/TemplateDefaults.php:20 build/index.js:1
+msgid "Form title"
+msgstr "Formulartitel"
+
+#: includes/Email/TemplateDefaults.php:21
+msgid " form:"
+msgstr "form"
+
+#: includes/Email/TemplateDefaults.php:24 build/index.js:1
+msgid "Page URL"
+msgstr "Seiten-URL"
+
+#: includes/Email/TemplateDefaults.php:33
+msgid "Thank you for your message."
+msgstr "Vielen Dank für deine Nachricht."
+
+#: includes/Email/TemplateDefaults.php:39
+msgid "You will hear from us as soon as possible"
+msgstr "Wir melden uns so bald wie möglich bei dir."
+
+#: includes/Form/FieldFormatter.php:48
+#: includes/Form/WordPress/FormColumns.php:36
+msgid "Yes"
+msgstr "Ja"
+
+#: includes/Form/FieldFormatter.php:48
+#: includes/Form/WordPress/FormColumns.php:37
+msgid "No"
+msgstr "Nein"
+
+#: includes/Form/FieldValidator.php:85
+msgid "This field is required"
+msgstr "Dieses Feld wird benötigt"
+
+#: includes/Form/FieldValidator.php:88
+msgid "Please check your input"
+msgstr "Bitte die Eingabe überprüfen"
+
+#: includes/Form/WordPress/FormColumns.php:17 build/index.js:1
+msgid "Recipient"
+msgstr "Empfänger"
+
+#: includes/Form/WordPress/FormColumns.php:18
+msgid "Copy to Admin"
+msgstr "Kopie an Admin"
+
+#: includes/Form/WordPress/FormMeta.php:17
+#, php-format
+msgid "New form submission on %s"
+msgstr "Neue Formular-Eingabe auf %s"
+
+#: includes/Form/WordPress/FormMeta.php:18
+#, php-format
+msgid "Your form submission on %s"
+msgstr "Deine Formular-Eingabe auf %s"
+
+#: includes/Form/WordPress/FormMeta.php:22
+msgid "Send"
+msgstr "Abschicken"
+
+#: includes/Form/WordPress/FormPostType.php:14
+#: includes/Form/WordPress/FormPostType.php:61
+msgid "Forms"
+msgstr "Formulare"
+
+#: includes/Form/WordPress/FormPostType.php:21
+msgid "Display forms on your blog."
+msgstr "Formulare auf deinem Blog anzeigen."
+
+#: includes/Form/WordPress/FormPostType.php:47 build/index.js:1
+msgid "Danke"
+msgstr "Danke"
+
+#: includes/Form/WordPress/FormPostType.php:47 build/index.js:1
+msgid "Vielen Dank!"
+msgstr "Vielen Dank!"
+
+#: includes/Form/WordPress/FormPostType.php:49 build/index.js:1
+msgid "Ihre Nachricht wurde gesendet"
+msgstr "Ihre Nachricht wurde gesendet"
+
+#: includes/Form/WordPress/FormPostType.php:53 build/index.js:1
+msgid "Name"
+msgstr "Name"
+
+#: includes/Form/WordPress/FormPostType.php:54 build/index.js:1
+msgid "Email"
+msgstr "E-Mail"
+
+#: includes/Form/WordPress/FormPostType.php:55 build/index.js:1
+msgid "Message"
+msgstr "Nachricht"
+
+#: includes/Form/WordPress/FormPostType.php:56 build/index.js:1
+msgid "Submit"
+msgstr "Abschicken"
+
+#: includes/Form/WordPress/FormPostType.php:62 build/index.js:1
+msgid "Form"
+msgstr "Formular"
+
+#: includes/Form/WordPress/FormPostType.php:63
+#: includes/Form/WordPress/FormPostType.php:64
 msgid "Add new Form"
 msgstr "Neues Formular hinzufügen"
+
+#: includes/Form/WordPress/FormPostType.php:65
+msgid "Edit Form"
+msgstr "Formular bearbeiten"
+
+#: includes/Form/WordPress/FormPostType.php:66
+msgid "New Form"
+msgstr "Neues Formular"
+
+#: includes/Form/WordPress/FormPostType.php:67
+msgid "View Form"
+msgstr "Formular ansehen"
+
+#: includes/Form/WordPress/FormPostType.php:68
+msgid "View Forms"
+msgstr "Formulare ansehen"
+
+#: includes/Form/WordPress/FormPostType.php:69
+msgid "Search Forms"
+msgstr "Formulare suchen"
+
+#: includes/Form/WordPress/FormPostType.php:70
+msgid "No Forms found"
+msgstr "Keine Formulare gefunden"
+
+#: includes/Form/WordPress/FormPostType.php:71
+msgid "No Forms found in trash"
+msgstr "Keine Formulare im Papierkorb gefunden"
+
+#: includes/Form/WordPress/FormPostType.php:72
+msgid "All Forms"
+msgstr "Alle Formulare"
+
+#: includes/Form/WordPress/FormPostType.php:73
+msgid "Form Archives"
+msgstr "Formulararchive"
+
+#: includes/Form/WordPress/FormPostType.php:74
+msgid "Form Attributes"
+msgstr "Formularattribute"
+
+#: includes/Form/WordPress/FormPostType.php:75
+msgid "Insert into Form"
+msgstr "In Formular einfügen"
+
+#: includes/Form/WordPress/FormPostType.php:76
+msgid "Filter Forms list"
+msgstr "Formularliste filtern"
+
+#: includes/Form/WordPress/FormPostType.php:77
+msgid "Forms list navigation"
+msgstr "Formularliste-Navigation"
+
+#: includes/Form/WordPress/FormPostType.php:78
+msgid "Forms list"
+msgstr "Formularliste"
+
+#: includes/Form/WordPress/FormPostType.php:79
+msgid "Form published"
+msgstr "Formular veröffentlicht"
+
+#: includes/Form/WordPress/FormPostType.php:80
+msgid "Form published privately"
+msgstr "Formular privat veröffentlicht"
+
+#: includes/Form/WordPress/FormPostType.php:81
+msgid "Form reverted to draft"
+msgstr "Formular zurück in Entwurf"
+
+#: includes/Form/WordPress/FormPostType.php:82
+msgid "Form scheduled"
+msgstr "Veröffentlichung des Formulars geplant"
+
+#: includes/Form/WordPress/FormPostType.php:83
+msgid "Form updated"
+msgstr "Formular aktualisiert"
 
 #: build/index.js:1
 msgid "Admin Mail"
 msgstr "Admin-Mail"
 
 #: build/index.js:1
-msgid "Africa"
-msgstr "Afrika"
-
-#: includes/Email/TemplateDefaults.php:16
-#: includes/Email/TemplateDefaults.php:36 build/index.js:1
-msgid "All fields"
-msgstr "Alle Felder"
-
-#: includes/Form/WordPress/FormPostType.php:48
-msgid "All Forms"
-msgstr "Alle Formulare"
+msgid "Send a copy to the site admin"
+msgstr "Eine Kopie an den Website-Administrator senden"
 
 #: build/index.js:1
-msgid "Appearance"
-msgstr "Aussehen"
+msgid "User Mail"
+msgstr "Benutzer-Mail"
 
 #: build/index.js:1
-msgid "Asia"
-msgstr "Asien"
+msgid "Send mail to website visitor"
+msgstr "E-Mail an Website-Besucher senden"
 
 #: build/index.js:1
-msgid "Behavior"
-msgstr "Verhalten"
+msgid "Bullets"
+msgstr "Liste"
 
-#: build/blocks/form/block.json
-msgctxt "block description"
-msgid "Add a form as Block to a page."
-msgstr "Formular als Block zu einer Seite hinzufügen."
+#: build/index.js:1
+msgid "Numbers"
+msgstr "Nummern"
 
-#: build/blocks/hidden/block.json
-msgctxt "block description"
-msgid "Add data to the form that is not visible to the user."
-msgstr ""
-"Daten zum Formular hinzufügen, die für den Benutzer nicht sichtbar sind."
+#: build/index.js:1
+msgid "Text color"
+msgstr "Textfarbe"
 
-#: build/blocks/container/block.json build/blocks/fields/block.json
-msgctxt "block description"
-msgid "Basic form container block"
-msgstr "Grundlegender Formular-Container-Block"
+#: build/index.js:1
+msgid "Subject"
+msgstr "Betreff"
 
-#: build/blocks/mail-editor/block.json
-msgctxt "block description"
-msgid ""
-"Create a mail template for the form which will be sent to the recipient."
-msgstr ""
-"E-Mail-Vorlage für das Formular erstellen, die an den Empfänger gesendet "
-"wird."
+#: build/index.js:1
+msgid "Type @ in the subject to insert tokens."
+msgstr "Tippe @ ein um Formwerte einzufügen"
 
-#: build/blocks/html/block.json
-msgctxt "block description"
-msgid "Headline or text block"
-msgstr "Überschriften- oder Textblock"
-
-#: build/blocks/checkbox/block.json build/blocks/radio/block.json
-msgctxt "block description"
-msgid "Lets the user check something"
-msgstr "Ermöglicht dem Benutzer, etwas anzukreuzen"
-
-#: build/blocks/number/block.json
-msgctxt "block description"
-msgid "Lets the user give a number or a range of numbers"
-msgstr "Ermöglicht dem Benutzer, eine Zahl oder einen Zahlenbereich anzugeben"
-
-#: build/blocks/country/block.json
-msgctxt "block description"
-msgid "Lets the user select a country"
-msgstr "Ermöglicht dem Benutzer, ein Land auszuwähle"
-
-#: build/blocks/select/block.json
-msgctxt "block description"
-msgid "Lets the user select something"
-msgstr "Ermöglicht dem Benutzer, etwas auszuwählen"
-
-#: build/blocks/date/block.json
-msgctxt "block description"
-msgid "Lets the user specify a date"
-msgstr "Ermöglicht dem Benutzer, ein Datum anzugeben"
-
-#: build/blocks/textarea/block.json
-msgctxt "block description"
-msgid "Lets the user type a longer text"
-msgstr "Ermöglicht dem Benutzer, einen längeren Text einzugeben"
-
-#: build/blocks/phone/block.json
-msgctxt "block description"
-msgid "Lets the user type a phone number."
-msgstr "Ermöglicht dem Benutzer, eine Telefonnummer einzugeben."
-
-#: build/blocks/submit/block.json build/blocks/text/block.json
-msgctxt "block description"
-msgid "Lets the user type a short text"
-msgstr "Ermöglicht dem Benutzer, einen kurzen Text einzugeben"
-
-#: build/blocks/email/block.json
-msgctxt "block description"
-msgid "Lets the user type an email address."
-msgstr "Ermöglicht dem Benutzer, eine E-Mail-Adresse einzugeben."
-
-#: build/blocks/response/block.json
-msgctxt "block description"
-msgid "Website feedback shown after a successful form submission."
-msgstr "Feedback-Nachricht auf der Webseite nach dem Absenden des Formulars"
-
-#: build/blocks/checkbox/block.json
-msgctxt "block title"
-msgid "Checkbox"
-msgstr "Checkbox"
-
-#: build/blocks/country/block.json
-msgctxt "block title"
-msgid "Country"
-msgstr "Land"
-
-#: build/blocks/date/block.json
-msgctxt "block title"
-msgid "Date Field"
-msgstr "Datumsfeld"
-
-#: build/blocks/email/block.json
-msgctxt "block title"
-msgid "Email Field"
-msgstr "E-Mail-Feld"
-
-#: build/blocks/form/block.json
-msgctxt "block title"
-msgid "Form"
-msgstr "Formular"
-
-#: build/blocks/container/block.json
-msgctxt "block title"
-msgid "Form Container"
-msgstr "Formular-Container"
-
-#: build/blocks/fields/block.json
-msgctxt "block title"
-msgid "Form Fields Collection"
-msgstr "Formularfelder-Sammlung"
-
-#: build/blocks/hidden/block.json
-msgctxt "block title"
-msgid "Hidden Field"
-msgstr "Verstecktes Feld"
-
-#: build/blocks/number/block.json
-msgctxt "block title"
-msgid "Number Field"
-msgstr "Zahlenfeld"
-
-#: build/blocks/phone/block.json
-msgctxt "block title"
-msgid "Phone Field"
-msgstr "Telefonfeld"
-
-#: build/blocks/radio/block.json
-msgctxt "block title"
-msgid "Radio Select"
-msgstr "Radioschalter"
-
-#: build/blocks/mail-editor/block.json build/blocks/response/block.json
-msgctxt "block title"
-msgid "Response"
-msgstr "Antwort"
-
-#: build/blocks/select/block.json
-msgctxt "block title"
-msgid "Select"
-msgstr "Auswählen"
-
-#: build/blocks/submit/block.json
-msgctxt "block title"
-msgid "Submit"
-msgstr "Abschicken"
-
-#: build/blocks/textarea/block.json
-msgctxt "block title"
-msgid "Text Area"
-msgstr "Nachrichtenfeld"
-
-#: build/blocks/html/block.json
-msgctxt "block title"
-msgid "Text Block"
-msgstr "Textblock"
-
-#: build/blocks/text/block.json
-msgctxt "block title"
-msgid "Text Field"
-msgstr "Textfeld"
+#: build/index.js:1
+msgid "Text"
+msgstr "Text"
 
 #: build/index.js:1
 msgid "Blue"
 msgstr "Blau"
 
 #: build/index.js:1
+msgid "Green"
+msgstr "Grün"
+
+#: build/index.js:1
+msgid "Orange"
+msgstr "Orang"
+
+#: build/index.js:1
+msgid "Red"
+msgstr "Rot"
+
+#: build/index.js:1
 msgid "Body"
 msgstr "Körper"
+
+#: build/index.js:1
+msgid "Type @ for tokens and / for formatting commands in the body."
+msgstr "Tippe @ für Felder und / für Formatierungsblöcke"
+
+#: build/index.js:1
+msgid "Page title"
+msgstr "Seitentitel"
+
+#: build/index.js:1
+msgid "Emails"
+msgstr "E-Mails"
+
+#: build/index.js:1
+msgid "Configure the admin and visitor emails for this form."
+msgstr "E-Mails für diese Form bearbeiten"
+
+#: build/index.js:1
+msgid "Edit admin mail"
+msgstr "Admin Mail"
+
+#: build/index.js:1
+msgid "Edit user mail"
+msgstr "Besucher Mail"
+
+#: build/index.js:1
+msgid "Feedback"
+msgstr "Feedback"
+
+#: build/index.js:1
+msgid "Collapse form when feedback is displayed"
+msgstr "Form einklappen wenn das Feedback gezeigt wird"
+
+#: build/index.js:1
+msgid "Context"
+msgstr "Kontext"
+
+#: build/index.js:1
+msgid "Existing contexts:"
+msgstr "Existierende Kontexte:"
+
+#: build/index.js:1
+msgid "Enter label here..."
+msgstr "Label hier eingeben"
+
+#: build/index.js:1
+msgid "Select a field"
+msgstr "Feld auswählen"
+
+#: build/index.js:1
+msgid "Field"
+msgstr "Feld"
+
+#: build/index.js:1
+msgid "Value"
+msgstr "Wert"
+
+#: build/index.js:1
+msgid "Checked"
+msgstr "Checked"
+
+#: build/index.js:1
+msgid "Unchecked"
+msgstr "Unchecked"
+
+#: build/index.js:1
+msgid "Data"
+msgstr "Daten"
+
+#: build/index.js:1
+msgid "Required"
+msgstr "Erforderlich"
+
+#: build/index.js:1
+msgid "Error message"
+msgstr "Fehlermeldung"
+
+#: build/index.js:1
+msgid "Appearance"
+msgstr "Aussehen"
+
+#: build/index.js:1
+msgid "Style"
+msgstr "Stil"
 
 #: build/index.js:1
 msgid "Box"
 msgstr "Box"
 
 #: build/index.js:1
+msgid "Toggle"
+msgstr "Umschalten"
+
+#: build/index.js:1
+msgid "Width"
+msgstr "Breite"
+
+#: build/index.js:1
+msgid "Number of columns the input field will occupy"
+msgstr "Anzahl der Spalten, die das Eingabefeld einnehmen wird"
+
+#: build/index.js:1
+msgid "Behavior"
+msgstr "Verhalten"
+
+#: build/index.js:1
+msgid "Default Value"
+msgstr "Standardwert"
+
+#: build/index.js:1
+msgid "What should your visitor say \"yes\" to?"
+msgstr "Zu was soll dein Besucher \"Ja\" sagen?"
+
+#: build/index.js:1
+msgid "This block is only usable in the forms post type"
+msgstr "Dieser Block ist nur im Formulartyp verwendbar"
+
+#: build/index.js:1
+msgid "If you want to add a form to this page, use the Form block"
+msgstr ""
+"Wenn du ein Formular zu dieser Seite hinzufügen möchtest, verwende den "
+"Formular-Block"
+
+#: build/index.js:1
+msgid "World"
+msgstr "Welt"
+
+#: build/index.js:1
+msgid "DACH"
+msgstr "DACH"
+
+#: build/index.js:1
+msgid "Europe"
+msgstr "Europa"
+
+#: build/index.js:1
+msgid "Asia"
+msgstr "Asien"
+
+#: build/index.js:1
+msgid "Africa"
+msgstr "Afrika"
+
+#: build/index.js:1
+msgid "North America"
+msgstr "Nordamerika"
+
+#: build/index.js:1
+msgid "South America"
+msgstr "Südamerika"
+
+#: build/index.js:1
+msgid "Oceania"
+msgstr "Oceanien"
+
+#: build/index.js:1
+msgid "Region"
+msgstr "Region"
+
+#: build/index.js:1
+msgid "Empty option"
+msgstr "Leere Option"
+
+#: build/index.js:1
+msgid "Text to display when no country is selected"
+msgstr "Text, der angezeigt wird, wenn kein Land ausgewählt ist"
+
+#: build/index.js:1
+msgid "Description"
+msgstr "Beschreibung"
+
+#: build/index.js:1
+msgid "Help text for the date field"
+msgstr "Hilfetext für Datumsfeld"
+
+#: build/index.js:1
+msgid "Lowest Date"
+msgstr "Frühestes Datum"
+
+#: build/index.js:1
+msgid "e.g. maximal age for an attendee"
+msgstr "z.B. maximales Alter für einen Teilnehmer"
+
+#: build/index.js:1
+msgid "Highest Date"
+msgstr "Spätestes Datum"
+
+#: build/index.js:1
+msgid "e.g. minimal age for an attendee"
+msgstr "z.B. minimales Alter für einen Teilnehmer"
+
+#: build/index.js:1
+msgid "No forms found"
+msgstr "Keine Formulare gefunden"
+
+#: build/index.js:1
+msgid "Select a form"
+msgstr "Wähle ein Formular aus"
+
+#: build/index.js:1
+msgid "Please select a form to display its fields."
+msgstr "Wählen Sie eine Form aus um ihre Felder anzuzeigen"
+
+#: build/index.js:1
+msgid "Create a new form"
+msgstr "Neues Formular erstellen"
+
+#: build/index.js:1
+msgid "Pattern"
+msgstr "Muster"
+
+#: build/index.js:1
+msgid "Help text for the input field"
+msgstr "Hilfetext für das Eingabefeld"
+
+#: build/index.js:1
+msgid "Page ID"
+msgstr "Seiten-ID"
+
+#: build/index.js:1
 msgid "Browser hint"
 msgstr "Browser-Hinweis"
 
 #: build/index.js:1
-msgid "Bullets"
-msgstr "Liste"
+msgid "Give a hint for the browser's autocomplete"
+msgstr "Gib einen Hinweis für die automatische Vervollständigung des Browsers"
+
+#: build/index.js:1
+msgid "None"
+msgstr "Keine"
+
+#: build/index.js:1
+msgid "Disable Autocomplete"
+msgstr "Autofill deaktivieren"
+
+#: build/index.js:1
+msgid "Text to display when the user types in invalid or insufficient data"
+msgstr ""
+"Text, der angezeigt wird, wenn der Benutzer ungültige oder unzureichende "
+"Daten eingibt"
+
+#: build/index.js:1
+msgid "Select Type"
+msgstr "Typ auswählen"
+
+#: build/index.js:1
+msgid "Security Token"
+msgstr "Sicherheitstoken"
+
+#: build/index.js:1
+msgid "User (if logged in)"
+msgstr "Benutzer (wenn angemeldet)"
+
+#: build/index.js:1
+msgid "Custom Value"
+msgstr "Benutzerdefinierter Wert"
+
+#: build/index.js:1
+msgid "Hidden field"
+msgstr "Verstecktes Feld"
+
+#: build/index.js:1
+msgid "Label for the field"
+msgstr "Bezeichnung für das Feld"
+
+#: build/index.js:1
+msgid "Unique identifier"
+msgstr "Eindeutiger Bezeichner"
+
+#: build/index.js:1
+msgid "Please type in a unique itentifier for the field"
+msgstr "Bitte gib einen eindeutigen Bezeichner für das Feld ein"
+
+#: build/index.js:1
+msgid "Value Type"
+msgstr "Werttyp"
+
+#: build/index.js:1
+msgid "Show the page where the form is submitted from"
+msgstr "Die Seite anzeigen, von der das Formular gesendet wird"
+
+#: build/index.js:1
+msgid "Add a security token to prevent spam"
+msgstr "Sicherheitstoken hinzufügen, um Spam zu verhindern"
+
+#: build/index.js:1
+msgid "Show the user id of the user who submitted the form"
+msgstr "Die Benutzer-ID des Benutzers anzeigen, der das Formular gesendet hat"
+
+#: build/index.js:1
+msgid "Thank you"
+msgstr "Danke"
+
+#: build/index.js:1
+msgid "Your message has been sent"
+msgstr "Ihre Nachricht wurde gesendet"
+
+#: build/index.js:1
+msgid "Minimum value"
+msgstr "Minimalwert"
+
+#: build/index.js:1
+msgid "Maximum value"
+msgstr "Maximalwert"
+
+#: build/index.js:1
+msgid "Step"
+msgstr "Schritt"
+
+#: build/index.js:1
+msgid "Input"
+msgstr "Eingabe"
+
+#: build/index.js:1
+msgid "Range"
+msgstr "Bereich"
+
+#: build/index.js:1
+msgid "Show labels"
+msgstr "Bezeichnungen anzeigen"
+
+#: build/index.js:1
+msgid "Show ticks"
+msgstr "Häkchen anzeigen"
+
+#: build/index.js:1
+msgid "Description for the input field"
+msgstr "Beschribung für Eingabefeld"
+
+#: build/index.js:1
+msgid "Options"
+msgstr "Optionen"
+
+#: build/index.js:1
+msgid "Make a selection"
+msgstr "Eine Auswahl treffen"
 
 #: build/index.js:1
 msgid "Button Background"
@@ -256,544 +632,201 @@ msgid "Button Text Color"
 msgstr "Button textfarbe"
 
 #: build/index.js:1
-msgid "Checked"
-msgstr "Checked"
+msgid "Input restriction"
+msgstr "Eingabebeschränkung"
 
 #: build/index.js:1
-msgid "Collapse form when feedback is displayed"
-msgstr "Form einklappen wenn das Feedback gezeigt wird"
+msgid "No restriction"
+msgstr "Keine Einschränkung"
 
 #: build/index.js:1
-msgid "Configure the admin and visitor emails for this form."
-msgstr "E-Mails für diese Form bearbeiten"
+msgid "Digits only"
+msgstr "Nur Ziffern"
 
 #: build/index.js:1
-msgid "Context"
-msgstr "Kontext"
-
-#: includes/Form/WordPress/FormColumns.php:18
-msgid "Copy to Admin"
-msgstr "Kopie an Admin"
-
-#: build/index.js:1
-msgid "Create a new form"
-msgstr "Neues Formular erstellen"
-
-#. Description of the plugin
-#: gutenberg-form.php
-#, fuzzy
-#| msgid "Create Forms easily in Gutenberg"
-msgid "Create forms easily in Gutenberg"
-msgstr "Erstelle Formulare einfach in Gutenberg"
-
-#. Plugin Name of the plugin
-#: gutenberg-form.php
-msgid "CTX Form"
-msgstr "CTX Form"
-
-#: build/index.js:1
-msgid "Custom Value"
-msgstr "Benutzerdefinierter Wert"
-
-#: build/index.js:1
-msgid "DACH"
-msgstr "DACH"
-
-#: build/index.js:1
-msgid "Data"
-msgstr "Daten"
-
-#: build/index.js:1
-msgid "Default Value"
-msgstr "Standardwert"
+msgid "Letters and numbers only"
+msgstr "Nur Buchstaben und Zahlen"
 
 #: build/index.js:1
 msgid "Dependencies"
 msgstr "Abhängigkeiten"
 
 #: build/index.js:1
-msgid "Description"
-msgstr "Beschreibung"
-
-#: build/index.js:1
-msgid "Description for the input field"
-msgstr "Beschribung für Eingabefeld"
-
-#: build/index.js:1
-msgid "Disable Autocomplete"
-msgstr "Autofill deaktivieren"
-
-#: includes/Form/WordPress/FormPostType.php:21
-msgid "Display forms on your blog."
-msgstr "Formulare auf deinem Blog anzeigen."
-
-#: build/index.js:1
-msgid "e.g. maximal age for an attendee"
-msgstr "z.B. maximales Alter für einen Teilnehmer"
-
-#: build/index.js:1
-msgid "e.g. minimal age for an attendee"
-msgstr "z.B. minimales Alter für einen Teilnehmer"
-
-#: build/index.js:1
-msgid "Edit admin mail"
-msgstr "Admin Mail"
-
-#: includes/Form/WordPress/FormPostType.php:41
-msgid "Edit Form"
-msgstr "Formular bearbeiten"
-
-#: build/index.js:1
-msgid "Edit user mail"
-msgstr "Besucher Mail"
-
-#: includes/Form/WordPress/FormPostType.php:30 build/index.js:1
-msgid "Email"
-msgstr "E-Mail"
-
-#: build/index.js:1
-msgid "Emails"
-msgstr "E-Mails"
-
-#: build/index.js:1
-msgid "Empty option"
-msgstr "Leere Option"
-
-#: build/index.js:1
-msgid "Enter label here..."
-msgstr "Label hier eingeben"
-
-#: build/index.js:1
-msgid "Error message"
-msgstr "Fehlermeldung"
-
-#: build/index.js:1
-msgid "Europe"
-msgstr "Europa"
-
-#: build/index.js:1
-msgid "Existing contexts:"
-msgstr "Existierende Kontexte:"
-
-#: build/index.js:1
-msgid "Feedback"
-msgstr "Feedback"
-
-#: build/index.js:1
-msgid "Field"
-msgstr "Feld"
-
-#: includes/Form/WordPress/FormPostType.php:52
-msgid "Filter Forms list"
-msgstr "Formularliste filtern"
-
-#: includes/Form/WordPress/FormPostType.php:38 build/index.js:1
-msgid "Form"
-msgstr "Formular"
-
-#: includes/Form/WordPress/FormPostType.php:49
-msgid "Form Archives"
-msgstr "Formulararchive"
-
-#: includes/Form/WordPress/FormPostType.php:50
-msgid "Form Attributes"
-msgstr "Formularattribute"
-
-#: includes/Form/WordPress/FormPostType.php:55
-msgid "Form published"
-msgstr "Formular veröffentlicht"
-
-#: includes/Form/WordPress/FormPostType.php:56
-msgid "Form published privately"
-msgstr "Formular privat veröffentlicht"
-
-#: includes/Form/WordPress/FormPostType.php:57
-msgid "Form reverted to draft"
-msgstr "Formular zurück in Entwurf"
-
-#: includes/Email/TemplateDefaults.php:20 build/index.js:1
-msgid "Form title"
-msgstr "Formulartitel"
-
-#: includes/Form/WordPress/FormPostType.php:14
-#: includes/Form/WordPress/FormPostType.php:37
-msgid "Forms"
-msgstr "Formulare"
-
-#: includes/Form/WordPress/FormPostType.php:54
-msgid "Forms list"
-msgstr "Formularliste"
-
-#: includes/Form/WordPress/FormPostType.php:53
-msgid "Forms list navigation"
-msgstr "Formularliste-Navigation"
-
-#: build/index.js:1
-msgid "Give a hint for the browser's autocomplete"
-msgstr "Gib einen Hinweis für die automatische Vervollständigung des Browsers"
-
-#: build/index.js:1
-msgid "Green"
-msgstr "Grün"
-
-#: build/index.js:1
-msgid "Height"
-msgstr "Höhe"
-
-#: build/index.js:1
-msgid "Help text for the date field"
-msgstr "Hilfetext für Datumsfeld"
-
-#: build/index.js:1
-msgid "Help text for the input field"
-msgstr "Hilfetext für das Eingabefeld"
-
-#: build/index.js:1
-msgid "Hidden field"
-msgstr "Verstecktes Feld"
-
-#: build/index.js:1
-msgid "Highest Date"
-msgstr "Spätestes Datum"
-
-#: build/index.js:1
-msgid "If you want to add a form to this page, use the Form block"
-msgstr ""
-"Wenn du ein Formular zu dieser Seite hinzufügen möchtest, verwende den "
-"Formular-Block"
-
-#: build/index.js:1
-msgid "Input"
-msgstr "Eingabe"
-
-#: includes/Form/WordPress/FormPostType.php:51
-msgid "Insert into Form"
-msgstr "In Formular einfügen"
-
-#: build/index.js:1
-msgid "Label for the field"
-msgstr "Bezeichnung für das Feld"
-
-#: build/index.js:1
-msgid "Lowest Date"
-msgstr "Frühestes Datum"
-
-#: build/index.js:1
-msgid "Make a selection"
-msgstr "Eine Auswahl treffen"
-
-#: build/index.js:1
-msgid "Maximum value"
-msgstr "Maximalwert"
-
-#: includes/Form/WordPress/FormPostType.php:31 build/index.js:1
-msgid "Message"
-msgstr "Nachricht"
-
-#: build/index.js:1
-msgid "Minimum value"
-msgstr "Minimalwert"
-
-#: includes/Form/WordPress/FormPostType.php:29 build/index.js:1
-msgid "Name"
-msgstr "Name"
-
-#: includes/Form/WordPress/FormPostType.php:42
-msgid "New Form"
-msgstr "Neues Formular"
-
-#: includes/Form/WordPress/FormMeta.php:17
-#, php-format
-msgid "New form submission on %s"
-msgstr "Neue Formular-Eingabe auf %s"
-
-#: includes/Form/FieldFormatter.php:48
-#: includes/Form/WordPress/FormColumns.php:37
-msgid "No"
-msgstr "Nein"
-
-#: includes/Form/WordPress/FormPostType.php:46
-msgid "No Forms found"
-msgstr "Keine Formulare gefunden"
-
-#: build/index.js:1
-msgid "No forms found"
-msgstr "Keine Formulare gefunden"
-
-#: includes/Form/WordPress/FormPostType.php:47
-msgid "No Forms found in trash"
-msgstr "Keine Formulare im Papierkorb gefunden"
-
-#: build/index.js:1
-msgid "None"
-msgstr "Keine"
-
-#: build/index.js:1
-msgid "North America"
-msgstr "Nordamerika"
-
-#: build/index.js:1
-msgid "Number of columns the input field will occupy"
-msgstr "Anzahl der Spalten, die das Eingabefeld einnehmen wird"
-
-#: build/index.js:1
-msgid "Number of text rows"
-msgstr "Anzahl der Textzeilen"
-
-#: build/index.js:1
-msgid "Numbers"
-msgstr "Nummern"
-
-#: build/index.js:1
-msgid "Oceania"
-msgstr "Oceanien"
-
-#: build/index.js:1
-msgid "Options"
-msgstr "Optionen"
-
-#: build/index.js:1
-msgid "Orange"
-msgstr "Orang"
-
-#: build/index.js:1
-msgid "Page ID"
-msgstr "Seiten-ID"
-
-#: build/index.js:1
-msgid "Page title"
-msgstr "Seitentitel"
-
-#: includes/Email/TemplateDefaults.php:24 build/index.js:1
-msgid "Page URL"
-msgstr "Seiten-URL"
-
-#: build/index.js:1
-msgid "Pattern"
-msgstr "Muster"
-
-#: build/index.js:1
 msgid "Placeholder text"
 msgstr "Platzhaltertext"
-
-#: includes/Form/FieldValidator.php:71
-msgid "Please check your input"
-msgstr "Bitte die Eingabe überprüfen"
-
-#: build/index.js:1
-msgid "Please select a form to display its fields."
-msgstr "Wählen Sie eine Form aus um ihre Felder anzuzeigen"
-
-#: build/index.js:1
-msgid "Please type in a unique itentifier for the field"
-msgstr "Bitte gib einen eindeutigen Bezeichner für das Feld ein"
-
-#: build/index.js:1
-msgid "Range"
-msgstr "Bereich"
-
-#: includes/Form/WordPress/FormColumns.php:17 build/index.js:1
-msgid "Recipient"
-msgstr "Empfänger"
-
-#: build/index.js:1
-msgid "Red"
-msgstr "Rot"
-
-#: build/index.js:1
-msgid "Region"
-msgstr "Region"
 
 #: build/index.js:1
 msgid "Regular expression to prevent wrong or illegal input"
 msgstr "Reguläre Ausdrücke um ungültige Eingaben zu vermeiden"
 
 #: build/index.js:1
-msgid "Required"
-msgstr "Erforderlich"
-
-#: includes/Form/WordPress/FormPostType.php:45
-msgid "Search Forms"
-msgstr "Formulare suchen"
+msgid "Height"
+msgstr "Höhe"
 
 #: build/index.js:1
-msgid "Security Token"
-msgstr "Sicherheitstoken"
+msgid "Number of text rows"
+msgstr "Anzahl der Textzeilen"
 
-#: build/index.js:1
-msgid "Select a field"
-msgstr "Feld auswählen"
+#: build/blocks/checkbox/block.json
+msgctxt "block title"
+msgid "Checkbox"
+msgstr "Checkbox"
 
-#: build/index.js:1
-msgid "Select a form"
-msgstr "Wähle ein Formular aus"
+#: build/blocks/checkbox/block.json build/blocks/radio/block.json
+msgctxt "block description"
+msgid "Lets the user check something"
+msgstr "Ermöglicht dem Benutzer, etwas anzukreuzen"
 
-#: build/index.js:1
-msgid "Select Type"
-msgstr "Typ auswählen"
+#: build/blocks/container/block.json
+msgctxt "block title"
+msgid "Form Container"
+msgstr "Formular-Container"
 
-#: includes/Form/WordPress/FormMeta.php:22
-msgid "Send"
-msgstr "Abschicken"
+#: build/blocks/container/block.json build/blocks/fields/block.json
+msgctxt "block description"
+msgid "Basic form container block"
+msgstr "Grundlegender Formular-Container-Block"
 
-#: build/index.js:1
-msgid "Send a copy to the site admin"
-msgstr "Eine Kopie an den Website-Administrator senden"
+#: build/blocks/country/block.json
+msgctxt "block title"
+msgid "Country"
+msgstr "Land"
 
-#: build/index.js:1
-msgid "Send mail to website visitor"
-msgstr "E-Mail an Website-Besucher senden"
+#: build/blocks/country/block.json
+msgctxt "block description"
+msgid "Lets the user select a country"
+msgstr "Ermöglicht dem Benutzer, ein Land auszuwähle"
 
-#: build/index.js:1
-msgid "Show labels"
-msgstr "Bezeichnungen anzeigen"
+#: build/blocks/date/block.json
+msgctxt "block title"
+msgid "Date Field"
+msgstr "Datumsfeld"
 
-#: build/index.js:1
-msgid "Show the page where the form is submitted from"
-msgstr "Die Seite anzeigen, von der das Formular gesendet wird"
+#: build/blocks/date/block.json
+msgctxt "block description"
+msgid "Lets the user specify a date"
+msgstr "Ermöglicht dem Benutzer, ein Datum anzugeben"
 
-#: build/index.js:1
-msgid "Show the user id of the user who submitted the form"
-msgstr "Die Benutzer-ID des Benutzers anzeigen, der das Formular gesendet hat"
+#: build/blocks/email/block.json
+msgctxt "block title"
+msgid "Email Field"
+msgstr "E-Mail-Feld"
 
-#: build/index.js:1
-msgid "Show ticks"
-msgstr "Häkchen anzeigen"
+#: build/blocks/email/block.json
+msgctxt "block description"
+msgid "Lets the user type an email address."
+msgstr "Ermöglicht dem Benutzer, eine E-Mail-Adresse einzugeben."
 
-#: build/index.js:1
-msgid "South America"
-msgstr "Südamerika"
+#: build/blocks/fields/block.json
+msgctxt "block title"
+msgid "Form Fields Collection"
+msgstr "Formularfelder-Sammlung"
 
-#: build/index.js:1
-msgid "Step"
-msgstr "Schritt"
+#: build/blocks/form/block.json
+msgctxt "block title"
+msgid "Form"
+msgstr "Formular"
 
-#: build/index.js:1
-msgid "Style"
-msgstr "Stil"
+#: build/blocks/form/block.json
+msgctxt "block description"
+msgid "Add a form as Block to a page."
+msgstr "Formular als Block zu einer Seite hinzufügen."
 
-#: build/index.js:1
-msgid "Subject"
-msgstr "Betreff"
+#: build/blocks/hidden/block.json
+msgctxt "block title"
+msgid "Hidden Field"
+msgstr "Verstecktes Feld"
 
-#: includes/Form/WordPress/FormPostType.php:32 build/index.js:1
+#: build/blocks/hidden/block.json
+msgctxt "block description"
+msgid "Add data to the form that is not visible to the user."
+msgstr ""
+"Daten zum Formular hinzufügen, die für den Benutzer nicht sichtbar sind."
+
+#: build/blocks/html/block.json
+msgctxt "block title"
+msgid "Text Block"
+msgstr "Textblock"
+
+#: build/blocks/html/block.json
+msgctxt "block description"
+msgid "Headline or text block"
+msgstr "Überschriften- oder Textblock"
+
+#: build/blocks/mail-editor/block.json build/blocks/response/block.json
+msgctxt "block title"
+msgid "Response"
+msgstr "Antwort"
+
+#: build/blocks/mail-editor/block.json
+msgctxt "block description"
+msgid ""
+"Create a mail template for the form which will be sent to the recipient."
+msgstr ""
+"E-Mail-Vorlage für das Formular erstellen, die an den Empfänger gesendet "
+"wird."
+
+#: build/blocks/number/block.json
+msgctxt "block title"
+msgid "Number Field"
+msgstr "Zahlenfeld"
+
+#: build/blocks/number/block.json
+msgctxt "block description"
+msgid "Lets the user give a number or a range of numbers"
+msgstr "Ermöglicht dem Benutzer, eine Zahl oder einen Zahlenbereich anzugeben"
+
+#: build/blocks/phone/block.json
+msgctxt "block title"
+msgid "Phone Field"
+msgstr "Telefonfeld"
+
+#: build/blocks/phone/block.json
+msgctxt "block description"
+msgid "Lets the user type a phone number."
+msgstr "Ermöglicht dem Benutzer, eine Telefonnummer einzugeben."
+
+#: build/blocks/radio/block.json
+msgctxt "block title"
+msgid "Radio Select"
+msgstr "Radioschalter"
+
+#: build/blocks/response/block.json
+msgctxt "block description"
+msgid "Website feedback shown after a successful form submission."
+msgstr "Feedback-Nachricht auf der Webseite nach dem Absenden des Formulars"
+
+#: build/blocks/select/block.json
+msgctxt "block title"
+msgid "Select"
+msgstr "Auswählen"
+
+#: build/blocks/select/block.json
+msgctxt "block description"
+msgid "Lets the user select something"
+msgstr "Ermöglicht dem Benutzer, etwas auszuwählen"
+
+#: build/blocks/submit/block.json
+msgctxt "block title"
 msgid "Submit"
 msgstr "Abschicken"
 
-#: build/index.js:1
-msgid "Text"
-msgstr "Text"
+#: build/blocks/submit/block.json build/blocks/text/block.json
+msgctxt "block description"
+msgid "Lets the user type a short text"
+msgstr "Ermöglicht dem Benutzer, einen kurzen Text einzugeben"
 
-#: build/index.js:1
-msgid "Text color"
-msgstr "Textfarbe"
+#: build/blocks/text/block.json
+msgctxt "block title"
+msgid "Text Field"
+msgstr "Textfeld"
 
-#: build/index.js:1
-msgid "Text to display when no country is selected"
-msgstr "Text, der angezeigt wird, wenn kein Land ausgewählt ist"
+#: build/blocks/textarea/block.json
+msgctxt "block title"
+msgid "Text Area"
+msgstr "Nachrichtenfeld"
 
-#: build/index.js:1
-msgid "Text to display when the user types in invalid or insufficient data"
-msgstr ""
-"Text, der angezeigt wird, wenn der Benutzer ungültige oder unzureichende "
-"Daten eingibt"
-
-#: includes/Form/WordPress/FormPostType.php:25 build/index.js:1
-msgid "Thank you"
-msgstr "Danke"
-
-#: includes/Email/TemplateDefaults.php:33
-msgid "Thank you for your message."
-msgstr "Vielen Dank für deine Nachricht."
-
-#: includes/Email/TemplateDefaults.php:19
-msgid "The form has been sent from the "
-msgstr "Die Form wurde gesendet von "
-
-#: build/index.js:1
-msgid "This block is only usable in the forms post type"
-msgstr "Dieser Block ist nur im Formulartyp verwendbar"
-
-#: includes/Form/FieldValidator.php:68
-msgid "This field is required"
-msgstr "Dieses Feld wird benötigt"
-
-#. Author of the plugin
-#: gutenberg-form.php
-msgid "Thomas Gollenia"
-msgstr "Thomas Gollenia"
-
-#: build/index.js:1
-msgid "Toggle"
-msgstr "Umschalten"
-
-#: build/index.js:1
-msgid "Type @ for tokens and / for formatting commands in the body."
-msgstr "Tippe @ für Felder und / für Formatierungsblöcke"
-
-#: build/index.js:1
-msgid "Type @ in the subject to insert tokens."
-msgstr "Tippe @ ein um Formwerte einzufügen"
-
-#: build/index.js:1
-msgid "Unchecked"
-msgstr "Unchecked"
-
-#: build/index.js:1
-msgid "Unique identifier"
-msgstr "Eindeutiger Bezeichner"
-
-#: build/index.js:1
-msgid "User (if logged in)"
-msgstr "Benutzer (wenn angemeldet)"
-
-#: build/index.js:1
-msgid "User Mail"
-msgstr "Benutzer-Mail"
-
-#: build/index.js:1
-msgid "Value"
-msgstr "Wert"
-
-#: build/index.js:1
-msgid "Value Type"
-msgstr "Werttyp"
-
-#: includes/Form/WordPress/FormPostType.php:43
-msgid "View Form"
-msgstr "Formular ansehen"
-
-#: includes/Form/WordPress/FormPostType.php:44
-msgid "View Forms"
-msgstr "Formulare ansehen"
-
-#: build/index.js:1
-msgid "What should your visitor say \"yes\" to?"
-msgstr "Zu was soll dein Besucher \"Ja\" sagen?"
-
-#: build/index.js:1
-msgid "Width"
-msgstr "Breite"
-
-#: build/index.js:1
-msgid "World"
-msgstr "Welt"
-
-#: includes/Form/FieldFormatter.php:48
-#: includes/Form/WordPress/FormColumns.php:36
-msgid "Yes"
-msgstr "Ja"
-
-#: includes/Email/TemplateDefaults.php:39
-#| msgid "You will hear from us as soon as possible."
-msgid "You will hear from us as soon as possible"
-msgstr "Wir melden uns so bald wie möglich bei dir."
-
-#: includes/Form/WordPress/FormMeta.php:18
-#, php-format
-msgid "Your form submission on %s"
-msgstr "Deine Formular-Eingabe auf %s"
-
-#: includes/Form/WordPress/FormPostType.php:26 build/index.js:1
-msgid "Your message has been sent"
-msgstr "Ihre Nachricht wurde gesendet"
+#: build/blocks/textarea/block.json
+msgctxt "block description"
+msgid "Lets the user type a longer text"
+msgstr "Ermöglicht dem Benutzer, einen längeren Text einzugeben"

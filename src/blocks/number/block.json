@@ -4,6 +4,7 @@
 	"apiVersion": 3,
 	"title": "Number Field",
 	"description": "Lets the user give a number or a range of numbers",
+	"textdomain": "gutenberg-form",
 	"category": "widgets",
 	"attributes": {
 		"name": {
